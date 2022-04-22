@@ -6,6 +6,13 @@
     </provider>
     
      <!-- BEGIN List Entities Here -->
+
+     <class>com.skilldistillery.betroyaleapp.entities.Category</class>
+     <class>com.skilldistillery.betroyaleapp.entities.Subcategory</class>
+
+     <class>com.skilldistillery.betroyaleapp.entities.EventComment</class>
+     <class>com.skilldistillery.betroyaleapp.entities.PartyComment</class>
+
      <class>com.skilldistillery.betroyaleapp.entities.User</class>
      <class>com.skilldistillery.betroyaleapp.entities.BettableEvent</class>
    

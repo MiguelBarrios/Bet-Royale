@@ -14,12 +14,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
-	
+class CategoryTest {
+
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private User user;
-
+	private Category category;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABetRoyale");
@@ -33,29 +33,31 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		category = null;
 	}
-
+	
+	
+	
+	
+	
 	@Test
-	@DisplayName("Testing User Entity Mapping")
+	@DisplayName("Testing Category Entity Mapping")
 	void test() {
-//		SELECT username, password, first_name, last_name FROM user WHERE id=1;
-//		+----------+----------+------------+-----------+
-//		| username | password | first_name | last_name |
-//		+----------+----------+------------+-----------+
-//		| admin    | admin    | bet        | royale    |
-//		+----------+----------+------------+-----------+
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals("bet", user.getFirstName());
-		assertEquals("royale", user.getLastName());
+//		SELECT name FROM category WHERE id =1;
+//		+-------+
+//		| name  |
+//		+-------+
+//		| fight |
+//		+-------+
+		assertNotNull(category);
+		assertEquals("fight", category.getName());
+		
 	}
 
 }

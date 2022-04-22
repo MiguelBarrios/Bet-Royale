@@ -457,6 +457,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `viewing_party`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `viewing_party` (`id`, `title`, `description`, `start_date`, `start_time`, `image_url`, `create_date`, `user_id`, `bettable_event_id`, `max_attendees`) VALUES (1, 'literally anything', 'deathmatch', '2022-04-22', '17:47', NULL, NULL, 2, 1, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `party_comment`
 -- -----------------------------------------------------
 START TRANSACTION;
