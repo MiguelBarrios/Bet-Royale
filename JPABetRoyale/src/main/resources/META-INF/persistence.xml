@@ -6,6 +6,8 @@
     </provider>
     
      <!-- BEGIN List Entities Here -->
+     <class>com.skilldistillery.betroyaleapp.entities.EventComment</class>
+     <class>com.skilldistillery.betroyaleapp.entities.PartyComment</class>
      <class>com.skilldistillery.betroyaleapp.entities.User</class>
      <class>com.skilldistillery.betroyaleapp.entities.Wager</class>
      <class>com.skilldistillery.betroyaleapp.entities.Contender</class>
