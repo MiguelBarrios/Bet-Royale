@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(45) NULL,
   `active` TINYINT NULL,
   `role` VARCHAR(45) NULL,
+  `profile_image` VARCHAR(2500) NULL,
+  `about_me` TEXT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`username` ASC))
 ENGINE = InnoDB;
@@ -43,11 +45,12 @@ CREATE TABLE IF NOT EXISTS `bettable_event` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `end_date` DATETIME NOT NULL,
-  `final_result` TINYINT NULL,
+  `completion` TINYINT NULL,
   `user_id` INT NOT NULL,
-  `contender_id` INT NULL,
   `description` TEXT NULL,
   `image_url` VARCHAR(2500) NULL,
+  `date_created` DATETIME NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Bet_info_User_idx` (`user_id` ASC),
   CONSTRAINT `fk_Bet_info_User`
@@ -175,9 +178,11 @@ CREATE TABLE IF NOT EXISTS `event_comment` (
   `comment_text` TEXT NULL,
   `bettable_event_id` INT NOT NULL,
   `user_id` INT NOT NULL,
+  `in_reply_to_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_event_comment_bettable_event1_idx` (`bettable_event_id` ASC),
   INDEX `fk_event_comment_User1_idx` (`user_id` ASC),
+  INDEX `fk_event_comment_event_comment1_idx` (`in_reply_to_id` ASC),
   CONSTRAINT `fk_event_comment_bettable_event1`
     FOREIGN KEY (`bettable_event_id`)
     REFERENCES `bettable_event` (`id`)
@@ -186,6 +191,176 @@ CREATE TABLE IF NOT EXISTS `event_comment` (
   CONSTRAINT `fk_event_comment_User1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_event_comment_event_comment1`
+    FOREIGN KEY (`in_reply_to_id`)
+    REFERENCES `event_comment` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_has_category`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_category` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_category` (
+  `user_id` INT NOT NULL,
+  `category_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `category_id`),
+  INDEX `fk_user_has_category_category1_idx` (`category_id` ASC),
+  INDEX `fk_user_has_category_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_category_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_category_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_has_subcategory`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_subcategory` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_subcategory` (
+  `user_id` INT NOT NULL,
+  `subcategory_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `subcategory_id`),
+  INDEX `fk_user_has_subcategory_subcategory1_idx` (`subcategory_id` ASC),
+  INDEX `fk_user_has_subcategory_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_subcategory_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_subcategory_subcategory1`
+    FOREIGN KEY (`subcategory_id`)
+    REFERENCES `subcategory` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `event_review`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `event_review` ;
+
+CREATE TABLE IF NOT EXISTS `event_review` (
+  `user_id` INT NOT NULL,
+  `bettable_event_id` INT NOT NULL,
+  `rating` INT NULL,
+  `comment` TEXT NULL,
+  `review_date` DATETIME NULL,
+  PRIMARY KEY (`user_id`, `bettable_event_id`),
+  INDEX `fk_user_has_bettable_event_bettable_event1_idx` (`bettable_event_id` ASC),
+  INDEX `fk_user_has_bettable_event_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_bettable_event_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_bettable_event_bettable_event1`
+    FOREIGN KEY (`bettable_event_id`)
+    REFERENCES `bettable_event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `viewing_party`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `viewing_party` ;
+
+CREATE TABLE IF NOT EXISTS `viewing_party` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(45) NULL,
+  `description` VARCHAR(2000) NULL,
+  `start_date` DATE NULL,
+  `start_time` TIME NULL,
+  `image_url` VARCHAR(2000) NULL,
+  `create_date` DATETIME NULL,
+  `user_id` INT NOT NULL,
+  `bettable_event_id` INT NOT NULL,
+  `max_attendees` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_viewing_party_user1_idx` (`user_id` ASC),
+  INDEX `fk_viewing_party_bettable_event1_idx` (`bettable_event_id` ASC),
+  CONSTRAINT `fk_viewing_party_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_viewing_party_bettable_event1`
+    FOREIGN KEY (`bettable_event_id`)
+    REFERENCES `bettable_event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_has_viewing_party`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_viewing_party` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_viewing_party` (
+  `user_id` INT NOT NULL,
+  `viewing_party_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `viewing_party_id`),
+  INDEX `fk_user_has_viewing_party_viewing_party1_idx` (`viewing_party_id` ASC),
+  INDEX `fk_user_has_viewing_party_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_viewing_party_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_viewing_party_viewing_party1`
+    FOREIGN KEY (`viewing_party_id`)
+    REFERENCES `viewing_party` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `party_comment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `party_comment` ;
+
+CREATE TABLE IF NOT EXISTS `party_comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `comment_date` DATETIME NULL,
+  `comment_text` TEXT NULL,
+  `user_id` INT NOT NULL,
+  `viewing_party_id` INT NOT NULL,
+  `in_reply_to` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_party_comment_user1_idx` (`user_id` ASC),
+  INDEX `fk_party_comment_viewing_party1_idx` (`viewing_party_id` ASC),
+  INDEX `fk_party_comment_party_comment1_idx` (`in_reply_to` ASC),
+  CONSTRAINT `fk_party_comment_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_party_comment_viewing_party1`
+    FOREIGN KEY (`viewing_party_id`)
+    REFERENCES `viewing_party` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_party_comment_party_comment1`
+    FOREIGN KEY (`in_reply_to`)
+    REFERENCES `party_comment` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -212,9 +387,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (1, 'admin', 'admin', 'bet', 'royale', NULL, 1, 'ROLE_ADMIN');
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (2, 'lpaladini', 'password', 'lucas', 'paladini', 'lpaladini@me.com', 1, 'ROLE_USER');
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (3, 'acorneld', 'password', 'andrew', 'cornelius', 'acorneld@gmail.com', 1, 'ROLE_USER');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (1, 'admin', 'admin', 'bet', 'royale', NULL, 1, 'ROLE_ADMIN', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (2, 'lpaladini', 'password', 'lucas', 'paladini', 'lpaladini@me.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (3, 'acorneld', 'password', 'andrew', 'cornelius', 'acorneld@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 
 COMMIT;
 
@@ -224,7 +399,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `final_result`, `user_id`, `contender_id`, `description`, `image_url`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, NULL, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ');
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, NULL);
 
 COMMIT;
 
@@ -276,7 +451,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2);
+INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2, NULL);
 
 COMMIT;
 
