@@ -38,10 +38,12 @@
 		</div>
 	</nav>
 
+<h1>Betting Royale </h1>
+
+${DEBUG}
 
 
-
-
+<p>Grilled cheese
 
 
 
