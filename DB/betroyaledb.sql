@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `bettable_event` (
   `description` TEXT NULL,
   `image_url` VARCHAR(2500) NULL,
   `date_created` DATETIME NULL,
-  `active` TINYINT NULL,
+  `active` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Bet_info_User_idx` (`user_id` ASC),
   CONSTRAINT `fk_Bet_info_User`
@@ -342,8 +342,8 @@ CREATE TABLE IF NOT EXISTS `party_comment` (
   `comment_date` DATETIME NULL,
   `comment_text` TEXT NULL,
   `user_id` INT NOT NULL,
-  `viewing_party_id` INT NOT NULL,
-  `in_reply_to` INT NOT NULL,
+  `viewing_party_id` INT NULL,
+  `in_reply_to` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_party_comment_user1_idx` (`user_id` ASC),
   INDEX `fk_party_comment_viewing_party1_idx` (`viewing_party_id` ASC),
@@ -399,7 +399,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, NULL);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, 1);
 
 COMMIT;
 
@@ -452,6 +452,16 @@ COMMIT;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `party_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `party_comment` (`id`, `comment_date`, `comment_text`, `user_id`, `viewing_party_id`, `in_reply_to`) VALUES (1, '2022-04-22', 'Grilled Salmon', 2, NULL, NULL);
 
 COMMIT;
 
