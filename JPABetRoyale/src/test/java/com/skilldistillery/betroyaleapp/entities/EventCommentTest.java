@@ -14,11 +14,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
-	
+class EventCommentTest {
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
-	private User user;
+	private EntityManager em;
+	private EventComment eventComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,29 +32,28 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		eventComment = em.find(EventComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		eventComment = null;
 	}
+	
 
 	@Test
-	@DisplayName("Testing User Entity Mapping")
+	@DisplayName("Testing Event Comment Entity Mapping")
 	void test() {
-//		SELECT username, password, first_name, last_name FROM user WHERE id=1;
-//		+----------+----------+------------+-----------+
-//		| username | password | first_name | last_name |
-//		+----------+----------+------------+-----------+
-//		| admin    | admin    | bet        | royale    |
-//		+----------+----------+------------+-----------+
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals("bet", user.getFirstName());
-		assertEquals("royale", user.getLastName());
+		assertNotNull(eventComment);
+		assertEquals("2022-04-22T14:12", eventComment.getCommentDate().toString());
+		assertEquals("grilled cheese", eventComment.getCommentText());
+//		select e.comment_date, e.comment_text, e.id from event_comment e Where id = 1;
+//		+---------------------+----------------+----+
+//		| comment_date        | comment_text   | id |
+//		+---------------------+----------------+----+
+//		| 2022-04-22 14:12:00 | grilled cheese |  1 |
+//		+---------------------+----------------+----+
 	}
 
 }
