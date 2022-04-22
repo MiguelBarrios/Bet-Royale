@@ -43,12 +43,6 @@
 ${DEBUG}
 
 
-<p>Grilled cheese
-
-
-
-
-
 
 
 
