@@ -14,13 +14,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class WagerTest {
-
+public class ContenderTest {
 	private static EntityManagerFactory emf;
 	
 	private EntityManager em;
 	
-	private Wager wager;
+	private Contender contender;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,22 +34,22 @@ class WagerTest {
 	@BeforeEach
 	void setUp() throws Exception {
 	    em = emf.createEntityManager();
-	    wager = em.find(Wager.class, 1);
+	    contender = em.find(Contender.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 	    em.close();
-	    wager = null;
+	    contender = null;
 	}
 
-
 	@Test
-	@DisplayName("Testing basic wager mapping")
+	@DisplayName("Testing basic contender mapping")
 	void test() {
-		assertNotNull(wager);
-		assertEquals(100.0, wager.getBetAmount());
-		assertEquals(2, wager.getMultiplier());
+		assertNotNull(contender);
+		assertEquals("viper", contender.getName());
+		assertEquals("this will work", contender.getDescription());
+		assertEquals(0.5, contender.getOdds());
 	}
 
 }
