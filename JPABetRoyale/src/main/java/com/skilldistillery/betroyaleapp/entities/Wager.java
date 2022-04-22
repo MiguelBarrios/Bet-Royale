@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Wager {
@@ -15,7 +17,15 @@ public class Wager {
 	@Column(name="bet_amount")
 	private double betAmount;
 	
-	private double odds;
+	private double multiplier;
+	
+//	@ManyToOne
+//	@JoinColumn(name="contender_id")
+//	private Contender contender;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	public Wager() {}
 
@@ -35,17 +45,27 @@ public class Wager {
 		this.betAmount = betAmount;
 	}
 
-	public double getOdds() {
-		return odds;
+
+	public double getMultiplier() {
+		return multiplier;
 	}
 
-	public void setOdds(double odds) {
-		this.odds = odds;
+	public void setMultiplier(double multiplier) {
+		this.multiplier = multiplier;
+	}
+	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "Wager [id=" + id + ", betAmount=" + betAmount + ", odds=" + odds + "]";
+		return "Wager [id=" + id + ", betAmount=" + betAmount + ", multiplier=" + multiplier + ", user=" + user + "]";
 	}
 	
 	

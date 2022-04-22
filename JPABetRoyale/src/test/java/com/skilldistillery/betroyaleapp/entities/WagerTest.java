@@ -1,6 +1,7 @@
 package com.skilldistillery.betroyaleapp.entities;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class WagerTest {
@@ -22,7 +24,7 @@ class WagerTest {
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = emf = Persistence.createEntityManagerFactory("VideoStore");
+		emf = emf = Persistence.createEntityManagerFactory("JPABetRoyale");
 	}
 
 	@AfterAll
@@ -43,8 +45,11 @@ class WagerTest {
 	}
 
 	@Test
+	@DisplayName("Testing basic wager mapping")
 	void test() {
-		fail("Not yet implemented");
+		assertNotNull(wager);
+		assertEquals(100.0, wager.getBetAmount());
+		assertEquals(2, wager.getMultiplier());
 	}
 
 }
