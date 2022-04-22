@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `bettable_event` (
   `end_date` DATETIME NOT NULL,
   `final_result` TINYINT NULL,
   `user_id` INT NOT NULL,
-  `result_id` INT NOT NULL,
+  `contender_id` INT NULL,
   `description` TEXT NULL,
   `image_url` VARCHAR(2500) NULL,
   PRIMARY KEY (`id`),
@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS `wager` ;
 CREATE TABLE IF NOT EXISTS `wager` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `bet_amount` DECIMAL(9,2) NULL,
-  `odds` DOUBLE NULL,
+  `multiplier` DOUBLE NULL,
   `contender_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -174,17 +174,17 @@ CREATE TABLE IF NOT EXISTS `event_comment` (
   `comment_date` DATETIME NULL,
   `comment_text` TEXT NULL,
   `bettable_event_id` INT NOT NULL,
-  `User_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_event_comment_bettable_event1_idx` (`bettable_event_id` ASC),
-  INDEX `fk_event_comment_User1_idx` (`User_id` ASC),
+  INDEX `fk_event_comment_User1_idx` (`user_id` ASC),
   CONSTRAINT `fk_event_comment_bettable_event1`
     FOREIGN KEY (`bettable_event_id`)
     REFERENCES `bettable_event` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_event_comment_User1`
-    FOREIGN KEY (`User_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -213,6 +213,70 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (1, 'admin', 'admin', 'bet', 'royale', NULL, 1, 'ROLE_ADMIN');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (2, 'lpaladini', 'password', 'lucas', 'paladini', 'lpaladini@me.com', 1, 'ROLE_USER');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`) VALUES (3, 'acorneld', 'password', 'andrew', 'cornelius', 'acorneld@gmail.com', 1, 'ROLE_USER');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `bettable_event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `final_result`, `user_id`, `contender_id`, `description`, `image_url`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, NULL, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (1, 'fight', 'intial fight');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `contender`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `contender` (`id`, `name`, `description`, `bettable_event_id`, `is_winner`, `odds`) VALUES (1, 'viper', 'this will work', 1, NULL, 0.5);
+INSERT INTO `contender` (`id`, `name`, `description`, `bettable_event_id`, `is_winner`, `odds`) VALUES (2, 'blaze', 'this won\'t work', 1, NULL, 0.5);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `wager`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (1, 100, 2, 1, 2);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (2, 200, 2, 2, 3);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `subcategory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (1, 'DeathMatch', 'L vs A', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2);
 
 COMMIT;
 
