@@ -6,6 +6,8 @@
     </provider>
     
      <!-- BEGIN List Entities Here -->
+     <class>com.skilldistillery.betroyaleapp.entities.Category</class>
+     <class>com.skilldistillery.betroyaleapp.entities.Subcategory</class>
      <class>com.skilldistillery.betroyaleapp.entities.User</class>
    
     
