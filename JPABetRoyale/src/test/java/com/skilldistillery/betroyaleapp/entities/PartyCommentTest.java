@@ -14,11 +14,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CategoryTest {
-
+class PartyCommentTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Category category;
+	private PartyComment partyComment;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,30 +32,37 @@ class CategoryTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		category = em.find(Category.class, 1);
+		partyComment = em.find(PartyComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		category = null;
+		partyComment = null;
 	}
-	
-	
-	
-	
-	
+
 	@Test
-	@DisplayName("Testing Category Entity Mapping")
+	@DisplayName("Testing Party Comment Entity Mapping")
 	void test() {
-//		SELECT name FROM category WHERE id =1;
-//		+-------+
-//		| name  |
-//		+-------+
-//		| fight |
-//		+-------+
-		assertNotNull(category);
-		assertEquals("fight", category.getName());
+		assertNotNull(partyComment);
+		assertEquals(2022, partyComment.getCommentDate().getYear());
+		assertEquals(4, partyComment.getCommentDate().getMonthValue());
+		assertEquals(22, partyComment.getCommentDate().getDayOfMonth());
+		assertEquals("Grilled Salmon", partyComment.getCommentText());
+//		select p.id, p.comment_date from party_comment p where id = 1;
+//		+----+---------------------+
+//		| id | comment_date        |
+//		+----+---------------------+
+//		|  1 | 2022-04-22 00:00:00 |
+//		+----+---------------------+
+//		select p.id, p.comment_text from party_comment p where id = 1;
+//		+----+----------------+
+//		| id | comment_text   |
+//		+----+----------------+
+//		|  1 | Grilled Salmon |
+//		+----+----------------+
+
+
 		
 	}
 

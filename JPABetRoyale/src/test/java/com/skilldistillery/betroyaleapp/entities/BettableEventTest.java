@@ -23,12 +23,10 @@ class BettableEventTest {
 
 	BettableEvent bet;
 
-	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABetRoyale");
 	}
-	
 	
 
 	@AfterAll
