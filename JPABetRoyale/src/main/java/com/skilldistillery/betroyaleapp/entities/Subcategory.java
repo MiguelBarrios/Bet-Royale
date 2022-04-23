@@ -70,7 +70,24 @@ public class Subcategory {
 		}
 	}
 	
+	public void addUser(User user) {
+		 if(users == null){
+			 users = new ArrayList<>();
+			}
+			 if(!users.contains(user)) {
+				 users.add(user);
+				 user.addSubcategory(this);
+			 }
+		
+	}
 	
+	public void removeUser(User user) {
+		if(users != null && users.contains(user)) {
+			users.remove(user);
+			user.removeSubcategory(this);
+		}
+		
+	}
 	
 	
 	
