@@ -40,12 +40,13 @@ public class User {
 	private String aboutMe;
 
 	@ManyToMany(mappedBy = "users")
-	private List<ViewingParty> viewingPartys;
+	private List<ViewingParty> viewingParties;
 
 	@OneToMany(mappedBy = "user")
 	private List<Wager> wagers;
 
 	@ManyToMany(mappedBy = "users")
+	
 	private List<Category> categories;
 
 	@ManyToMany(mappedBy = "users")
@@ -79,10 +80,10 @@ public class User {
 
 	
 	public void addViewingParty(ViewingParty viewingParty) {
-		 if(viewingPartys == null){
-			 viewingPartys = new ArrayList<>();
-			 if(!viewingPartys.contains(viewingParty)) {
-				 viewingPartys.add(viewingParty);
+		 if(viewingParties == null){
+			 viewingParties = new ArrayList<>();
+			 if(!viewingParties.contains(viewingParty)) {
+				 viewingParties.add(viewingParty);
 				 viewingParty.addUser(this);
 			 }
 		 }
@@ -90,8 +91,8 @@ public class User {
 	}
 	
 	public void removeViewingParty(ViewingParty viewingParty) {
-		if(viewingPartys != null && viewingPartys.contains(viewingParty)) {
-			viewingPartys.remove(viewingParty);
+		if(viewingParties != null && viewingParties.contains(viewingParty)) {
+			viewingParties.remove(viewingParty);
 			viewingParty.removeUser(this);
 		}
 		
@@ -192,12 +193,12 @@ public class User {
 
 //Begin Hashcode, Equals, toString ***********************************
 
-	public List<ViewingParty> getViewPartys() {
-		return viewingPartys;
+	public List<ViewingParty> getViewParties() {
+		return viewingParties;
 	}
 
-	public void setViewPartys(List<ViewingParty> viewPartys) {
-		this.viewingPartys = viewPartys;
+	public void setViewPartys(List<ViewingParty> viewParties) {
+		this.viewingParties = viewParties;
 	}
 
 	public List<Wager> getWagers() {
