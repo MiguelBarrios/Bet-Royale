@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -39,6 +40,15 @@ public class User {
 	
 	@ManyToMany(mappedBy="users")
 	private List<ViewingParty> viewPartys;
+	
+	@OneToMany(mappedBy="user")
+	private List<Wager> wagers;
+	
+	@ManyToMany(mappedBy="users")
+	private List<Category> categories;
+	
+	@ManyToMany(mappedBy="users")
+	private List<Subcategory> subcategories;
 	
 //End Variable Declarations --------------------------
 	
@@ -152,6 +162,14 @@ public class User {
 
 	public void setViewPartys(List<ViewingParty> viewPartys) {
 		this.viewPartys = viewPartys;
+	}
+
+	public List<Wager> getWagers() {
+		return wagers;
+	}
+
+	public void setWagers(List<Wager> wagers) {
+		this.wagers = wagers;
 	}
 
 	@Override

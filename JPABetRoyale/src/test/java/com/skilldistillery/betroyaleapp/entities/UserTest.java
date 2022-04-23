@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,5 +59,13 @@ class UserTest {
 		assertEquals("royale", user.getLastName());
 	}
 	
+
+	@Test
+	@DisplayName("Testing OneToMany User(1) ---> Wager(Many)")
+	void test2() {
+		
+		assertNotNull(user);
+		
+	}
 
 }
