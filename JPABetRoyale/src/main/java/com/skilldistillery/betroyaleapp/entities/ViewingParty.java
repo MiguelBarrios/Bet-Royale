@@ -70,7 +70,7 @@ public class ViewingParty {
 		if(!users.contains(user)) {
 			users.add(user);
 			//TODO: uncomment when user side finished 
-			//user.addUser(this);
+			//user.addViewingParty()
 		}
 	}
 	
@@ -78,7 +78,7 @@ public class ViewingParty {
 		if(users != null && users.contains(user)) {
 			users.remove(user);
 			//TODO: uncomment when user side finished
-			//user.removeUser(this);
+			//user.removeViewingParty(this);
 		}
 	}
 
