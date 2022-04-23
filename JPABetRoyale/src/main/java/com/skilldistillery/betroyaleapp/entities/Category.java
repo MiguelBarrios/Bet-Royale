@@ -1,5 +1,6 @@
 package com.skilldistillery.betroyaleapp.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,13 +34,30 @@ public class Category {
 
 //End Variable Declarations -----------------------
 	
-//Begin Constructors ============================
+//Begin Constructors/Methods ============================
 	
 	public Category() {
 		super();
 	}
 	
-//End Constructors ============================	
+	public void addUser(User user) {
+		if (users == null) {
+			users = new ArrayList<>();
+		}
+		if (!users.contains(user)) {
+			users.add(user);
+			user.addCategory(this);
+		}
+	}
+	
+	public void removeUser(User user) {
+		if (users != null && users.contains(user)) {
+			users.remove(user);
+			user.removeCategory(this);
+		}
+	}
+	
+//End Constructors/Methods ============================	
 	
 //Begin G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
