@@ -19,9 +19,9 @@ public class Wager {
 	
 	private double multiplier;
 	
-//	@ManyToOne
-//	@JoinColumn(name="contender_id")
-//	private Contender contender;
+	@ManyToOne
+	@JoinColumn(name="contender_id")
+	private Contender contender;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -63,9 +63,18 @@ public class Wager {
 		this.user = user;
 	}
 
+	public Contender getContender() {
+		return contender;
+	}
+
+	public void setContender(Contender contender) {
+		this.contender = contender;
+	}
+
 	@Override
 	public String toString() {
-		return "Wager [id=" + id + ", betAmount=" + betAmount + ", multiplier=" + multiplier + ", user=" + user + "]";
+		return "Wager [id=" + id + ", betAmount=" + betAmount + ", multiplier=" + multiplier + ", contender="
+				+ contender.getName() + ", user=" + user.getUsername() + "]";
 	}
 	
 	

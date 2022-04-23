@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,6 +52,16 @@ class WagerTest {
 		assertNotNull(wager);
 		assertEquals(100.0, wager.getBetAmount());
 		assertEquals(2, wager.getMultiplier());
+	}
+	
+	@Test
+	@DisplayName("Testing MTO relationship between wager and contender")
+	void test2() {
+		assertNotNull(wager);
+		Contender contender = wager.getContender();
+		assertNotNull(contender);
+		assertEquals(1, contender.getId());
+		assertEquals("viper", contender.getName());
 	}
 
 }
