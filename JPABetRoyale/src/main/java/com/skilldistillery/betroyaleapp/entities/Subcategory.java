@@ -1,5 +1,8 @@
 package com.skilldistillery.betroyaleapp.entities;
 
+
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -7,8 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -28,6 +33,11 @@ public class Subcategory {
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
 
+	@ManyToMany(mappedBy="subcategories")
+	private List<BettableEvent> bettableEvents;
+	
+	
+	
 //End Variable Declarations -----------------------
 
 	// Begin Constructors ============================
@@ -38,6 +48,34 @@ public class Subcategory {
 
 
 	// End Constructors ============================
+	
+	public void addBettableEvent(BettableEvent event) {
+		if(bettableEvents == null) {
+			bettableEvents = new ArrayList<>();
+			
+		}
+		if(!bettableEvents.contains(event)) {
+			bettableEvents.add(event);
+			event.addSubcategory(this);
+		}
+	
+		
+		
+	}
+	
+	public void removeBettableEvent(BettableEvent event) {
+		if(event != null && bettableEvents.contains(event)) {
+			bettableEvents.remove(event);
+			event.removeSubcategory(this);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 
 //Begin G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	public int getId() {
@@ -70,6 +108,16 @@ public class Subcategory {
 //End G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	
 //Begin Hashcode, Equals, toString *******************************
+
+	public List<BettableEvent> getBettableEvents() {
+		return bettableEvents;
+	}
+
+
+	public void setBettableEvents(List<BettableEvent> bettableEvents) {
+		this.bettableEvents = bettableEvents;
+	}
+
 
 	@Override
 	public int hashCode() {

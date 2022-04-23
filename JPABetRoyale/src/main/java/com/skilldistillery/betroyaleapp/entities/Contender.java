@@ -85,6 +85,8 @@ public class Contender {
 		this.event = event;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Contender [id=" + id + ", name=" + name + ", description=" + description + ", isWinner=" + isWinner

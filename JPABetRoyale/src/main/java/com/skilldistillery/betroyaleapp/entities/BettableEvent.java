@@ -1,6 +1,8 @@
 package com.skilldistillery.betroyaleapp.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,13 +40,58 @@ public class BettableEvent {
 	private Boolean active;
 	
 	private Boolean completion;
-
+	 
+//	@OneToMany(mappedBy="bettable_event")
+//	private List<Contender> contenders;
+	
+	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	@ManyToMany
+	@JoinTable(name="bettable_event_has_subcategory",
+	joinColumns = @JoinColumn(name="bettable_event_id"),
+	inverseJoinColumns = @JoinColumn(name="subcategory_id")
+	)
+	private List<Subcategory> subcategories;
+	
+	// Begin Constructors ============================
 
 	public BettableEvent() {
 		super();
 	}
+	// End Constructors ============================
+	
+	public void addSubcategory(Subcategory sub) {
+		if(subcategories == null ) {
+			subcategories = new ArrayList<>();
+		}
+		if(!subcategories.contains(sub)) {
+			subcategories.add(sub);
+			sub.addBettableEvent(null);
+		}
+	}
+	 
+	
+	
+	
+	public void removeSubcategory(Subcategory sub) {
+		if(sub != null && subcategories.contains(sub)) {
+			subcategories.remove(sub);
+			sub.removeBettableEvent(this);
+		}
+	}
 
-
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -120,6 +171,40 @@ public class BettableEvent {
 		this.completion = completion;
 	}
 
+	
+
+//	public List<Contender> getContenders() {
+//		return contenders;
+//	}
+//
+//
+//	public void setContenders(List<Contender> contenders) {
+//		this.contenders = contenders;
+//	}
+	
+	
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
+
+	public List<Subcategory> getSubcategories() {
+		return subcategories;
+	}
+
+
+	public void setSubcategories(List<Subcategory> subcategories) {
+		this.subcategories = subcategories;
+	}
+
 
 	@Override
 	public String toString() {
@@ -154,8 +239,7 @@ public class BettableEvent {
 	
 	
 	
-	
-}
+	}
 
 
 	
