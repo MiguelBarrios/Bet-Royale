@@ -96,6 +96,27 @@ public class User {
 		}
 		
 	}
+	
+public void addSubcategory(Subcategory subcategory) {
+		
+		if (subcategories == null) {
+			subcategories = new ArrayList<>();
+			if (!subcategories.contains(subcategory)) {
+				subcategories.add(subcategory);
+				subcategory.addUser(this);
+				
+			}
+		}
+	}
+
+	public void removeSubcategory(Subcategory subcategory) {
+		if (subcategories != null && subcategories.contains(subcategory)) {
+			subcategories.remove(subcategory);
+			subcategory.removeUser(this);
+		}
+
+	}
+	
 //End Constructors ======================
 
 //Begin G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
