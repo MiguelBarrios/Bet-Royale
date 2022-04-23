@@ -11,10 +11,7 @@
      <class>com.skilldistillery.betroyaleapp.entities.User</class>
      <class>com.skilldistillery.betroyaleapp.entities.Wager</class>
      <class>com.skilldistillery.betroyaleapp.entities.Contender</class>
-     <class>com.skilldistillery.betroyaleapp.entities.ViewingParty</class>
-   
-    
-    
+     <class>com.skilldistillery.betroyaleapp.entities.ViewingParty</class>   
     
      <!-- END List Entities Here -->
     
