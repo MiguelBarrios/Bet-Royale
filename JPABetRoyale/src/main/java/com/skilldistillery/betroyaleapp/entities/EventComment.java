@@ -33,6 +33,10 @@ public class EventComment {
 	@JoinColumn(name="bettable_event_id")
 	private BettableEvent bettableEvent;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	public EventComment() {
 		super();
 	}
@@ -93,6 +97,14 @@ public class EventComment {
 
 	public void setBettableEvent(BettableEvent bettableEvent) {
 		this.bettableEvent = bettableEvent;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

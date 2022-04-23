@@ -74,7 +74,24 @@ class EventCommentTest {
 		assertNotNull(event);
 		assertEquals(1, event.getId());
 		assertEquals("does it work", event.getName());
-		
+	}
+	
+	@Test
+	@DisplayName("Testing MTO mapping from event comment to user")
+	void test3() {
+		assertNotNull(eventComment);
+		//select * from event_comment ec join user 
+		//on ec.user_id = user.id where ec.id = 1;
+//		+----+---------------------+----------------+-------------------+---------+----------------+----+-----------+----------+------------+-----------+------------------+--------+-----------+---------------+----------+
+//		| id | comment_date        | comment_text   | bettable_event_id | user_id | in_reply_to_id | id | username  | password | first_name | last_name | email            | active | role      | profile_image | about_me |
+//		+----+---------------------+----------------+-------------------+---------+----------------+----+-----------+----------+------------+-----------+------------------+--------+-----------+---------------+----------+
+//		|  1 | 2022-04-22 14:12:00 | grilled cheese |                 1 |       2 |           NULL |  2 | lpaladini | password | lucas      | paladini  | lpaladini@me.com |      1 | ROLE_USER | NULL          | NULL     |
+//		+----+---------------------+----------------+-------------------+---------+----------------+----+-----------+----------+------------+-----------+------------------+--------+-----------+---------------+----------+
+	
+		User user = eventComment.getUser();
+		assertNotNull(user);
+		assertEquals(2, user.getId());
+		assertEquals("lpaladini", user.getUsername());
 	}
 	
 }
