@@ -2,7 +2,9 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,6 +61,26 @@ public class ViewingParty {
 	private List<User> users;
 	
 	public ViewingParty() {}
+	
+	public void addUser(User user) {
+		if(user == null) {
+			users = new ArrayList<>();
+		}
+		
+		if(!users.contains(user)) {
+			users.add(user);
+			//TODO: uncomment when user side finished 
+			//user.addUser(this);
+		}
+	}
+	
+	public void removeUser(User user) {
+		if(users != null && users.contains(user)) {
+			users.remove(user);
+			//TODO: uncomment when user side finished
+			//user.removeUser(this);
+		}
+	}
 
 	public int getId() {
 		return id;
@@ -146,6 +168,23 @@ public class ViewingParty {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ViewingParty other = (ViewingParty) obj;
+		return id == other.id;
 	}
 
 	@Override

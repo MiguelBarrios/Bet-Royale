@@ -1,5 +1,7 @@
 package com.skilldistillery.betroyaleapp.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -69,6 +71,23 @@ public class Wager {
 
 	public void setContender(Contender contender) {
 		this.contender = contender;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Wager other = (Wager) obj;
+		return id == other.id;
 	}
 
 	@Override
