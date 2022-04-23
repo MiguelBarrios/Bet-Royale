@@ -41,7 +41,7 @@ public class SubcategoryTest {
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		subcategory = null;
+		subcategory = null; 
 	}
 	
 	@Test
