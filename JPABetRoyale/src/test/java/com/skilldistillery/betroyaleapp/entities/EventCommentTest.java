@@ -41,13 +41,15 @@ class EventCommentTest {
 		eventComment = null;
 	}
 	
-
+//
 	@Test
 	@DisplayName("Testing Event Comment Entity Mapping")
 	void test() {
 		assertNotNull(eventComment);
 		//assertEquals("2022-04-22T14:12", eventComment.getCommentDate().toString());
 		assertEquals("grilled cheese", eventComment.getCommentText());
+		assertEquals(2022, eventComment.getCommentDate().getYear());
+
 //		select e.comment_date, e.comment_text, e.id from event_comment e Where id = 1;
 //		+---------------------+----------------+----+
 //		| comment_date        | comment_text   | id |
