@@ -40,7 +40,7 @@ public class User {
 	private String aboutMe;
 
 	@ManyToMany(mappedBy = "users")
-	private List<ViewingParty> viewPartys;
+	private List<ViewingParty> viewingPartys;
 
 	@OneToMany(mappedBy = "user")
 	private List<Wager> wagers;
@@ -57,6 +57,17 @@ public class User {
 	public User() {
 		super();
 	}
+	public void addCategory(Category category) {
+		
+		if (categories == null) {
+			categories = new ArrayList<>();
+			if (!categories.contains(category)) {
+				categories.add(category);
+				category.addUser(this);
+				
+			}
+		}
+	}
 
 	public void removeCategory(Category category) {
 		if (categories != null && categories.contains(category)) {
@@ -66,16 +77,24 @@ public class User {
 
 	}
 
-	public void addCategory(Category category) {
+	
+	public void addViewingParty(ViewingParty viewingParty) {
+		 if(viewingPartys == null){
+			 viewingPartys = new ArrayList<>();
+			 if(!viewingPartys.contains(viewingParty)) {
+				 viewingPartys.add(viewingParty);
+				 viewingParty.addUser(this);
+			 }
+		 }
 		
-		if (categories == null) {
-			categories = new ArrayList<>();
-			if (!categories.contains(category)) {
-				categories.add(category);
-				category.addUser(this);
-
-			}
+	}
+	
+	public void removeViewingParty(ViewingParty viewingParty) {
+		if(viewingPartys != null && viewingPartys.contains(viewingParty)) {
+			viewingPartys.remove(viewingParty);
+			viewingParty.removeUser(this);
 		}
+		
 	}
 //End Constructors ======================
 
