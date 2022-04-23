@@ -193,11 +193,11 @@ public class User {
 //Begin Hashcode, Equals, toString ***********************************
 
 	public List<ViewingParty> getViewPartys() {
-		return viewPartys;
+		return viewingPartys;
 	}
 
 	public void setViewPartys(List<ViewingParty> viewPartys) {
-		this.viewPartys = viewPartys;
+		this.viewingPartys = viewPartys;
 	}
 
 	public List<Wager> getWagers() {
