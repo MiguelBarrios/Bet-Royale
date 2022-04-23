@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class UserTest {
 	
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
+	private  EntityManager em;
 	private User user;
 
 	@BeforeAll

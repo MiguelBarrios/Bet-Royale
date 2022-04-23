@@ -18,7 +18,7 @@ public class SubcategoryTest {
 
 	
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
+	private  EntityManager em;
 	private Subcategory subcategory;
 
 	@BeforeAll
