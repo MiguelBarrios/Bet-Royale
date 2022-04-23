@@ -447,6 +447,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `bettable_event_has_subcategory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `bettable_event_has_subcategory` (`bettable_event_id`, `subcategory_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `event_comment`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -457,11 +467,51 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `user_has_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `user_has_category` (`user_id`, `category_id`) VALUES (2, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_has_subcategory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `user_has_subcategory` (`user_id`, `subcategory_id`) VALUES (2, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_review`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `event_review` (`user_id`, `bettable_event_id`, `rating`, `comment`, `review_date`) VALUES (2, 1, 4, 'I\'m too dang good', '2022-04-22');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `viewing_party`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `viewing_party` (`id`, `title`, `description`, `start_date`, `start_time`, `image_url`, `create_date`, `user_id`, `bettable_event_id`, `max_attendees`) VALUES (1, 'literally anything', 'deathmatch', '2022-04-22', '17:47', NULL, NULL, 2, 1, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_has_viewing_party`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `betroyaledb`;
+INSERT INTO `user_has_viewing_party` (`user_id`, `viewing_party_id`) VALUES (2, 1);
 
 COMMIT;
 

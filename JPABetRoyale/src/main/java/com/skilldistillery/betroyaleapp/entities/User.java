@@ -42,15 +42,18 @@ public class User {
 	@ManyToMany(mappedBy = "users")
 	private List<ViewingParty> viewingParties;
 
-	@OneToMany(mappedBy = "user")
-	private List<Wager> wagers;
-
 	@ManyToMany(mappedBy = "users")
 	
 	private List<Category> categories;
-
+	
 	@ManyToMany(mappedBy = "users")
 	private List<Subcategory> subcategories;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Wager> wagers;
+	
+	@OneToMany(mappedBy = "user")
+	private List<EventReview> eventReview;
 
 //End Variable Declarations --------------------------
 
