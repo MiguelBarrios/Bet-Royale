@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +29,9 @@ public class EventComment {
 	@Column(name="in_reply_to_id")
 	private Integer inReplyToId;
 	
-	// bettable event id
-	
-	// user id
+	@ManyToOne
+	@JoinColumn(name="bettable_event_id")
+	private BettableEvent bettableEvent;
 	
 	public EventComment() {
 		super();
@@ -83,6 +85,14 @@ public class EventComment {
 		EventComment other = (EventComment) obj;
 		return Objects.equals(commentDate, other.commentDate) && Objects.equals(commentText, other.commentText)
 				&& id == other.id && inReplyToId == other.inReplyToId;
+	}
+
+	public BettableEvent getBettableEvent() {
+		return bettableEvent;
+	}
+
+	public void setBettableEvent(BettableEvent bettableEvent) {
+		this.bettableEvent = bettableEvent;
 	}
 
 	@Override
