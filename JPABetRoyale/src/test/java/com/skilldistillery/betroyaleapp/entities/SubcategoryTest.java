@@ -55,6 +55,14 @@ public class SubcategoryTest {
 		assertNotNull(subcategory);
 		assertEquals("DeathMatch", subcategory.getName());
 		assertEquals("L vs A", subcategory.getDescription());
+	}
+		
+		@Test
+		@DisplayName("Testing Subcategory realtional to Bettable Event")
+		void test1() {
+
+			assertNotNull(subcategory);
+			
 		
 		
 	}
