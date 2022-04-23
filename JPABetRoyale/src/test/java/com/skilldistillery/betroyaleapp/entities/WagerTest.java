@@ -2,7 +2,6 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -57,11 +56,31 @@ class WagerTest {
 	@Test
 	@DisplayName("Testing MTO relationship between wager and contender")
 	void test2() {
+		/*
+		 * SELECT * FROM wager JOIN contender 
+		 * ON contender.id = wager.contender_id 
+		 * WHERE wager.id = 1;
+		 */
 		assertNotNull(wager);
 		Contender contender = wager.getContender();
 		assertNotNull(contender);
 		assertEquals(1, contender.getId());
 		assertEquals("viper", contender.getName());
+	}
+	
+	@Test
+	@DisplayName("Testing MTO relationship between wager and user")
+	void test3() {
+		/*
+		 * SELECT * FROM wager JOIN user 
+		 * ON user.id = wager.user_id 
+		 * WHERE wager.id = 1;
+		 */
+		assertNotNull(wager);
+		User user = wager.getUser();
+		assertNotNull(user);
+		assertEquals(1, user.getId());
+		assertEquals("lpaladini", user.getUsername());	
 	}
 
 }
