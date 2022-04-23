@@ -57,5 +57,6 @@ class UserTest {
 		assertEquals("bet", user.getFirstName());
 		assertEquals("royale", user.getLastName());
 	}
+	
 
 }
