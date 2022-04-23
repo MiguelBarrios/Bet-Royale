@@ -59,6 +59,7 @@ class UserTest {
 		assertEquals("royale", user.getLastName());
 	}
 	
+
 	@Test
 	@DisplayName("Testing OneToMany User(1) ---> Wager(Many)")
 	void test2() {

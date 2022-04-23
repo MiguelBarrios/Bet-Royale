@@ -2,12 +2,17 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -37,9 +42,21 @@ public class ViewingParty {
 	@Column(name="max_attendees")
 	private Integer maxAttendees;
 	
-	//private User user;
+
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
-	//private BettableEvent;
+	@ManyToOne
+	@JoinColumn(name="bettable_event_id")
+	private BettableEvent event;
+	
+	@ManyToMany
+	@JoinTable(name="user_has_viewing_party",
+	joinColumns=@JoinColumn(name="viewing_party_id"),
+	inverseJoinColumns=@JoinColumn(name="user_id")
+	)
+	private List<User> users;
 	
 	public ViewingParty() {}
 
@@ -106,10 +123,36 @@ public class ViewingParty {
 	public void setMaxAttendees(Integer maxAttendees) {
 		this.maxAttendees = maxAttendees;
 	}
-	
-	
-	
-	
-	
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public BettableEvent getEvent() {
+		return event;
+	}
+
+	public void setEvent(BettableEvent event) {
+		this.event = event;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	@Override
+	public String toString() {
+		return "ViewingParty [id=" + id + ", title=" + title + ", description=" + description + ", startDate="
+				+ startDate + ", startTime=" + startTime + ", imageUrl=" + imageUrl + ", createDate=" + createDate
+				+ ", maxAttendees=" + maxAttendees;
+	}
+	
 }

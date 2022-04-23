@@ -38,11 +38,11 @@ public class User {
 	@Column(name="about_me")
 	private String aboutMe;
 	
-	@OneToMany(mappedBy="user")
-	private List<Wager> wagers;
-	
 	@ManyToMany(mappedBy="users")
 	private List<ViewingParty> viewPartys;
+	
+	@OneToMany(mappedBy="user")
+	private List<Wager> wagers;
 	
 	@ManyToMany(mappedBy="users")
 	private List<Category> categories;
@@ -147,6 +147,8 @@ public class User {
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
 	}
+	
+	
 
 	
 //End G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,6 +156,14 @@ public class User {
 
 //Begin Hashcode, Equals, toString ***********************************
 	
+	public List<ViewingParty> getViewPartys() {
+		return viewPartys;
+	}
+
+	public void setViewPartys(List<ViewingParty> viewPartys) {
+		this.viewPartys = viewPartys;
+	}
+
 	public List<Wager> getWagers() {
 		return wagers;
 	}
