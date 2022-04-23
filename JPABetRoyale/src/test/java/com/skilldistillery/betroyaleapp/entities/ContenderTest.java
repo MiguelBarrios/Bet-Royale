@@ -52,4 +52,13 @@ public class ContenderTest {
 		assertEquals(0.5, contender.getOdds());
 	}
 
+	@Test
+	@DisplayName("Testing mapping from contender to bettable event")
+	void test2() {
+		assertNotNull(contender);
+		BettableEvent event = contender.getEvent();
+		assertNotNull(event);
+		assertEquals(1,event.getId());
+		assertEquals("does it work", event.getName());
+	}
 }

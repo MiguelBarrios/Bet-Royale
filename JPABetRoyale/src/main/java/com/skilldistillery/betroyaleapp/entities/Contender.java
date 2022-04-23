@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,9 +23,9 @@ public class Contender {
 	
 	private double odds;
 	
-//	@ManyToOne
-//	@joinColumn(name="bettable_event_id")
-//	private BettableEvent event;
+	@ManyToOne
+	@JoinColumn(name="bettable_event_id")
+	private BettableEvent event;
 	
 	public Contender() {}
 
@@ -66,6 +67,22 @@ public class Contender {
 
 	public void setOdds(double odds) {
 		this.odds = odds;
+	}
+	
+	public Boolean getIsWinner() {
+		return isWinner;
+	}
+
+	public void setIsWinner(Boolean isWinner) {
+		this.isWinner = isWinner;
+	}
+
+	public BettableEvent getEvent() {
+		return event;
+	}
+
+	public void setEvent(BettableEvent event) {
+		this.event = event;
 	}
 
 	@Override

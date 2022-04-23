@@ -79,7 +79,7 @@ class WagerTest {
 		assertNotNull(wager);
 		User user = wager.getUser();
 		assertNotNull(user);
-		assertEquals(1, user.getId());
+		assertEquals(2, user.getId());
 		assertEquals("lpaladini", user.getUsername());	
 	}
 
