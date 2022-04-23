@@ -62,11 +62,21 @@ class UserTest {
 	@Test
 	@DisplayName("Testing OneToMany User(1) ---> Wager(Many)")
 	void test2() {
-		user = em.find(User.class, 2);
+		user = em.find(User.class, 1);
 		assertNotNull(user);
 		assertNotNull(user.getWagers());
-		assertEquals(user.getWagers().get(0).getBetAmount(), 100);
 		assertTrue(user.getWagers().size() > 0);
 	}
+	
+	@Test
+	@DisplayName("Testing OneToMany User(1)---> Categories(Many)")
+	void test3() {
+		user = em.find(User.class, 1);
+		assertNotNull(user);
+		assertNotNull(user.getCategories());
+		assertTrue(user.getCategories().size() > 0);
+	}
+	
+	
 
 }
