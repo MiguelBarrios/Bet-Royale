@@ -11,6 +11,8 @@ import com.skilldistillery.betroyaleapp.entities.User;
 @Controller
 public class UserController {
 	
+	
+	
 	@Autowired
 	private UserDAO userDao;
 	

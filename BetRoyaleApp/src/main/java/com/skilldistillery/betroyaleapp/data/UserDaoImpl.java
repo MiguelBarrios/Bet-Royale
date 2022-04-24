@@ -11,6 +11,12 @@ import com.skilldistillery.betroyaleapp.entities.User;
 @Transactional
 public class UserDaoImpl implements UserDAO {
 	
+	public static void main(String[] args) {
+		UserDaoImpl dao = new UserDaoImpl();
+		User user = dao.findById(1);
+		System.out.println(user);
+	}
+	
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -30,11 +36,17 @@ public class UserDaoImpl implements UserDAO {
 	public User updateUser(User user) {
 		User updatedUser = findById(user.getId());
 		updatedUser.setFirstName(user.getFirstName());
+		updatedUser.setLastName(user.getLastName());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setEmail(user.getEmail());
+		updatedUser.setActive(user.getActive());
+		updatedUser.setRole(user.getRole());
+		updatedUser.setProfileImage(user.getProfileImage());
+		updatedUser.setAboutMe(user.getAboutMe());
 		
-		
-		
-		
-		return null;
+		em.persist(updatedUser);
+		em.flush();
+		return updatedUser;
 	}
 
 }
