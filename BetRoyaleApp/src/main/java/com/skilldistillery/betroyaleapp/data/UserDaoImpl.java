@@ -1,5 +1,8 @@
 package com.skilldistillery.betroyaleapp.data;
 
+import java.util.Map;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -10,6 +13,8 @@ import com.skilldistillery.betroyaleapp.entities.User;
 @Service
 @Transactional
 public class UserDaoImpl implements UserDAO {
+	
+	private Map<Integer, User> users;
 	
 	public static void main(String[] args) {
 		UserDaoImpl dao = new UserDaoImpl();
@@ -48,5 +53,20 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return updatedUser;
 	}
-
+	
+	public User login(String username, String password) {
+		User u = null;
+		Set<Integer> keys = users.keySet();
+		for (Integer key : keys) {
+			User user = users.get(key);
+			if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				u = user;
+				break;
+			}
+		}
+		return u;
+	}
 }
+
+
+
