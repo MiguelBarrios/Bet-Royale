@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 public class Wager {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@Column(name="bet_amount")
 	private double betAmount;
@@ -33,13 +33,15 @@ public class Wager {
 	
 	public Wager() {}
 
-	public int getId() {
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public double getBetAmount() {
 		return betAmount;
@@ -95,7 +97,7 @@ public class Wager {
 	@Override
 	public String toString() {
 		return "Wager [id=" + id + ", betAmount=" + betAmount + ", multiplier=" + multiplier + ", contender="
-				+ contender.getName() + ", user=" + user.getUsername() + "]";
+				+ contender + ", user=" + user + "]";
 	}
 	
 	

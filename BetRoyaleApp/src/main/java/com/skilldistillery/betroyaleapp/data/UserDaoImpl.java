@@ -91,7 +91,6 @@ public class UserDaoImpl implements UserDAO {
 	public Contender createContender(Contender contender) {
 		em.persist(contender);
 		em.flush();
-		
 		return contender;
 	}
 
@@ -117,11 +116,15 @@ public class UserDaoImpl implements UserDAO {
 }
 
 	@Override
-	public Wager createWager(Wager wager, int userId) {
+	public Wager createWager(Wager wager, int userId, int contenderId) {
 		User user = em.find(User.class, userId);
 		wager.setUser(user);
+		wager.setBetAmount(wager.getBetAmount());
+		Contender contender = em.find(Contender.class, contenderId);
+		wager.setContender(contender);
 		em.persist(wager);
 		em.flush();
+		
 
 		return wager;
 

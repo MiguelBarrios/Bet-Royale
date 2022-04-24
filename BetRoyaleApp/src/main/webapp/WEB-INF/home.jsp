@@ -33,6 +33,10 @@
 
 
 
+
+
+
+
 <div>
 
 
@@ -59,21 +63,38 @@
 			 <label for="active">Active </label> 
 	<input id="active" type="text" placeholder="active" name="active" />
 		 <br> <br> 
-	
-	
-		
+		 
+  <input type="text" name="contenderName">
+  <input type="text" name="contenderName">
+  <input type="text" name="contenderName">
+  
+  <br>
+  <br>
+  <input type="text" name="contenderOdds">
+  <input type="text" name="contenderOdds">
+  <input type="text" name="contenderOdds">
+  
 			 <input type="submit"/>
 	</form>
 
 </div>
 
+<<<<<<< HEAD
 --------------------------------------------------------------------------
 <!-- Search testing -->
 <br>
 ${username.username} }
+=======
 
+-----------------------Create Wager-----------------------------------------
+<br>
+>>>>>>> cfb3dc6ab597d305246606534a081b076ab64477
 
+<h2>Create Wager</h2>
 
+<jsp:include page="Components/createwager.jsp" />
+
+<br>
 
 
 </body>
