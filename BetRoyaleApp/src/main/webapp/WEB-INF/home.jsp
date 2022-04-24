@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +11,6 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
-	
-
-<h1>Betting Royale </h1>
-
-
 <jsp:include page="Components/createuser.jsp" />
 
 <br>
@@ -25,22 +18,9 @@
 
 
 <jsp:include page="Components/userlogin.jsp" />
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h1>Betting Royale </h1>
 
 
 
@@ -49,6 +29,9 @@
 --------------------------------------------------------------------------
 
 <h2>Create Bet Event</h2>
+
+
+
 <div>
 <form action="userCreateBetEvent.do" method="POST">
 	
