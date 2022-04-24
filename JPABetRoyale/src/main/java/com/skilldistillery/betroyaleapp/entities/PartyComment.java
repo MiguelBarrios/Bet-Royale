@@ -83,15 +83,18 @@ public class PartyComment {
 	public int getViewingPartyId() {
 		return viewingPartyId;
 	}
+	
 
 	public void setViewingPartyId(int viewingPartyId) {
 		this.viewingPartyId = viewingPartyId;
 	}
 
+	
 	public int getInReplyTo() {
 		return inReplyTo;
 	}
 
+	
 	public void setInReplyTo(int inReplyTo) {
 		this.inReplyTo = inReplyTo;
 	}
