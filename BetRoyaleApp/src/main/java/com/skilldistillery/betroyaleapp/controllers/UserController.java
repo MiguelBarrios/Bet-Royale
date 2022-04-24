@@ -1,8 +1,8 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,11 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
-import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -45,14 +46,19 @@ public class UserController {
 	
 	
 	
-	
+	public void foo(@RequestParam("number[]") List<String> to) {
+	    for(String number : to) {
+	        System.out.println(number);
+	    }
+	}
 	
 	
 	
 	@RequestMapping(path = "userCreateBetEvent.do",method = RequestMethod.POST)
-	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2) {
+	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2,
+			String [] contenderName, 
+			Double [] contenderOdds) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("event: " + event + "userId: " + userId);
 		if(userId > 0) {
 			String [] data = endDate2.split("-");
 			int year = Integer.parseInt(data[0]);
@@ -78,16 +84,17 @@ public class UserController {
 	
 	
 	
-	@PostMapping(path = "createContender.do")
-	public ModelAndView userCreateContender(Contender contender) {
-		ModelAndView mv = new ModelAndView();
-		Contender newContender = userDao.createContender(contender);
-		mv.addObject("contender", newContender);
-		mv.setViewName("home");
-		
-		return mv;
-	}
-	
+//	
+//	@PostMapping(path = "createContender.do")
+//	public ModelAndView userCreateContender(Contender contender) {
+//		ModelAndView mv = new ModelAndView();
+//		Contender newContender = userDao.createContender(contender);
+//		mv.addObject("contender", newContender);
+//		mv.setViewName("home");
+//		
+//		return mv;
+//	}
+//	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password, HttpSession session ) {
