@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.User;
 @Service
 @Transactional
@@ -47,6 +48,17 @@ public class UserDaoImpl implements UserDAO {
 		em.persist(updatedUser);
 		em.flush();
 		return updatedUser;
+	}
+
+	
+	
+	
+	@Override
+	public BettableEvent createBettableEvent(BettableEvent event) {
+		em.persist(event);
+		em.flush();
+		
+		return event;
 	}
 
 }
