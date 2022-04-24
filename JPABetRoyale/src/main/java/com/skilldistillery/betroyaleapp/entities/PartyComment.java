@@ -33,16 +33,12 @@ public class PartyComment {
 	@Column(name="viewing_party_id")
 	private Integer viewingPartyId;
 	
-	@Column(name="in_reply_to", insertable =false, updatable=false)
+	@Column(name="in_reply_to")
 	private Integer inReplyTo;
-
 	
-	
-//	@OneToMany
-//	@JoinColumn(name = "inReplyTo")
-//	private List<PartyComment> comments;
-//	
-	
+	@OneToMany
+	@JoinColumn(name = "in_reply_to")
+	private List<PartyComment> comments;
 	
 	public PartyComment() {
 		super();
@@ -98,9 +94,27 @@ public class PartyComment {
 	public void setInReplyTo(int inReplyTo) {
 		this.inReplyTo = inReplyTo;
 	}
+	
+	public List<PartyComment> getComments() {
+		return comments;
+	}
 
-	
-	
+	public void setComments(List<PartyComment> comments) {
+		this.comments = comments;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public void setViewingPartyId(Integer viewingPartyId) {
+		this.viewingPartyId = viewingPartyId;
+	}
+
+	public void setInReplyTo(Integer inReplyTo) {
+		this.inReplyTo = inReplyTo;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(commentDate, commentText, id, inReplyTo, userId, viewingPartyId);

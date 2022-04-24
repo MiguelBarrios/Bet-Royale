@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -61,9 +62,16 @@ class PartyCommentTest {
 //		+----+----------------+
 //		|  1 | Grilled Salmon |
 //		+----+----------------+
-
-
-		
+	}
+	
+	@Test
+	@DisplayName("Testing MTO mapping from event comment to event comment")
+	void test4() {
+		//SELECT * FROM party_comment e1, party_comment e2 
+		//where e1.id = e2.in_reply_to_id;
+		assertNotNull(partyComment);
+		assertNotNull(partyComment.getComments());
+		assertTrue(partyComment.getComments().size() > 0);
 	}
 
 }
