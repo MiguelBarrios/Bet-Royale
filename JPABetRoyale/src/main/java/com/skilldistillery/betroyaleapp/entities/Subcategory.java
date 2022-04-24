@@ -2,7 +2,6 @@ package com.skilldistillery.betroyaleapp.entities;
 
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -10,11 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Subcategory {
@@ -37,6 +35,10 @@ public class Subcategory {
 	@ManyToMany(mappedBy="subcategories")
 	private List<BettableEvent> bettableEvents;
 	
+	
+	@ManyToOne
+	@JoinColumn(name="category_id")
+	private Category category;
 	
 	
 //End Variable Declarations -----------------------
@@ -153,6 +155,17 @@ public class Subcategory {
 	}
 	
 	
+	
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
