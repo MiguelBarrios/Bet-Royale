@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 @Controller
 public class UserController {
@@ -36,7 +37,6 @@ public class UserController {
 		return "home";
 	}
 	
-
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password, HttpSession session ) {
 		User user = userDao.login(username, password);
@@ -49,5 +49,16 @@ public class UserController {
 			return "home";
 	}
 	
+	@RequestMapping(path="createWager.do")
+	public String createWager(User user, Wager wager) {
+		
+		Wager newWager = userDao.createWager(wager);
+		System.out.println(newWager);
+
+		//TODO Replace with desired JSP
+		return "home";
+		
+		
+	}
 
 }
