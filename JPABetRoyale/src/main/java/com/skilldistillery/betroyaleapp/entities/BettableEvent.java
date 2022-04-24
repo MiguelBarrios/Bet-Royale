@@ -175,18 +175,7 @@ public class BettableEvent {
 		this.completion = completion;
 	}
 
-	
 
-//	public List<Contender> getContenders() {
-//		return contenders;
-//	}
-//
-//
-//	public void setContenders(List<Contender> contenders) {
-//		this.contenders = contenders;
-//	}
-	
-	
 
 
 	public User getUser() {
@@ -208,7 +197,25 @@ public class BettableEvent {
 	public void setSubcategories(List<Subcategory> subcategories) {
 		this.subcategories = subcategories;
 	}
+	
+	
 
+
+	public List<Contender> getContenders() {
+		return contenders;
+	}
+
+	public void setContenders(List<Contender> contenders) {
+		this.contenders = contenders;
+	}
+
+	public List<EventReview> getEventReview() {
+		return eventReview;
+	}
+
+	public void setEventReview(List<EventReview> eventReview) {
+		this.eventReview = eventReview;
+	}
 
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,5 +61,15 @@ public class ContenderTest {
 		assertNotNull(event);
 		assertEquals(1,event.getId());
 		assertEquals("does it work", event.getName());
+	}
+	
+	
+	@Test
+	@DisplayName("Testing relational mapping from bettable event to contender")
+	void test3() {
+		assertNotNull(contender);
+		assertNotNull(contender.getEvent());		
+		assertEquals(1, contender.getEvent().getId());
+		
 	}
 }
