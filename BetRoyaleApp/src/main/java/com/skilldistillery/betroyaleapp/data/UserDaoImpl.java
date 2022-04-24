@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -56,6 +58,29 @@ public class UserDaoImpl implements UserDAO {
 		return updatedUser;
 	}
 
+
+	
+	
+	
+	@Override
+	public BettableEvent createBettableEvent(BettableEvent event, int userId) {
+		User user = em.find(User.class, userId);
+		event.setUser(user);
+		em.persist(event);
+		em.flush();
+		return event;
+	}
+	
+
+	@Override
+	public Contender createContender(Contender contender) {
+		em.persist(contender);
+		em.flush();
+		
+		return contender;
+	}
+
+
 	@Override
 	public User login(String username, String password) {
 		
@@ -86,6 +111,7 @@ public class UserDaoImpl implements UserDAO {
 		return wager;
 
 	}
+
 
 
 }
