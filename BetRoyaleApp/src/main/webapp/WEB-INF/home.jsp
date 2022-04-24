@@ -11,6 +11,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="Components/navbar.jsp" />
 <jsp:include page="Components/createuser.jsp" />
 
 <br>
@@ -66,7 +67,10 @@
 
 </div>
 
-
+--------------------------------------------------------------------------
+<!-- Search testing -->
+<br>
+${username.username} }
 
 
 

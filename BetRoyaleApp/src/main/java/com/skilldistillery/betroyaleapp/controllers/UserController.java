@@ -1,14 +1,13 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -111,8 +110,16 @@ public class UserController {
 		// TODO Replace with desired JSP
 		return mv;
 	}
-
-
 	
+	@GetMapping("search.do")
+	public ModelAndView findByUsername(String username) {
+		ModelAndView mv = new ModelAndView();
+		User newUser = userDao.searchByUsername(username);
+		mv.addObject("username", newUser);
+		mv.setViewName("home");
+		
+		return mv;
+	
+	}
 	
 }

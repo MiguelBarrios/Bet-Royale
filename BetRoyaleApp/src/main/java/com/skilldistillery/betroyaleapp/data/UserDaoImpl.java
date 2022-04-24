@@ -33,6 +33,21 @@ public class UserDaoImpl implements UserDAO {
 	public User findById(int userId) {
 		return em.find(User.class, userId);
 	}
+	
+	@Override
+	public User searchByUsername(String username) {
+		User user = null;
+		
+		String jpql = "SELECT u FROM User u where u.username = :username";
+		try {
+			user = em.createQuery(jpql, User.class)
+					.setParameter("username", username)
+					.getSingleResult();
+			
+			
+			}catch(Exception e){ }
+		return user;
+	}
 
 	@Override
 	public User createUser(User user) {
