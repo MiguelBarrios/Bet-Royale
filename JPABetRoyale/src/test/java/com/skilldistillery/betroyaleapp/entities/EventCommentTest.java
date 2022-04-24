@@ -94,11 +94,11 @@ class EventCommentTest {
 		assertEquals("lpaladini", user.getUsername());
 	}
 	
-	@Test
-	@DisplayName("Testing MTO mapping from event comment to event comment")
-	void test4() {
-		assertNotNull(eventComment);
-		assertNotNull(eventComment.getReplies());
-		assertTrue(eventComment.getReplies().size() > 0);
-	}
+//	@Test
+//	@DisplayName("Testing MTO mapping from event comment to event comment")
+//	void test4() {
+//		assertNotNull(eventComment);
+//		assertNotNull(eventComment.getReplies());
+//		assertTrue(eventComment.getReplies().size() > 0);
+//	}
 }
