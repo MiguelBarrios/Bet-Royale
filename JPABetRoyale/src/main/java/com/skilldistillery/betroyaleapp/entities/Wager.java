@@ -29,6 +29,8 @@ public class Wager {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	
+	
 	public Wager() {}
 
 	public int getId() {
