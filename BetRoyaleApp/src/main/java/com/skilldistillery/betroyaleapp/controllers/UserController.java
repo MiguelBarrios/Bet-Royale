@@ -34,7 +34,6 @@ public class UserController {
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId) {
 		ModelAndView mv = new ModelAndView();
 		if(userId > 0) {
-			
 		BettableEvent newEvent = userDao.createBettableEvent(event, userId);
 		mv.addObject("event", newEvent);
 		mv.setViewName("home");
