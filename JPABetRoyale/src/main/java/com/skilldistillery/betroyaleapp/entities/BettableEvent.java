@@ -42,8 +42,8 @@ public class BettableEvent {
 	
 	private Boolean completion;
 	 
-//	@OneToMany(mappedBy="bettableEvents")
-//	private List<Contender> contenders;
+	@OneToMany(mappedBy="event")
+	private List<Contender> contenders;
 	
 	@OneToMany(mappedBy = "bettableEvent")
 	private List<EventReview> eventReview;
