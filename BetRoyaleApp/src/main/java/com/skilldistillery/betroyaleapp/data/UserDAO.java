@@ -10,6 +10,7 @@ public interface UserDAO {
 	User findById(int userId);
 	User createUser(User user);
 	User updateUser(User user);
+	User searchByUsername(String keyword);
 
 	BettableEvent createBettableEvent(BettableEvent event, int userId );
 	Contender createContender(Contender contender);
