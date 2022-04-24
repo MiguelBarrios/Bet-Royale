@@ -230,14 +230,27 @@ public void addSubcategory(Subcategory subcategory) {
 	public void setWagers(List<Wager> wagers) {
 		this.wagers = wagers;
 	}
-	
 
+	public List<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 	public List<Subcategory> getSubcategories() {
 		return subcategories;
 	}
 	public void setSubcategories(List<Subcategory> subcategories) {
 		this.subcategories = subcategories;
 	}
+
+	public List<EventReview> getEventReview() {
+		return eventReview;
+	}
+	public void setEventReview(List<EventReview> eventReview) {
+		this.eventReview = eventReview;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(aboutMe, active, email, firstName, id, lastName, password, profileImage, role, username);

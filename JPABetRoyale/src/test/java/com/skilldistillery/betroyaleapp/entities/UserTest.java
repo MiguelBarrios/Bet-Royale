@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 class UserTest {
 	
 	private static EntityManagerFactory emf;
-	private  EntityManager em;
+	private EntityManager em;
 	private User user;
 
 	@BeforeAll
@@ -62,13 +62,12 @@ class UserTest {
 	}
 	
 	@Test
-	@DisplayName("Testing OneToMany User(1) ---> Wager(Many)")
+	@DisplayName("Testing ManyToMany User(1) ---> Category(Many)")
 	void test2() {
-		user = em.find(User.class, 2);
+		user = em.find(User.class, 1);
 		assertNotNull(user);
-		assertNotNull(user.getWagers());
-		assertEquals(user.getWagers().get(0).getBetAmount(), 100);
-		assertTrue(user.getWagers().size() > 0);
+		assertNotNull(user.getCategories());
+		assertTrue(user.getCategories().size() > 0);
 	}
 	
 	@Test
