@@ -41,10 +41,10 @@ public class EventComment {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	//:TODO: Check if correct
-	@OneToMany
-	@JoinColumn(name="inReplyToId")
-	private List<EventComment> replies;
+//	//:TODO: Check if correct
+//	@OneToMany
+//	@JoinColumn(name="inReplyToId")
+//	private List<EventComment> replies;
 
 	public EventComment() {
 		super();
@@ -116,13 +116,13 @@ public class EventComment {
 		this.user = user;
 	}
 
-	public List<EventComment> getReplies() {
-		return replies;
-	}
-
-	public void setReplies(List<EventComment> replies) {
-		this.replies = replies;
-	}
+//	public List<EventComment> getReplies() {
+//		return replies;
+//	}
+//
+//	public void setReplies(List<EventComment> replies) {
+//		this.replies = replies;
+//	}
 
 	public void setInReplyToId(Integer inReplyToId) {
 		this.inReplyToId = inReplyToId;

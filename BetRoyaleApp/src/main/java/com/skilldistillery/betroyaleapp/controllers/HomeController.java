@@ -7,11 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
+import com.skilldistillery.betroyaleapp.data.UserDaoImpl;
+import com.skilldistillery.betroyaleapp.entities.User;
 
 @Controller
 
 public class HomeController {
 
+
+	
 	@Autowired
 	private UserDAO userDao;
 	
@@ -20,4 +24,5 @@ public class HomeController {
 		model.addAttribute("DEBUG", userDao.findById(1));
 		return "home";
 	}
+	
 }

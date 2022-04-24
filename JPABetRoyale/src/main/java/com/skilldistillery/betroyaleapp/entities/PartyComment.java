@@ -38,10 +38,10 @@ public class PartyComment {
 
 	
 	
-	@OneToMany
-	@JoinColumn(name = "inReplyTo")
-	private List<PartyComment> comments;
-	
+//	@OneToMany
+//	@JoinColumn(name = "inReplyTo")
+//	private List<PartyComment> comments;
+//	
 	
 	
 	public PartyComment() {
