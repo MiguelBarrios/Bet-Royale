@@ -1,7 +1,6 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -62,7 +61,20 @@ public class UserController {
 
 			event.setEndDate(LDT);
 			BettableEvent newEvent = userDao.createBettableEvent(event, userId);
-			System.out.println("event: " + event + "userId: " + userId);
+			
+			//Event was created
+			if(newEvent.getId() != 0) {
+				
+				if(contenderName.length == contenderOdds.length) {
+					for(int i = 0; i < contenderName.length; ++i) {
+						Contender contender = new Contender();
+						contender.setName(contenderName[i]);
+						contender.setOdds(contenderOdds[i]);
+						contender.setEvent(newEvent);
+						userDao.createContender(contender);
+					}
+				}
+			}
 
 			mv.addObject("event", newEvent);
 			mv.setViewName("home");
