@@ -36,27 +36,14 @@ public class UserController {
 		return "home";
 	}
 	
-	@RequestMapping("login.do")
-	public ModelAndView login(User user, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		user = new User();
-		if( session.getAttribute("user") != null) {
-			mv.setViewName("redirect:index.do");
-		}
-		else {
-			mv.addObject("userLogin", user);
-			mv.setViewName("login");
-		}
-	return mv;
-		}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String submitLogin(String username, String password,HttpSession session ) {
+	public String submitLogin(String username, String password, HttpSession session ) {
 		User user = userDao.login(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			System.out.println(user.getUsername());
+			System.out.println(user);
 			return "home"; 
 		} else
 			return "home";
