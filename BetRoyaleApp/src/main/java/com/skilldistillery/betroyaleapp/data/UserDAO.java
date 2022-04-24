@@ -14,8 +14,8 @@ public interface UserDAO {
 	BettableEvent createBettableEvent(BettableEvent event, int userId );
 	Contender createContender(Contender contender);
 
-	Wager createWager(Wager wager, int userId);
 	User login(String username, String password);
+	Wager createWager(Wager wager, int userId, int contenderId);
 
 	
 }

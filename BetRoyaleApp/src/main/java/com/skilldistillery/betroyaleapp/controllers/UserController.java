@@ -114,13 +114,14 @@ public class UserController {
 	}
 
 	@PostMapping(path = "createWager.do")
-	public ModelAndView createWager(Wager wager, int userId) {
+	public ModelAndView createWager(Model model, Wager wager, int userId, int contenderId) {
 		ModelAndView mv = new ModelAndView();
-		Wager newWager = userDao.createWager(wager, userId);
+		Wager newWager = userDao.createWager(wager, userId, contenderId);
 		mv.addObject("wager", newWager);
 		System.out.println(newWager);
 
 		// TODO Replace with desired JSP
+		mv.setViewName("home");
 		return mv;
 	}
 

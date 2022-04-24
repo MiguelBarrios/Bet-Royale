@@ -18,7 +18,7 @@ public class User {
 //Variable Declarations ----------------------------	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String username;
 	private String password;
@@ -123,12 +123,17 @@ public void addSubcategory(Subcategory subcategory) {
 
 //Begin G&S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	public int getId() {
-		return id;
+	public List<ViewingParty> getViewingParties() {
+		return viewingParties;
 	}
-
-	public void setId(int id) {
+	public void setViewingParties(List<ViewingParty> viewingParties) {
+		this.viewingParties = viewingParties;
+	}
+	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getId() {
+		return id;
 	}
 
 	public String getUsername() {
