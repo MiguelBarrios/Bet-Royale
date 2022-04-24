@@ -64,7 +64,7 @@ class UserTest {
 	@Test
 	@DisplayName("Testing ManyToMany User(Many) ---> Category(Many)")
 	void test2() {
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 		assertNotNull(user);
 
 		assertNotNull(user.getWagers());
@@ -75,12 +75,23 @@ class UserTest {
 	}
 	
 	@Test
-	@DisplayName("Testing ManyToMany User(Many) ---> ViewingParty(Many)")
+	@DisplayName("Testing MTM relation from User to subcategory")
 	void test3() {
+		//mysql> select * from user_has_subcategory join subcategory sb on sb.id = user_has_subcategory.subcategory_id join user on user.id = user_has_subcategory.subcategory_id;
 		user = em.find(User.class, 2);
 		assertNotNull(user);
-		assertNotNull(user.getViewingParties());
-		assertTrue(user.getViewingParties().size() > 0);
+		List<Subcategory> subcategories = user.getSubcategories();
+		assertNotNull(subcategories);
+		assertTrue(subcategories.size() > 0);
+	}
+
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> ViewingParty(Many)")
+	void test6() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getViewParties());
+		assertTrue(user.getViewParties().size() > 0);
 	}
 
 	@Test
@@ -96,7 +107,7 @@ class UserTest {
 	@Test
 	@DisplayName("Testing OneToMany User(1)---> Categories(Many)")
 	void test5() {
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 		assertNotNull(user);
 		assertNotNull(user.getCategories());
 		assertTrue(user.getCategories().size() > 0);
