@@ -55,11 +55,14 @@ public class UserDaoImpl implements UserDAO {
 	
 	
 	@Override
-	public BettableEvent createBettableEvent(BettableEvent event) {
+	public BettableEvent createBettableEvent(BettableEvent event, int userId) {
+		User user = em.find(User.class, userId);
+		event.setUser(user);
 		em.persist(event);
 		em.flush();
 		return event;
 	}
+	
 
 	@Override
 	public Contender createContender(Contender contender) {

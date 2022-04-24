@@ -9,7 +9,7 @@ public interface UserDAO {
 	User findById(int userId);
 	User createUser(User user);
 	User updateUser(User user);
-	BettableEvent createBettableEvent(BettableEvent event );
+	BettableEvent createBettableEvent(BettableEvent event, int userId );
 	Contender createContender(Contender contender);
 	
 }

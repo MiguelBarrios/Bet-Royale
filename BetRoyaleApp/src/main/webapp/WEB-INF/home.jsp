@@ -83,7 +83,7 @@ ${DEBUG}
 --------------------------------------------------------------------------
 
 <h2>Create Bet Event</h2>
-
+<div>
 <form action="userCreateBetEvent.do" method="POST">
 	
 	
@@ -103,13 +103,14 @@ ${DEBUG}
 		 <input id="endDate" type="text" placeholder="Event End Date" name="endDate" />
 			 <br>
 			 <br> 
-		
+			 
+	
 	
 		
 			 <input type="submit"/>
 	</form>
 
-
+</div>
 
 
 
