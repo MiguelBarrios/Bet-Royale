@@ -1,5 +1,9 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +43,27 @@ public class UserController {
 	}
 
 	
-
 	
 	
-	@PostMapping(path = "userCreateBetEvent.do")
-	public ModelAndView userCreateBetEvent(BettableEvent event, int userId) {
+	
+	
+	
+	
+	@RequestMapping(path = "userCreateBetEvent.do",method = RequestMethod.POST)
+	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("event: " + event + "userId: " + userId);
 		if(userId > 0) {
+			String [] data = endDate2.split("-");
+			int year = Integer.parseInt(data[0]);
+			int month = Integer.parseInt(data[1]);
+			int day = Integer.parseInt(data[2]);
+			LocalDateTime LDT = LocalDateTime.of(year, month, day, 0 , 0 , 0);
+			
+			event.setEndDate(LDT);
 		BettableEvent newEvent = userDao.createBettableEvent(event, userId);
+		System.out.println("event: " + event + "userId: " + userId);
+		
 		mv.addObject("event", newEvent);
 		mv.setViewName("home");
 		return mv;

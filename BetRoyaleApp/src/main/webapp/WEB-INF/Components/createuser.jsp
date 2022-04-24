@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<form action="addUser.do" method="POST">
+<form action="createUser.do" method="POST">
 	<label for="username">Username: </label> 
 	<input id="username"
 		type="text" placeholder="username" name="username" />
@@ -18,10 +18,11 @@
 	<input id="lastName"
 		type="text" placeholder="lastName" name="lastName" />
 		 <br> <br>
-	<label for="active">Active </label> 
+	<!-- <label for="active">Active </label> 
 	<input id="active" type="text"
 		placeholder="active" name="active" />
-		 <br> <br> <label
+		 <br> <br> -->
+		 <label
 		for="aboutMe">About me </label>
 		 <input id="aboutMe" type="text"
 		placeholder="aboutMe" name="aboutMe" /> <br> <br> <input
