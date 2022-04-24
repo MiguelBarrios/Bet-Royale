@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,7 +22,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	@RequestMapping(path = "addUser.do")
+	@PostMapping(path = "addUser.do")
 	public String home(Model model, User user) {
 		User newUser = userDao.createUser(user);
 		//DEBUG
@@ -38,7 +39,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+	@PostMapping(path = "login.do")
 	public String submitLogin(String username, String password,HttpSession session ) {
 		User user = userDao.submitLogin(username, password);
 
@@ -51,14 +52,15 @@ public class UserController {
 			return "home";
 	}
 	
-	@RequestMapping(path="createWager.do")
-	public String createWager(User user, Wager wager) {
-		
+	@PostMapping(path="createWager.do")
+	public ModelAndView createWager(Wager wager) {
+		ModelAndView mv = new ModelAndView();
 		Wager newWager = userDao.createWager(wager);
+		mv.addObject("wager", newWager);
 		System.out.println(newWager);
 
 		//TODO Replace with desired JSP
-		return "home";
+		return mv;
 		
 		
 	}
