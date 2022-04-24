@@ -74,6 +74,18 @@ public class EventReview {
 		this.review_date = review_date;
 	}
 
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public BettableEvent getBettableEvent() {
+		return bettableEvent;
+	}
+	public void setBettableEvent(BettableEvent bettableEvent) {
+		this.bettableEvent = bettableEvent;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(comment, id, rating, review_date);

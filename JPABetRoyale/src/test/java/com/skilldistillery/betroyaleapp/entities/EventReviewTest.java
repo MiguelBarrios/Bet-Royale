@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class EventReviewTest {
@@ -48,10 +49,32 @@ class EventReviewTest {
 	}
 	
 	@Test
-	void test() {
+	@DisplayName("ManyToMany EventReview --> Bettable Event")
+	void test1() {
 		assertNotNull(review);
 		assertEquals(2,review.getId().getUserId());
 		assertEquals(1,review.getId().getBettableEventId());
 	}
+	
+	@Test
+	@DisplayName("ManyToMany EventReview --> Bettable Event")
+	
+//	SELECT name FROM bettable_event WHERE id=1;
+//	+--------------+
+//	| name         |
+//	+--------------+
+//	| does it work |
+//	+--------------+
+	
+	void test2() {
+		assertNotNull(review);
+		assertNotNull(review.getBettableEvent());
+		assertEquals("does it work", review.getBettableEvent().getName());
+		
+	}
+	
 
+	
+	
+	
 }

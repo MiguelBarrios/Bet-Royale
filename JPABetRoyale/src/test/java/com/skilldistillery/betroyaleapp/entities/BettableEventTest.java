@@ -128,6 +128,16 @@ class BettableEventTest {
 		
 	}
 	
+	@Test
+	@DisplayName("Testing ManyToMany BettableEvent(Many) --> EventReview(Many)")
+	void test6() {
+		assertNotNull(bet);
+		assertNotNull(bet.getEventReview());
+		assertTrue(bet.getEventReview().size() > 0);
+	}
+		
+	
+	
 	
 
 }
