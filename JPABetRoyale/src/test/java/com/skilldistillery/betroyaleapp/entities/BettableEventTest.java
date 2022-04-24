@@ -117,11 +117,16 @@ class BettableEventTest {
 		assertNotNull(bet.getSubcategories());		
 		assertTrue(bet.getSubcategories().size()>0);
 		
-		
-		
 	}
 	
-	
+	@Test
+	@DisplayName("Testing relational mapping from bettable event to contender")
+	void test5() {
+		assertNotNull(bet);
+		assertNotNull(bet.getContenders());		
+		assertTrue(bet.getContenders().size()>0);
+		
+	}
 	
 	
 
