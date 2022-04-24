@@ -43,47 +43,39 @@ public class UserController {
 		return "home";
 	}
 
-	
-	
-	
 	public void foo(@RequestParam("number[]") List<String> to) {
-	    for(String number : to) {
-	        System.out.println(number);
-	    }
+		for (String number : to) {
+			System.out.println(number);
+		}
 	}
-	
-	
-	
-	@RequestMapping(path = "userCreateBetEvent.do",method = RequestMethod.POST)
-	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2,
-			String [] contenderName, 
-			Double [] contenderOdds) {
+
+	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
+	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
+			Double[] contenderOdds) {
 		ModelAndView mv = new ModelAndView();
-		if(userId > 0) {
-			String [] data = endDate2.split("-");
+		if (userId > 0) {
+			String[] data = endDate2.split("-");
 			int year = Integer.parseInt(data[0]);
 			int month = Integer.parseInt(data[1]);
 			int day = Integer.parseInt(data[2]);
-			LocalDateTime LDT = LocalDateTime.of(year, month, day, 0 , 0 , 0);
-			
+			LocalDateTime LDT = LocalDateTime.of(year, month, day, 0, 0, 0);
+
 			event.setEndDate(LDT);
-		BettableEvent newEvent = userDao.createBettableEvent(event, userId);
-		System.out.println("event: " + event + "userId: " + userId);
-		
-		mv.addObject("event", newEvent);
-		mv.setViewName("home");
-		return mv;
+			BettableEvent newEvent = userDao.createBettableEvent(event, userId);
+			System.out.println("event: " + event + "userId: " + userId);
+
+			mv.addObject("event", newEvent);
+			mv.setViewName("home");
+			return mv;
 		}
-		
+
 		else {
 			mv.setViewName("home");
 			return mv;
 		}
-		
+
 	}
-	
-	
-	
+
 //	
 //	@PostMapping(path = "createContender.do")
 //	public ModelAndView userCreateContender(Contender contender) {
@@ -97,13 +89,13 @@ public class UserController {
 //	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String submitLogin(String username, String password, HttpSession session ) {
+	public String submitLogin(String username, String password, HttpSession session) {
 		User user = userDao.login(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
 			System.out.println(user);
-			return "home"; 
+			return "home";
 		} else
 			return "home";
 	}
@@ -119,7 +111,4 @@ public class UserController {
 		return mv;
 	}
 
-
-	
-	
 }
