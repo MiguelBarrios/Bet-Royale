@@ -65,6 +65,7 @@ public class UserController {
 			//Event was created
 			if(newEvent.getId() != 0) {
 				
+				
 				if(contenderName.length == contenderOdds.length) {
 					for(int i = 0; i < contenderName.length; ++i) {
 						Contender contender = new Contender();
