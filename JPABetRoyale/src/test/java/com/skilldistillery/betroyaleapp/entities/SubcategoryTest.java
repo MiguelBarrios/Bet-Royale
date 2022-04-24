@@ -82,6 +82,16 @@ public class SubcategoryTest {
 			assertTrue(subcategory.getUsers().size()>0);
 		}
 		
+		@Test
+		@DisplayName("Testing relational mapping from subcategory to category")
+		void test3() {
+			assertNotNull(subcategory);
+			assertNotNull(subcategory.getCategory());
+			assertEquals(1, subcategory.getCategory().getId());
+			assertEquals("fight", subcategory.getCategory().getName());
+			
+		}
+		
 		
 		
 		
