@@ -8,7 +8,7 @@ public interface UserDAO {
 	User findById(int userId);
 	User createUser(User user);
 	User updateUser(User user);
-	Wager createWager(Wager wager);
 	User submitLogin(String username, String password);
+	Wager createWager(Wager wager, int userId);
 	
 }
