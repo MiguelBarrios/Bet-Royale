@@ -67,9 +67,14 @@
 </div>
 
 
+-----------------------Create Wager-----------------------------------------
+<br>
 
+<h2>Create Wager</h2>
 
+<jsp:include page="Components/createwager.jsp" />
 
+<br>
 
 
 </body>

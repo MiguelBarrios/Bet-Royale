@@ -95,7 +95,7 @@ public class Wager {
 	@Override
 	public String toString() {
 		return "Wager [id=" + id + ", betAmount=" + betAmount + ", multiplier=" + multiplier + ", contender="
-				+ contender.getName() + ", user=" + user.getUsername() + "]";
+				+ contender + ", user=" + user + "]";
 	}
 	
 	

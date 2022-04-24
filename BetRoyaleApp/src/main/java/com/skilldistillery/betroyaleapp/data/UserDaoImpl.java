@@ -105,8 +105,10 @@ public class UserDaoImpl implements UserDAO {
 	public Wager createWager(Wager wager, int userId) {
 		User user = em.find(User.class, userId);
 		wager.setUser(user);
+		wager.setBetAmount(wager.getBetAmount());
 		em.persist(wager);
 		em.flush();
+		
 
 		return wager;
 
