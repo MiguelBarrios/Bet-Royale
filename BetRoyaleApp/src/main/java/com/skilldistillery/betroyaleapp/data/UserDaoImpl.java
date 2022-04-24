@@ -76,7 +76,6 @@ public class UserDaoImpl implements UserDAO {
 	public Contender createContender(Contender contender) {
 		em.persist(contender);
 		em.flush();
-		
 		return contender;
 	}
 
