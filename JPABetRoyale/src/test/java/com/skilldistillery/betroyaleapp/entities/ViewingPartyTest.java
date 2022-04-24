@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 
@@ -88,6 +89,15 @@ class ViewingPartyTest {
 		assertNotNull(user);
 		assertEquals(2, user.getId());
 		assertEquals("lpaladini", user.getUsername());
+	}
+	
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> ViewingParty(Many)")
+	void test4() {
+		viewingParty = em.find(ViewingParty.class, 1);
+		assertNotNull(viewingParty);
+		assertNotNull(viewingParty.getUsers());
+		assertTrue(viewingParty.getUsers().size() > 0);
 	}
 	
 }

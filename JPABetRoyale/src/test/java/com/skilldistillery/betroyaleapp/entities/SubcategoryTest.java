@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -40,7 +41,7 @@ public class SubcategoryTest {
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		subcategory = null;
+		subcategory = null; 
 	}
 	
 	@Test
@@ -58,12 +59,30 @@ public class SubcategoryTest {
 	}
 		
 		@Test
-		@DisplayName("Testing Subcategory realtional to Bettable Event")
+		@DisplayName("Testing Subcategory realtional mapping to Bettable Event")
 		void test1() {
-
+//			mysql> select * from bettable_event join bettable_event_has_subcategory on bettable_event.id = bettable_event_has_subcategory.bettable_event_id join subcategory on subcategory.id = bettable_event_has_subcategory.subcategory_id where bettable_event.id = 1;
+//			+----+--------------+---------------------+------------+---------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+--------+-------------------+----------------+----+------------+-------------+-------------+
+//			| id | name         | end_date            | completion | user_id | description          | image_url                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | date_created | active | bettable_event_id | subcategory_id | id | name       | description | category_id |
+//			+----+--------------+---------------------+------------+---------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+--------+-------------------+----------------+----+------------+-------------+-------------+
+//			|  1 | does it work | 2022-04-30 14:12:00 |       NULL |       2 | does this test work? | https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ | NULL         |      1 |                 1 |              1 |  1 | DeathMatch | L vs A      |           1 |
+//			+----+--------------+---------------------+------------+---------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+--------+-------------------+----------------+----+------------+-------------+-------------+
+		
 			assertNotNull(subcategory);
+			assertNotNull(subcategory.getBettableEvents());
+			assertTrue(subcategory.getBettableEvents().size()>0);
+		}
+		
+		@Test
+		@DisplayName("Testing Subcategory realtional mapping to Bettable Event")
+		void test2() {
 			
+			assertNotNull(subcategory);
+			assertNotNull(subcategory.getUsers());
+			assertTrue(subcategory.getUsers().size()>0);
+		}
 		
 		
-	}
+		
+		
 }

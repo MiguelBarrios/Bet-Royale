@@ -28,9 +28,8 @@ public class Category {
 	  @ManyToMany
 	  @JoinTable(name="user_has_category",
 	    joinColumns=@JoinColumn(name="category_id"),
-	    inverseJoinColumns=@JoinColumn(name="user_id")
-	  )
-	  private List<User> users;
+	    inverseJoinColumns=@JoinColumn(name="user_id"))
+	  	private List<User> users;
 
 //End Variable Declarations -----------------------
 	

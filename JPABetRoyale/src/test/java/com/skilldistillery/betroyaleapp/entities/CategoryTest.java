@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,4 +61,13 @@ class CategoryTest {
 		
 	}
 
+	@Test
+	@DisplayName("Testing ManyToMany Category(1) ---> User(Many)")
+	void test2() {
+		category = em.find(Category.class, 1);
+		assertNotNull(category);
+		assertNotNull(category.getUsers());
+		assertTrue(category.getUsers().size() > 0);
+	}
+	
 }
