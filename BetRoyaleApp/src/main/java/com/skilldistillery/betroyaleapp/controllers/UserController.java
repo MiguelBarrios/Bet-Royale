@@ -1,7 +1,6 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.User;
