@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 @Service
 @Transactional
 public class UserDaoImpl implements UserDAO {
@@ -54,7 +55,8 @@ public class UserDaoImpl implements UserDAO {
 		return updatedUser;
 	}
 	
-	public User login(String username, String password) {
+	@Override
+	public User submitLogin(String username, String password) {
 		User u = null;
 		Set<Integer> keys = users.keySet();
 		for (Integer key : keys) {
@@ -65,6 +67,16 @@ public class UserDaoImpl implements UserDAO {
 			}
 		}
 		return u;
+	}
+	
+	@Override
+	public Wager createWager(Wager wager) {
+		em.getTransaction().begin();
+		em.persist(wager);
+		em.flush();
+		em.getTransaction().commit();
+		
+		return wager;
 	}
 }
 

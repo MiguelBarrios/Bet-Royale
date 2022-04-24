@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 @Controller
 public class UserController {
@@ -36,31 +37,30 @@ public class UserController {
 		return "home";
 	}
 	
-	@RequestMapping("login.do")
-	public ModelAndView login(User user, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		user = new User();
-		if( session.getAttribute("user") != null) {
-			mv.setViewName("redirect:index.do");
-		}
-		else {
-			mv.addObject("userLogin", user);
-			mv.setViewName("login");
-		}
-	return mv;
-		}
-
+	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password,HttpSession session ) {
-		User user = userDao.login(username, password);
+		User user = userDao.submitLogin(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
 			System.out.println(user.getUsername());
 			return "home"; 
 		} else
+			//TODO replace with desired JSP
 			return "home";
 	}
 	
+	@RequestMapping(path="createWager.do")
+	public String createWager(User user, Wager wager) {
+		
+		Wager newWager = userDao.createWager(wager);
+		System.out.println(newWager);
+
+		//TODO Replace with desired JSP
+		return "home";
+		
+		
+	}
 
 }
