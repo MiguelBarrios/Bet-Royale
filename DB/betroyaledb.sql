@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `bettable_event` (
   `image_url` VARCHAR(2500) NULL,
   `date_created` DATETIME NULL,
   `active` TINYINT NOT NULL,
+  `contender_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Bet_info_User_idx` (`user_id` ASC),
   CONSTRAINT `fk_Bet_info_User`
@@ -83,9 +84,9 @@ CREATE TABLE IF NOT EXISTS `contender` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `description` VARCHAR(2000) NULL,
-  `bettable_event_id` INT NOT NULL,
   `is_winner` TINYINT NULL,
   `odds` DOUBLE NULL,
+  `bettable_event_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_contender_bettable_event1_idx` (`bettable_event_id` ASC),
   CONSTRAINT `fk_contender_bettable_event1`
@@ -399,7 +400,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, 1);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, 1, NULL);
 
 COMMIT;
 
@@ -419,8 +420,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `contender` (`id`, `name`, `description`, `bettable_event_id`, `is_winner`, `odds`) VALUES (1, 'viper', 'this will work', 1, NULL, 0.5);
-INSERT INTO `contender` (`id`, `name`, `description`, `bettable_event_id`, `is_winner`, `odds`) VALUES (2, 'blaze', 'this won\'t work', 1, NULL, 0.5);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (1, 'viper', 'this will work', NULL, 0.5, 1);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (2, 'blaze', 'this won\'t work', NULL, 0.5, 1);
 
 COMMIT;
 
@@ -462,6 +463,7 @@ COMMIT;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2, NULL);
+INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (2, '2022-04-22 18:24:00', 'soup', 1, 3, 1);
 
 COMMIT;
 
@@ -522,6 +524,7 @@ COMMIT;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `party_comment` (`id`, `comment_date`, `comment_text`, `user_id`, `viewing_party_id`, `in_reply_to`) VALUES (1, '2022-04-22', 'Grilled Salmon', 2, NULL, NULL);
+INSERT INTO `party_comment` (`id`, `comment_date`, `comment_text`, `user_id`, `viewing_party_id`, `in_reply_to`) VALUES (2, '2022-04-23', 'easy win', 3, NULL, 1);
 
 COMMIT;
 
