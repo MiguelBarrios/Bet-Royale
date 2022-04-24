@@ -47,7 +47,7 @@ class PartyCommentTest {
 		assertNotNull(partyComment);
 		assertEquals(2022, partyComment.getCommentDate().getYear());
 		assertEquals(4, partyComment.getCommentDate().getMonthValue());
-		assertEquals(22, partyComment.getCommentDate().getDayOfMonth());
+		assertEquals(21, partyComment.getCommentDate().getDayOfMonth());
 		assertEquals("Grilled Salmon", partyComment.getCommentText());
 //		select p.id, p.comment_date from party_comment p where id = 1;
 //		+----+---------------------+
