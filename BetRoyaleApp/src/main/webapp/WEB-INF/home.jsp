@@ -80,9 +80,9 @@ ${DEBUG}
 
 
 
+--------------------------------------------------------------------------
 
-
-
+<h2>Create Bet Event</h2>
 
 <form action="userCreateBetEvent.do" method="POST">
 	
