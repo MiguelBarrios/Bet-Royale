@@ -120,6 +120,14 @@ public class Subcategory {
 		this.description = description;
 	}
 
+	public List<BettableEvent> getBettableEvents() {
+		return bettableEvents;
+	}
+	
+	
+	public void setBettableEvents(List<BettableEvent> bettableEvents) {
+		this.bettableEvents = bettableEvents;
+	}
 
 
 	
@@ -127,13 +135,15 @@ public class Subcategory {
 	
 //Begin Hashcode, Equals, toString *******************************
 
-	public List<BettableEvent> getBettableEvents() {
-		return bettableEvents;
+
+
+	public List<User> getUsers() {
+		return users;
 	}
 
 
-	public void setBettableEvents(List<BettableEvent> bettableEvents) {
-		this.bettableEvents = bettableEvents;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 

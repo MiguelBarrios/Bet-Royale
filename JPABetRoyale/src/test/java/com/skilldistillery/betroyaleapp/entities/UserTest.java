@@ -62,10 +62,14 @@ class UserTest {
 	}
 	
 	@Test
-	@DisplayName("Testing ManyToMany User(1) ---> Category(Many)")
+	@DisplayName("Testing ManyToMany User(Many) ---> Category(Many)")
 	void test2() {
 		user = em.find(User.class, 2);
 		assertNotNull(user);
+
+		assertNotNull(user.getWagers());
+		assertTrue(user.getWagers().size() > 0);
+
 		assertNotNull(user.getCategories());
 		assertTrue(user.getCategories().size() > 0);
 	}
@@ -80,5 +84,35 @@ class UserTest {
 		assertNotNull(subcategories);
 		assertTrue(subcategories.size() > 0);
 	}
+
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> ViewingParty(Many)")
+	void test6() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getViewParties());
+		assertTrue(user.getViewParties().size() > 0);
+	}
+
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> Subcategories(Many)")
+	void test4() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getSubcategories());
+		assertTrue(user.getSubcategories().size() > 0);
+
+	}
+	
+	@Test
+	@DisplayName("Testing OneToMany User(1)---> Categories(Many)")
+	void test5() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getCategories());
+		assertTrue(user.getCategories().size() > 0);
+	}
+	
+	
 
 }

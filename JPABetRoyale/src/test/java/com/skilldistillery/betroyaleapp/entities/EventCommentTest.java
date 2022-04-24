@@ -100,6 +100,5 @@ class EventCommentTest {
 		assertNotNull(eventComment);
 		assertNotNull(eventComment.getReplies());
 		assertTrue(eventComment.getReplies().size() > 0);
-		
 	}
 }

@@ -1,6 +1,7 @@
 package com.skilldistillery.betroyaleapp.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,9 +33,17 @@ public class PartyComment {
 	@Column(name="viewing_party_id")
 	private Integer viewingPartyId;
 	
-	@Column(name="in_reply_to")
+	@Column(name="in_reply_to", insertable =false, updatable=false)
 	private Integer inReplyTo;
 
+	
+	
+	@OneToMany
+	@JoinColumn(name = "inReplyTo")
+	private List<PartyComment> comments;
+	
+	
+	
 	public PartyComment() {
 		super();
 	}
@@ -85,6 +96,8 @@ public class PartyComment {
 		this.inReplyTo = inReplyTo;
 	}
 
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(commentDate, commentText, id, inReplyTo, userId, viewingPartyId);

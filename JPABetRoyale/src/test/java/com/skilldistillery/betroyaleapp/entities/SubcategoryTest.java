@@ -71,8 +71,18 @@ public class SubcategoryTest {
 			assertNotNull(subcategory);
 			assertNotNull(subcategory.getBettableEvents());
 			assertTrue(subcategory.getBettableEvents().size()>0);
+		}
+		
+		@Test
+		@DisplayName("Testing Subcategory realtional mapping to Bettable Event")
+		void test2() {
 			
+			assertNotNull(subcategory);
+			assertNotNull(subcategory.getUsers());
+			assertTrue(subcategory.getUsers().size()>0);
+		}
 		
 		
-	}
+		
+		
 }
