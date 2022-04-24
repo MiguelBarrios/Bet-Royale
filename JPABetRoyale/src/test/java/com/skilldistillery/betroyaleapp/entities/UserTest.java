@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -60,12 +62,30 @@ class UserTest {
 	}
 	
 	@Test
-	@DisplayName("Testing ManyToMany User(1) ---> Category(Many)")
+	@DisplayName("Testing ManyToMany User(Many) ---> Category(Many)")
 	void test2() {
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 		assertNotNull(user);
 		assertNotNull(user.getCategories());
 		assertTrue(user.getCategories().size() > 0);
+	}
+	
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> ViewingParty(Many)")
+	void test3() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getViewingParties());
+		assertTrue(user.getViewingParties().size() > 0);
+	}
+
+	@Test
+	@DisplayName("Testing ManyToMany User(Many) ---> Subcategories(Many)")
+	void test4() {
+		user = em.find(User.class, 2);
+		assertNotNull(user);
+		assertNotNull(user.getSubcategories());
+		assertTrue(user.getSubcategories().size() > 0);
 	}
 
 }
