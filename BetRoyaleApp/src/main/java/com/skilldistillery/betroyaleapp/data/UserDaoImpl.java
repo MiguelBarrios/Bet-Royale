@@ -1,7 +1,7 @@
 package com.skilldistillery.betroyaleapp.data;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -57,18 +57,24 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User submitLogin(String username, String password) {
-		User u = null;
-		Set<Integer> keys = users.keySet();
-		for (Integer key : keys) {
-			User user = users.get(key);
-			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-				u = user;
-				break;
+	public User login(String username, String password) {
+		
+		User user = null;
+		
+		String jpql = "SELECT u FROM User u where u.username = :username";
+		try {
+			user = em.createQuery(jpql, User.class)
+					.setParameter("username", username)
+					.getSingleResult();
+			
+			if(user != null) {
+				if(user.getPassword().equals(password)) {
+					return user;
+				}
 			}
-		}
-		return u;
-	}
+		}catch(Exception e){ }
+		return null;
+}
 
 	@Override
 	public Wager createWager(Wager wager, int userId) {
@@ -76,10 +82,10 @@ public class UserDaoImpl implements UserDAO {
 		wager.setUser(user);
 		em.persist(wager);
 		em.flush();
+
 		return wager;
 
 	}
 
-	
 
 }

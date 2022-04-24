@@ -12,7 +12,10 @@
 		placeholder="lastName" name="lastName" /> <br> <br> <label
 		for="active">Active </label> <input id="active" type="text"
 		placeholder="active" name="active" /> <br> <br> <label
-		for="aboutMe">About me </label> <input id="aboutMe" type="text"
-		placeholder="aboutMe" name="aboutMe" /> <br> <br> <input
+		for="aboutMe">About me </label> 
+		<input id="aboutMe" type="text"
+		placeholder="aboutMe" name="aboutMe" /> <br> <br>
+		
+		<input
 		type="submit" />
 </form>
