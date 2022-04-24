@@ -64,7 +64,7 @@ class UserTest {
 	@Test
 	@DisplayName("Testing ManyToMany User(1) ---> Category(Many)")
 	void test2() {
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 		assertNotNull(user);
 		assertNotNull(user.getCategories());
 		assertTrue(user.getCategories().size() > 0);
@@ -74,13 +74,11 @@ class UserTest {
 	@DisplayName("Testing MTM relation from User to subcategory")
 	void test3() {
 		//mysql> select * from user_has_subcategory join subcategory sb on sb.id = user_has_subcategory.subcategory_id join user on user.id = user_has_subcategory.subcategory_id;
+		user = em.find(User.class, 2);
 		assertNotNull(user);
 		List<Subcategory> subcategories = user.getSubcategories();
-		System.out.println(subcategories);
 		assertNotNull(subcategories);
 		assertTrue(subcategories.size() > 0);
-		
 	}
-	
 
 }

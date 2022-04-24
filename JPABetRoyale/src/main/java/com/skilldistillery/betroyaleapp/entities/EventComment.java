@@ -1,44 +1,51 @@
 package com.skilldistillery.betroyaleapp.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="event_comment")
+@Table(name = "event_comment")
 public class EventComment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="comment_date")
+
+	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
-	
-	@Column(name="comment_text")
+
+	@Column(name = "comment_text")
 	private String commentText;
-	
-	@Column(name="in_reply_to_id")
+
+	@Column(name = "in_reply_to_id")
 	private Integer inReplyToId;
-	
+
 	@ManyToOne
-	@JoinColumn(name="bettable_event_id")
+	@JoinColumn(name = "bettable_event_id")
 	private BettableEvent bettableEvent;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
-	
-	
+
+	//:TODO: Check if correct
+	@OneToMany
+	@JoinColumn(name="inReplyToId")
+	private List<EventComment> replies;
+
 	public EventComment() {
 		super();
 	}
@@ -108,19 +115,23 @@ public class EventComment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
+	public List<EventComment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<EventComment> replies) {
+		this.replies = replies;
+	}
+
+	public void setInReplyToId(Integer inReplyToId) {
+		this.inReplyToId = inReplyToId;
+	}
 
 	@Override
 	public String toString() {
 		return "EventComment [id=" + id + ", commentDate=" + commentDate + ", commentText=" + commentText
 				+ ", inReplyToId=" + inReplyToId + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }
