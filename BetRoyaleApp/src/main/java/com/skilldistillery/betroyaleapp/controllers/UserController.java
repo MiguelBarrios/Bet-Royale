@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
@@ -49,7 +50,17 @@ public class UserController {
 	return mv;
 		}
 
-	
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+	public String submitLogin(String username, String password,HttpSession session ) {
+		User user = userDao.login(username, password);
+
+		if (user != null) {
+			session.setAttribute("user", user);
+			System.out.println(user.getUsername());
+			return "home"; 
+		} else
+			return "home";
+	}
 	
 
 }
