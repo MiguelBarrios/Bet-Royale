@@ -43,7 +43,6 @@ public class User {
 	private List<ViewingParty> viewingParties;
 
 	@ManyToMany(mappedBy = "users")
-	
 	private List<Category> categories;
 	
 	@ManyToMany(mappedBy = "users")
@@ -68,7 +67,6 @@ public class User {
 			if (!categories.contains(category)) {
 				categories.add(category);
 				category.addUser(this);
-				
 			}
 		}
 	}
@@ -232,7 +230,14 @@ public void addSubcategory(Subcategory subcategory) {
 	public void setWagers(List<Wager> wagers) {
 		this.wagers = wagers;
 	}
+	
 
+	public List<Subcategory> getSubcategories() {
+		return subcategories;
+	}
+	public void setSubcategories(List<Subcategory> subcategories) {
+		this.subcategories = subcategories;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(aboutMe, active, email, firstName, id, lastName, password, profileImage, role, username);

@@ -37,6 +37,8 @@ public class EventComment {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	
+	
 	public EventComment() {
 		super();
 	}

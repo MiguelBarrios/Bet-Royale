@@ -29,7 +29,8 @@ public class Subcategory {
 	private String description;
 	
 	@ManyToMany
-	@JoinTable(name="user_has_subcategory", joinColumns=@JoinColumn(name="subcategory_id"),
+	@JoinTable(name="user_has_subcategory", 
+		joinColumns=@JoinColumn(name="subcategory_id"),
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
 
