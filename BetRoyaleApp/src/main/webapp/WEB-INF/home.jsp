@@ -32,6 +32,10 @@
 
 
 
+
+
+
+
 <div>
 
 
@@ -58,9 +62,17 @@
 			 <label for="active">Active </label> 
 	<input id="active" type="text" placeholder="active" name="active" />
 		 <br> <br> 
-	
-	
-		
+		 
+  <input type="text" name="contenderName">
+  <input type="text" name="contenderName">
+  <input type="text" name="contenderName">
+  
+  <br>
+  <br>
+  <input type="text" name="contenderOdds">
+  <input type="text" name="contenderOdds">
+  <input type="text" name="contenderOdds">
+  
 			 <input type="submit"/>
 	</form>
 
