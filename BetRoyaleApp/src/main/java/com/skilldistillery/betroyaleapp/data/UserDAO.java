@@ -9,6 +9,6 @@ public interface UserDAO {
 	User createUser(User user);
 	User updateUser(User user);
 	Wager createWager(Wager wager);
-	User submitLogin(String username, String password);
+	User login(String username, String password);
 	
 }

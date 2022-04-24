@@ -37,17 +37,15 @@ public class UserController {
 		return "home";
 	}
 	
-	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String submitLogin(String username, String password,HttpSession session ) {
-		User user = userDao.submitLogin(username, password);
+	public String submitLogin(String username, String password, HttpSession session ) {
+		User user = userDao.login(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			System.out.println(user.getUsername());
+			System.out.println(user);
 			return "home"; 
 		} else
-			//TODO replace with desired JSP
 			return "home";
 	}
 	
