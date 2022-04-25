@@ -29,6 +29,8 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	
+	
 
 	@PostMapping(path = "createUser.do")
 	public String home(Model model, User user) {

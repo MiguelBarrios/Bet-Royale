@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
 
@@ -106,10 +107,29 @@ public class EventsDaoImpl implements EventsDAO {
 		}
 		return userCreated;
 	}
+
 	
-	
-	
-	
+	@Transactional
+	@Override
+	public Contender updateContender(int contenderId, boolean isWinner) {
+		
+		Contender contender = em.find(Contender.class, contenderId);
+		contender.setIsWinner(isWinner);
+		em.persist(contender);
+		em.flush();
+		
+		
+		return contender;
+		
+	}
+	@Transactional
+	@Override
+	public BettableEvent updateBettableEvent(BettableEvent event) {
+		em.persist(event);
+		em.flush();
+		
+		return event;
+	}
 	
 
 }
