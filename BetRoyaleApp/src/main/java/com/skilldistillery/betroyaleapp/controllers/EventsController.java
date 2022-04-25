@@ -119,6 +119,14 @@ public class EventsController {
 	}
 	
 	
+	@GetMapping("getLeaderboard.do")
+	public ModelAndView getLeaderBoard(){
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
 	
 	
 	
