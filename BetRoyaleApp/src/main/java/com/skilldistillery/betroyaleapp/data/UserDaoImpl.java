@@ -1,6 +1,5 @@
 package com.skilldistillery.betroyaleapp.data;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
@@ -114,6 +113,8 @@ public class UserDaoImpl implements UserDAO {
 		return wager;
 
 	}
+
+	
 
 
 

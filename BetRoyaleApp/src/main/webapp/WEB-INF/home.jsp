@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,15 +46,14 @@
 		 
 		 <label for="name">New Betting Event Name: </label>
 		 <input id="name" type="text" placeholder="Betting Event Name" name="name" />
-		
 			 <br>
 			 <br> 
-		<label for="description ">Event Description: </label>
+			 <label for="description ">Event Description: 
+			 </label>
 		 <input id="description" type="text" placeholder="Event Description" name="description" />
 		
 			 <br>
-			 <br> 
-		<label for="endDate2">End Date: </label>
+			 <br> <label for="endDate2">End Date: </label>
 		
 		 <input id="endDate2" type="text" placeholder="Event End Date" name="endDate2" />
 			 <br>
@@ -87,6 +87,45 @@
 <jsp:include page="Components/createwager.jsp" />
 
 <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------Display all bettable events---------------------------
+	
+	<ol>
+	<c:forEach var="e" items="${betEvent}">
+					<li>${e.name} </li>
+					<li>${e.description} </li>
+					<li>${e.endDate} </li>
+					
+				</c:forEach>
+	</ol>
+
+
+
+
+
+
+
+
 
 
 </body>

@@ -89,17 +89,6 @@ public class UserController {
 
 	}
 
-//	
-//	@PostMapping(path = "createContender.do")
-//	public ModelAndView userCreateContender(Contender contender) {
-//		ModelAndView mv = new ModelAndView();
-//		Contender newContender = userDao.createContender(contender);
-//		mv.addObject("contender", newContender);
-//		mv.setViewName("home");
-//		
-//		return mv;
-//	}
-//	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password, HttpSession session) {
