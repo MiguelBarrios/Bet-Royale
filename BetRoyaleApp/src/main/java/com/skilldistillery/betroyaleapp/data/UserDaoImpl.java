@@ -97,7 +97,8 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return contender;
 	}
-
+	
+	
 	@Transactional
 	@Override
 	public User login(String username, String password) {
@@ -137,8 +138,8 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public Wager showWager(Wager wager, int userId) {
 		User user = em.find(User.class, userId);
-
 		return wager;
+
 	}
 
 	@Override
