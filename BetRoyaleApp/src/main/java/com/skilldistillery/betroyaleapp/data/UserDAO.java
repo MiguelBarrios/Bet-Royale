@@ -21,6 +21,7 @@ public interface UserDAO {
 	Wager createWager(Wager wager, int userId, int contenderId);
 	
 	Category searchByCategory(String keyword);
+	Category createCategory(Category category);
 
 	
 }

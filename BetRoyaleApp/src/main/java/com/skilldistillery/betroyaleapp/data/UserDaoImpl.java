@@ -146,6 +146,14 @@ public class UserDaoImpl implements UserDAO {
 		return category;
 	}
 
+	@Override
+	public Category createCategory(Category category) {
+		em.persist(category);
+		em.flush();
+		return category;
+	}
+
+
 
 
 }

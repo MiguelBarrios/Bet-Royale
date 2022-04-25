@@ -82,9 +82,14 @@ public class UserController {
 			//Link Category
 			// TODO link with category passed in 
 			Category cat = new Category();
-			cat.setId(1);
+			if(cat == null || cat.getId() == 0) {
+				
+			}
 			
 			
+			
+			cat = userDao.searchByCategory(category);
+			System.out.println("Category: " + cat);
 			
 			//----- link subcategories to -------
 			if(cname.length > 0) {
@@ -92,8 +97,15 @@ public class UserController {
 					Subcategory sub = new Subcategory();
 					sub.setName(cname[i]);
 					sub.setDescription(cdescription[i]);
+					sub.setCategory(cat);
 					event.addSubcategory(sub);
 				}
+			}
+			
+			List<Subcategory> sb = event.getSubcategories();
+			
+			for(Subcategory i : sb) {
+				System.out.println(i);
 			}
 
 			mv.addObject("event", newEvent);
