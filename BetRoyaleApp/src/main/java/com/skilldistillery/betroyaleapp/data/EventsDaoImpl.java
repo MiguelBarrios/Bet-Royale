@@ -5,10 +5,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.EventComment;
+import com.skilldistillery.betroyaleapp.entities.User;
 
 @Service
 public class EventsDaoImpl implements EventsDAO {
@@ -35,6 +38,25 @@ public class EventsDaoImpl implements EventsDAO {
 		return betEvents;
 	}
 
+	@Transactional
+	@Override
+	public EventComment addComment(EventComment comment) {
+		em.persist(comment);
+		em.flush();
+		return comment;
+	}
+
+	@Override
+	public BettableEvent findEventById(int id) {
+		return em.find(BettableEvent.class, id);
+	}
+
+	@Override
+	public User findUserById(int id) {
+		return em.find(User.class, id);
+	}
+	
+	
 	@Override
 	public List<BettableEvent> displayActiveBettableEvents() {
 		List<BettableEvent> activeBetEvents = new ArrayList<BettableEvent>();
