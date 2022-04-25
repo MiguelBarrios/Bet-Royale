@@ -7,7 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.hibernate.tool.schema.internal.AbstractSchemaValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
@@ -106,6 +108,11 @@ public class EventsDaoImpl implements EventsDAO {
 		}
 		return userCreated;
 	}
+	
+	
+	
+	
+	
 
 }
 
