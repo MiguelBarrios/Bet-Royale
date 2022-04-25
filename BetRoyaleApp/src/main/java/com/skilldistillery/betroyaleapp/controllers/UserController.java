@@ -110,7 +110,7 @@ public class UserController {
 			}
 			
 			mv.addObject("event", newEvent);
-			mv.setViewName("home");
+			mv.setViewName("accounthome");
 			return mv;
 		}
 
@@ -123,15 +123,22 @@ public class UserController {
 
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String submitLogin(String username, String password, HttpSession session) {
+	public ModelAndView submitLogin(String username, String password, HttpSession session) {
+		
+		ModelAndView mv = new ModelAndView();
 		User user = userDao.login(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
 			System.out.println(user);
-			return "home";
-		} else
-			return "home";
+			mv.addObject("user",user);
+			mv.setViewName("accounthome");
+			
+		} else {
+			mv.setViewName("home");
+		}
+		
+		return mv;
 	}
 
 	@PostMapping(path = "createWager.do")
