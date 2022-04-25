@@ -79,37 +79,22 @@
 
 </div>
 
-<<<<<<< HEAD
+
 --------------------------------------------------------------------------
 <!-- Search testing -->
 <br>
 ${username.username} }
-=======
+
 
 -----------------------Create Wager-----------------------------------------
 <br>
->>>>>>> cfb3dc6ab597d305246606534a081b076ab64477
+
 
 <h2>Create Wager</h2>
 
 <jsp:include page="Components/createwager.jsp" />
 
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
