@@ -19,9 +19,12 @@ public class HomeController {
 	@Autowired
 	private UserDAO userDao;
 	
+	
+	
+	
 	@RequestMapping(path = { "/", "home.do" })
-	public String home(Model model) {
-		model.addAttribute("DEBUG", userDao.findById(1));
+	public String home() {
+		System.out.println("in home controller");
 		return "home";
 	}
 	
