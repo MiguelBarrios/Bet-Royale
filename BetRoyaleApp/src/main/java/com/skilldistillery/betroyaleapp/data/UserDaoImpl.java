@@ -115,6 +115,12 @@ public class UserDaoImpl implements UserDAO {
 
 	}
 
+	@Override 
+	public Wager showWager(Wager wager, int userId) {
+		User user = em.find(User.class, userId);
+		
+		return wager;
+	}
 
 
 }

@@ -15,8 +15,8 @@
 	<input id="betAmount"
 		type="text" placeholder="Bet Amount" name="betAmount" />
 		 <br> <br>
-	
-	
-	
-	 <input type="submit" />
+	 <input type="submit"/>
 </form>
+	
+	
+	
