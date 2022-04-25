@@ -9,6 +9,7 @@ import com.skilldistillery.betroyaleapp.entities.User;
 public interface EventsDAO {
 
 	List<BettableEvent> displayBettableEvents();
+	
 	EventComment addComment(EventComment comment);
 	BettableEvent findEventById(int id);
 	User findUserById(int id);
