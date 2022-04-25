@@ -436,6 +436,8 @@ INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bett
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (4, 'Marlon Vera', 'Bantamweight', NULL, 0.3, 3);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (5, 'messi', 'soccer match', 1, 0.5, 2);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (6, 'futabal', 'soccer match', 0, 0.5, 2);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (7, 'spaghetti ', 'intial test contender', 0, 0.5, 1);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (8, 'soup', 'initial test contender 2', 0, 0.5, 1);
 
 COMMIT;
 
