@@ -68,6 +68,7 @@ public class UserController {
 			//---- Link Contenders to categories
 			if(newEvent.getId() != 0) {
 				
+				
 				if(contenderName.length == contenderOdds.length) {
 					for(int i = 0; i < contenderName.length; ++i) {
 						Contender contender = new Contender();
@@ -95,18 +96,18 @@ public class UserController {
 			}
 			
 			System.out.println("Category: " + cat);
-//			
-//			//----- link subcategories to -------
-//			if(cname.length > 0) {
-//				for(int i = 0; i < cname.length; ++i) {
-//					Subcategory sub = new Subcategory();
-//					sub.setName(cname[i]);
-//					sub.setDescription(cdescription[i]);
-//					sub.setCategory(cat);
-//					sub = userDao.createSubCategory(sub);
-//					event.addSubcategory(sub);
-//				}
-//			}
+			
+			//----- link subcategories to -------
+			if(cname.length > 0) {
+				for(int i = 0; i < cname.length; ++i) {
+					Subcategory sub = new Subcategory();
+					sub.setName(cname[i]);
+					sub.setDescription(cdescription[i]);
+					sub.setCategory(cat);
+					sub = userDao.createSubCategory(sub);
+					event.addSubcategory(sub);
+				}
+			}
 //			
 //			List<Subcategory> sb = event.getSubcategories();
 //			
@@ -126,17 +127,6 @@ public class UserController {
 
 	}
 
-//	
-//	@PostMapping(path = "createContender.do")
-//	public ModelAndView userCreateContender(Contender contender) {
-//		ModelAndView mv = new ModelAndView();
-//		Contender newContender = userDao.createContender(contender);
-//		mv.addObject("contender", newContender);
-//		mv.setViewName("home");
-//		
-//		return mv;
-//	}
-//	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password, HttpSession session) {

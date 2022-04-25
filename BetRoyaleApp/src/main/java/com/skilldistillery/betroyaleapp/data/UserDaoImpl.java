@@ -131,13 +131,14 @@ public class UserDaoImpl implements UserDAO {
 
 	}
 
+
 	@Override
 	public Category searchByCategory(String keyword) {
-		Category category = new Category();
-		String jpql = "SELECT c.id, c.name, c.description FROM category c WHERE c.name = :name";
+		Category category = null;
+		String jpql = "SELECT c FROM Category c WHERE c.name = :name";
 		try {
 			category = em.createQuery(jpql, Category.class)
-					.setParameter("name", category)
+					.setParameter("name", keyword)
 					.getSingleResult();
 			
 			
@@ -160,6 +161,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return sb;
 	}
+
 
 
 
