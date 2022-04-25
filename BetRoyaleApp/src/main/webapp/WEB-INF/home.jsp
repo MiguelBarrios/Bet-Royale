@@ -126,6 +126,14 @@ ${username.username} }
 
 -------------------------------Display all bettable events---------------------------
 	
+	
+
+<form action="allBetEvents" method="GET">
+
+<input type="submit" id="betEvent" name="betEvent" value="DisplayAllBetEvents"/>
+
+</form>
+	
 	<ol>
 	<c:forEach var="e" items="${betEvent}">
 					<li>${e.name} </li>
@@ -135,7 +143,7 @@ ${username.username} }
 				</c:forEach>
 	</ol>
 	
--------------------------------Display all bettable events---------------------------
+-------------------------------Display all active bettable events---------------------------
 	
 	<ol>
 	<c:forEach var="e" items="${activeBetEvent}">
@@ -148,7 +156,9 @@ ${username.username} }
 	
 	
 	
--------------------------------Display all bettable events---------------------------
+-------------------------------Display all expired bettable events---------------------------
+	
+	
 	
 	<ol>
 	<c:forEach var="e" items="${expiredBetEvent}">
@@ -165,19 +175,17 @@ ${username.username} }
 
 ------------------------------- Add Comment ---------------------------
 
-<jsp:include page="Components/addCommentForm.jsp" />
 
+<jsp:include page="Components/addCommentForm.jsp" />
 -------------------------------Display all user created bettable events---------------------------
 	
-	<ol>
-	<c:forEach var="e" items="${user}">
 	
-					<li>${e.id} </li>
-					<li>${e.name} </li>
-					<li>${e.description} </li>
-					-------------------------------
-				</c:forEach>
-	</ol>
+	
+<jsp:include page="Components/usercreatedbetsview.jsp" />
+	
+	
+	
+
 
 
 

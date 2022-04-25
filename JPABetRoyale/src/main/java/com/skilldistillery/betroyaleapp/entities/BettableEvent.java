@@ -23,7 +23,7 @@ public class BettableEvent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	@Id
-	private int id;
+	private Integer id;
 	
 	private String name;
 	
@@ -61,6 +61,8 @@ public class BettableEvent {
 	)
 	private List<Subcategory> subcategories;
 	
+//	private List<BettableEvent> bettableEvents;
+	
 	// Begin Constructors ============================
 
 	public BettableEvent() {
@@ -94,12 +96,12 @@ public class BettableEvent {
 	
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -214,6 +216,16 @@ public class BettableEvent {
 	public void setEventReview(List<EventReview> eventReview) {
 		this.eventReview = eventReview;
 	}
+
+	
+	
+//	public List<BettableEvent> getBettableEvents() {
+//		return bettableEvents;
+//	}
+//
+//	public void setBettableEvents(List<BettableEvent> bettableEvents) {
+//		this.bettableEvents = bettableEvents;
+//	}
 
 	@Override
 	public String toString() {
