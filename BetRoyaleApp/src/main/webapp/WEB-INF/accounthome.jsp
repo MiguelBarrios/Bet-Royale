@@ -43,6 +43,13 @@
 </form>
 
 
+------------Display All User Created Betting Events----------------------
+
+
+<jsp:include page="Components/usercreatedbetsview.jsp" />
+
+
+
 
 </body>
 </html>
