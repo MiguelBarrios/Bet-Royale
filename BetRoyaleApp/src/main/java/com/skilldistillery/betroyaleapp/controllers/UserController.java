@@ -17,7 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -51,7 +53,7 @@ public class UserController {
 
 	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
-			Double[] contenderOdds) {
+			Double[] contenderOdds, String[] cname, String[] cdescription, String category, String categorydescription) {
 		ModelAndView mv = new ModelAndView();
 		if (userId > 0) {
 			String[] data = endDate2.split("-");
@@ -63,7 +65,7 @@ public class UserController {
 			event.setEndDate(LDT);
 			BettableEvent newEvent = userDao.createBettableEvent(event, userId);
 			
-			//Event was created
+			//---- Link Contenders to categories
 			if(newEvent.getId() != 0) {
 				
 				
@@ -77,7 +79,35 @@ public class UserController {
 					}
 				}
 			}
-
+			
+			System.out.println("Point 1");
+			
+			//Link Category
+			Category cat = userDao.searchByCategory(category);
+			System.out.println("point 2");
+			if(cat == null || cat.getId() == 0) {
+				System.out.println("inside herre");
+				cat = new Category();
+				cat.setName(category);
+				cat.setDescription(categorydescription);
+				System.out.println(cat);
+				cat = userDao.createCategory(cat);
+			}
+			
+			System.out.println("Category: " + cat);
+			
+			//----- link subcategories to -------
+			if(cname.length > 0) {
+				for(int i = 0; i < cname.length; ++i) {
+					Subcategory sub = new Subcategory();
+					sub.setName(cname[i]);
+					sub.setDescription(cdescription[i]);
+					sub.setCategory(cat);
+					sub = userDao.createSubCategory(sub);
+					event.addSubcategory(sub);
+				}
+			}
+			
 			mv.addObject("event", newEvent);
 			mv.setViewName("home");
 			return mv;

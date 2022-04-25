@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -139,11 +140,11 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public Category searchByCategory(String keyword) {
-		Category category = new Category();
-		String jpql = "SELECT c.id, c.name, c.description FROM category c WHERE c.name = :name";
+		Category category = null;
+		String jpql = "SELECT c FROM Category c WHERE c.name = :name";
 		try {
 			category = em.createQuery(jpql, Category.class)
-					.setParameter("name", category)
+					.setParameter("name", keyword)
 					.getSingleResult();
 			
 			
@@ -151,6 +152,20 @@ public class UserDaoImpl implements UserDAO {
 		
 		
 		return category;
+	}
+
+	@Override
+	public Category createCategory(Category category) {
+		em.persist(category);
+		em.flush();
+		return category;
+	}
+
+	@Override
+	public Subcategory createSubCategory(Subcategory sb) {
+		em.persist(sb);
+		em.flush();
+		return sb;
 	}
 
 
