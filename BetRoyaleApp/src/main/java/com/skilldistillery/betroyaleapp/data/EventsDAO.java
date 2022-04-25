@@ -27,6 +27,8 @@ public interface EventsDAO {
 	
 	BettableEvent updateBettableEvent(BettableEvent event);
 	
+	List<BettableEvent> getAllCompletedEvents();
+	
 	
 	
 }

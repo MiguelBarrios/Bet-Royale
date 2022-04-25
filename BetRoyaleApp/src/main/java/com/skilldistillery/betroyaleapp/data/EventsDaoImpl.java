@@ -132,8 +132,23 @@ public class EventsDaoImpl implements EventsDAO {
 		
 		return event;
 	}
+
+	@Override
+	public List<BettableEvent> getAllCompletedEvents() {
+		List<BettableEvent> events;
+		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
+		try {
+			events = em.createQuery(jpql, BettableEvent.class).getResultList();
+			events.forEach(System.out::println);
+			
+		}catch(Exception e){ 
+			e.printStackTrace();
+		} 
+		return null;
+	}
 	
 
+	
 }
 
 
