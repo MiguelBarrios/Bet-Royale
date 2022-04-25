@@ -40,7 +40,7 @@ public class EventsDaoImpl implements EventsDAO {
 		List<BettableEvent> activeBetEvents = new ArrayList<BettableEvent>();
 
 		try {
-			String jpql = "SELECT b FROM BettingEvent b WHERE b.active = 1";
+			String jpql = "SELECT b FROM BettableEvent b WHERE b.active = 1";
 
 			activeBetEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
 		} catch (Exception e) {
@@ -57,7 +57,7 @@ public class EventsDaoImpl implements EventsDAO {
 	public List<BettableEvent> displayExpiredBettableEvents() {
 		List<BettableEvent> expiredBetEvents = new ArrayList<BettableEvent>();
 		try {
-			String jpql = "SELECT b FROM BettingEvent b WHERE b.active = 0";
+			String jpql = "SELECT b FROM BettableEvent b WHERE b.active = 0";
 
 			expiredBetEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
 		} catch (Exception e) {
