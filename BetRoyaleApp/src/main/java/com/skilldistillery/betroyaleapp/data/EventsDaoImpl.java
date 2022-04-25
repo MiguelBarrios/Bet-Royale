@@ -211,6 +211,27 @@ public class EventsDaoImpl implements EventsDAO {
 
 		return results;
 	}
+
+	@Override
+	public List<Wager> getWagersForEvent(int eventId) {
+		List<Wager> wagers = null;
+		String jpql = "SELECT w FROM Wager w";
+		try {
+			wagers = em.createQuery(jpql, Wager.class).getResultList();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		List<Wager> res = new ArrayList<>();
+		for(Wager wager : wagers) {
+			if(wager.getContender().getEvent().getId() == eventId) {
+				res.add(wager);
+			}
+		}
+		
+		return res;
+	}
 	
 
 	

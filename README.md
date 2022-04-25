@@ -1,3 +1,4 @@
+# MidtermProject
 ## Midterm Project
 
 <!-- PROJECT LOGO -->
@@ -155,3 +156,4 @@ Project Link: [PROJECT NAME HERE](INSERT PROJECT LINK HERE)
 -   [Github - othneildrew](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+>>>>>>> 882829d588366eb4762f7959eb2039e617fc2aa0

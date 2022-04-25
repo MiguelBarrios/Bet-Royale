@@ -1,19 +1,12 @@
 package com.skilldistillery.betroyaleapp.client;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.skilldistillery.betroyaleapp.entities.BettableEvent;
-import com.skilldistillery.betroyaleapp.entities.Contender;
-import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
 public class Client {
@@ -22,6 +15,25 @@ public class Client {
 	public static EntityManager em = emf.createEntityManager();
 	
 	public static void main(String[] args) {
+		
+		int eventId = 1;
+		List<Wager> wagers = null;
+		String jpql = "SELECT w FROM Wager w";
+		try {
+			wagers = em.createQuery(jpql, Wager.class).getResultList();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		List<Wager> res = new ArrayList<>();
+		for(Wager wager : wagers) {
+			if(wager.getContender().getEvent().getId() == eventId) {
+				res.add(wager);
+			}
+		}
+		
+		res.forEach(System.out::println);
 
 //		List<BettableEvent> events = null;
 //		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
