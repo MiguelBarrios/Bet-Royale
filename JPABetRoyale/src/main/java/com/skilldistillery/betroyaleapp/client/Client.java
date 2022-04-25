@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 public class Client {
 	
@@ -17,13 +18,11 @@ public class Client {
 	
 	public static void main(String[] args) {
 		Category category = new Category();
-		String jpql = "SELECT c FROM Category c WHERE c.name = :name";
+		String jpql = "SELECT w FROM Wager w where w.user.id = :id";
 		try {
-			String keyword = "fight";
-			category = em.createQuery(jpql, Category.class)
-					.setParameter("name", keyword)
-					.getSingleResult();
-			System.out.println(category);
+			jpql = "SELECT w FROM Wager w where w.user.id = :id";
+			List<Wager> wagers = em.createQuery(jpql, Wager.class).setParameter("id", 2).getResultList();
+			System.out.println(wagers);
 			
 			}catch(Exception e){ 
 				e.printStackTrace();

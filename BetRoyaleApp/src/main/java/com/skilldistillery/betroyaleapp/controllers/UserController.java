@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
@@ -183,5 +184,16 @@ public class UserController {
 	
 	}
 	
+	@GetMapping("leaderboard.do")
+	public ModelAndView getLeaderboard(int userId) {
+		System.out.println("FIND ME FIX ME");
+		ModelAndView mv = new ModelAndView();
+		CalculatedWinnings winnings = userDao.getWinnings(userId);
+		System.out.println(winnings);
+		mv.addObject("winnings", winnings);
+		mv.setViewName("home");
+		return mv;
+		
+	}
 	
 }
