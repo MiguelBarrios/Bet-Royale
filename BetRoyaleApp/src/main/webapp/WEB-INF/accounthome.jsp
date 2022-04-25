@@ -7,8 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 <h1>Here</h1>
+
+
+<table>
+<tr>
+<td>Username: </td>
+<td><input type="text" value="<%= session.getAttribute("username") %>" /></td>
+</tr>
+</table>
+
+
 
 <jsp:include page="Components/createBettableEventForm.jsp" /><br>
 

@@ -45,7 +45,7 @@ public class UserController {
 		User updatedUser = userDao.updateUser(user);
 		System.out.println(updatedUser);
 		// TODO Potentially Changed to "updateUser"
-		return "home";
+		return "Components/accounthome";
 	}
 
 	public void foo(@RequestParam("number[]") List<String> to) {

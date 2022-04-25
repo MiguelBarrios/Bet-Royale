@@ -32,7 +32,7 @@ public class EventsController {
 		
 		return mv;
 		
-	}
+	} 
 	
 	@GetMapping(path = {"activeBets.do"})
 	public ModelAndView displayActiveBettableEvents() {
