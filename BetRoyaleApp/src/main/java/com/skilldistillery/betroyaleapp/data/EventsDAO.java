@@ -17,6 +17,10 @@ public interface EventsDAO {
 	List<BettableEvent> displayActiveBettableEvents();
 	
 	List<BettableEvent> displayExpiredBettableEvents();
+
+	List<BettableEvent> displayUserCreatedBettableEvents();
+
+	
 	
 
 }
