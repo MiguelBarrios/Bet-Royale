@@ -79,37 +79,43 @@ public class UserController {
 				}
 			}
 			
+			System.out.println("Point 1");
+			
 			//Link Category
 			// TODO link with category passed in 
-			Category cat = new Category();
+			Category cat = userDao.searchByCategory(category);
+			System.out.println("point 2");
 			if(cat == null || cat.getId() == 0) {
-				
+				System.out.println("inside herre");
+				cat = new Category();
+				cat.setName(category);
+				cat.setDescription(categorydescription);
+				System.out.println(cat);
+				cat = userDao.createCategory(cat);
 			}
 			
-			
-			
-			cat = userDao.searchByCategory(category);
 			System.out.println("Category: " + cat);
-			
-			//----- link subcategories to -------
-			if(cname.length > 0) {
-				for(int i = 0; i < cname.length; ++i) {
-					Subcategory sub = new Subcategory();
-					sub.setName(cname[i]);
-					sub.setDescription(cdescription[i]);
-					sub.setCategory(cat);
-					event.addSubcategory(sub);
-				}
-			}
-			
-			List<Subcategory> sb = event.getSubcategories();
-			
-			for(Subcategory i : sb) {
-				System.out.println(i);
-			}
-
-			mv.addObject("event", newEvent);
-			mv.setViewName("home");
+//			
+//			//----- link subcategories to -------
+//			if(cname.length > 0) {
+//				for(int i = 0; i < cname.length; ++i) {
+//					Subcategory sub = new Subcategory();
+//					sub.setName(cname[i]);
+//					sub.setDescription(cdescription[i]);
+//					sub.setCategory(cat);
+//					sub = userDao.createSubCategory(sub);
+//					event.addSubcategory(sub);
+//				}
+//			}
+//			
+//			List<Subcategory> sb = event.getSubcategories();
+//			
+//			for(Subcategory i : sb) {
+//				System.out.println(i);
+//			}
+//
+//			mv.addObject("event", newEvent);
+//			mv.setViewName("home");
 			return mv;
 		}
 
