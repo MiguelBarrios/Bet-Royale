@@ -74,12 +74,10 @@ public class BettableEvent {
 		}
 		if(!subcategories.contains(sub)) {
 			subcategories.add(sub);
-			sub.addBettableEvent(null);
+			sub.addBettableEvent(this);
 		}
 	}
 	 
-	
-	
 	
 	public void removeSubcategory(Subcategory sub) {
 		if(sub != null && subcategories.contains(sub)) {

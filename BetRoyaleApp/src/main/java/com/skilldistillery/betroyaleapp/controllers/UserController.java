@@ -83,7 +83,6 @@ public class UserController {
 			System.out.println("Point 1");
 			
 			//Link Category
-			// TODO link with category passed in 
 			Category cat = userDao.searchByCategory(category);
 			System.out.println("point 2");
 			if(cat == null || cat.getId() == 0) {
@@ -108,15 +107,9 @@ public class UserController {
 					event.addSubcategory(sub);
 				}
 			}
-//			
-//			List<Subcategory> sb = event.getSubcategories();
-//			
-//			for(Subcategory i : sb) {
-//				System.out.println(i);
-//			}
-//
-//			mv.addObject("event", newEvent);
-//			mv.setViewName("home");
+			
+			mv.addObject("event", newEvent);
+			mv.setViewName("home");
 			return mv;
 		}
 
