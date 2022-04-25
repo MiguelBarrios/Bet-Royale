@@ -28,7 +28,7 @@ public interface UserDAO {
 	Category searchByCategory(String keyword);
 	Category createCategory(Category category);
 	Subcategory createSubCategory(Subcategory sb);
-	List<Wager> getWagers();
+	List<Wager> getWagers(int userId);
 
 	
 	

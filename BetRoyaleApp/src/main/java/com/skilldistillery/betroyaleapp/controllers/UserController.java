@@ -160,9 +160,11 @@ public class UserController {
 	public ModelAndView getWager(int userId) {
 		ModelAndView mv = new ModelAndView();
 		User u = userDao.findById(userId);
-		mv.addObject("user", u);
-		System.out.println("FIX ME FIND ME");
-		List<Wager> wagers = userDao.getWagers();
+		System.out.println(u);
+//		mv.addObject("user", u);
+//		System.out.println("FIX ME FIND ME");
+		List<Wager> wagers = userDao.getWagers(userId);
+		System.out.println(wagers);
 		System.out.println(wagers);
 		mv.addObject("wager", wagers);
 		mv.setViewName("Components/show");

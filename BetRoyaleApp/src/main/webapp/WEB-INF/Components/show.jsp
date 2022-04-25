@@ -8,7 +8,7 @@
 
 
 <input type="hidden" id="userId" name="userId" value="2"/>
-${wager.betAmount}
+
 
 
 <ol>
@@ -16,7 +16,7 @@ ${wager.betAmount}
 					<li>${w.betAmount} </li>
 					-------------------------------
 				</c:forEach>
-	</ol>
+	</ol> 
 
 
 
