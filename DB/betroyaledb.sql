@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `contender` (
   `description` VARCHAR(2000) NULL,
   `is_winner` TINYINT NULL,
   `odds` DOUBLE NULL,
-  `bettable_event_id` INT NOT NULL,
+  `bettable_event_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_contender_bettable_event1_idx` (`bettable_event_id` ASC),
   CONSTRAINT `fk_contender_bettable_event1`
@@ -391,6 +391,9 @@ USE `betroyaledb`;
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (1, 'admin', 'admin', 'bet', 'royale', NULL, 1, 'ROLE_ADMIN', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (2, 'lpaladini', 'password', 'lucas', 'paladini', 'lpaladini@me.com', 1, 'ROLE_USER', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (3, 'acorneld', 'password', 'andrew', 'cornelius', 'acorneld@gmail.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (4, 'spaghettisoup', 'password', 'alex', 'martinez', 'amartin@gmail.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (5, 'victorwiktor', 'password', 'viktor', 'oleskivy', 'olesvikt@yahoo.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (6, 'cinderqueen', 'password', 'esmeralda', 'anastazsia', 'eanastazisa@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 
 COMMIT;
 
@@ -402,6 +405,7 @@ START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (1, 'does it work', '2022-04-30 14:12:00', NULL, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, 1, NULL);
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (2, 'expired event test', '2022-04-12 12:00:00', 1, 3, 'former soccer match', NULL, '2022-03-24 11:59:30', 0, NULL);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (3, 'UFC FIGHT NIGHT ', '2022-04-30 16:59:00', NULL, 4, 'Bantamweight match, Font vs. Vera', NULL, '2022-04-25 09:20:00', 1, NULL);
 
 COMMIT;
 
@@ -426,8 +430,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `betroyaledb`;
-INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (1, 'viper', 'this will work', NULL, 0.5, 1);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (1, 'viper', 'this will work', 1, 0.5, 1);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (2, 'blaze', 'this won\'t work', NULL, 0.5, 1);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (3, 'Rob Font', 'Bantamweight', NULL, 0.7, 3);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (4, 'Marlon Vera', 'Bantamweight', NULL, 0.3, 3);
 
 COMMIT;
 
@@ -439,6 +445,10 @@ START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (1, 100, 2, 1, 2);
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (2, 200, 2, 2, 3);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (3, 350, 2, 1, 4);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (4, 600, 2, 2, 5);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (6, 750, 1.85, 3, 4);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (7, 500, 2.15, 4, 2);
 
 COMMIT;
 
@@ -471,6 +481,7 @@ START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2, NULL);
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (2, '2022-04-22 18:24:00', 'soup', 1, 3, 1);
+INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (3, '2022-04-25 09:15:00', 'can\'t wait to see Font win this fight ', 3, 4, NULL);
 
 COMMIT;
 
@@ -511,6 +522,7 @@ COMMIT;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `viewing_party` (`id`, `title`, `description`, `start_date`, `start_time`, `image_url`, `create_date`, `user_id`, `bettable_event_id`, `max_attendees`) VALUES (1, 'literally anything', 'deathmatch', '2022-04-22', '17:47', NULL, NULL, 2, 1, NULL);
+INSERT INTO `viewing_party` (`id`, `title`, `description`, `start_date`, `start_time`, `image_url`, `create_date`, `user_id`, `bettable_event_id`, `max_attendees`) VALUES (2, 'UFC FIGHT NIGHT ', 'Enosa Bar', '2022-04-30', '15:30', NULL, '2022-04-25', 3, 3, 25);
 
 COMMIT;
 
