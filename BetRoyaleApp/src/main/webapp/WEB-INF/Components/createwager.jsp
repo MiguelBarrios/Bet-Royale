@@ -6,7 +6,7 @@
     <form action="createWager.do" method="POST">
 	
 		 <br> <br>
-	<input type="hidden" id="userId" name="userId" value="2"/>	
+	<input type="hidden" id="userId" name="userId" value="${user.id}"/>	
 	<label for="userId"></label>
 	
 	<input type="hidden" id="contenderId" name ="contenderId" value="2"/>
