@@ -1,10 +1,14 @@
 package com.skilldistillery.betroyaleapp.client;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Category;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 
 public class Client {
 	
@@ -12,17 +16,24 @@ public class Client {
 	public static EntityManager em = emf.createEntityManager();
 	
 	public static void main(String[] args) {
-		Client client = new Client();
-		User user = new User();
-		user.setUsername("mmbar");
+		Category category = new Category();
+		String jpql = "SELECT c FROM Category c WHERE c.name = :name";
+		try {
+			String keyword = "fight";
+			category = em.createQuery(jpql, Category.class)
+					.setParameter("name", keyword)
+					.getSingleResult();
+			System.out.println(category);
+			
+			}catch(Exception e){ 
+				e.printStackTrace();
+			} 
+		
+		System.out.println("EOP");
+	
+		
 	
 		
 	}
 	
-	//@Override
-	public User addNewUser(User user) {
-		em.persist(user);
-		em.flush();
-		return user;
-	}
 }

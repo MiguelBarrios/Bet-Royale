@@ -34,10 +34,6 @@
 
 
 
-
-
-
-
 <div>
 
 
@@ -74,16 +70,35 @@
   <input type="text" name="contenderOdds">
   <input type="text" name="contenderOdds">
   
-			 <input type="submit"/>
+    	<label for="category">Add Category</label>
+  		<input type="text" name="category"><br>
+  		
+  		<label for="category">Add Category Desc</label>
+  		<input type="text" name="categorydescription"><br>
+  		
+  		
+  		<label for="category">Add Sub Categorys:[name, desc]</label><br>
+  		<input type="text" name="cname">
+  		<input type="text" name="cdescription"><br><br>
+  		<input type="text" name="cname">
+  		<input type="text" name="cdescription"><br><br>
+  
+ <input type="submit"/>
 	</form>
 
 </div>
 
 
+<<<<<<< HEAD
+
 --------------------------------------------------------------------------
 <!-- Search testing -->
 <br>
 ${username.username} }
+<<<<<<< HEAD
+
+-----------------------Create Wager-----------------------------------------
+<br>
 
 
 -----------------------Create Wager-----------------------------------------
