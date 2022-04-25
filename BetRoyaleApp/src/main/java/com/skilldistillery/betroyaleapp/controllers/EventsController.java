@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mysql.cj.x.protobuf.MysqlxResultset.FetchSuspendedOrBuilder;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
 
@@ -21,38 +22,38 @@ public class EventsController {
 	@Autowired
 	private EventsDAO dao;
 
-//	@GetMapping(path = {"allBetEvents.do"})
-//	public ModelAndView displayAllBettableEvents() {
-//		ModelAndView mv = new ModelAndView();
-//		List<BettableEvent> events = dao.displayBettableEvents();
-//		mv.addObject("betEvent", events);
-//		mv.setViewName("Components/activebetsview");
-//		
-//		return mv;
-//		
-//	}
+	@GetMapping(path = {"allBetEvents.do"})
+	public ModelAndView displayAllBettableEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayBettableEvents();
+		mv.addObject("betEvent", events);
+		mv.setViewName("Components/allbetsview");
+		
+		return mv;
+		
+	}
 	
-//	@GetMapping(path = {"/", "home.do"})
-//	public ModelAndView displayActiveBettableEvents() {
-//		ModelAndView mv = new ModelAndView();
-//		List<BettableEvent> events = dao.displayActiveBettableEvents();
-//		mv.addObject("activeBetEvent", events);
-//		mv.setViewName("home");
-//		 
-//		return mv;
-//		
-//	}
+	@GetMapping(path = {"activeBets.do"})
+	public ModelAndView displayActiveBettableEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayActiveBettableEvents();
+		mv.addObject("activeBetEvent", events);
+		mv.setViewName("Components/activebetsview");
+		 
+		return mv;
+		
+	}
 	
-//	@GetMapping(path = {"/", "home.do"})
-//	public ModelAndView displayExpiredBettableEvents() {
-//		ModelAndView mv = new ModelAndView();
-//		List<BettableEvent> events = dao.displayExpiredBettableEvents();
-//		mv.addObject("expiredBetEvents", events);
-//		mv.setViewName("Components/expiredbetsview");
-//		
-//		return mv;
-//		
-//	}
+	@GetMapping(path = {"expiredBets.do"})
+	public ModelAndView displayExpiredBettableEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayExpiredBettableEvents();
+		mv.addObject("expiredBetEvents", events);
+		mv.setViewName("Components/expiredbetsview");
+		
+		return mv;
+		
+	}
 	
 	@RequestMapping(path="addComment.do")
 	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
@@ -90,6 +91,38 @@ public class EventsController {
 		return mv;
 		
 	}
+	
+	
+	
+	//TODO- change this to a post mapping method	
+	
+	@GetMapping("updateBetEvent.do")
+	public ModelAndView updateBettableEvent(int winningId, int eventId) {
+		BettableEvent event = dao.findEventById(eventId);
+		System.out.println(event);
+		List<Contender> contenders = event.getContenders();
+		for (Contender contender : contenders) {
+			boolean isWinner = (winningId == contender.getId());
+			Contender newContender = dao.updateContender(contender.getId(), isWinner);
+		
+			System.out.println(newContender);
+			
+		}
+		event.setActive(false);
+		event.setCompletion(true);
+		dao.updateBettableEvent(event);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		
+		return mv;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

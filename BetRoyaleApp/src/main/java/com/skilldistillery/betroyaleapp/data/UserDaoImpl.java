@@ -9,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
@@ -212,6 +214,28 @@ public class UserDaoImpl implements UserDAO {
 		return sb;
 	}
 
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public List<User>  display_List_Of_User_Bet_Info_In_A_BettableEvent(int userId) {
 		List<User> users= new ArrayList<User>();
 		
