@@ -19,7 +19,6 @@ public class EventsController {
 	@GetMapping(path = {"/", "home.do"})
 	public ModelAndView displayAllBettableEvents() {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Inside the method");
 		List<BettableEvent> events = dao.displayBettableEvents();
 		mv.addObject("betEvent", events);
 		mv.setViewName("home");
@@ -27,6 +26,32 @@ public class EventsController {
 		return mv;
 		
 	}
+	
+	@GetMapping(path = {"/", "home.do"})
+	public ModelAndView displayActiveBettableEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayActiveBettableEvents();
+		mv.addObject("activeBetEvent", events);
+		mv.setViewName("home");
+		 
+		return mv;
+		
+	}
+	
+//	@GetMapping(path = {"/", "home.do"})
+//	public ModelAndView displayAllBettableEvents() {
+//		ModelAndView mv = new ModelAndView();
+//		System.out.println("Inside the method");
+//		List<BettableEvent> events = dao.displayBettableEvents();
+//		mv.addObject("betEvent", events);
+//		mv.setViewName("home");
+//		
+//		return mv;
+//		
+//	}
+//	
+	
+	
 	
 	
 	
