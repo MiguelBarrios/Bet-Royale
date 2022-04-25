@@ -146,12 +146,16 @@ public class UserController {
 	@PostMapping(path = "createWager.do")
 	public ModelAndView createWager(Model model, Wager wager, int userId, int contenderId) {
 		ModelAndView mv = new ModelAndView();
+		if(wager.getContender().getEvent().getActive() == true) {
 		Wager newWager = userDao.createWager(wager, userId, contenderId);
 		mv.addObject("wager", newWager);
 		System.out.println(newWager);
 
 		// TODO Replace with desired JSP
 		mv.setViewName("home");
+		
+		}
+		
 		return mv;
 	}
 
@@ -197,6 +201,7 @@ public class UserController {
 	public ModelAndView getLeaderboard(int userId) {
 		System.out.println("FIND ME FIX ME");
 		ModelAndView mv = new ModelAndView();
+		
 		CalculatedWinnings winnings = userDao.getWinnings(userId);
 		System.out.println(winnings);
 		mv.addObject("winnings", winnings);
@@ -204,5 +209,6 @@ public class UserController {
 		return mv;
 		
 	}
+	
 	
 }
