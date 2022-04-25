@@ -89,8 +89,6 @@
 </div>
 
 
-<<<<<<< HEAD
-
 --------------------------------------------------------------------------
 <!-- Search testing -->
 <br>
@@ -162,7 +160,9 @@ ${username.username} }
 
 
 
+------------------------------- Add Comment ---------------------------
 
+<jsp:include page="Components/addCommentForm.jsp" />
 
 
 
