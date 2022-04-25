@@ -1,15 +1,15 @@
 package com.skilldistillery.betroyaleapp.data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.hibernate.tool.schema.internal.AbstractSchemaValidator;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
@@ -135,7 +135,8 @@ public class EventsDaoImpl implements EventsDAO {
 
 	@Override
 	public List<BettableEvent> getAllCompletedEvents() {
-		List<BettableEvent> events;
+		List<BettableEvent> events = null;
+		
 		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
 		try {
 			events = em.createQuery(jpql, BettableEvent.class).getResultList();
@@ -143,8 +144,18 @@ public class EventsDaoImpl implements EventsDAO {
 			
 		}catch(Exception e){ 
 			e.printStackTrace();
-		} 
-		return null;
+		}
+		
+		// get all contenders for events that are completed
+		Set<Contender> contenders = new HashSet<>();
+		for(BettableEvent event : events) {
+			for(Contender contender : event.getContenders()) {
+				contenders.add(contender);
+			}
+		}
+		
+		
+		return events;
 	}
 	
 
