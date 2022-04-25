@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="Components/navbar.jsp" />
 <jsp:include page="Components/createuser.jsp" />
 
 <br>
@@ -45,15 +47,14 @@
 		 
 		 <label for="name">New Betting Event Name: </label>
 		 <input id="name" type="text" placeholder="Betting Event Name" name="name" />
-		
 			 <br>
 			 <br> 
-		<label for="description ">Event Description: </label>
+			 <label for="description ">Event Description: 
+			 </label>
 		 <input id="description" type="text" placeholder="Event Description" name="description" />
 		
 			 <br>
-			 <br> 
-		<label for="endDate2">End Date: </label>
+			 <br> <label for="endDate2">End Date: </label>
 		
 		 <input id="endDate2" type="text" placeholder="Event End Date" name="endDate2" />
 			 <br>
@@ -79,8 +80,15 @@
 </div>
 
 
+--------------------------------------------------------------------------
+<!-- Search testing -->
+<br>
+${username.username} }
+
+
 -----------------------Create Wager-----------------------------------------
 <br>
+
 
 <h2>Create Wager</h2>
 
@@ -94,6 +102,30 @@
 <input type="submit" id="" name="showWager" value="Show"/>
 
 </form>
+
+
+
+
+
+
+-------------------------------Display all bettable events---------------------------
+	
+	<ol>
+	<c:forEach var="e" items="${betEvent}">
+					<li>${e.name} </li>
+					<li>${e.description} </li>
+					<li>${e.endDate} </li>
+					
+				</c:forEach>
+	</ol>
+
+
+
+
+
+
+
+
 
 
 </body>

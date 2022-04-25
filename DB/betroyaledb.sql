@@ -411,6 +411,11 @@ COMMIT;
 START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (1, 'fight', 'intial fight');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (2, 'sports', 'sports ranging in various movements');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'esports', 'online gaming competitions based on skill');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (4, 'politics', 'political concepts');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (5, 'food', 'any type of food');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (6, 'stocks', 'stock value movement');
 
 COMMIT;
 

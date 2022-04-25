@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,6 +66,7 @@ public class UserController {
 			//Event was created
 			if(newEvent.getId() != 0) {
 				
+				
 				if(contenderName.length == contenderOdds.length) {
 					for(int i = 0; i < contenderName.length; ++i) {
 						Contender contender = new Contender();
@@ -88,17 +90,6 @@ public class UserController {
 
 	}
 
-//	
-//	@PostMapping(path = "createContender.do")
-//	public ModelAndView userCreateContender(Contender contender) {
-//		ModelAndView mv = new ModelAndView();
-//		Contender newContender = userDao.createContender(contender);
-//		mv.addObject("contender", newContender);
-//		mv.setViewName("home");
-//		
-//		return mv;
-//	}
-//	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String submitLogin(String username, String password, HttpSession session) {
@@ -134,4 +125,17 @@ public class UserController {
 		mv.setViewName("Components/show");
 		return mv;
 	}
+	
+	@GetMapping("search.do")
+	public ModelAndView findByUsername(String username) {
+		ModelAndView mv = new ModelAndView();
+		User newUser = userDao.searchByUsername(username);
+		mv.addObject("username", newUser);
+		mv.setViewName("home");
+		
+		return mv;
+	
+	}
+	
+	
 }
