@@ -145,6 +145,16 @@ public class UserController {
 		return mv;
 	}
 
+	@PostMapping(path="showWager.do")
+	public ModelAndView showWager(Wager wager, int userId) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(wager);
+		Wager wagerView = userDao.showWager(wager, userId);
+		mv.addObject("wager", wagerView);
+		System.out.println(wagerView);
+		mv.setViewName("Components/show");
+		return mv;
+	}
 	
 	@GetMapping("search.do")
 	public ModelAndView findByUsername(String username) {

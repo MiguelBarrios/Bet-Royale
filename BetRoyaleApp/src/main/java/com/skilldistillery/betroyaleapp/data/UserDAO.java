@@ -1,7 +1,5 @@
 package com.skilldistillery.betroyaleapp.data;
 
-import java.util.List;
-
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
@@ -15,15 +13,15 @@ public interface UserDAO {
 	User createUser(User user);
 
 	User updateUser(User user);
+	BettableEvent createBettableEvent(BettableEvent event, int userId );
+	Contender createContender(Contender contender);
+	User login(String username, String password);
+	Wager createWager(Wager wager, int userId, int contenderId);
+	Wager showWager(Wager wager, int userId);
 	User searchByUsername(String keyword);
 
 
-	BettableEvent createBettableEvent(BettableEvent event, int userId );
-	Contender createContender(Contender contender);
-	
 
-	User login(String username, String password);
-	Wager createWager(Wager wager, int userId, int contenderId);
 	
 	Category searchByCategory(String keyword);
 	Category createCategory(Category category);

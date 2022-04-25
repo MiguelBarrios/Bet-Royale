@@ -89,36 +89,34 @@
 </div>
 
 
-
+<<<<<<< HEAD
 
 --------------------------------------------------------------------------
 <!-- Search testing -->
 <br>
 ${username.username} }
+<<<<<<< HEAD
 
 -----------------------Create Wager-----------------------------------------
 <br>
+
+
+-----------------------Create Wager-----------------------------------------
+<br>
+
 
 <h2>Create Wager</h2>
 
 <jsp:include page="Components/createwager.jsp" />
 
 <br>
+<br>
+<form action="showWager.do" method="POST">
 
+<input type="hidden" id="userId" name="userId" value="2"/>
+<input type="submit" id="" name="showWager" value="Show"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</form>
 
 
 

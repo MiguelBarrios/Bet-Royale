@@ -30,18 +30,27 @@
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-<<<<<<< HEAD
+
 			<form class="form-inline my-2 my-lg-0" action="search.do" method="GET">
 				<input class="form-control mr-sm-2" type="search" name="username"
-=======
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" action = "search.do"
->>>>>>> cfb3dc6ab597d305246606534a081b076ab64477
+
 					placeholder="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
 	</nav>
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
