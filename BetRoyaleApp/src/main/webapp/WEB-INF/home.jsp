@@ -167,6 +167,19 @@ ${username.username} }
 
 <jsp:include page="Components/addCommentForm.jsp" />
 
+-------------------------------Display all user created bettable events---------------------------
+	
+	<ol>
+	<c:forEach var="e" items="${user}">
+	
+					<li>${e.id} </li>
+					<li>${e.name} </li>
+					<li>${e.description} </li>
+					-------------------------------
+				</c:forEach>
+	</ol>
+
+
 
 
 

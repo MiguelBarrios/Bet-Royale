@@ -42,16 +42,16 @@ public class EventsController {
 //		
 //	}
 	
-	@GetMapping(path = {"/", "home.do"})
-	public ModelAndView displayExpiredBettableEvents() {
-		ModelAndView mv = new ModelAndView();
-		List<BettableEvent> events = dao.displayExpiredBettableEvents();
-		mv.addObject("expiredBetEvents", events);
-		mv.setViewName("home");
-		
-		return mv;
-		
-	}
+//	@GetMapping(path = {"/", "home.do"})
+//	public ModelAndView displayExpiredBettableEvents() {
+//		ModelAndView mv = new ModelAndView();
+//		List<BettableEvent> events = dao.displayExpiredBettableEvents();
+//		mv.addObject("expiredBetEvents", events);
+//		mv.setViewName("home");
+//		
+//		return mv;
+//		
+//	}
 	
 	@RequestMapping(path="addComment.do")
 	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
@@ -74,7 +74,18 @@ public class EventsController {
 		return mv;
 	}
 	
-	
+	@GetMapping(path = {"/", "home.do"})
+	public ModelAndView displayUserCreatedBettableEvents(User user) {
+		ModelAndView mv = new ModelAndView();
+		user.setId(2);
+		List<BettableEvent> userCreatedEvents = dao.displayUserCreatedBettableEvents();
+		mv.addObject(user);
+		mv.addObject("user", userCreatedEvents);
+		mv.setViewName("home");
+		
+		return mv;
+		
+	}
 	
 	
 	

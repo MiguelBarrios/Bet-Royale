@@ -89,6 +89,21 @@ public class EventsDaoImpl implements EventsDAO {
 
 		return expiredBetEvents;
 	}
+
+	// single user created list
+	@Override
+	public List<BettableEvent> displayUserCreatedBettableEvents() {
+		List<BettableEvent> userCreated = new ArrayList<BettableEvent>();
+		try {
+		String jpql = "select b from BettableEvent b join User u on u.id = b.user_id where u.id = 2";
+		
+		userCreated = em.createQuery(jpql, BettableEvent.class).getResultList();
+		
+		}catch (Exception e) {
+			return userCreated;
+		}
+		return userCreated;
+	}
 }
 
 
