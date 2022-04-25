@@ -49,7 +49,7 @@ public class EventsController {
 		comment = dao.addComment(comment);
 		System.out.println(comment);
 		
-		
+		// TODO: add reply to comment func
 		
 		mv.setViewName("home");
 		return mv;
