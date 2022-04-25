@@ -130,7 +130,31 @@ ${username.username} }
 					<li>${e.name} </li>
 					<li>${e.description} </li>
 					<li>${e.endDate} </li>
-					
+			----		---------------------------
+				</c:forEach>
+	</ol>
+	
+-------------------------------Display all bettable events---------------------------
+	
+	<ol>
+	<c:forEach var="e" items="${activeBetEvent}">
+					<li>${e.name} </li>
+					<li>${e.description} </li>
+					<li>${e.endDate} </li>
+					-------------------------------
+				</c:forEach>
+	</ol>
+	
+	
+	
+-------------------------------Display all bettable events---------------------------
+	
+	<ol>
+	<c:forEach var="e" items="${expiredBetEvent}">
+					<li>${e.name} </li>
+					<li>${e.description} </li>
+					<li>${e.endDate} </li>
+					-------------------------------
 				</c:forEach>
 	</ol>
 
