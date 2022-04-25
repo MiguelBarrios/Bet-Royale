@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.EventComment;
 
 @Controller
 public class EventsController {
@@ -28,6 +30,22 @@ public class EventsController {
 		
 		
 	
+	}
+	
+	@RequestMapping(path="addComment.do")
+	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
+		System.out.println(comment);
+		System.out.println(userId);
+		System.out.println(eventId);
+		
+		ModelAndView mv = new ModelAndView();
+		comment = dao.addComment(comment);
+		System.out.println(comment);
+		
+		
+		
+		mv.setViewName("home");
+		return mv;
 	}
 	
 	
