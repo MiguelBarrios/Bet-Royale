@@ -156,6 +156,20 @@ public class UserController {
 		return mv;
 	}
 	
+	@GetMapping(path="getWager.do")
+	public ModelAndView getWager(int userId) {
+		ModelAndView mv = new ModelAndView();
+		User u = userDao.findById(userId);
+		mv.addObject("user", u);
+		System.out.println("FIX ME FIND ME");
+		List<Wager> wagers = userDao.getWagers();
+		System.out.println(wagers);
+		mv.addObject("wager", wagers);
+		mv.setViewName("Components/show");
+		return mv;
+	}
+	
+	
 	@GetMapping("search.do")
 	public ModelAndView findByUsername(String username) {
 		ModelAndView mv = new ModelAndView();

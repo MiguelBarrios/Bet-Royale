@@ -11,7 +11,12 @@
 ${wager.betAmount}
 
 
-
+<ol>
+	<c:forEach var="w" items="${wager}">
+					<li>${w.betAmount} </li>
+					-------------------------------
+				</c:forEach>
+	</ol>
 
 
 

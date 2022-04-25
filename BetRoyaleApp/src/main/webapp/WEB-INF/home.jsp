@@ -93,7 +93,6 @@
 <!-- Search testing -->
 <br>
 ${username.username} }
-<<<<<<< HEAD
 
 -----------------------Create Wager-----------------------------------------
 <br>
@@ -116,7 +115,11 @@ ${username.username} }
 
 </form>
 
+<form action="getWager.do" method="GET">
 
+<input type="submit" id="getWager" name="getWager" value="GetWager"/>
+
+</form>
 
 
 
