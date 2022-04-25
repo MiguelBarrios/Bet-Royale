@@ -61,7 +61,6 @@ public class BettableEvent {
 	)
 	private List<Subcategory> subcategories;
 	
-//	private List<BettableEvent> bettableEvents;
 	
 	// Begin Constructors ============================
 
@@ -100,6 +99,7 @@ public class BettableEvent {
 		return id;
 	}
 
+	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -217,15 +217,6 @@ public class BettableEvent {
 		this.eventReview = eventReview;
 	}
 
-	
-	
-//	public List<BettableEvent> getBettableEvents() {
-//		return bettableEvents;
-//	}
-//
-//	public void setBettableEvents(List<BettableEvent> bettableEvents) {
-//		this.bettableEvents = bettableEvents;
-//	}
 
 	@Override
 	public String toString() {
