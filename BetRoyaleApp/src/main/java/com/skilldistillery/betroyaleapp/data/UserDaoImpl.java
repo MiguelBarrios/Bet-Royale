@@ -133,14 +133,14 @@ public class UserDaoImpl implements UserDAO {
 	}
 	
 	@Override
-	public List<Wager> getWagers() {
+	public List<Wager> getWagers(int userId) {
 		List<Wager> wagers = new ArrayList<Wager>();
 
 		String jpql;
 		try {
-			jpql = "SELECT w FROM Wager w JOIN User u ON w.user_id=u.id WHERE u.id=2";
-			wagers = em.createQuery(jpql, Wager.class).getResultList();
-
+			jpql = "SELECT w FROM Wager w where w.user.id = :id";
+			wagers = em.createQuery(jpql, Wager.class).setParameter("id", userId).getResultList();
+		
 		} catch (Exception e) {
 			return wagers;
 		}

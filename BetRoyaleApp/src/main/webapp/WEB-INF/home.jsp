@@ -117,6 +117,7 @@ ${username.username} }
 
 <form action="getWager.do" method="GET">
 
+<input type="hidden" id="userId" name="userId" value="2"/>
 <input type="submit" id="getWager" name="getWager" value="GetWager"/>
 
 </form>
