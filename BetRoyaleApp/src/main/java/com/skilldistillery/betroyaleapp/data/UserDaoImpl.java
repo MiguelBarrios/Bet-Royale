@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -153,6 +154,12 @@ public class UserDaoImpl implements UserDAO {
 		return category;
 	}
 
+	@Override
+	public Subcategory createSubCategory(Subcategory sb) {
+		em.persist(sb);
+		em.flush();
+		return sb;
+	}
 
 
 
