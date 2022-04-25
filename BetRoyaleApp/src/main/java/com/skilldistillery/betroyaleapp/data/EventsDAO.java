@@ -7,6 +7,7 @@ import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 public interface EventsDAO {
 
@@ -30,6 +31,6 @@ public interface EventsDAO {
 	
 	Map<Integer, CalculatedWinnings> calculateLeaderBoard();
 	
-	
-	
+	List<Wager> getWagersForEvent(int eventId);
+
 }
