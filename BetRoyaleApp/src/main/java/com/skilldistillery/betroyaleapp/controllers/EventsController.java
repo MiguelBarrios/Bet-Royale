@@ -1,5 +1,6 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
+import com.skilldistillery.betroyaleapp.entities.User;
 
 @Controller
 public class EventsController {
@@ -34,6 +36,11 @@ public class EventsController {
 	
 	@RequestMapping(path="addComment.do")
 	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
+		comment.setCommentDate(LocalDateTime.now());
+		BettableEvent event = dao.findEventById(eventId);
+		User user = dao.findUserById(userId);
+		comment.setBettableEvent(event);
+		comment.setUser(user);
 		System.out.println(comment);
 		System.out.println(userId);
 		System.out.println(eventId);

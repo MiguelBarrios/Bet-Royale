@@ -47,6 +47,16 @@ public class EventsDaoImpl implements EventsDAO {
 		em.flush();
 		return comment;
 	}
+
+	@Override
+	public BettableEvent findEventById(int id) {
+		return em.find(BettableEvent.class, id);
+	}
+
+	@Override
+	public User findUserById(int id) {
+		return em.find(User.class, id);
+	}
 	
 	
 	
