@@ -21,7 +21,7 @@ public class EventsDaoImpl implements EventsDAO {
 	private EntityManager em;
 
 	@Override
-	
+
 	public List<BettableEvent> displayBettableEvents() {
 		List<BettableEvent> betEvents = new ArrayList<BettableEvent>();
 		try {
@@ -29,8 +29,6 @@ public class EventsDaoImpl implements EventsDAO {
 
 			betEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
 
-			
-			
 		} catch (Exception e) {
 			return betEvents;
 		}
@@ -40,27 +38,27 @@ public class EventsDaoImpl implements EventsDAO {
 	@Override
 	public List<BettableEvent> displayActiveBettableEvents() {
 		List<BettableEvent> activeBetEvents = new ArrayList<BettableEvent>();
-		
-		
-		
-		
-		return null;
+
+		try {
+			String jpql = "SELECT b FROM BettingEvent b WHERE b.active = 1";
+
+			activeBetEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
+		} catch (Exception e) {
+
+			return activeBetEvents;
+		}
+
+		return activeBetEvents;
 	}
 
-	
-	
 	
 	
 	@Override
 	public List<BettableEvent> displayExpiredBettableEvents() {
 		List<BettableEvent> expiredBetEvents = new ArrayList<BettableEvent>();
 
-	
-	
-	return null;
-	
+		return null;
+
 	}
-	
-	
-	
+
 }
