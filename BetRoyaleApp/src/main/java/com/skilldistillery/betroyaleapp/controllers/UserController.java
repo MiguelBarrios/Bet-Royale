@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
@@ -109,7 +110,7 @@ public class UserController {
 			}
 			
 			mv.addObject("event", newEvent);
-			mv.setViewName("home");
+			mv.setViewName("accounthome");
 			return mv;
 		}
 
@@ -122,15 +123,22 @@ public class UserController {
 
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String submitLogin(String username, String password, HttpSession session) {
+	public ModelAndView submitLogin(String username, String password, HttpSession session) {
+		
+		ModelAndView mv = new ModelAndView();
 		User user = userDao.login(username, password);
 
 		if (user != null) {
 			session.setAttribute("user", user);
 			System.out.println(user);
-			return "home";
-		} else
-			return "home";
+			mv.addObject("user",user);
+			mv.setViewName("accounthome");
+			
+		} else {
+			mv.setViewName("home");
+		}
+		
+		return mv;
 	}
 
 	@PostMapping(path = "createWager.do")
@@ -183,5 +191,16 @@ public class UserController {
 	
 	}
 	
+	@GetMapping("leaderboard.do")
+	public ModelAndView getLeaderboard(int userId) {
+		System.out.println("FIND ME FIX ME");
+		ModelAndView mv = new ModelAndView();
+		CalculatedWinnings winnings = userDao.getWinnings(userId);
+		System.out.println(winnings);
+		mv.addObject("winnings", winnings);
+		mv.setViewName("home");
+		return mv;
+		
+	}
 	
 }
