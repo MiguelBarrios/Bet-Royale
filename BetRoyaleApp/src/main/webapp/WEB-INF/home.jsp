@@ -95,6 +95,13 @@ ${username.username} }
 <jsp:include page="Components/createwager.jsp" />
 
 <br>
+<br>
+<form action="showWager.do" method="POST">
+
+<input type="hidden" id="userId" name="userId" value="2"/>
+<input type="submit" id="" name="showWager" value="Show"/>
+
+</form>
 
 
 
