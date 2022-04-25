@@ -1,14 +1,16 @@
 package com.skilldistillery.betroyaleapp.data;
 
+import com.skilldistillery.betroyaleapp.entities.User;
+
 public class CalculatedWinnings {
 
-	private int userId;
+	private User user;
 	private double count = 0;
 	private double total = 0;
 
-	public CalculatedWinnings(int userId, double count, double total) {
+	public CalculatedWinnings(User user, double count, double total) {
 		super();
-		this.userId = userId;
+		this.user = user;
 		this.count = count;
 		this.total = total;
 	}
@@ -29,17 +31,17 @@ public class CalculatedWinnings {
 		this.total = total;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "CalculatedWinnings [userId=" + userId + ", count=" + count + ", total=" + total + "]";
+		return "CalculatedWinnings [userId=" + user.getUsername() + ", count=" + count + ", total=" + total + "]";
 	}
 
 }

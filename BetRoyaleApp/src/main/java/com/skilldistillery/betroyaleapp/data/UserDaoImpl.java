@@ -180,9 +180,9 @@ public class UserDaoImpl implements UserDAO {
 				total += winnings;
 			}
 		}
-		CalculatedWinnings winnings = new CalculatedWinnings(userId, count, total);
+		//CalculatedWinnings winnings = new CalculatedWinnings(wager., count, total);
 
-		return winnings;
+		return null;
 	}
 
 	@Transactional
