@@ -1,8 +1,10 @@
 package com.skilldistillery.betroyaleapp.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -15,6 +17,7 @@ import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 @Service
 public class EventsDaoImpl implements EventsDAO {
@@ -134,9 +137,8 @@ public class EventsDaoImpl implements EventsDAO {
 	}
 
 	@Override
-	public List<BettableEvent> getAllCompletedEvents() {
+	public Map<Integer, CalculatedWinnings> calculateLeaderBoard() {
 		List<BettableEvent> events = null;
-		
 		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
 		try {
 			events = em.createQuery(jpql, BettableEvent.class).getResultList();
@@ -144,18 +146,70 @@ public class EventsDaoImpl implements EventsDAO {
 			
 		}catch(Exception e){ 
 			e.printStackTrace();
-		}
+		} 
 		
+		// check if contender data is filled
 		// get all contenders for events that are completed
 		Set<Contender> contenders = new HashSet<>();
 		for(BettableEvent event : events) {
 			for(Contender contender : event.getContenders()) {
 				contenders.add(contender);
+				System.out.println(contender);
 			}
 		}
 		
+		System.out.println("--------------------");
+		// get all wagers
+		jpql = "Select w FROM Wager w";
+		List<Wager> wagers = null;
+		try {
+			wagers = em.createQuery(jpql, Wager.class).getResultList();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
-		return events;
+		System.out.println("----------------");
+		System.out.println(wagers.size());		
+		// Filter wagers
+		List<Wager> closedWagers = new ArrayList<>();
+		for(Wager wager : wagers) {
+			if(contenders.contains(wager.getContender())){
+				closedWagers.add(wager);
+			}
+		}
+		
+		System.out.println(closedWagers.size());
+		closedWagers.forEach(System.out::println);
+		
+		
+		System.out.println("--------");
+		Map<Integer, CalculatedWinnings> results = new HashMap<>();
+		for(Wager wager : closedWagers) {
+			int userId = wager.getUser().getId();
+			CalculatedWinnings cw = null;
+			if(!results.containsKey(userId)) {
+				cw = new CalculatedWinnings(wager.getUser(), 0, 0);
+				results.put(userId,cw);
+			}
+			
+			cw = results.get(userId);
+			
+			double payout = (1 / (wager.getContender().getOdds() / 100));
+			System.out.println(wager.getUser().getUsername() + " bet " + wager.getBetAmount() + " on " + wager.getContender().getName());
+			if(wager.getContender().isWinner()) {
+				cw.setCount(cw.getCount() + 1);
+				cw.setTotal(cw.getTotal() + payout + wager.getBetAmount());
+				System.out.println(wager.getUser().getUsername() + " won " + (payout + wager.getBetAmount()));
+			}
+			else {
+				cw.setCount(cw.getCount() - 1);				
+				cw.setTotal(cw.getTotal() - wager.getBetAmount());
+				System.out.println(wager.getUser().getUsername() + " lost " + wager.getBetAmount());
+			}
+		}
+		
+
+		return results;
 	}
 	
 

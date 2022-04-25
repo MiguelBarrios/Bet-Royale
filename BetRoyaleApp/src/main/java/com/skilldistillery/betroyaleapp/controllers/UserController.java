@@ -197,6 +197,7 @@ public class UserController {
 	public ModelAndView getLeaderboard(int userId) {
 		System.out.println("FIND ME FIX ME");
 		ModelAndView mv = new ModelAndView();
+		
 		CalculatedWinnings winnings = userDao.getWinnings(userId);
 		System.out.println(winnings);
 		mv.addObject("winnings", winnings);

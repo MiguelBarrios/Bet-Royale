@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mysql.cj.x.protobuf.MysqlxResultset.FetchSuspendedOrBuilder;
+import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
@@ -122,8 +123,15 @@ public class EventsController {
 	@GetMapping("getLeaderboard.do")
 	public ModelAndView getLeaderBoard(){
 		ModelAndView mv = new ModelAndView();
-		
-		
+		Map<Integer, CalculatedWinnings> results = dao.calculateLeaderBoard();
+		System.out.println("-------------------------");
+		for(int key : results.keySet()) {
+			User user = results.get(key).getUser();
+			double numberOfTimeCorrect = results.get(key).getCount();
+			double totalProfit = results.get(key).getTotal();
+			System.out.printf("%s wins: %.2f profit: %.2f\n", user.getUsername(), numberOfTimeCorrect, totalProfit);
+		}
+		mv.setViewName("home");
 		return mv;
 	}
 	
