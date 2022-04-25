@@ -13,4 +13,9 @@ public interface EventsDAO {
 	BettableEvent findEventById(int id);
 	User findUserById(int id);
 
+	List<BettableEvent> displayActiveBettableEvents();
+	
+	List<BettableEvent> displayExpiredBettableEvents();
+	
+
 }
