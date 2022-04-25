@@ -18,9 +18,10 @@ public interface EventsDAO {
 	
 	List<BettableEvent> displayExpiredBettableEvents();
 
-	List<BettableEvent> displayUserCreatedBettableEvents();
 
-	
+	List<BettableEvent> displayUserCreatedBettableEvents(int userId);
+
+	 
 	
 
 	

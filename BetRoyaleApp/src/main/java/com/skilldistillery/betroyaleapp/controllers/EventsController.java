@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mysql.cj.x.protobuf.MysqlxResultset.FetchSuspendedOrBuilder;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
@@ -20,12 +21,12 @@ public class EventsController {
 	@Autowired
 	private EventsDAO dao;
 
-//	@GetMapping(path = {"/", "home.do"})
+//	@GetMapping(path = {"allBetEvents.do"})
 //	public ModelAndView displayAllBettableEvents() {
 //		ModelAndView mv = new ModelAndView();
 //		List<BettableEvent> events = dao.displayBettableEvents();
 //		mv.addObject("betEvent", events);
-//		mv.setViewName("home");
+//		mv.setViewName("Components/activebetsview");
 //		
 //		return mv;
 //		
@@ -47,7 +48,7 @@ public class EventsController {
 //		ModelAndView mv = new ModelAndView();
 //		List<BettableEvent> events = dao.displayExpiredBettableEvents();
 //		mv.addObject("expiredBetEvents", events);
-//		mv.setViewName("home");
+//		mv.setViewName("Components/expiredbetsview");
 //		
 //		return mv;
 //		
@@ -74,14 +75,17 @@ public class EventsController {
 		return mv;
 	}
 	
-	@GetMapping(path = {"/", "home.do"})
-	public ModelAndView displayUserCreatedBettableEvents(User user) {
+	
+	@GetMapping(path = {"displayUserCreatedEvents.do"})
+	public ModelAndView displayUserCreatedBettableEvents(int userId) {
 		ModelAndView mv = new ModelAndView();
-		user.setId(2);
-		List<BettableEvent> userCreatedEvents = dao.displayUserCreatedBettableEvents();
+		User user=dao.findUserById(userId);
+		System.out.println(user);
+		List<BettableEvent> userCreatedEvents = dao.displayUserCreatedBettableEvents(userId);
+		System.out.println(userCreatedEvents);
 		mv.addObject(user);
-		mv.addObject("user", userCreatedEvents);
-		mv.setViewName("home");
+		mv.addObject("userEvents", userCreatedEvents);
+		mv.setViewName("Components/usercreatedbetsview");
 		
 		return mv;
 		
