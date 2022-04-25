@@ -16,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -50,7 +52,7 @@ public class UserController {
 
 	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
-			Double[] contenderOdds) {
+			Double[] contenderOdds, String[] cname, String[] cdescription, String category, String categorydescription) {
 		ModelAndView mv = new ModelAndView();
 		if (userId > 0) {
 			String[] data = endDate2.split("-");
@@ -62,7 +64,7 @@ public class UserController {
 			event.setEndDate(LDT);
 			BettableEvent newEvent = userDao.createBettableEvent(event, userId);
 			
-			//Event was created
+			//---- Link Contenders to categories
 			if(newEvent.getId() != 0) {
 				
 				if(contenderName.length == contenderOdds.length) {
@@ -73,6 +75,23 @@ public class UserController {
 						contender.setEvent(newEvent);
 						userDao.createContender(contender);
 					}
+				}
+			}
+			
+			//Link Category
+			// TODO link with category passed in 
+			Category cat = new Category();
+			cat.setId(1);
+			
+			
+			
+			//----- link subcategories to -------
+			if(cname.length > 0) {
+				for(int i = 0; i < cname.length; ++i) {
+					Subcategory sub = new Subcategory();
+					sub.setName(cname[i]);
+					sub.setDescription(cdescription[i]);
+					event.addSubcategory(sub);
 				}
 			}
 
