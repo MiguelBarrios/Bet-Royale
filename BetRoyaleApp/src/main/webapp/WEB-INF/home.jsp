@@ -9,104 +9,61 @@
 
 </head>
 <body>
+
+
 <jsp:include page="Components/navbar.jsp" />
+<br>
+	<br>
 <jsp:include page="Components/createuser.jsp" />
 
 <br>
 ------------------------------------------------- user login --------------
 
-
+<br>
+	<br>
 <jsp:include page="Components/userlogin.jsp" />
 	
 
-<h1>Betting Royale </h1>
-
-
---------------------------------------------------------------------------
-
-
-
-
-
-
---------------------------------------------------------------------------
-<!-- Search testing -->
 <br>
-${username.username} }
-
------------------------Create Wager-----------------------------------------
-<br>
-
-
-
-
-
-
+	<br>
 -------------------------------Display all bettable events---------------------------
+	<br>
+	<br>
 	
-	
+<jsp:include page="Components/allbetsview.jsp" />
 
-<form action="allBetEvents" method="GET">
-
-<input type="submit" id="betEvent" name="betEvent" value="DisplayAllBetEvents"/>
-
-</form>
-	
-	<ol>
-	<c:forEach var="e" items="${betEvent}">
-					<li>${e.name} </li>
-					<li>${e.description} </li>
-					<li>${e.endDate} </li>
-			----		---------------------------
-				</c:forEach>
-	</ol>
+<br>
+	<br>
 	
 -------------------------------Display all active bettable events---------------------------
-	
-	<ol>
-	<c:forEach var="e" items="${activeBetEvent}">
-					<li>${e.name} </li>
-					<li>${e.description} </li>
-					<li>${e.endDate} </li>
-					-------------------------------
-				</c:forEach>
-	</ol>
-	
+	<br>
+	<br>
+<jsp:include page="Components/activebetsview.jsp" />
+	<br>
+	<br>
 	
 	
 -------------------------------Display all expired bettable events---------------------------
-	
-	
-	
-	<ol>
-	<c:forEach var="e" items="${expiredBetEvent}">
-					<li>${e.name} </li>
-					<li>${e.description} </li>
-					<li>${e.endDate} </li>
-					-------------------------------
-				</c:forEach>
-	</ol>
+<br>
+	<br>
 
+<jsp:include page="Components/expiredbetsview.jsp" />
 
-
+<br>
+	<br>
 
 
 ------------------------------- Add Comment ---------------------------
-
+<br>
+	<br>
 
 <jsp:include page="Components/addCommentForm.jsp" />
--------------------------------Display all user created bettable events---------------------------
-	
-	
-	
-<jsp:include page="Components/usercreatedbetsview.jsp" />
-	
-	
-	
 
-
-
-
+	
+<br>
+<br>
+<br>
+<br>
 
 
 </body>

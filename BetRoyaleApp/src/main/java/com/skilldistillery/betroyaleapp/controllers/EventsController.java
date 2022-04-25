@@ -27,7 +27,7 @@ public class EventsController {
 		ModelAndView mv = new ModelAndView();
 		List<BettableEvent> events = dao.displayBettableEvents();
 		mv.addObject("betEvent", events);
-		mv.setViewName("Components/allbetsview");
+		mv.setViewName("home");
 		
 		return mv;
 		
@@ -38,7 +38,7 @@ public class EventsController {
 		ModelAndView mv = new ModelAndView();
 		List<BettableEvent> events = dao.displayActiveBettableEvents();
 		mv.addObject("activeBetEvent", events);
-		mv.setViewName("Components/activebetsview");
+		mv.setViewName("home");
 		 
 		return mv;
 		
@@ -49,7 +49,7 @@ public class EventsController {
 		ModelAndView mv = new ModelAndView();
 		List<BettableEvent> events = dao.displayExpiredBettableEvents();
 		mv.addObject("expiredBetEvents", events);
-		mv.setViewName("Components/expiredbetsview");
+		mv.setViewName("home");
 		
 		return mv;
 		
@@ -86,7 +86,7 @@ public class EventsController {
 		System.out.println(userCreatedEvents);
 		mv.addObject(user);
 		mv.addObject("userEvents", userCreatedEvents);
-		mv.setViewName("Components/usercreatedbetsview");
+		mv.setViewName("Components/accounthome");
 		
 		return mv;
 		
