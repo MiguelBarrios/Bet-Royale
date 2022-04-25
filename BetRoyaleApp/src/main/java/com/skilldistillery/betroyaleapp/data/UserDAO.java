@@ -23,12 +23,14 @@ public interface UserDAO {
 	Wager createWager(Wager wager, int userId, int contenderId);
 	Wager showWager(Wager wager, int userId);
 	List<Wager> getWagers(int userId);
+	CalculatedWinnings getWinnings(int userId);
 	
 	
 //	----------------------------------------------------------------------------------
 	Category searchByCategory(String keyword);
 	Category createCategory(Category category);
 	Subcategory createSubCategory(Subcategory sb);
+
 	
 //	----------------------------------------------------------------------------------
 	Contender createContender(Contender contender);

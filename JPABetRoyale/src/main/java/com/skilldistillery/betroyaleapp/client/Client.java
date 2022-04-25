@@ -8,6 +8,10 @@ import javax.persistence.Persistence;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 
+import com.skilldistillery.betroyaleapp.entities.Category;
+import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.Wager;
+
 public class Client {
 	
 	public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPABetRoyale");
@@ -31,14 +35,23 @@ public class Client {
 		
 		
 		
-		String query = "SELECT b from BettableEvent b where b.active = :boolean";
+//		String query = "SELECT b from BettableEvent b where b.active = :boolean";
+//		try {
+//			 query = "SELECT b from BettableEvent b where b.active = :boolean";
+//			
+//			List<BettableEvent> betEvents = em.createQuery(query, BettableEvent.class)
+//					.setParameter("boolean", false)
+//					.getResultList();
+//					System.out.println(betEvents);
+					
+					
+					
+		Category category = new Category();
+		String jpql = "SELECT w FROM Wager w where w.user.id = :id";
 		try {
-			 query = "SELECT b from BettableEvent b where b.active = :boolean";
-			
-			List<BettableEvent> betEvents = em.createQuery(query, BettableEvent.class)
-					.setParameter("boolean", false)
-					.getResultList();
-					System.out.println(betEvents);
+			jpql = "SELECT w FROM Wager w where w.user.id = :id";
+			List<Wager> wagers = em.createQuery(jpql, Wager.class).setParameter("id", 2).getResultList();
+			System.out.println(wagers);
 			
 		}catch(Exception e){ 
 			e.printStackTrace();

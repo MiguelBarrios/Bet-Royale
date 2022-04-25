@@ -31,13 +31,13 @@ public class UserDaoImpl implements UserDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+
 	@Transactional
 	@Override
 	public User findById(int userId) {
 		return em.find(User.class, userId);
 	}
-	
-	
+
 	@Transactional
 	@Override
 	public User searchByUsername(String username) {
@@ -51,6 +51,7 @@ public class UserDaoImpl implements UserDAO {
 		}
 		return user;
 	}
+
 	@Transactional
 	@Override
 	public User createUser(User user) {
@@ -58,6 +59,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return user;
 	}
+
 	@Transactional
 	@Override
 	public User updateUser(User user) {
@@ -75,6 +77,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return updatedUser;
 	}
+
 	@Transactional
 	@Override
 	public BettableEvent createBettableEvent(BettableEvent event, int userId) {
@@ -84,6 +87,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return event;
 	}
+
 	@Transactional
 	@Override
 	public Contender createContender(Contender contender) {
@@ -91,6 +95,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return contender;
 	}
+
 	@Transactional
 	@Override
 	public User login(String username, String password) {
@@ -110,6 +115,7 @@ public class UserDaoImpl implements UserDAO {
 		}
 		return null;
 	}
+
 	@Transactional
 	@Override
 	public Wager createWager(Wager wager, int userId, int contenderId) {
@@ -124,6 +130,7 @@ public class UserDaoImpl implements UserDAO {
 		return wager;
 
 	}
+
 	@Transactional
 	@Override
 	public Wager showWager(Wager wager, int userId) {
@@ -131,7 +138,7 @@ public class UserDaoImpl implements UserDAO {
 
 		return wager;
 	}
-	
+
 	@Override
 	public List<Wager> getWagers(int userId) {
 		List<Wager> wagers = new ArrayList<Wager>();
@@ -140,13 +147,41 @@ public class UserDaoImpl implements UserDAO {
 		try {
 			jpql = "SELECT w FROM Wager w where w.user.id = :id";
 			wagers = em.createQuery(jpql, Wager.class).setParameter("id", userId).getResultList();
-		
+
 		} catch (Exception e) {
 			return wagers;
 		}
 
 		return wagers;
 	}
+	@Override
+	public CalculatedWinnings getWinnings(int userId) {
+		List<Wager> wagers = new ArrayList<Wager>();
+
+		String jpql;
+		try {
+			jpql = "SELECT w FROM Wager w where w.user.id = :id";
+			wagers = em.createQuery(jpql, Wager.class).setParameter("id", userId).getResultList();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		double count = 0;
+		double total = 0;
+		for (Wager wager : wagers) {
+			double odds = wager.getContender().getOdds();
+			if (wager.getContender().isWinner()) {
+				double winnings = (1 / (odds / 100));
+				count++;
+				total += winnings;
+			}
+		}
+		CalculatedWinnings winnings = new CalculatedWinnings(userId, count, total);
+
+		return winnings;
+	}
+
 	@Transactional
 	@Override
 	public Category searchByCategory(String keyword) {
@@ -160,6 +195,7 @@ public class UserDaoImpl implements UserDAO {
 
 		return category;
 	}
+
 	@Transactional
 	@Override
 	public Category createCategory(Category category) {
@@ -167,6 +203,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return category;
 	}
+
 	@Transactional
 	@Override
 	public Subcategory createSubCategory(Subcategory sb) {

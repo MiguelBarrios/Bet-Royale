@@ -25,68 +25,11 @@
 <h1>Betting Royale </h1>
 
 
-
-
-
 --------------------------------------------------------------------------
 
-<h2>Create Bet Event</h2>
 
 
 
-<div>
-
-
-<form action="userCreateBetEvent.do" method="POST">
-	
-		<input name="userId" value="2" >User Id />
-		 
-		 <label for="name">New Betting Event Name: </label>
-		 <input id="name" type="text" placeholder="Betting Event Name" name="name" />
-			 <br>
-			 <br> 
-			 <label for="description ">Event Description: 
-			 </label>
-		 <input id="description" type="text" placeholder="Event Description" name="description" />
-		
-			 <br>
-			 <br> <label for="endDate2">End Date: </label>
-		
-		 <input id="endDate2" type="text" placeholder="Event End Date" name="endDate2" />
-			 <br>
-			 <br> 
-			 
-			 <label for="active">Active </label> 
-	<input id="active" type="text" placeholder="active" name="active" />
-		 <br> <br> 
-		 
-  <input type="text" name="contenderName">
-  <input type="text" name="contenderName">
-  <input type="text" name="contenderName">
-  
-  <br>
-  <br>
-  <input type="text" name="contenderOdds">
-  <input type="text" name="contenderOdds">
-  <input type="text" name="contenderOdds">
-  
-    	<label for="category">Add Category</label>
-  		<input type="text" name="category"><br>
-  		
-  		<label for="category">Add Category Desc</label>
-  		<input type="text" name="categorydescription"><br>
-  		
-  		
-  		<label for="category">Add Sub Categorys:[name, desc]</label><br>
-  		<input type="text" name="cname">
-  		<input type="text" name="cdescription"><br><br>
-  		<input type="text" name="cname">
-  		<input type="text" name="cdescription"><br><br>
-  
- <input type="submit"/>
-	</form>
-
-</div>
 
 
 --------------------------------------------------------------------------
@@ -98,29 +41,6 @@ ${username.username} }
 <br>
 
 
------------------------Create Wager-----------------------------------------
-<br>
-
-
-<h2>Create Wager</h2>
-
-<jsp:include page="Components/createwager.jsp" />
-
-<br>
-<br>
-<form action="showWager.do" method="POST">
-
-<input type="hidden" id="userId" name="userId" value="2"/>
-<input type="submit" id="" name="showWager" value="Show"/>
-
-</form>
-
-<form action="getWager.do" method="GET">
-
-<input type="hidden" id="userId" name="userId" value="2"/>
-<input type="submit" id="getWager" name="getWager" value="GetWager"/>
-
-</form>
 
 
 
