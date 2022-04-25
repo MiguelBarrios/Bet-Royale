@@ -67,5 +67,6 @@ public class EventsDaoImpl implements EventsDAO {
 
 		return expiredBetEvents;
 	}
+}
 
 
