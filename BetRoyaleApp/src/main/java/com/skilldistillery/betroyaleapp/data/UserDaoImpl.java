@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
@@ -31,6 +32,21 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User findById(int userId) {
 		return em.find(User.class, userId);
+	}
+	
+	@Override
+	public User searchByUsername(String username) {
+		User user = null;
+		
+		String jpql = "SELECT u FROM User u where u.username = :username";
+		try {
+			user = em.createQuery(jpql, User.class)
+					.setParameter("username", username)
+					.getSingleResult();
+			
+			
+			}catch(Exception e){ }
+		return user;
 	}
 
 	@Override
@@ -114,7 +130,23 @@ public class UserDaoImpl implements UserDAO {
 
 	}
 
-	
+
+	@Override
+	public Category searchByCategory(String keyword) {
+		Category category = new Category();
+		String jpql = "SELECT c.id, c.name, c.description FROM category c WHERE c.name = :name";
+		try {
+			category = em.createQuery(jpql, Category.class)
+					.setParameter("name", category)
+					.getSingleResult();
+			
+			
+			}catch(Exception e){ }
+		
+		
+		return category;
+	}
+
 
 
 
