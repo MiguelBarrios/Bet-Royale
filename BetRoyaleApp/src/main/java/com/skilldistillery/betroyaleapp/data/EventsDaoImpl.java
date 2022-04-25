@@ -56,9 +56,16 @@ public class EventsDaoImpl implements EventsDAO {
 	@Override
 	public List<BettableEvent> displayExpiredBettableEvents() {
 		List<BettableEvent> expiredBetEvents = new ArrayList<BettableEvent>();
+		try {
+			String jpql = "SELECT b FROM BettingEvent b WHERE b.active = 0";
 
-		return null;
+			expiredBetEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
+		} catch (Exception e) {
 
+			return expiredBetEvents;
+		}
+
+		return expiredBetEvents;
 	}
 
-}
+
