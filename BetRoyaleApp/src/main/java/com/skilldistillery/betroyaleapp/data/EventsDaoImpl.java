@@ -37,9 +37,29 @@ public class EventsDaoImpl implements EventsDAO {
 		return betEvents;
 	}
 
+	@Override
+	public List<BettableEvent> displayActiveBettableEvents() {
+		List<BettableEvent> activeBetEvents = new ArrayList<BettableEvent>();
+		
+		
+		
+		
+		return null;
+	}
+
 	
 	
 	
+	
+	@Override
+	public List<BettableEvent> displayExpiredBettableEvents() {
+		List<BettableEvent> expiredBetEvents = new ArrayList<BettableEvent>();
+
+	
+	
+	return null;
+	
+	}
 	
 	
 	

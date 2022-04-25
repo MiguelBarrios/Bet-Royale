@@ -8,4 +8,8 @@ public interface EventsDAO {
 
 	List<BettableEvent> displayBettableEvents();
 	
+	List<BettableEvent> displayActiveBettableEvents();
+	
+	List<BettableEvent> displayExpiredBettableEvents();
+	
 }
