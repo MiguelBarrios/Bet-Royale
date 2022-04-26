@@ -15,22 +15,23 @@
 <body>
 <h1>Display Test Page</h1>
 
-<%-- <jsp:include page="Bootstrap.html"/>
+<jsp:include page="Bootstrap.html"/>
+
+
+<%-- <jsp:include page="Components/navbar.jsp"/>
  --%>
  
- <jsp:include page="Components/navbar.jsp"/>
-
 <br>
 <br>
 <br>
 
 <h2>Betting Event Info</h2>
 
-<input type="hidden" id="id" name="id" value="${user.id}"/>
-<input type="hidden" id="contenderId" value="${contender.id}"/>
-<input type="hidden" id="event" name="eventId" value="${event.id}"/>
+<input type="hidden" id="userId" name="userId" value="${user.id}"/>
+<input type="hidden" id="eventId" name="eventId" value="${event.id}"/>
 
-<h1></h1>
+
+<h1>${event.name}</h1>
 
 
 

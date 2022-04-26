@@ -122,6 +122,8 @@ background
 <h2>Show All Users Wagers</h2>
 <jsp:include page="Components/show.jsp" />
 
+
+
 <br>
 <br>
 <br>

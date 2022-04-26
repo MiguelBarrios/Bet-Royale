@@ -50,6 +50,15 @@ public class UserController {
 		// TODO Potentially Changed to "updateUser"
 		return "accounthome";
 	}
+	
+	@PostMapping(path="updateWager.do")
+	public String updateWager(Model model, Wager wager) {
+		Wager updatedWager = userDao.updateWager(wager);
+		System.out.println(updatedWager);
+		model.addAttribute(updatedWager);
+		
+		return "accounthome";
+	}
 
 	public void foo(@RequestParam("number[]") List<String> to) {
 		for (String number : to) {

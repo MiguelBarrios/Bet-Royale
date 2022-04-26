@@ -1,13 +1,13 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +16,6 @@ import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
-import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -171,9 +170,14 @@ public class EventsController {
 	public ModelAndView goToEventPage(int userId, int eventId) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("userid: " + userId + " eventId: " + eventId);
+		BettableEvent event = dao.findEventById(eventId);
+		User user = dao.findUserById(userId);
+		mv.addObject("user", user);
+		mv.addObject("event", event);
+		mv.addObject("eventId", eventId);
+		mv.addObject("userId", userId);
 		
-		
-		mv.setViewName("home");
+		mv.setViewName("displaypage");
 		return mv;
 		
 	}
@@ -182,3 +186,13 @@ public class EventsController {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+//MEOW
