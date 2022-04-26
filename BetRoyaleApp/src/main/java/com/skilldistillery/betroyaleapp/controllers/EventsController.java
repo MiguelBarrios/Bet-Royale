@@ -213,7 +213,7 @@ public class EventsController {
 		mv.addObject("userId", userId);
 		
 
-		mv.setViewName("displaypage");
+		mv.setViewName("eventInfoDisplay");
 		return mv;
 		
 	}
