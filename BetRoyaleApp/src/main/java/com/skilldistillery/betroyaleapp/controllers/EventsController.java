@@ -148,6 +148,17 @@ public class EventsController {
 	}
 	
 	
+	@GetMapping("loadEvents.do")
+	public ModelAndView loadEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayBettableEvents();
+		events.forEach(System.out::println);
+		mv.addObject("events", events);
+		
+		mv.setViewName("eventsView");
+		return mv;
+	}
+	
 	
 	
 	

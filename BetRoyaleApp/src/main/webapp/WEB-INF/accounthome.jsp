@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="static/css/reset.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -46,6 +50,12 @@
 
 
 -------------------------Display all bettable events---------------------------
+
+<form action="">
+
+</form>
+
+<jsp:include page="Components/showeventsdisplay.jsp" />
 
 <!-- EDIT CONTROLLER -->
 <jsp:include page="Components/allbetsview.jsp" />
