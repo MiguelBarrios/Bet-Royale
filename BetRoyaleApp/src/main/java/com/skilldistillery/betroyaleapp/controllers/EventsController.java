@@ -1,6 +1,7 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -148,8 +150,33 @@ public class EventsController {
 	}
 	
 	
+	@GetMapping("loadEvents.do")
+	public ModelAndView loadEvents(int userId) {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayBettableEvents();
+//		for(BettableEvent be : events) {
+//			List<Subcategory> sub = be.getSubcategories();
+//			sub.get(0).getCategory();
+//		}
+		
+		mv.addObject("events", events);
+		mv.addObject("userId", userId);
+		
+		mv.setViewName("eventsView");
+		return mv;
+	}
 	
 	
+	@GetMapping("loadEventPage.do")
+	public ModelAndView goToEventPage(int userId, int eventId) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("userid: " + userId + " eventId: " + eventId);
+		
+		
+		mv.setViewName("home");
+		return mv;
+		
+	}
 	
 	
 	
