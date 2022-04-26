@@ -71,33 +71,7 @@ background
 <br> 
 <br>
 <br>
--------------------------Display all bettable events---------------------------
 
-<form action="">
-
-</form>
-
-<jsp:include page="Components/showeventsdisplay.jsp" />
-
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/allbetsview.jsp" />
-<br>
-<br>
-<br>
-------------------------Display all active events---------------------------
-
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/activebetsview.jsp" />
-<br>
-<br>
-<br>
------------------------Display all expired events---------------------------
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/expiredbetsview.jsp" />
-
-<br>
-<br>
-<br>
 
 -----------------------Create Wager-----------------------------------------
 
