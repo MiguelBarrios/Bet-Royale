@@ -11,7 +11,11 @@
 <link rel="stylesheet" href="css/style.css">
 
 </head>
-
+<style>
+.body{
+background
+}
+</style> 
 <body>
 <h1>Here</h1>
 <jsp:include page="Bootstrap.html" />
@@ -22,36 +26,51 @@
 <!-- nav bar edit for searching and logging in/registering a user -->
 
 
+
 -------------------View All events page---------------------------
 <button onclick="location.href='loadEvents.do';">View Events</button>
 
+
+<br>
+<br>
+<br>
 -------------------Create a betting event---------------------------
 
 <!-- ability to edit -->
 
 <jsp:include page="Components/createBettableEventForm.jsp" /><br>
-
+<br>
+<br>
+<br>
 
 -------------------View user profile information---------------------------
 
 <!-- display not edit -->
 
-
+<br>
+<br>
+<br>
 ----------------------- edit user account-----------------------------------
 
 <!-- ability to edit -->
 <jsp:include page="Components/updateuser.jsp" />
 
-
+<br>
+<br>
+<br>
 -----------------------Display Leaderboard-----------------------------------
 
 <!-- display not edit -->
-
+<br>
+<br>
+<br>
 ----------------------- edit Betting event-----------------------------------
 
 <!-- ability to edit -->
-
-
+<jsp:include page="Components/editbettingevent.jsp" />
+<br>
+<br>
+<br>
 -------------------------Display all bettable events---------------------------
 
 <form action="">
@@ -62,17 +81,23 @@
 
 <!-- EDIT CONTROLLER -->
 <jsp:include page="Components/allbetsview.jsp" />
-
+<br>
+<br>
+<br>
 ------------------------Display all active events---------------------------
 
 <!-- EDIT CONTROLLER -->
 <jsp:include page="Components/activebetsview.jsp" />
-
+<br>
+<br>
+<br>
 -----------------------Display all expired events---------------------------
 <!-- EDIT CONTROLLER -->
 <jsp:include page="Components/expiredbetsview.jsp" />
 
-
+<br>
+<br>
+<br>
 
 -----------------------Create Wager-----------------------------------------
 
@@ -84,14 +109,21 @@
 <jsp:include page="Components/createwager.jsp" />
 
 
-
+<br>
+<br>
+<br>
 
 -----------------------Get Wager-----------------------------------------
 <!-- display not edit -->
+
+<jsp:include page="Components/createwager.jsp"/>
+
 <h2>Show All Users Wagers</h2>
 <jsp:include page="Components/show.jsp" />
 
-
+<br>
+<br>
+<br>
 ------------Display All User Created Betting Events----------------------
 
 <!-- display not edit -->

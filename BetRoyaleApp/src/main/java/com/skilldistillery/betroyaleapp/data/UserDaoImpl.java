@@ -65,6 +65,7 @@ public class UserDaoImpl implements UserDAO {
 	@Transactional
 	@Override
 	public User updateUser(User user) {
+		em.find(User.class, user.getId());
 		User updatedUser = findById(user.getId());
 		updatedUser.setFirstName(user.getFirstName());
 		updatedUser.setLastName(user.getLastName());

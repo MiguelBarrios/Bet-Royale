@@ -39,13 +39,16 @@ public class UserController {
 		System.out.println(newUser);
 		return "home";
 	}
+	
 
-	@RequestMapping(path = "updateUser.do")
+	@PostMapping(path = "updateUser.do")
 	public String updateUser(Model model, User user) {
 		User updatedUser = userDao.updateUser(user);
 		System.out.println(updatedUser);
+		model.addAttribute(updatedUser);
+		System.out.println(updatedUser);
 		// TODO Potentially Changed to "updateUser"
-		return "Components/accounthome";
+		return "accounthome";
 	}
 
 	public void foo(@RequestParam("number[]") List<String> to) {
