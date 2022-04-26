@@ -50,6 +50,15 @@ public class UserController {
 		// TODO Potentially Changed to "updateUser"
 		return "accounthome";
 	}
+	
+	@PostMapping(path="updateWager.do")
+	public String updateWager(Model model, Wager wager) {
+		Wager updatedWager = userDao.updateWager(wager);
+		System.out.println(updatedWager);
+		model.addAttribute(updatedWager);
+		
+		return "accounthome";
+	}
 
 	public void foo(@RequestParam("number[]") List<String> to) {
 		for (String number : to) {
@@ -147,7 +156,7 @@ public class UserController {
 	}
 
 	@PostMapping(path = "createWager.do")
-	public ModelAndView createWager(Model model, Wager wager, int userId, int contenderId) {
+	public ModelAndView createWager(Wager wager, int userId, int contenderId) {
 		ModelAndView mv = new ModelAndView();
 		if(wager.getContender().getEvent().getActive() == true) {
 		Wager newWager = userDao.createWager(wager, userId, contenderId);
@@ -155,7 +164,7 @@ public class UserController {
 		System.out.println(newWager);
 
 		// TODO Replace with desired JSP
-		mv.setViewName("home");
+		mv.setViewName("accounthome");
 		
 		}
 		
