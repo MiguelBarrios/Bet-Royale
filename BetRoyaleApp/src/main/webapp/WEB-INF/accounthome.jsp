@@ -95,6 +95,9 @@
 
 -----------------------Get Wager-----------------------------------------
 <!-- display not edit -->
+
+<jsp:include page="Components/createwager.jsp"/>
+
 <h2>Show All Users Wagers</h2>
 <jsp:include page="Components/show.jsp" />
 
