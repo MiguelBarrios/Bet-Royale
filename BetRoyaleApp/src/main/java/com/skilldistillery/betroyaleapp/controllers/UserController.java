@@ -182,7 +182,7 @@ public class UserController {
 		return mv;
 	}
 	
-	@GetMapping(path="getWager.do")
+	@GetMapping(path="getWagers.do")
 	public ModelAndView getWager(int userId) {
 		ModelAndView mv = new ModelAndView();
 		User u = userDao.findById(userId);
