@@ -63,6 +63,15 @@
     </form>
 
 
+	<!---------------- List al wagers for this event -------------->
+		<div class="event-list-container">
+		<h1>Wagers</h1>
+		<c:forEach items="${wagers}" var="w">
+			
+			<div>${w.contender.name} bet:${w.betAmount} User:${w.user.id}</div>
+		</c:forEach>
+	</div>
+
 
     </div><!------------------  End page body content ------------------->
     <script>

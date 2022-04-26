@@ -207,10 +207,12 @@ public class EventsController {
 		System.out.println("userid: " + userId + " eventId: " + eventId);
 		BettableEvent event = dao.findEventById(eventId);
 		User user = dao.findUserById(userId);
+		List<Wager> wagers = dao.getWagersForEvent(eventId);
 		mv.addObject("user", user);
 		mv.addObject("event", event);
 		mv.addObject("eventId", eventId);
 		mv.addObject("userId", userId);
+		mv.addObject("wagers", wagers);
 		
 
 		mv.setViewName("eventInfoDisplay");
