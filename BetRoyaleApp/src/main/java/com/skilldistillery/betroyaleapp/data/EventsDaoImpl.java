@@ -301,7 +301,7 @@ public class EventsDaoImpl implements EventsDAO {
 //
 //				return;
 //			}
-	}
+	
 
 	@Override
 	public Contender findContenderById(int contenderId) {
@@ -309,7 +309,7 @@ public class EventsDaoImpl implements EventsDAO {
 		
 	}
 	
-	
+}
 	
 	
 	
