@@ -10,7 +10,7 @@
 <body>
 <h1>Here</h1>
 <jsp:include page="Components/navbar.jsp" />
-
+ 
 
 <!-- nav bar edit for searching and logging in/registering a user -->
 
