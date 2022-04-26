@@ -68,7 +68,7 @@ background
 
 <!-- ability to edit -->
 <jsp:include page="Components/editbettingevent.jsp" />
-<br>
+<br> 
 <br>
 <br>
 -------------------------Display all bettable events---------------------------
