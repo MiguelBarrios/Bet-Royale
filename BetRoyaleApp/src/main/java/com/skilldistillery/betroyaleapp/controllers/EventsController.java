@@ -1,12 +1,16 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +27,15 @@ public class EventsController {
 
 	@Autowired
 	private EventsDAO dao;
+	
+	
+	@GetMapping("editEvent.do")
+	public String goToEditPage(Model model, int eventId) {
+		BettableEvent event = dao.findEventById(eventId);
+		model.addAttribute("event", event);
+		return "editevent";
+	}
+	
 
 	@GetMapping(path = {"allBetEvents.do"})
 	public ModelAndView displayAllBettableEvents() {
@@ -96,27 +109,40 @@ public class EventsController {
 	
 	
 	
-	//TODO- change this to a post mapping method	
 	
-	@GetMapping("updateBetEvent.do")
-	public ModelAndView updateBettableEvent(int winningId, int eventId) {
-		BettableEvent event = dao.findEventById(eventId);
-		System.out.println(event);
-		List<Contender> contenders = event.getContenders();
-		for (Contender contender : contenders) {
-			boolean isWinner = (winningId == contender.getId());
-			Contender newContender = dao.updateContender(contender.getId(), isWinner);
+	@PostMapping("updateBetEvent.do")
+	public ModelAndView updateBettableEvent(Integer [] contenderResult, Integer[] contenderIds, Integer eventId) {
+		ModelAndView mv = new ModelAndView();
+		//BettableEvent event = dao.findEventById(eventId);
+//		System.out.println(event);
+//		
+//		List<Contender> contenders = event.getContenders();
 		
-			System.out.println(newContender);
-			
+		for (int i = 0; i < contenderIds.length; i++) {
+			boolean isWinner = contenderResult[i] != 0;
+			dao.updateContender(contenderIds[i], isWinner);
 		}
 		
-		event.setActive(false);
-		event.setCompletion(true);
-		dao.updateBettableEvent(event);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home");
 		
+		
+		
+		
+	//	Contender newContender = dao.updateContender(contender.getId(), isWinner);
+		//System.out.println(newContender);
+	
+			
+		
+//		for (Contender contender : contenders) {
+//		boolean isWinner = (winningId == contender.getId());
+			
+		
+		
+//		event.setActive(false);
+//		event.setCompletion(true);
+//		dao.updateBettableEvent(event);
+//		mv.addObject("event", event);
+		mv.setViewName("accounthome");
+//		
 		return mv;
 		
 	}
