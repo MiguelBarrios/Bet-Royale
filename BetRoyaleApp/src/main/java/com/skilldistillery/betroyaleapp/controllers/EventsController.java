@@ -154,10 +154,10 @@ public class EventsController {
 	public ModelAndView loadEvents(int userId) {
 		ModelAndView mv = new ModelAndView();
 		List<BettableEvent> events = dao.displayBettableEvents();
-//		for(BettableEvent be : events) {
-//			List<Subcategory> sub = be.getSubcategories();
-//			sub.get(0).getCategory();
-//		}
+		for(BettableEvent be : events) {
+			List<Subcategory> sub = be.getSubcategories();
+			System.out.println(sub);
+		}
 		
 		mv.addObject("events", events);
 		mv.addObject("userId", userId);

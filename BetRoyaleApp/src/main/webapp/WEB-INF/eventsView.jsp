@@ -26,11 +26,12 @@
           </div>
           <div class="event-info-container">
             <div class="category-container">
-          	  <c:if test="${empty e.subcategories}">
-  				<div class="tag category">sports</div>
-                <div class="tag sub-category">football</div>
-                <div class="tag sub-category">esports</div>
-			</c:if>
+              <c:if test="${not empty e.subcategories}">
+              	<div class="tag category">${e.subcategories[0].category.name}</div>
+              </c:if>
+              <c:forEach items="${e.subcategories}" var="sub">
+             	 <div class="tag sub-category">${sub.name}</div>
+              </c:forEach>
 
 
             </div>
