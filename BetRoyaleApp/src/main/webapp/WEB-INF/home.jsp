@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+<jsp:include page="Bootstrap.html" />
 
 <jsp:include page="Components/navbar.jsp" />
 <br>
