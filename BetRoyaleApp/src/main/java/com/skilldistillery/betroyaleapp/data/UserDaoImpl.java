@@ -96,8 +96,7 @@ public class UserDaoImpl implements UserDAO {
 		em.flush();
 		return contender;
 	}
-	
-	
+
 	@Transactional
 	@Override
 	public User login(String username, String password) {
@@ -116,6 +115,27 @@ public class UserDaoImpl implements UserDAO {
 		} catch (Exception e) {
 		}
 		return null;
+	}
+
+	@Transactional
+	@Override
+	public Wager findWagerById(int wagerId) {
+		return em.find(Wager.class, wagerId);
+	}
+
+	@Transactional
+	@Override
+	public Wager updateWager(Wager wager) {
+		em.find(Wager.class, wager.getId());
+		Wager updatedWager = findWagerById(wager.getId());
+		updatedWager.setBetAmount(wager.getBetAmount());
+		updatedWager.setContender(wager.getContender());
+		updatedWager.setMultiplier(wager.getMultiplier());
+		updatedWager.setContender(wager.getContender());
+
+		em.persist(updatedWager);
+		em.flush();
+		return updatedWager;
 	}
 
 	@Transactional
@@ -156,6 +176,7 @@ public class UserDaoImpl implements UserDAO {
 
 		return wagers;
 	}
+
 	@Override
 	public CalculatedWinnings getWinnings(int userId) {
 		List<Wager> wagers = new ArrayList<Wager>();
@@ -179,7 +200,7 @@ public class UserDaoImpl implements UserDAO {
 				total += winnings;
 			}
 		}
-		//CalculatedWinnings winnings = new CalculatedWinnings(wager., count, total);
+		// CalculatedWinnings winnings = new CalculatedWinnings(wager., count, total);
 
 		return null;
 	}
@@ -214,19 +235,22 @@ public class UserDaoImpl implements UserDAO {
 		return sb;
 	}
 
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public List<User> display_List_Of_User_Bet_Info_In_A_BettableEvent(int userId) {
+		List<User> users = new ArrayList<User>();
+
+		try {
+
+		} catch (Exception e) {
+			return users;
+
+		}
+
+		return users;
+
+	}
+
+	// comments as lines
+
+
 }

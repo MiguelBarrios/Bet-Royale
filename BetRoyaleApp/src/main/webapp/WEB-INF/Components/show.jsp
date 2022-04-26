@@ -13,8 +13,8 @@
 
 
 <ul>
-	<li><c:forEach var="e" items="${wager}">
-					${e.betAmount} 
+	<li><c:forEach var="w" items="${wager}">
+					${w.betAmount} 
 					
 					
 				

@@ -19,6 +19,7 @@ import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -174,10 +175,45 @@ public class EventsController {
 	}
 	
 	
+	@GetMapping("loadEvents.do")
+	public ModelAndView loadEvents(int userId) {
+		ModelAndView mv = new ModelAndView();
+		List<BettableEvent> events = dao.displayBettableEvents();
+		for(BettableEvent be : events) {
+			List<Subcategory> sub = be.getSubcategories();
+			System.out.println(sub);
+		}
+		
+		mv.addObject("events", events);
+		mv.addObject("userId", userId);
+		
+		mv.setViewName("eventsView");
+		return mv;
+	}
 	
 	
+	@GetMapping("loadEventPage.do")
+	public ModelAndView goToEventPage(int userId, int eventId) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("userid: " + userId + " eventId: " + eventId);
+		BettableEvent event = dao.findEventById(eventId);
+		User user = dao.findUserById(userId);
+		mv.addObject("user", user);
+		mv.addObject("event", event);
+		mv.addObject("eventId", eventId);
+		mv.addObject("userId", userId);
+		
+
+		mv.setViewName("displaypage");
+		return mv;
+		
+	}
 	
 	
 	
 	
 }
+
+
+
+
