@@ -18,46 +18,29 @@
 <body>
 	<div class="main-container">
 		<!--------------------------------- Card ------------------------------->
+		
 		<c:forEach items="${events}" var="e">
-			<div class="event-card">
-				<div class="event-image-container">
-					<img class="col bet-event-img"
-						src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4"
-						width="75px" height="75px"></img>
-				</div>
-				<div class="event-info-container">
-					<div class="category-container">
-						<div class="tag category">sports</div>
-						<div class="tag sub-category">football</div>
-						<div class="tag sub-category">esports</div>
-					</div>
-					<div>
-						<h3>${e.name}</h3>
-						<h5>close date: ${e.endDate}</h5>
-					</div>
-				</div>
-			</div>
+        <div class = "event-card" onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';" >
+          <div class="event-image-container">
+            <img class="col bet-event-img" src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4" width="75px" height="75px"></img>
+          </div>
+          <div class="event-info-container">
+            <div class="category-container">
+                <div class="tag category">sports</div>
+                <div class="tag sub-category">football</div>
+                <div class="tag sub-category">esports</div>
+            </div>
+            <div>
+              <h3>${e.name}</h3>
+            </div>
+          </div>
+        </div>
 
+	
+	
+		
 		</c:forEach>
 
-		<!--------------------------------- Card ------------------------------->
-		<div class="event-card">
-			<div class="event-image-container">
-				<img class="col bet-event-img"
-					src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4"
-					width="75px" height="75px"></img>
-			</div>
-			<div class="event-info-container">
-				<div class="category-container">
-					<div class="tag category">sports</div>
-					<div class="tag sub-category">football</div>
-					<div class="tag sub-category">esports</div>
-				</div>
-				<div>
-					<h3>This is Okay</h3>
-				</div>
-			</div>
-		</div>
 		<!--------------------------------- Card ------------------------------->
 	</div>
 

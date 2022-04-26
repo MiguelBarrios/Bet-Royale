@@ -22,6 +22,9 @@
 <!-- nav bar edit for searching and logging in/registering a user -->
 
 
+-------------------View All events page---------------------------
+<button onclick="location.href='loadEvents.do';">View Events</button>
+
 -------------------Create a betting event---------------------------
 
 <!-- ability to edit -->
