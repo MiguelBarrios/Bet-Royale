@@ -394,6 +394,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `em
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (4, 'spaghettisoup', 'password', 'alex', 'martinez', 'amartin@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (5, 'victorwiktor', 'password', 'viktor', 'oleskivy', 'olesvikt@yahoo.com', 1, 'ROLE_USER', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (6, 'cinderqueen', 'password', 'esmeralda', 'anastazsia', 'eanastazisa@gmail.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (7, 'cookiemonsta', 'password', 'sully', 'reynolds', 'sreynolds@yahoo.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (8, 'snackattack', 'password', 'silvia', 'nulvenia', 'nulvenias24@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 
 COMMIT;
 
@@ -467,7 +469,9 @@ START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (1, 'DeathMatch', 'L vs A', 1);
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (2, 'Soccer Match', 'Team Arlington vs Team Soup Lovers', 2);
-INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (3, 'UFC Fight Night', 'Font vs. Other guy', 2);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (3, 'UFC Fight Night', 'Font vs. Other guy', 1);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (4, 'UFC Fight Night 213', 'Featherweight Championships', 1);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (DEFAULT, 'UFC Fight Night 512', 'Heavywight Championships', 2);
 
 COMMIT;
 
