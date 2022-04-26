@@ -142,10 +142,13 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public Wager createWager(Wager wager, int userId, int contenderId) {
 		User user = em.find(User.class, userId);
+		Contender contender = em.find(Contender.class, contenderId);
+		double multiplier = 1 / (contender.getOdds() / 100);
+		
 		wager.setUser(user);
 		wager.setBetAmount(wager.getBetAmount());
-		Contender contender = em.find(Contender.class, contenderId);
 		wager.setContender(contender);
+		wager.setMultiplier(multiplier);
 		em.persist(wager);
 		em.flush();
 		return wager;

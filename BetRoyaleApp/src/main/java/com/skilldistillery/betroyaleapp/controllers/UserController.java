@@ -156,16 +156,20 @@ public class UserController {
 	}
 
 	@PostMapping(path = "createWager.do")
-	public ModelAndView createWager(int userId, int contenderId, int betAmount) {
+	public ModelAndView createWager(int userId, int contenderId, double betAmount) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(userId + " " + contenderId + " " + betAmount);
+		Contender contender = userDao.findContenderById(contenderId);
+		User user = userDao.findById(userId);
+		double odds = contender.getOdds();
+		double multiplier = 1 / (odds / 100);
+		Wager wager = new Wager();
+		wager.setBetAmount(betAmount);
+		wager.setContender(contender);
+		wager.setUser(user);
+		wager.setMultiplier(multiplier);
 		
-//		if(wager.getContender().getEvent().getActive() == true) {
-//		Wager newWager = userDao.createWager(wager, userId, contenderId);
-//		mv.addObject("wager", newWager);
-//		System.out.println(newWager);
-
-		// TODO Replace with desired JSP
+	
 		mv.setViewName("eventInfoDisplay");
 		
 		//}
