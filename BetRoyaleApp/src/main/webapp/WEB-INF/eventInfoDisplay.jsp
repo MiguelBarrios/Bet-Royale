@@ -26,26 +26,27 @@
 
     <div class="event-info-container">
       <img class="col bet-event-img" src="https://avatars.githubusercontent.com/u/34669927?s=40&amp;v=4" width="75px" height="75px">
-      <h3>UFC asdfasdfadf sdfsdf sdf </h3>
-      <p>Discriptons lskdjflksj</p>
-      <div>Date Created</div>
-      <div>Close Date</div>
+      <h3>(${event.id})${event.name}</h3>
+      <p>${event.description}</p>
+       <div>${event.endDate}</div>
+     <div>${event.dateCreated}</div>
+   		<div>${event.active}</div>
+      <div>${event.completion}</div>
       <div>active</div>
       <div>completions</div>
       <div class="event-contenders">
-        <div>contender 1</div>
-        <div>contender 2</div>
-        <div>contender 3</div>
-        <div>contender n</div>
+      	<c:forEach items="${event.contenders}" var="contender">
+      		<div>${contender.name}</div>
+      	</c:forEach>
       </div>
     </div>
 
 
     <div class="place-wager-container">
       <div class="contenders">
-        <button type="button" class="btn btn-secondary" id = "contenderA" onclick="toggleContender(this.id)">Contender a</button>
-        <button type="button" class="btn btn-secondary" id = "contenderB" onclick="toggleContender(this.id)">Contender b</button>
-        <button type="button" class="btn btn-secondary" id="contenderC" onclick="toggleContender(this.id)">Contender c</button>
+      	<c:forEach items="${event.contenders}" var="contender">
+      	        <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}</button>
+      	</c:forEach>
       </div>
 
     </div>
@@ -55,7 +56,7 @@
         <label for="userId"></label>
         <label for="contenderId">Select Your Contender</label>
         <input type="text" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
-        <input type="hidden" id="contenderId" name="contenderId" value="${user.id}"/>
+        <input type="hidden" id="contenderId" name="contenderId" value="0"/>
         <label for="betAmount">Bet Amount: </label>
         <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
         <input type="submit"/>
@@ -66,8 +67,25 @@
     </div><!------------------  End page body content ------------------->
     <script>
       function toggleContender(clicked_id){
-        contender = document.getElementById(clicked_id).innerHTML;
+        var contender = document.getElementById(clicked_id).innerHTML;
         document.getElementById("contenderName").value = contender;
+        var contenderBtn = document.getElementById(clicked_id);
+		
+        var id = document.getElementById(clicked_id).id;
+		
+        
+        
+        
+        if(contenderBtn.classList.contains("btn-secondary")){
+          contenderBtn.classList.remove("btn-secondary")
+          contenderBtn.classList.add("btn-primary");
+          document.getElementById("contenderId").value = id;
+        }else{
+          contenderBtn.classList.remove("btn-primary");
+          contenderBtn.classList.add("btn-secondary");
+          document.getElementById("contenderName").value = "";
+        }
+
       }
     </script>
  
