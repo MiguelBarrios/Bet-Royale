@@ -1,8 +1,7 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
-import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
@@ -207,10 +205,22 @@ public class EventsController {
 		System.out.println("userid: " + userId + " eventId: " + eventId);
 		BettableEvent event = dao.findEventById(eventId);
 		User user = dao.findUserById(userId);
+		List<Wager> wagers = dao.getWagersForEvent(eventId);
+		List<Wager> userWagers = new ArrayList<>();
+		
+		for(Wager wager : wagers) {
+			if(wager.getUser().getId() == userId) {
+				userWagers.add(wager);
+			}
+		}
+		
+		
 		mv.addObject("user", user);
 		mv.addObject("event", event);
 		mv.addObject("eventId", eventId);
 		mv.addObject("userId", userId);
+		mv.addObject("wagers", wagers);
+		mv.addObject("userWagers", userWagers);
 		
 
 		mv.setViewName("eventInfoDisplay");
