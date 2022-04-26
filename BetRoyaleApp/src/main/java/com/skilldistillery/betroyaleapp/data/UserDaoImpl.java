@@ -250,6 +250,12 @@ public class UserDaoImpl implements UserDAO {
 
 	}
 
+	@Override
+	public Contender findContenderById(int contenderId) {
+		
+		return em.find(Contender.class, contenderId);
+	}
+
 	// comments as lines
 
 
