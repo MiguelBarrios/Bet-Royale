@@ -33,4 +33,5 @@ public interface EventsDAO {
 	
 	List<Wager> getWagersForEvent(int eventId);
 
+	public void displayUserWinLossRatio(int userId);
 }

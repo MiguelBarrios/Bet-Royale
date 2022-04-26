@@ -106,7 +106,16 @@ background
 <!-- display not edit -->
 <jsp:include page="Components/usercreatedbetsview.jsp" />
 
+-----------------------User Win/Loss Display Test-----------------------------------------
 
+<br>
+<input type ="button" onclick="location.href='profiledisplay.do?userId=${userId}'" value="Win-Loss-Ratio">
+			<div class="event-card"
+				onclick="location.href='profiledisplay.do?userId=${userId}';">
+<jsp:include page="Components/profiledisplay.jsp" />
+
+<br>
+<br>
 
 
 </body>
