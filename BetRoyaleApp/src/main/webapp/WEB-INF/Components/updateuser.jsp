@@ -1,55 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Bet Royale App</title>
 
 </head>
 <body>
-<form action="updateuser.do" method="post">
+<form action="updateUser.do" method="post">
 
-<input type="hidden" id="userId" name="userId" value="${user.id}"/>
+<input type="hidden" id="id" name="id" value="${user.id}"/>
 
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputEmail4">Username</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="${user.username}" value="${user.username}">
+      <input type="text" class="form-control" name="username" placeholder="${user.username}" value="${user.username}">
     </div>
     
     
     <div class="form-group col-md-4">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="user." placeholder="${user.password}" value="${user.password}">
+      <input type="password" class="form-control" name="password" placeholder="${user.password}" value="${user.password}">
     </div>
-  </div>
-  
+  </div>  
   <div class="form-row">
   <div class="form-group col-md-4">
     <label for="inputAddress">First Name</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="${user.firstName}" value="${user.firstName}">
+    <input type="text" class="form-control" name="firstName" placeholder="${user.firstName}" value="${user.firstName}">
   </div>
   
   
   <div class="form-group col-md-4">
     <label for="inputAddress2">Last Name</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="${user.lastName}" value="${user.lastName}">
+    <input type="text" class="form-control" name="lastName" placeholder="${user.lastName}" value="${user.lastName}">
   </div>
   </div>
   
+
   
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputCity">Email</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="${user.email}" value="${user.email}">
+      <input type="email" class="form-control" name="email" placeholder="${user.email}" value="${user.email}">
     </div>
     </div>
     
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputCity">Profile Image Url</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="${user.profileImage}" value="${user.profileImage}">
+      <input type="text" class="form-control" name="profileImage" placeholder="${user.profileImage}" >
     </div>
     </div>
     
@@ -58,7 +53,7 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputCity">About Me</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="${user.aboutMe}" value="${user.aboutMe}">
+      <input type="text" class="form-control" name="aboutMe" placeholder="${user.aboutMe}" value="${user.aboutMe}">
     </div>
     </div>
     
