@@ -67,8 +67,20 @@ background
 ----------------------- edit Betting event-----------------------------------
 
 <!-- ability to edit -->
+
+
+
+	<form action="editEvent.do" method="GET">
+	        <input type="hidden" id="eventId" name="eventId" value="1"/>
+				<button type="submit" >Edit
+					Event</button>
+			</form>
+
+
+
 <jsp:include page="Components/editbettingevent.jsp" />
 <br> 
+
 <br>
 <br>
 

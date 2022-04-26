@@ -127,6 +127,16 @@ public class EventsDaoImpl implements EventsDAO {
 		return contender;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Transactional
 	@Override
 	public BettableEvent updateBettableEvent(BettableEvent event) {
@@ -293,6 +303,24 @@ public class EventsDaoImpl implements EventsDAO {
 //			}
 	}
 
+	@Override
+	public Contender findContenderById(int contenderId) {
+		return em.find(Contender.class, contenderId);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 

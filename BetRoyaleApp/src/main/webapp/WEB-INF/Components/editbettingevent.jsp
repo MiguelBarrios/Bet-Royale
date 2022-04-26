@@ -1,79 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<form action="updateUser.do" method="post">
 
-<input type="hidden" id="id" name="id" value="${user.id}"/>
 
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" name="username" placeholder="${user.username}" value="${user.username}">
-    </div>
-    
-    
-    <div class="form-group col-md-4">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="${user.password}" value="${user.password}">
-    </div>
-  </div>  
-  <div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="inputAddress">First Name</label>
-    <input type="text" class="form-control" name="firstName" placeholder="${user.firstName}" value="${user.firstName}">
-  </div>
-  
-  
-  <div class="form-group col-md-4">
-    <label for="inputAddress2">Last Name</label>
-    <input type="text" class="form-control" name="lastName" placeholder="${user.lastName}" value="${user.lastName}">
-  </div>
-  </div>
-  
 
-  
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputCity">Email</label>
-      <input type="email" class="form-control" name="email" placeholder="${user.email}" value="${user.email}">
-    </div>
-    </div>
+write logic- if NOT completed then do form, if completed then do not.
+
+
+
+
+
+
+   
+    <form action="updateBetEvent.do" method="post">
+ <input type="hidden" id="eventId" name="eventId" value="1"/>
+
+        
+            
+          <h3>Update Contenders below</h3>
+
+          <br>
+
+	<c:forEach var="e"  items="${event.contenders}">
+	<label >${e.name} </label >
+ <input type="hidden" id="contenderIds" name="contenderIds" value="${ e.id}"/>
+	
+      <select class="form-select"name="contenderResult" aria-label="Default select example" >
+                <option id="contenderResult" value="0">Lost</option >
+                <option id="contenderResult"  value="1">Won</option >
+             
+              </select>
     
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputCity">Profile Image Url</label>
-      <input type="text" class="form-control" name="profileImage" placeholder="${user.profileImage}" >
-    </div>
-    </div>
     
-    
-    
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label for="inputCity">About Me</label>
-      <input type="text" class="form-control" name="aboutMe" placeholder="${user.aboutMe}" value="${user.aboutMe}">
-    </div>
-    </div>
-    
-    
-    
-  
-  
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-      <label class="form-check-label" for="invalidCheck">
-        Agree to changes
-      </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  
-  
-  <button type="submit" class="btn btn-primary">Submit Profile Changes</button>
-  
-</form>
+      
+            <br>
+            <br>
+        </c:forEach>
+        
+            <br>
+            
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="inputCity">Complete(Close) Event</label>
+                <select class="form-select" aria-label="Default select example" >
+                    <option id="completetion" name="completetion" value="1">Closed</option >
+                    <option id="completetion"  name="completetion" value="0">Keep Open</option >
+               
+                </select>
+              </div>
+              </div>
+          
+              <br>
+          
+          <div class="col-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Finalize Event
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          
+          
+          <button type="submit" class="btn btn-primary">Submit Profile Changes</button>
+          
+        </form>
+        
+
 
     
