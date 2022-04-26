@@ -29,7 +29,7 @@ public class EventsController {
 		List<BettableEvent> events = dao.displayBettableEvents();
 		mv.addObject("betEvent", events);
 		mv.setViewName("home");
-		
+		 
 		return mv;
 		
 	}
@@ -87,7 +87,7 @@ public class EventsController {
 		System.out.println(userCreatedEvents);
 		mv.addObject(user);
 		mv.addObject("userEvents", userCreatedEvents);
-		mv.setViewName("Components/accounthome");
+		mv.setViewName("accounthome");
 		
 		return mv;
 		
@@ -109,6 +109,7 @@ public class EventsController {
 			System.out.println(newContender);
 			
 		}
+		
 		event.setActive(false);
 		event.setCompletion(true);
 		dao.updateBettableEvent(event);

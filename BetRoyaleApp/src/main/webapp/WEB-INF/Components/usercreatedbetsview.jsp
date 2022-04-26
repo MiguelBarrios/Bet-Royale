@@ -6,8 +6,8 @@
   
 <form action="displayUserCreatedEvents.do" method="GET">
 
-
-<input type="submit" id="userEvents" name="userEvents" value="Display User Created Betting Events"/>
+<input type="hidden" id="userId" name="userId" value="${user.id}"/>
+<input type="submit" id="userId" name="userEvents" value="Display User Created Betting Events"/>
 
 </form>
 

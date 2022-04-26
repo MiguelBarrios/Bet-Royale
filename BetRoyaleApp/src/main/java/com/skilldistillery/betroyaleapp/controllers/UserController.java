@@ -166,7 +166,7 @@ public class UserController {
 		Wager wagerView = userDao.showWager(wager, userId);
 		mv.addObject("wager", wagerView);
 		System.out.println(wagerView);
-		mv.setViewName("Components/show");
+		mv.setViewName("accounthome");
 		return mv;
 	}
 	
@@ -181,7 +181,7 @@ public class UserController {
 		System.out.println(wagers);
 		System.out.println(wagers);
 		mv.addObject("wager", wagers);
-		mv.setViewName("Components/show");
+		mv.setViewName("accounthome");
 		return mv;
 	}
 	

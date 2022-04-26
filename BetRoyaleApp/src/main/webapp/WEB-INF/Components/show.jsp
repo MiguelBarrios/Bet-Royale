@@ -4,21 +4,21 @@
     
 
 
+<form action="getWager.do" method="GET">
+
+<input type="hidden" id="userId" name="userId" value="${user.id}"/>
+<input type="submit" id="wager" name="wager" value="Get All Users Wagers"/>
+
+</form>
 
 
-
-<input type="hidden" id="userId" name="userId" value="2"/>
-
-
-
-<ol>
-	<c:forEach var="w" items="${wager}">
-					<li>${w.betAmount} </li>
-					-------------------------------
-				</c:forEach>
-	</ol> 
-
-
-
+<ul>
+	<li><c:forEach var="e" items="${wager}">
+					${e.betAmount} 
+					
+					
+				
+				</c:forEach></li>
+	</ul>
 
 
