@@ -242,7 +242,66 @@ public class EventsDaoImpl implements EventsDAO {
 		
 		return res;
 	}
+
+	@Override
+	public void displayUserWinLossRatio(int userId) {
+		
+	}
 	
+//	public void displaySingleUserWinLossRatio(int userId) {
+//		// get all wagers
+//				String jpql = "Select w FROM Wager w";
+//				List<Wager> wagers = null;
+//				try {
+//					wagers = em.createQuery(jpql, Wager.class).getResultList();
+//				}catch(Exception e){
+//					e.printStackTrace();
+//				}
+//				
+//				System.out.println("----------------");
+//				System.out.println(wagers.size());		
+//				// Filter wagers
+//				List<Wager> closedWagers = new ArrayList<>();
+//				for(Wager wager : wagers) {
+//					if(contenders.contains(wager.getContender())){
+//						closedWagers.add(wager);
+//					}
+//				}
+//				
+//				System.out.println(closedWagers.size());
+//				closedWagers.forEach(System.out::println);
+//				
+//				
+//				System.out.println("--------");
+//				Map<Integer, CalculatedWinnings> results = new HashMap<>();
+//				for(Wager wager : closedWagers) {
+//					int userId = wager.getUser().getId();
+//					CalculatedWinnings cw = null;
+//					if(!results.containsKey(userId)) {
+//						cw = new CalculatedWinnings(wager.getUser(), 0, 0);
+//						results.put(userId,cw);
+//					}
+//					
+//					cw = results.get(userId);
+//					
+//					double payout = (1 / (wager.getContender().getOdds() / 100));
+//					System.out.println(wager.getUser().getUsername() + " bet " + wager.getBetAmount() + " on " + wager.getContender().getName());
+//					if(wager.getContender().isWinner()) {
+//						cw.setCount(cw.getCount() + 1);
+//						cw.setTotal(cw.getTotal() + payout + wager.getBetAmount());
+//						System.out.println(wager.getUser().getUsername() + " won " + (payout + wager.getBetAmount()));
+//					}
+//					else {
+//						cw.setCount(cw.getCount() - 1);				
+//						cw.setTotal(cw.getTotal() - wager.getBetAmount());
+//						System.out.println(wager.getUser().getUsername() + " lost " + wager.getBetAmount());
+//					}
+//				}
+//				
+//
+//				return;
+//			}
+	}
 
 	@Override
 	public Contender findContenderById(int contenderId) {
@@ -263,6 +322,5 @@ public class EventsDaoImpl implements EventsDAO {
 	
 	
 	
-}
 
 

@@ -69,6 +69,7 @@ background
 <!-- ability to edit -->
 
 
+
 	<form action="editEvent.do" method="GET">
 	        <input type="hidden" id="eventId" name="eventId" value="1"/>
 				<button type="submit" >Edit
@@ -76,36 +77,13 @@ background
 			</form>
 
 
-<br>
-<br>
-<br>
--------------------------Display all bettable events---------------------------
 
-<form action="">
-
-</form>
-
-<jsp:include page="Components/showeventsdisplay.jsp" />
-
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/allbetsview.jsp" />
-<br>
-<br>
-<br>
-------------------------Display all active events---------------------------
-
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/activebetsview.jsp" />
-<br>
-<br>
-<br>
------------------------Display all expired events---------------------------
-<!-- EDIT CONTROLLER -->
-<jsp:include page="Components/expiredbetsview.jsp" />
+<jsp:include page="Components/editbettingevent.jsp" />
+<br> 
 
 <br>
 <br>
-<br>
+
 
 -----------------------Create Wager-----------------------------------------
 
@@ -140,7 +118,16 @@ background
 <!-- display not edit -->
 <jsp:include page="Components/usercreatedbetsview.jsp" />
 
+-----------------------User Win/Loss Display Test-----------------------------------------
 
+<br>
+<input type ="button" onclick="location.href='profiledisplay.do?userId=${userId}'" value="Win-Loss-Ratio">
+			<div class="event-card"
+				onclick="location.href='profiledisplay.do?userId=${userId}';">
+<jsp:include page="Components/profiledisplay.jsp" />
+
+<br>
+<br>
 
 
 </body>

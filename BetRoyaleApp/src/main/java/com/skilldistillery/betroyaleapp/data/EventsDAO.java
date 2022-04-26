@@ -33,6 +33,10 @@ public interface EventsDAO {
 	
 	List<Wager> getWagersForEvent(int eventId);
 
+
 	Contender findContenderById(int contenderId);
+
+
+	public void displayUserWinLossRatio(int userId);
 
 }

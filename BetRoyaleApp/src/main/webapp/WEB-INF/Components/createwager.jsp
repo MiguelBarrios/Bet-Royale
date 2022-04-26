@@ -9,8 +9,8 @@
 	<input type="hidden" id="userId" name="userId" value="${user.id}"/>	
 	<label for="userId"></label>
 	
+	<label for="contenderId">Select Your Contender</label>
 	<input type="text" id="contenderId" name ="contenderId" placeholder="Enter Contender Id"/>
-	<label for="contenderId"></label>
 	
 	<label for="betAmount">Bet Amount: </label> 
 	<input id="betAmount"

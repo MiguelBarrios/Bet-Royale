@@ -148,8 +148,8 @@ public class UserDaoImpl implements UserDAO {
 		wager.setContender(contender);
 		em.persist(wager);
 		em.flush();
-
 		return wager;
+
 
 	}
 

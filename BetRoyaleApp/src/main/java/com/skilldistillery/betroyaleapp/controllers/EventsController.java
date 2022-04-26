@@ -174,6 +174,15 @@ public class EventsController {
 		return mv;
 	}
 	
+	@GetMapping("profiledisplay.do")
+	public ModelAndView userWinLoss(int userId) {
+		ModelAndView mv = new ModelAndView();
+		Map<Integer, CalculatedWinnings> results = dao.calculateLeaderBoard();
+		CalculatedWinnings cw = results.get(userId);
+		mv.addObject("wrl",cw);
+		mv.setViewName("profiledisplay");
+		return mv;
+	}
 	
 	@GetMapping("loadEvents.do")
 	public ModelAndView loadEvents(int userId) {
