@@ -250,6 +250,7 @@ public class EventsDaoImpl implements EventsDAO {
 
 	
 
+
 	@Override
 	public Contender findContenderById(int contenderId) {
 		return em.find(Contender.class, contenderId);
