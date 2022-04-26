@@ -168,7 +168,7 @@ public class EventsController {
 	public ModelAndView getWagersForEvent(int eventId) {
 		ModelAndView mv = new ModelAndView();
 		List<Wager> wagers = dao.getWagersForEvent(eventId);
-
+		
 		
 		mv.setViewName("accounthome");
 		return mv;

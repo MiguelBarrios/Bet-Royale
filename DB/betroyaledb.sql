@@ -394,6 +394,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `em
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (4, 'spaghettisoup', 'password', 'alex', 'martinez', 'amartin@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (5, 'victorwiktor', 'password', 'viktor', 'oleskivy', 'olesvikt@yahoo.com', 1, 'ROLE_USER', NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (6, 'cinderqueen', 'password', 'esmeralda', 'anastazsia', 'eanastazisa@gmail.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (7, 'cookiemonsta', 'password', 'sully', 'reynolds', 'sreynolds@yahoo.com', 1, 'ROLE_USER', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `active`, `role`, `profile_image`, `about_me`) VALUES (8, 'snackattack', 'password', 'silvia', 'nulvenia', 'nulvenias24@gmail.com', 1, 'ROLE_USER', NULL, NULL);
 
 COMMIT;
 
@@ -406,6 +408,8 @@ USE `betroyaledb`;
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (1, 'does it work', '2022-04-30 14:12:00', 1, 2, 'does this test work?', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fus.123rf.com%2F450wm%2Falphaspirit%2Falphaspirit1906%2Falphaspirit190600058%2F124217648-man-who-rejoices-at-the-stadium-for-winning-a-rich-soccer-bet.jpg%3Fver%3D6&imgrefurl=https%3A%2F%2Fwww.123rf.com%2Fstock-photo%2Fsports_betting.html&tbnid=3EN7PJ6UFYMtaM&vet=12ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ..i&docid=dSDGFOzCjKLSVM&w=450&h=253&q=betting%20image&ved=2ahUKEwiSqc-Pv6j3AhVkIH0KHft-A3oQMygEegUIARDqAQ', NULL, 0, NULL);
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (2, 'expired event test', '2022-04-12 12:00:00', 1, 3, 'former soccer match', NULL, '2022-03-24 11:59:30', 0, 5);
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (3, 'UFC FIGHT NIGHT ', '2022-04-30 16:59:00', NULL, 4, 'Bantamweight match, Font vs. Vera', NULL, '2022-04-25 09:20:00', 1, NULL);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (4, 'UFC fight night 213', '2022-05-01 12:00:00', NULL, 8, 'Featherweight championship', NULL, '2022-04-27  10:20:00', 1, 9);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (5, 'ufc fight NiGHT 513', '2022-05-07 12:00:00', NULL, 5, 'Heavyweight championship', NULL, '2022-04-28 15:25:00', 1, 11);
 
 COMMIT;
 
@@ -421,6 +425,7 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'esports', 'onli
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (4, 'politics', 'political concepts');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (5, 'food', 'any type of food');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (6, 'stocks', 'stock value movement');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (7, 'UFC Fights', 'UFC Fight Category');
 
 COMMIT;
 
@@ -438,6 +443,10 @@ INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bett
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (6, 'futabal', 'soccer match', 0, 0.5, 2);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (7, 'spaghetti ', 'intial test contender', 0, 0.5, 1);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (8, 'soup', 'initial test contender 2', 0, 0.5, 1);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (9, 'Alexander Volkanovski', 'Featherweight champion', NULL, 0.5, 4);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (10, 'Robert Whittaker', 'Featherweight Contender', NULL, 0.5, 4);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (11, 'Tyson Fury', 'Heavyweight Champion', NULL, 0.5, 5);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (12, 'Dillian Whyte', 'Heavyweight contender', NULL, 0.5, 5);
 
 COMMIT;
 
@@ -456,6 +465,10 @@ INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (8, 250, 1.85, 3, 3);
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (9, 150, 2, 6, 5);
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (10 , 540, 2, 5, 3);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (11, 432, 2, 9, 8);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (12, 1500, 2, 10, 7);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (13, 1600, 2, 11, 2);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (14, 2500, 2, 12, 8);
 
 COMMIT;
 
@@ -467,7 +480,9 @@ START TRANSACTION;
 USE `betroyaledb`;
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (1, 'DeathMatch', 'L vs A', 1);
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (2, 'Soccer Match', 'Team Arlington vs Team Soup Lovers', 2);
-INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (3, 'UFC Fight Night', 'Font vs. Other guy', 2);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (3, 'UFC Fight Night', 'Font vs. Other guy', 1);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (4, 'UFC Fight Night 213', 'Featherweight Championships', 1);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (5, 'UFC Fight Night 512', 'Heavywight Championships', 2);
 
 COMMIT;
 

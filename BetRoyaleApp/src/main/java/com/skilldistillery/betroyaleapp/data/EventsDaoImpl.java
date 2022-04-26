@@ -155,7 +155,9 @@ public class EventsDaoImpl implements EventsDAO {
 			events.forEach(System.out::println);
 			
 		}catch(Exception e){ 
+			
 			e.printStackTrace();
+			
 		} 
 		
 		// check if contender data is filled
@@ -243,21 +245,26 @@ public class EventsDaoImpl implements EventsDAO {
 		return res;
 	}
 
-	@Override
-	public void displayUserWinLossRatio(int userId) {
-		
-	}
 	
+	
+
+	
+
 
 	@Override
 	public Contender findContenderById(int contenderId) {
 		return em.find(Contender.class, contenderId);
 		
 	}
-	
-	
+
+	@Override
+	public void displayUserWinLossRatio(int userId) {
+		// TODO Auto-generated method stub
+		
 	}
+}
 	
+
 	
 	
 	
