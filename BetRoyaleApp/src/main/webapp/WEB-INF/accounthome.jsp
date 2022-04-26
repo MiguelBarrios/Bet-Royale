@@ -27,8 +27,8 @@ background
 
 
 
--------------------View All events page---------------------------
-<button onclick="location.href='loadEvents.do';">View Events</button>
+
+<button type="button" class="btn btn-primary" onclick="location.href='loadEvents.do?userId=${user.id}';">View Events</button>
 
 
 <br>

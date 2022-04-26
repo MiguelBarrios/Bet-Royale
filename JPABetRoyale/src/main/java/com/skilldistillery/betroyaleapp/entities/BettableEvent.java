@@ -56,7 +56,7 @@ public class BettableEvent {
 	
   
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="bettable_event_has_subcategory",
 	joinColumns = @JoinColumn(name="bettable_event_id"),
 	inverseJoinColumns = @JoinColumn(name="subcategory_id")

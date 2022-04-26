@@ -5,7 +5,13 @@ body{
 }
 
 /*------------- Show all bets--------------*/
-.main-container {
+
+.event-sort-container{
+	display:flex;
+	flex-direction:row;
+}
+
+.event-list-container {
   background-color: lightgray;
   display: flex;
   align-items: center;

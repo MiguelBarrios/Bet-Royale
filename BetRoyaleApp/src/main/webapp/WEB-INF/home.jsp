@@ -36,31 +36,6 @@
 
 
 
--------------------------------Display all bettable events---------------------------
-	<br>
-	<br>
-	
-<jsp:include page="Components/allbetsview.jsp" />
-
-<br>
-	<br>
-	
--------------------------------Display all active bettable events---------------------------
-	<br>
-	<br>
-<jsp:include page="Components/activebetsview.jsp" />
-	<br>
-	<br>
-	
-	
--------------------------------Display all expired bettable events---------------------------
-<br>
-	<br>
-
-<jsp:include page="Components/expiredbetsview.jsp" />
-
-<br>
-	<br>
 
 
 ------------------------------- Add Comment ---------------------------

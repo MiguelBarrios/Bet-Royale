@@ -16,37 +16,81 @@
 
 </head>
 <body>
-	<div class="main-container">
-		<!--------------------------------- Card ------------------------------->
-		
+	<div class="event-sort-container">
+		<button type="button" class="btn btn-primary">All Events</button>
+		<button type="button" class="btn btn-success">Active Events</button>
+		<button type="button" class="btn btn-secondary">Expired
+			Events</button>
+	</div>
+	<div class="event-list-container">
+		<h1>Active Events</h1>
 		<c:forEach items="${events}" var="e">
-        <div class = "event-card" onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';" >
-          <div class="event-image-container">
-            <img class="col bet-event-img" src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4" width="75px" height="75px"></img>
-          </div>
-          <div class="event-info-container">
-            <div class="category-container">
-          	  <c:if test="${empty e.subcategories}">
-  				<div class="tag category">sports</div>
-                <div class="tag sub-category">football</div>
-                <div class="tag sub-category">esports</div>
+			
+			<c:if test="${e.active}">
+				<!--------------------------------- Card ------------------------------->
+				<div class="event-card"
+					onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
+					<div class="event-image-container">
+						<img class="col bet-event-img"
+							src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4"
+							width="75px" height="75px"></img>
+					</div>
+					<div class="event-info-container">
+						<div class="category-container">
+							<c:if test="${not empty e.subcategories}">
+								<div class="tag category">${e.subcategories[0].category.name}</div>
+							</c:if>
+							<c:forEach items="${e.subcategories}" var="sub">
+								<div class="tag sub-category">${sub.name}</div>
+							</c:forEach>
+
+						</div>
+						<div>
+							<h3>${e.name}</h3>
+						</div>
+					</div>
+				</div>
+				<!--------------------------------- Card ------------------------------->
+			</c:if>
+		</c:forEach>
+	</div>
+
+<!--------------- Expired Events ------------>
+	<div class="event-list-container">
+		<h1>Expired Events</h1>
+		<c:forEach items="${events}" var="e">
+			<c:if test="${not e.active}">
+						<!--------------------------------- Card ------------------------------->
+			<div class="event-card"
+				onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
+				<div class="event-image-container">
+					<img class="col bet-event-img"
+						src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4"
+						width="75px" height="75px"></img>
+				</div>
+				<div class="event-info-container">
+					<div class="category-container">
+						<c:if test="${not empty e.subcategories}">
+							<div class="tag category">${e.subcategories[0].category.name}</div>
+						</c:if>
+						<c:forEach items="${e.subcategories}" var="sub">
+							<div class="tag sub-category">${sub.name}</div>
+						</c:forEach>
+
+					</div>
+					<div>
+						<h3>${e.name}</h3>
+					</div>
+				</div>
+			</div>
+			<!--------------------------------- Card ------------------------------->
+			
 			</c:if>
 
-
-            </div>
-            <div>
-              <h3>${e.name}</h3>
-            </div>
-          </div>
-        </div>
-
-	
-	
-		
 		</c:forEach>
-
-		<!--------------------------------- Card ------------------------------->
 	</div>
+
+
 
 </body>
 </html>

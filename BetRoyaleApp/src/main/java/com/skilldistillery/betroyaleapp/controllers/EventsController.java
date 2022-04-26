@@ -16,6 +16,7 @@ import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
+import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
 
@@ -153,10 +154,10 @@ public class EventsController {
 	public ModelAndView loadEvents(int userId) {
 		ModelAndView mv = new ModelAndView();
 		List<BettableEvent> events = dao.displayBettableEvents();
-//		for(BettableEvent be : events) {
-//			List<Subcategory> sub = be.getSubcategories();
-//			sub.get(0).getCategory();
-//		}
+		for(BettableEvent be : events) {
+			List<Subcategory> sub = be.getSubcategories();
+			System.out.println(sub);
+		}
 		
 		mv.addObject("events", events);
 		mv.addObject("userId", userId);
@@ -177,6 +178,7 @@ public class EventsController {
 		mv.addObject("eventId", eventId);
 		mv.addObject("userId", userId);
 		
+
 		mv.setViewName("displaypage");
 		return mv;
 		
@@ -190,9 +192,3 @@ public class EventsController {
 
 
 
-
-
-
-
-
-//MEOW
