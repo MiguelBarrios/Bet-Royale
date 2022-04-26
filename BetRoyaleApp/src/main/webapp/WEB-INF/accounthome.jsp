@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<style>
+.body{
+background
+}
+</style> 
 <body>
 <h1>Here</h1>
 <jsp:include page="Bootstrap.html" />
@@ -53,7 +57,7 @@
 ----------------------- edit Betting event-----------------------------------
 
 <!-- ability to edit -->
-
+<jsp:include page="Components/editbettingevent.jsp" />
 <br>
 <br>
 <br>
