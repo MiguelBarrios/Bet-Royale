@@ -1,4 +1,24 @@
 
+/* --------------- event info page styles */
+.body-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:20px
+
+}
+
+.event-info-container{
+  display: flex;
+  flex-direction: column;
+}
+.event-contenders{
+  display: flex;
+  flex-direction: row;
+}
+
+
 /*------------- Show all bets style--------------*/
 body{
 	background-color: lightgray;
