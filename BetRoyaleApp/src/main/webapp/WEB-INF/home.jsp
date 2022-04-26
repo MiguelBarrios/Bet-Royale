@@ -8,6 +8,20 @@
 <title>Bet Royale App</title>
 
 </head>
+<style>
+
+
+
+body{
+
+    background-color: rgb(8, 9, 9);
+    
+}
+.info{
+    color: white;
+    
+}
+</style>
 <body>
 
 
