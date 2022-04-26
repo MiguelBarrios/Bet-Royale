@@ -26,9 +26,13 @@
           </div>
           <div class="event-info-container">
             <div class="category-container">
-                <div class="tag category">sports</div>
+          	  <c:if test="${empty e.subcategories}">
+  				<div class="tag category">sports</div>
                 <div class="tag sub-category">football</div>
                 <div class="tag sub-category">esports</div>
+			</c:if>
+
+
             </div>
             <div>
               <h3>${e.name}</h3>

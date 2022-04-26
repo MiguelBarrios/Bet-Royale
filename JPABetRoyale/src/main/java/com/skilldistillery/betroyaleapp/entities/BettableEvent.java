@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,7 +54,8 @@ public class BettableEvent {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	
+  
+
 	@ManyToMany
 	@JoinTable(name="bettable_event_has_subcategory",
 	joinColumns = @JoinColumn(name="bettable_event_id"),
