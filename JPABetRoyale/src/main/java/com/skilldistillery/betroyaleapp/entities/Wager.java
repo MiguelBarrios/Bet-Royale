@@ -19,7 +19,7 @@ public class Wager {
 	@Column(name="bet_amount")
 	private double betAmount;
 	
-	private double multiplier;
+	private double multiplier; // 1 / (odds/100)
 	
 	@ManyToOne
 	@JoinColumn(name="contender_id")
