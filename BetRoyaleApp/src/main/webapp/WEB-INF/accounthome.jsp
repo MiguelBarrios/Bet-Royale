@@ -71,20 +71,6 @@ background
 <br>
 
 
------------------------Create Wager-----------------------------------------
-
-
-<!-- ability to edit -->
-
-<h2>Create Wager</h2>
-
-<jsp:include page="Components/createwager.jsp" />
-<jsp:include page="displaypage.jsp"/>
-
-
-<br>
-<br>
-<br>
 
 
 
