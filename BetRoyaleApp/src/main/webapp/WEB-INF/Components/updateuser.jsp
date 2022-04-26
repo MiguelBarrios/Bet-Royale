@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<form>
+<form action="updateuser.do" method="post">
 
 <input type="hidden" id="userId" name="userId" value="${user.id}"/>
 
@@ -27,13 +27,13 @@
   
   <div class="form-row">
   <div class="form-group col-md-4">
-    <label for="inputAddress">Email</label>
+    <label for="inputAddress">First Name</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="${user.firstName}" value="${user.firstName}">
   </div>
   
   
   <div class="form-group col-md-4">
-    <label for="inputAddress2">Address 2</label>
+    <label for="inputAddress2">Last Name</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="${user.lastName}" value="${user.lastName}">
   </div>
   </div>
@@ -41,14 +41,14 @@
   
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="inputCity">City</label>
+      <label for="inputCity">Email</label>
       <input type="text" class="form-control" id="inputCity" placeholder="${user.email}" value="${user.email}">
     </div>
     </div>
     
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="inputCity">City</label>
+      <label for="inputCity">Profile Image Url</label>
       <input type="text" class="form-control" id="inputCity" placeholder="${user.profileImage}" value="${user.profileImage}">
     </div>
     </div>
@@ -57,7 +57,7 @@
     
   <div class="form-row">
     <div class="form-group col-md-12">
-      <label for="inputCity">City</label>
+      <label for="inputCity">About Me</label>
       <input type="text" class="form-control" id="inputCity" placeholder="${user.aboutMe}" value="${user.aboutMe}">
     </div>
     </div>
