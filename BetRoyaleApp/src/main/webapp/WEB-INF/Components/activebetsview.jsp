@@ -3,7 +3,7 @@
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
-    	<form action="activeBets.do" method="GET">
+    	<form action="activeBets.do" method="GET" >
 
 <input type="submit" id="activeBetEvent" name="activeBetEvent" value="Display Active Betting Events"/>
 
