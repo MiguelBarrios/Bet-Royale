@@ -16,6 +16,7 @@ import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
+import com.skilldistillery.betroyaleapp.entities.Wager;
 
 @Controller
 public class EventsController {
@@ -136,7 +137,15 @@ public class EventsController {
 		return mv;
 	}
 	
-	
+	@GetMapping("getWagersByEventId.do")
+	public ModelAndView getWagersForEvent(int eventId) {
+		ModelAndView mv = new ModelAndView();
+		List<Wager> wagers = dao.getWagersForEvent(eventId);
+
+		
+		mv.setViewName("accounthome");
+		return mv;
+	}
 	
 	
 	

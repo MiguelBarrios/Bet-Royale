@@ -210,5 +210,16 @@ public class UserController {
 		
 	}
 	
+	@GetMapping("getWagersForEvent.do")
+	public ModelAndView getWagersForEvent(int eventId) {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		
+		mv.setViewName("accounthome");
+		return null;	
+	}
+	
 	
 }
