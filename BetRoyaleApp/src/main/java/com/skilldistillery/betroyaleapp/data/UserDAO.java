@@ -34,6 +34,8 @@ public interface UserDAO {
 	
 //	----------------------------------------------------------------------------------
 	Contender createContender(Contender contender);
+	Wager updateWager(Wager wager);
+	Wager findWagerById(int wagerId);
 	
 	
 	

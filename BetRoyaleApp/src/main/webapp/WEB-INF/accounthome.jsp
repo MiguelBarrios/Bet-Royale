@@ -107,6 +107,7 @@ background
 <h2>Create Wager</h2>
 
 <jsp:include page="Components/createwager.jsp" />
+<jsp:include page="displaypage.jsp"/>
 
 
 <br>
@@ -116,10 +117,12 @@ background
 -----------------------Get Wager-----------------------------------------
 <!-- display not edit -->
 
-<jsp:include page="Components/createwager.jsp"/>
+
 
 <h2>Show All Users Wagers</h2>
 <jsp:include page="Components/show.jsp" />
+
+
 
 <br>
 <br>
