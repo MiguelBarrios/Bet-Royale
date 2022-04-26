@@ -10,6 +10,7 @@
 
 <body>
 <h1>Here</h1>
+<jsp:include page="Bootstrap.html" />
 <jsp:include page="Components/navbar.jsp" />
 
 
