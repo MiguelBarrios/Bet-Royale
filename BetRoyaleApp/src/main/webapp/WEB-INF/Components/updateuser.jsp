@@ -1,57 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Bet Royale App</title>
 
 </head>
 <body>
-<form>
+<form action="updateUser.do" method="post">
+
+<input type="hidden" id="id" name="id" value="${user.id}"/>
+
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
     <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+      <label for="inputEmail4">Username</label>
+      <input type="text" class="form-control" name="username" placeholder="${user.username}" value="${user.username}">
     </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
+    
+    
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="${user.password}" value="${user.password}">
     </div>
+  </div>  
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="inputAddress">First Name</label>
+    <input type="text" class="form-control" name="firstName" placeholder="${user.firstName}" value="${user.firstName}">
   </div>
-  <div class="form-group">
+  
+  
+  <div class="form-group col-md-4">
+    <label for="inputAddress2">Last Name</label>
+    <input type="text" class="form-control" name="lastName" placeholder="${user.lastName}" value="${user.lastName}">
+  </div>
+  </div>
+  
+
+  
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputCity">Email</label>
+      <input type="email" class="form-control" name="email" placeholder="${user.email}" value="${user.email}">
+    </div>
+    </div>
+    
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputCity">Profile Image Url</label>
+      <input type="text" class="form-control" name="profileImage" placeholder="${user.profileImage}" >
+    </div>
+    </div>
+    
+    
+    
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputCity">About Me</label>
+      <input type="text" class="form-control" name="aboutMe" placeholder="${user.aboutMe}" value="${user.aboutMe}">
+    </div>
+    </div>
+    
+    
+    
+  
+  
+  <div class="col-12">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to changes
       </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  
+  
+  <button type="submit" class="btn btn-primary">Submit Profile Changes</button>
+  
 </form>
 
