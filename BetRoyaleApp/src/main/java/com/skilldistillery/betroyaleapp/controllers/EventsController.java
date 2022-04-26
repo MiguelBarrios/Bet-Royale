@@ -173,7 +173,7 @@ public class EventsController {
 		System.out.println("userid: " + userId + " eventId: " + eventId);
 		
 		
-		mv.setViewName("home");
+		mv.setViewName("displaypage");
 		return mv;
 		
 	}
