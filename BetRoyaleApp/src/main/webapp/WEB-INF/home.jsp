@@ -386,20 +386,6 @@
 		</section>
 
 	
-	
-	
-<%-- <jsp:include page="Components/createuser.jsp" />
-
-<br>
-------------------------------------------------- user login --------------
-
-<br>
-	<br>
-<jsp:include page="Components/userlogin.jsp" />
-	
-
-<br>
-	<br> --%>
 
 <br>
 <br>
