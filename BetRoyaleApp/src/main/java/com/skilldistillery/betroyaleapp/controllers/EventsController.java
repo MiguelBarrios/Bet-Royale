@@ -83,10 +83,8 @@ public class EventsController {
 		ModelAndView mv = new ModelAndView();
 		comment = dao.addComment(comment);
 		System.out.println(comment);
-		
-		// TODO: add reply to comment func
-		
-		mv.setViewName("home");
+				
+		mv.setViewName("accounthome");
 		return mv;
 	}
 	
@@ -215,7 +213,6 @@ public class EventsController {
 		}
 		
 		List<EventComment> comments = dao.getEventComments(eventId);
-		comments.forEach(System.out::println);
 		
 		mv.addObject("user", user);
 		mv.addObject("event", event);
@@ -223,6 +220,7 @@ public class EventsController {
 		mv.addObject("userId", userId);
 		mv.addObject("wagers", wagers);
 		mv.addObject("userWagers", userWagers);
+		mv.addObject("comments", comments);
 		
 
 		mv.setViewName("eventInfoDisplay");

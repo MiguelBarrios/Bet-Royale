@@ -93,15 +93,23 @@
 	
 	<div class="chat-window">
 		<h1>Chat</h1>
-		<div class="container darker">
-  			<p>Hello. How are you today?</p>
-  			<span class="time-right">11:00</span>
+		<c:forEach items="${comments}" var="comment">
+				<div class="container darker">
+  			<p>${comment.commentText}</p>
+  			<span class="time-left">${comment.commentDate}</span>
 		</div>
+			
+		</c:forEach>
+		
+	<form action="addComment.do">
+  		<div class="form-group">
+  			<input type="hidden" name="userId" value="${user.id}" /> 
+			<input type="hidden"name="eventId" value="${event.id}" /> 
+    		<input type="text" name="commentText" class="form-control" id="formGroupExampleInput" placeholder="comment">
+	  		<input type="submit" name="add Comment" />
+	  	</div>
+</form>
 
-		<div class="container darker">
-  			<p>Hey! I'm fine. Thanks for asking!</p>
-  			<span class="time-left">11:01</span>
-		</div>
 	</div><!------ End chat window -->
 
 
