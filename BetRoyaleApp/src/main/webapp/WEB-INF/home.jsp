@@ -15,6 +15,8 @@
 
 <jsp:include page="Components/navbar.jsp" />
 
+
+
 	<div id="SummitCarousel" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#SummitCarousel" data-slide-to="0" class="active"></li>
@@ -135,8 +137,6 @@
 			</a>
 		</div>
 	</div>
-
-
 
 
 
