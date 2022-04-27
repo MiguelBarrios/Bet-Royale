@@ -1,3 +1,41 @@
+/* ----- create new event container styles */
+.form-container{
+  display:flex;
+  flex-direction: column;
+}
+
+#contender-names, #contender-odds{
+  display:flex;
+  flex-direction: column;
+}
+
+#contender-info {
+  display:flex;
+  flex-direction: row;
+}
+/* --------------- event info page styles */
+.body-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:20px
+
+}
+
+.event-info-container{
+  display: flex;
+  flex-direction: column;
+}
+.event-contenders{
+  display: flex;
+  flex-direction: row;
+}
+
+#sub-cateory-container{
+  display: flex;
+  flex-direction: column;
+}
 
 /* --------------- event info page styles */
 html, body {
