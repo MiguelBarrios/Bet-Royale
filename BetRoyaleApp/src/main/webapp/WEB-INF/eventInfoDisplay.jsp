@@ -74,7 +74,9 @@
 		<div class="event-list-container">
 			<h1>User wagers</h1>
 			<c:forEach items="${userWagers}" var="w">
-			<div>${w.contender.name} bet:${w.betAmount} User:${w.user.id}</div>
+				<div class="wager">
+					${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+				</div>	
 		</c:forEach>
 		</div>
 		
@@ -82,8 +84,9 @@
 		<div class="event-list-container">
 		<h1>All Wagers</h1>
 		<c:forEach items="${wagers}" var="w">
-			
-			<div>${w.contender.name} bet:${w.betAmount} User:${w.user.id}</div>
+			<div class="wager">
+				${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+			</div>			
 		</c:forEach>
 	</div>
 
