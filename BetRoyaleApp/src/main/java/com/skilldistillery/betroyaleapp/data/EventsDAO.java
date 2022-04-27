@@ -41,4 +41,7 @@ public interface EventsDAO {
 
 	List<EventComment> getEventComments(int eventId);
 
+
+	void getPayoutResultsForEvent(int event_id);
+
 }

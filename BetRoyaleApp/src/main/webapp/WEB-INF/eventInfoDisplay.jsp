@@ -74,24 +74,32 @@
 </c:if>
 
 
-
-
 	<!---------------- List al wagers for this event -------------->
 	<div class="event-list-container">
 			<h1>User wagers</h1>
-			<c:forEach items="${userWagers}" var="w">
+		<c:forEach items="${userWagers}" var="w">
 				<div class="wager">
-					${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+					${w.user.username} bet ${w.betAmount} on ${w.contender.name} 
+						<c:if test="${event.completion}">
+							, payout: ${w.betAmount * w.multiplier }
+						</c:if>
+					
 				</div>	
 		</c:forEach>
-		</div>
 		
+		
+	</div>
+	
+	
 		
 	<div class="event-list-container">
 		<h1>All Wagers</h1>
 		<c:forEach items="${wagers}" var="w">
 			<div class="wager">
 				${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+										<c:if test="${event.completion}">
+							, payout: ${w.betAmount * w.multiplier }
+						</c:if>
 			</div>			
 		</c:forEach>
 	</div>
