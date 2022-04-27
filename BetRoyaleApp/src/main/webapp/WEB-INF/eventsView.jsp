@@ -17,13 +17,14 @@
 </head>
 <body>
 	<div class="event-sort-container">
-		<button type="button" class="btn btn-primary">All Events</button>
-		<button type="button" class="btn btn-success">Active Events</button>
-		<button type="button" class="btn btn-secondary">Expired Events</button>
-		<button type="button" class="btn btn-secondary">My Events</button>
-		
+		<button type="button" class="btn btn-success" id="activeEvents" onclick="loadEventView(this.id)">Active Events</button>
+		<button type="button" class="btn btn-secondary"id="expiredEvents"onclick="loadEventView(this.id)">Expired Events</button>
+		<button type="button" class="btn btn-secondary"id="myEvents"onclick="loadEventView(this.id)">My Events</button>
 	</div>
-	<div class="event-list-container">
+	
+	
+	
+	<div class="event-list-container" id="activeEventsView">
 		<h1>Active Events</h1>
 		<c:forEach items="${events}" var="e">
 			
@@ -57,7 +58,7 @@
 	</div>
 
 <!--------------- Expired Events ------------>
-	<div class="event-list-container">
+	<div class="event-list-container hidden" id="expiredEventsView">
 		<h1>Expired Events</h1>
 		<c:forEach items="${events}" var="e">
 			<c:if test="${not e.active}">
@@ -92,7 +93,7 @@
 	</div>
 	
 <!--------------- Expired Events ------------>
-	<div class="event-list-container">
+	<div class="event-list-container hidden" id="myEventsView">
 		<h1>My Events</h1>
 		<c:forEach items="${events}" var="e">
 			<c:if test="${e.user.id == userId}">
@@ -127,6 +128,26 @@
 	</div>
 <!---------------------------------------->
 
+<script>
+  function loadEventView(clicked_id){
+    var viewID = clicked_id + "View";
+    loadView(viewID)
+  }
+
+  function loadView(viewID){
+    const views = ["activeEventsView","expiredEventsView","myEventsView"];
+    for(let i = 0; i<views.length; ++i){
+      if(views[i] == viewID){
+         document.getElementById(views[i]).classList.remove("hidden");
+      }
+      else{
+        document.getElementById(views[i]).classList.add("hidden");
+      }
+
+    }
+  }
+
+</script>
 
 </body>
 </html>
