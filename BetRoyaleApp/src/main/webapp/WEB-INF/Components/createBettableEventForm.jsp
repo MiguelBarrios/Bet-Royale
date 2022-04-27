@@ -13,7 +13,7 @@
                </div>
                <div class="modal-body">
                   <!--   create event form -->
-                  <div class="body-content">
+                  <div class="create-event-form-main">
                      <form action="userCreateBetEvent.do" method="POST">
                      <div class="form-container">
                         <input style="visibility: hidden" name="userId" value="${user.id}" >
