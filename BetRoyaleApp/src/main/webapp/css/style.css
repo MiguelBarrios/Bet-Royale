@@ -113,3 +113,7 @@ html, body {
   display: table;
 }
 
+.chat-window{
+	padding-bottom:10%;
+}
+

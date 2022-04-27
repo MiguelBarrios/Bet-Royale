@@ -92,7 +92,7 @@
 	
 	
 	<div class="chat-window">
-		<h1>Chat</h1>
+		<h1>Comments</h1>
 		<c:forEach items="${comments}" var="comment">
 				<div class="container darker">
   			<p>${comment.commentText}</p>
