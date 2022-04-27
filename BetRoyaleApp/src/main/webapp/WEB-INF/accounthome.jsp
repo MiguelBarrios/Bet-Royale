@@ -22,7 +22,10 @@ background
 <jsp:include page="Bootstrap.html" />
 <jsp:include page="Components/navbar.jsp" />
 
-
+<br>
+<br>
+<br>
+<br>
 
 
 <button type="button" class="btn btn-primary" onclick="location.href='loadEvents.do?userId=${user.id}';">View Events</button>
@@ -33,8 +36,6 @@ background
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
       Add Event
       </button>
-<br>
-<br>
 <br>
 -------------------Create a betting event---------------------------
 
