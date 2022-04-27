@@ -74,7 +74,9 @@
 		<div class="event-list-container">
 			<h1>User wagers</h1>
 			<c:forEach items="${userWagers}" var="w">
-			<div>${w.contender.name} bet:${w.betAmount} User:${w.user.id}</div>
+				<div class="wager">
+					${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+				</div>	
 		</c:forEach>
 		</div>
 		
@@ -82,10 +84,33 @@
 		<div class="event-list-container">
 		<h1>All Wagers</h1>
 		<c:forEach items="${wagers}" var="w">
-			
-			<div>${w.contender.name} bet:${w.betAmount} User:${w.user.id}</div>
+			<div class="wager">
+				${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+			</div>			
 		</c:forEach>
 	</div>
+	
+	
+	<div class="chat-window">
+		<h1>Comments</h1>
+		<c:forEach items="${comments}" var="comment">
+				<div class="container darker">
+  			<p>${comment.commentText}</p>
+  			<span class="time-left">${comment.commentDate}</span>
+		</div>
+			
+		</c:forEach>
+		
+	<form action="addComment.do">
+  		<div class="form-group">
+  			<input type="hidden" name="userId" value="${user.id}" /> 
+			<input type="hidden"name="eventId" value="${event.id}" /> 
+    		<input type="text" name="commentText" class="form-control" id="formGroupExampleInput" placeholder="comment">
+	  		<input type="submit" name="add Comment" />
+	  	</div>
+</form>
+
+	</div><!------ End chat window -->
 
 
     </div><!------------------  End page body content ------------------->
@@ -116,32 +141,6 @@
 
       }
     </script>
- 
-
-<%-- <h2>Betting Event Info</h2>
-
-
-
-
-<input type="hidden" id="userId" name="userId" value="${user.id}"/>
-<input type="hidden" id="eventId" name="eventId" value="${event.id}"/>
-
-
-<h1>${event.name}</h1>
-
-
-
------------------------Create Wager-----------------------------------------
-
-
-<!-- ability to edit -->
-
-<h2>Create Wager</h2>
-
-<jsp:include page="Components/createwager.jsp" />
- --%>
-
-
 </body>
 
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
@@ -70,24 +71,18 @@ public class EventsController {
 	}
 	
 	@RequestMapping(path="addComment.do")
-	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
+	public String addComment(EventComment comment, int userId, int eventId,RedirectAttributes redirectAttrs) {
 		comment.setCommentDate(LocalDateTime.now());
 		BettableEvent event = dao.findEventById(eventId);
 		User user = dao.findUserById(userId);
 		comment.setBettableEvent(event);
 		comment.setUser(user);
-		System.out.println(comment);
-		System.out.println(userId);
-		System.out.println(eventId);
 		
-		ModelAndView mv = new ModelAndView();
 		comment = dao.addComment(comment);
-		System.out.println(comment);
-		
-		// TODO: add reply to comment func
-		
-		mv.setViewName("home");
-		return mv;
+		redirectAttrs.addAttribute("userId", userId);
+		redirectAttrs.addAttribute("eventId", eventId);
+
+		return "redirect:/loadEventPage.do";
 	}
 	
 	
@@ -214,6 +209,7 @@ public class EventsController {
 			}
 		}
 		
+		List<EventComment> comments = dao.getEventComments(eventId);
 		
 		mv.addObject("user", user);
 		mv.addObject("event", event);
@@ -221,6 +217,7 @@ public class EventsController {
 		mv.addObject("userId", userId);
 		mv.addObject("wagers", wagers);
 		mv.addObject("userWagers", userWagers);
+		mv.addObject("comments", comments);
 		
 
 		mv.setViewName("eventInfoDisplay");
