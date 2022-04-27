@@ -20,27 +20,31 @@
 <jsp:include page="Bootstrap.html"/>
 
 
-<jsp:include page="Components/navbar.jsp"/>
+<%-- <jsp:include page="Components/navbar.jsp"/> --%>
 
     <div class="body-content">
 
 	<c:if test="${event.user.id == user.id}">
-		<button type="button" class="btn btn-warning" id="edit" onclick="toggleEventForm()">EDIT</button>
+		
+		<c:if test="${not event.completion}">
+			<h1>Event is not complete</h1>
+					<button type="button" class="btn btn-warning" id="edit" onclick="toggleEventForm()">EDIT</button>
 		<div class="hidden" id="editEventForm">
 			<jsp:include page="Components/editbettingevent.jsp" />	
 		</div>
+		</c:if>
+		
+
 	</c:if>
 
     <div class="event-info-container">
       <img class="col bet-event-img" src="https://avatars.githubusercontent.com/u/34669927?s=40&amp;v=4" width="75px" height="75px">
       <h3>(${event.id})${event.name}</h3>
       <p>${event.description}</p>
-       <div>${event.endDate}</div>
-     <div>${event.dateCreated}</div>
-   		<div>${event.active}</div>
-      <div>${event.completion}</div>
-      <div>active</div>
-      <div>completions</div>
+       <div>end date: ${event.endDate}</div>
+     <div>date created: ${event.dateCreated}</div>
+   		<div>Active: ${event.active}</div>
+      <div>isCompleted: ${event.completion}</div>
       <div class="event-contenders">
       	<c:forEach items="${event.contenders}" var="contender">
       		<div>${contender.name}</div>
@@ -119,7 +123,7 @@
   		<div class="form-group">
   			<input type="hidden" name="userId" value="${user.id}" /> 
 			<input type="hidden"name="eventId" value="${event.id}" /> 
-    		<input type="text" name="commentText" class="form-control" id="formGroupExampleInput" placeholder="comment">
+    		<input type="text" name="commentText" class="form-control" id="formGroupExampleInput" placeholder="comment" required>
 	  		<input type="submit" name="add Comment" />
 	  	</div>
 </form>
