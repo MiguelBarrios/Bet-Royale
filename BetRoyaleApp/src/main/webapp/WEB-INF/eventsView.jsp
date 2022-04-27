@@ -136,12 +136,17 @@
 
   function loadView(viewID){
     const views = ["activeEventsView","expiredEventsView","myEventsView"];
+    const viewBtn = ["activeEvents", "expiredEvents", "myEvents"];
     for(let i = 0; i<views.length; ++i){
       if(views[i] == viewID){
          document.getElementById(views[i]).classList.remove("hidden");
+         document.getElementById(viewBtn[i]).classList.remove("btn-secondary");
+         document.getElementById(viewBtn[i]).classList.add("btn-success");
       }
       else{
         document.getElementById(views[i]).classList.add("hidden");
+        document.getElementById(viewBtn[i]).classList.remove("btn-success");
+        document.getElementById(viewBtn[i]).classList.add("btn-secondary");
       }
 
     }
