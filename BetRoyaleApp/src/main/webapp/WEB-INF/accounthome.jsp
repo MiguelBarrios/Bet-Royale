@@ -29,7 +29,10 @@ background
 
 <button type="button" class="btn btn-primary" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
 
-
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+      Add Event
+      </button>
 <br>
 <br>
 <br>
