@@ -262,6 +262,22 @@ public class EventsDaoImpl implements EventsDAO {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<EventComment> getEventComments(int eventId) {
+		List<EventComment> comments = null;
+		String jpql = "Select w FROM EventComment w WHERE w.bettableEvent.id = :eventId";
+		try {
+			comments = em.createQuery(jpql, EventComment.class)
+					.setParameter("eventId", eventId)
+					.getResultList();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return comments;
+	}
 }
 	
 

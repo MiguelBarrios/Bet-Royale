@@ -1,7 +1,27 @@
 
-/*------------- Show all bets style--------------*/
-body{
-	background-color: lightgray;
+/* --------------- event info page styles */
+html, body {
+    margin:0;
+    padding:0;
+    background-color: lightgray;
+}
+
+.body-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+  gap:20px
+
+}
+
+.event-info-container{
+  display: flex;
+  flex-direction: column;
+}
+.event-contenders{
+  display: flex;
+  flex-direction: row;
 }
 
 /*------------- Show all bets--------------*/
@@ -9,6 +29,7 @@ body{
 .event-sort-container{
 	display:flex;
 	flex-direction:row;
+	justify-content:center;
 }
 
 .event-list-container {
@@ -66,3 +87,33 @@ body{
 }
 
 /*---------------------------*/
+.hidden {
+    display: none;
+}
+
+/* ----- Chat styles */
+/* Chat containers */
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chat-window{
+	padding-bottom:10%;
+}
+

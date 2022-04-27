@@ -1,8 +1,7 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,11 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
-import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
@@ -72,24 +71,18 @@ public class EventsController {
 	}
 	
 	@RequestMapping(path="addComment.do")
-	public ModelAndView addComment(EventComment comment, int userId, int eventId) {
+	public String addComment(EventComment comment, int userId, int eventId,RedirectAttributes redirectAttrs) {
 		comment.setCommentDate(LocalDateTime.now());
 		BettableEvent event = dao.findEventById(eventId);
 		User user = dao.findUserById(userId);
 		comment.setBettableEvent(event);
 		comment.setUser(user);
-		System.out.println(comment);
-		System.out.println(userId);
-		System.out.println(eventId);
 		
-		ModelAndView mv = new ModelAndView();
 		comment = dao.addComment(comment);
-		System.out.println(comment);
-		
-		// TODO: add reply to comment func
-		
-		mv.setViewName("home");
-		return mv;
+		redirectAttrs.addAttribute("userId", userId);
+		redirectAttrs.addAttribute("eventId", eventId);
+
+		return "redirect:/loadEventPage.do";
 	}
 	
 	
@@ -207,10 +200,24 @@ public class EventsController {
 		System.out.println("userid: " + userId + " eventId: " + eventId);
 		BettableEvent event = dao.findEventById(eventId);
 		User user = dao.findUserById(userId);
+		List<Wager> wagers = dao.getWagersForEvent(eventId);
+		List<Wager> userWagers = new ArrayList<>();
+		
+		for(Wager wager : wagers) {
+			if(wager.getUser().getId() == userId) {
+				userWagers.add(wager);
+			}
+		}
+		
+		List<EventComment> comments = dao.getEventComments(eventId);
+		
 		mv.addObject("user", user);
 		mv.addObject("event", event);
 		mv.addObject("eventId", eventId);
 		mv.addObject("userId", userId);
+		mv.addObject("wagers", wagers);
+		mv.addObject("userWagers", userWagers);
+		mv.addObject("comments", comments);
 		
 
 		mv.setViewName("eventInfoDisplay");

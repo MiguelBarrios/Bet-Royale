@@ -24,10 +24,6 @@ background
 
 
 
-<!-- nav bar edit for searching and logging in/registering a user -->
-
-
-
 
 <button type="button" class="btn btn-primary" onclick="location.href='loadEvents.do?userId=${user.id}';">View Events</button>
 
@@ -39,55 +35,26 @@ background
 <br>
 -------------------Create a betting event---------------------------
 
-<!-- ability to edit -->
+
 
 <jsp:include page="Components/createBettableEventForm.jsp" /><br>
 <br>
 <br>
 <br>
 
-<!-- display not edit -->
 
-<br>
-<br>
-<br>
 ----------------------- edit user account-----------------------------------
 
-<!-- ability to edit -->
 <jsp:include page="Components/updateuser.jsp" />
 
-<br>
-<br>
-<br>
+
 -----------------------Display Leaderboard-----------------------------------
-
-<!-- display not edit -->
 <br>
 <br>
 <br>
------------------------ edit Betting event-----------------------------------
-
-<jsp:include page="Components/editbettingevent.jsp" />
-<br> 
-
 <br>
 <br>
-
-
-
-
-
------------------------User Win/Loss Display Test-----------------------------------------
-
 <br>
-<%-- <input type ="button" onclick="location.href='profiledisplay.do?userId=${userId}'" value="Win-Loss-Ratio">
-			<div class="event-card"
-				onclick="location.href='profiledisplay.do?userId=${userId}';">
-<jsp:include page="Components/profiledisplay.jsp" /> --%>
-
-<br>
-<br>
-
 
 </body>
 </html>

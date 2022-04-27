@@ -51,17 +51,33 @@
 	</nav>
 	
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
+		<nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
+		<div class="container-fluid">
+
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="about.do">About
+							Us</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Contact
+							Us</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
 	
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

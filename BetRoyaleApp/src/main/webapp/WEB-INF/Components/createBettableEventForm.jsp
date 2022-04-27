@@ -16,6 +16,8 @@
 			 <br> <label for="endDate2">End Date: </label>
 		
 		 <input id="endDate2" type="text" placeholder="Event End Date" name="endDate2" />
+		<input style="visibility: hidden" name="active" value="1" >
+		 
 			 <br>
 			 <br> 
 			 

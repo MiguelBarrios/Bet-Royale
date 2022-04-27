@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
@@ -34,13 +35,22 @@ public class UserController {
 	@Autowired
 	private EventsDAO eDao;
 
+	
 	@PostMapping(path = "createUser.do")
-	public String home(Model model, User user) {
+	public ModelAndView home( User user) {
 		User newUser = userDao.createUser(user);
-		// DEBUG
+		ModelAndView mv = new ModelAndView();
 		System.out.println(newUser);
-		return "home";
+		mv.addObject("user", user);
+		mv.setViewName("accounthome");
+		return mv;
 	}
+	
+	
+	
+	
+	
+	
 
 	@PostMapping(path = "updateUser.do")
 	public String updateUser(Model model, User user) {
@@ -156,19 +166,14 @@ public class UserController {
 	}
 
 	@PostMapping(path = "createWager.do")
-	public ModelAndView createWager(Wager wager, int userId, int contenderId) {
+	public String createWager(int userId, int contenderId, double betAmount, RedirectAttributes redirectAttrs) {
 		ModelAndView mv = new ModelAndView();
-		if (wager.getContender().getEvent().getActive() == true) {
-			Wager newWager = userDao.createWager(wager, userId, contenderId);
-			mv.addObject("wager", newWager);
-			System.out.println(newWager);
-
-			// TODO Replace with desired JSP
-			mv.setViewName("accounthome");
-
-		}
-
-		return mv;
+		Wager wager = new Wager();
+		wager.setBetAmount(betAmount);
+		wager = userDao.createWager(wager, userId, contenderId);
+		redirectAttrs.addAttribute("userId", userId);
+		redirectAttrs.addAttribute("eventId", wager.getContender().getEvent().getId());
+		return "redirect:/loadEventPage.do";
 	}
 
 	@GetMapping(path = "loadWager.do")
