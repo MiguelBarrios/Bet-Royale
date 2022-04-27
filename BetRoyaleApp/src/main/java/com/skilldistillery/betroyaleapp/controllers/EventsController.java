@@ -214,6 +214,8 @@ public class EventsController {
 			}
 		}
 		
+		List<EventComment> comments = dao.getEventComments(eventId);
+		comments.forEach(System.out::println);
 		
 		mv.addObject("user", user);
 		mv.addObject("event", event);

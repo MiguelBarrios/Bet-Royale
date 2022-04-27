@@ -89,6 +89,20 @@
 			</div>			
 		</c:forEach>
 	</div>
+	
+	
+	<div class="chat-window">
+		<h1>Chat</h1>
+		<div class="container darker">
+  			<p>Hello. How are you today?</p>
+  			<span class="time-right">11:00</span>
+		</div>
+
+		<div class="container darker">
+  			<p>Hey! I'm fine. Thanks for asking!</p>
+  			<span class="time-left">11:01</span>
+		</div>
+	</div><!------ End chat window -->
 
 
     </div><!------------------  End page body content ------------------->
@@ -119,32 +133,6 @@
 
       }
     </script>
- 
-
-<%-- <h2>Betting Event Info</h2>
-
-
-
-
-<input type="hidden" id="userId" name="userId" value="${user.id}"/>
-<input type="hidden" id="eventId" name="eventId" value="${event.id}"/>
-
-
-<h1>${event.name}</h1>
-
-
-
------------------------Create Wager-----------------------------------------
-
-
-<!-- ability to edit -->
-
-<h2>Create Wager</h2>
-
-<jsp:include page="Components/createwager.jsp" />
- --%>
-
-
 </body>
 
 

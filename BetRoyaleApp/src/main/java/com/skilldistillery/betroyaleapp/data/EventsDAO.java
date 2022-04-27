@@ -39,4 +39,6 @@ public interface EventsDAO {
 
 	public void displayUserWinLossRatio(int userId);
 
+	List<EventComment> getEventComments(int eventId);
+
 }
