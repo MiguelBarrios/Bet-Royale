@@ -1,3 +1,4 @@
+
 /* Splash page container */
 
 
@@ -144,6 +145,7 @@ html {
 
 
 
+
 /* ----- create new event container styles */
 .form-container{
   display:flex;
@@ -211,6 +213,7 @@ html, body {
 }
 
 /*------------- Show all bets--------------*/
+
 
 .event-sort-container{
 	display:flex;
