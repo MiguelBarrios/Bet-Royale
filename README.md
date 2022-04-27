@@ -34,15 +34,15 @@
 
 REPLACE THE CRUD DESCRIPTIONS
 
-<p>SpringMVCFilmCRUD is a Dynamic Web Application that allows the user to perform the following operations on a Film in the SD MYSQL Film Database.</p>
+<p>Bet Royale is a Dynamic Web Application that allows the user to perform the following operations on a self-created betting site</p>
 <ol>
-<li><strong><em>C</em></strong>reate - Create a new Film in the database with the "Add A Film" Button</li>
+<li><strong><em>C</em></strong>reate - Create a new Event and Wager in the database with the "Create a Event" + "Create a Wager" Button</li>
 <br>
-<li><strong><em>R</em></strong>ead - View the current information for a Film in the database</li>
+<li><strong><em>R</em></strong>ead - View the current information for active Events on the site</li>
 <br>
-<li><strong><em>U</em></strong>pdate - Update Predefined Fields of a Film in the database</li>
+<li><strong><em>U</em></strong>pdate - Update Previously defined Events and Wagers in the database</li>
 <br>
-<li><strong><em>D</em></strong>elete - Remove Existing Films in the database</li>
+<li><strong><em>D</em></strong>elete - Remove Existing Wagers in the database</li>
 </ol>
 <!--[![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -57,6 +57,9 @@ REPLACE THE CRUD DESCRIPTIONS
 -   [MySQL](https://www.mysql.com/)
 -   [Atom Text Editor](https://atom.io/)
 -   [Bootstrap v5.1](https://getbootstrap.com)
+-   [CSS]()
+-   [JavaScript]()
+-   [GITHUB]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -64,10 +67,10 @@ REPLACE THE CRUD DESCRIPTIONS
 
 <ol>
 <li>
-The MVCFilmSite Dynamic Web App is Run on a Apache Tomahawk v8.5 server and launched through Spring Tool Suite 4
+The Bet Royale Dynamic Web App is Run on a Apache Tomahawk v8.5 server and launched through Spring Tool Suite 4
 </li>
 <li>
-Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home.jsp</strong>
+Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home</strong>
 </li>
 <li>
 <strong>Find Film By Id</strong> navigates to <strong>findFilmById.html</strong> where the user is prompted for the Film Id they would like to retrieve from the database.
@@ -117,20 +120,11 @@ Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home.jsp</
 
 <strong>Developers on Project</strong>
 
-<h4>INSERT NAME HERE</h4>
-
+<h4>Miguel Barrios</h4>
 <ul>
-<li><a href="INSERT LINKEDIN LINK HERE">LinkedIn</a></li>
-<li><a href="PUT GITHUB LINK HERE">Github</a></li>
-<li> E-mail: PUT E-MAIL HERE</li>
-</ul>
-
-<h4>INSERT NAME HERE</h4>
-
-<ul>
-<li><a href="INSERT LINKEDIN LINK HERE">LinkedIn</a></li>
-<li><a href="PUT GITHUB LINK HERE">Github</a></li>
-<li> E-mail: PUT E-MAIL HERE</li>
+<li><a href="https://www.linkedin.com/in/andrew-cornelius-584b151a9">LinkedIn</a></li>
+<li><a href="https://github.com/MiguelBarrios">Github</a></li>
+<li> E-mail: acorneld@gmail.com</li>
 </ul>
 
 <h4>Andrew Cornelius</h4>
@@ -140,7 +134,21 @@ Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home.jsp</
 <li> E-mail: acorneld@gmail.com</li>
 </ul>
 
-Project Link: [PROJECT NAME HERE](INSERT PROJECT LINK HERE)
+<h4>Lucas Paladini</h4>
+<ul>
+<li><a href="INSERT LINKEDIN LINK HERE">LinkedIn</a></li>
+<li><a href="https://github.com/Lpaladini90">Github</a></li>
+<li> E-mail: PUT E-MAIL HERE</li>
+</ul>
+
+<h4>Henry Vo</h4>
+<ul>
+<li><a href="https://www.linkedin.com/in/henry-vo-26b624119/">LinkedIn</a></li>
+<li><a href="https://github.com/lightningclear">Github</a></li>
+<li> E-mail: vohenry777@gmail.com</li>
+</ul>
+
+Project Link: [Bet Royale Mid Term Project](https://github.com/Lpaladini90/MidtermProject)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -156,4 +164,3 @@ Project Link: [PROJECT NAME HERE](INSERT PROJECT LINK HERE)
 -   [Github - othneildrew](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
->>>>>>> 882829d588366eb4762f7959eb2039e617fc2aa0

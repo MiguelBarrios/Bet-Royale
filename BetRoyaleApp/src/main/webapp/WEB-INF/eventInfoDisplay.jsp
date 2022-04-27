@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -49,43 +49,57 @@
     </div>
 
 
-    <div class="place-wager-container">
-      <div class="contenders">
-      	<c:forEach items="${event.contenders}" var="contender">
-      	        <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}</button>
-      	</c:forEach>
+
+
+
+
+<c:if test="${event.active}">
+   	   <div class="place-wager-container">
+      <div id="contenders">
+         <c:forEach items="${event.contenders}" var="contender">
+            <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}(${contender.odds})</button>
+            
+         </c:forEach>
       </div>
-
-    </div>
-
-    <form action="createWager.do" method="POST" id="create-wager-form">
-        <input type="hidden" id="userId" name="userId" value="${user.id}"/>
-        <label for="userId"></label>
-        <label for="contenderId">Select Your Contender</label>
-        <input type="text" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
-        <input type="hidden" id="contenderId" name="contenderId" value="0"/>
-        <label for="betAmount">Bet Amount: </label>
-        <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
-        <input type="submit"/>
-    </form>
+      <form action="createWager.do" method="POST" id="create-wager-form">
+         <input type="hidden" id="userId" name="userId" value="${user.id}"/>
+         <label for="userId"></label>
+         <input type="hidden" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
+         <input type="text" id="contenderId" name="contenderId" required hidden/>
+         <label for="betAmount">Bet Amount: </label>
+         <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
+         <input type="submit"/>
+      </form>
+   </div>
+</c:if>
 
 
 	<!---------------- List al wagers for this event -------------->
-		<div class="event-list-container">
+	<div class="event-list-container">
 			<h1>User wagers</h1>
-			<c:forEach items="${userWagers}" var="w">
+		<c:forEach items="${userWagers}" var="w">
 				<div class="wager">
-					${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+					${w.user.username} bet ${w.betAmount} on ${w.contender.name} 
+						<c:if test="${event.completion}">
+							, payout: ${w.betAmount * w.multiplier }
+						</c:if>
+					
 				</div>	
 		</c:forEach>
-		</div>
 		
 		
-		<div class="event-list-container">
+	</div>
+	
+	
+		
+	<div class="event-list-container">
 		<h1>All Wagers</h1>
 		<c:forEach items="${wagers}" var="w">
 			<div class="wager">
 				${w.user.username} bet ${w.betAmount} on ${w.contender.name}
+										<c:if test="${event.completion}">
+							, payout: ${w.betAmount * w.multiplier }
+						</c:if>
 			</div>			
 		</c:forEach>
 	</div>
@@ -114,33 +128,36 @@
 
 
     </div><!------------------  End page body content ------------------->
-    <script>
-      function toggleEventForm(){
-    	  document.getElementById("editEventForm").classList.toggle("hidden") 
-      }
-    
-      function toggleContender(){
-        var contender = document.getElementById(clicked_id).innerHTML;
-        document.getElementById("contenderName").value = contender;
-        var contenderBtn = document.getElementById(clicked_id);
-		
-        var id = document.getElementById(clicked_id).id;
-		
-        
-        
-        
-        if(contenderBtn.classList.contains("btn-secondary")){
-          contenderBtn.classList.remove("btn-secondary")
-          contenderBtn.classList.add("btn-primary");
-          document.getElementById("contenderId").value = id;
-        }else{
-          contenderBtn.classList.remove("btn-primary");
-          contenderBtn.classList.add("btn-secondary");
-          document.getElementById("contenderName").value = "";
-        }
+      <script>
+         function toggleEventForm(){
+          document.getElementById("editEventForm").classList.toggle("hidden")
+         }
 
-      }
-    </script>
+         function toggleContender(clicked_id){
+           let container = document.getElementById("contenders");
+           let children = container.children;
+           for(var i = 0; i < children.length; ++i){
+            var child = children[i];
+            var contenderId = child.id;
+            if(contenderId == clicked_id){
+              if(child.classList.contains("btn-secondary")){
+                child.classList.add("btn-primary");
+                child.classList.remove("btn-secondary")
+                document.getElementById("contenderId").value = clicked_id;
+                console.log(document.getElementById("contenderId"));
+              }
+            }
+            else{
+              child.classList.remove("btn-primary")
+              child.classList.add("btn-secondary")
+
+            }
+
+           }
+
+
+         }
+      </script>
 </body>
 
 

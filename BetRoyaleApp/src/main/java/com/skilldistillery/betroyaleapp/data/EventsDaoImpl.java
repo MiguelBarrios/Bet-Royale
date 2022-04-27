@@ -191,7 +191,6 @@ public class EventsDaoImpl implements EventsDAO {
 		}
 		
 		System.out.println(closedWagers.size());
-		closedWagers.forEach(System.out::println);
 		
 		
 		System.out.println("--------");
@@ -278,6 +277,13 @@ public class EventsDaoImpl implements EventsDAO {
 		
 		return comments;
 	}
+
+	@Override
+	public void getPayoutResultsForEvent(int event_id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
 	
 

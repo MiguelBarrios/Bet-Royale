@@ -167,7 +167,6 @@ public class UserController {
 
 	@PostMapping(path = "createWager.do")
 	public String createWager(int userId, int contenderId, double betAmount, RedirectAttributes redirectAttrs) {
-		ModelAndView mv = new ModelAndView();
 		Wager wager = new Wager();
 		wager.setBetAmount(betAmount);
 		wager = userDao.createWager(wager, userId, contenderId);
