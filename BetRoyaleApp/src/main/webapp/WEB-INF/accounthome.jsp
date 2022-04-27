@@ -43,6 +43,14 @@ background
 <br>
 
 
+
+
+----------------------- Display Payout-----------------------------------
+
+<jsp:include page="Components/displayPayout.jsp" />
+
+
+
 ----------------------- edit user account-----------------------------------
 
 <jsp:include page="Components/updateuser.jsp" />
