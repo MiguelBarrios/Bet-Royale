@@ -59,7 +59,7 @@ background
 <jsp:include page="Components/updateuser.jsp" />
 
 <div class="card">
-    <img src="" alt="User" style="width: 100%">
+    <img src="avatar.png" alt="avatar" class="avatar"  style="width: 100%">
     <h1>John Doe</h1>
     <p class="title">CEO & Founder, Example</p>
     <p>Harvard University</p>
