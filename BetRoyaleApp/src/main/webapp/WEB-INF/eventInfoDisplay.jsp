@@ -49,24 +49,30 @@
     </div>
 
 
-    <div class="place-wager-container">
+
+
+
+
+<c:if test="${event.active}">
+   	   <div class="place-wager-container">
       <div id="contenders">
-      	<c:forEach items="${event.contenders}" var="contender">
-      	        <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}</button>
-      	</c:forEach>
+         <c:forEach items="${event.contenders}" var="contender">
+            <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}</button>
+         </c:forEach>
       </div>
+      <form action="createWager.do" method="POST" id="create-wager-form">
+         <input type="hidden" id="userId" name="userId" value="${user.id}"/>
+         <label for="userId"></label>
+         <input type="hidden" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
+         <input type="text" id="contenderId" name="contenderId" required hidden/>
+         <label for="betAmount">Bet Amount: </label>
+         <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
+         <input type="submit"/>
+      </form>
+   </div>
+</c:if>
 
-    </div>
 
-         <form action="createWager.do" method="POST" id="create-wager-form">
-            <input type="hidden" id="userId" name="userId" value="${user.id}"/>
-            <label for="userId"></label>
-            <input type="hidden" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
-            <input type="text" id="contenderId" name="contenderId" required hidden/>
-            <label for="betAmount">Bet Amount: </label>
-            <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" required/>
-            <input type="submit"/>
-         </form>
 
 
 	<!---------------- List al wagers for this event -------------->
