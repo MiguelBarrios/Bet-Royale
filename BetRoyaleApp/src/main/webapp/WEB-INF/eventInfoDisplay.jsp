@@ -57,7 +57,8 @@
    	   <div class="place-wager-container">
       <div id="contenders">
          <c:forEach items="${event.contenders}" var="contender">
-            <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}</button>
+            <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}(${contender.odds})</button>
+            
          </c:forEach>
       </div>
       <form action="createWager.do" method="POST" id="create-wager-form">
