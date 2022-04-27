@@ -218,6 +218,8 @@ public class BettableEvent {
 	public void setEventReview(List<EventReview> eventReview) {
 		this.eventReview = eventReview;
 	}
+	
+	
 
 
 	@Override

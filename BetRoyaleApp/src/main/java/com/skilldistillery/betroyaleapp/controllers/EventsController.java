@@ -2,6 +2,7 @@ package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -218,12 +219,21 @@ public class EventsController {
 		mv.addObject("wagers", wagers);
 		mv.addObject("userWagers", userWagers);
 		mv.addObject("comments", comments);
+//		
+//		Map<Integer,Double> payout = new HashMap<>();
+//		for(Wager wager : wagers) {
+//			if(wager.getContender().getEvent().getCompletion()) {
+//				double payout = wager.getBetAmount() * wager.getMultiplier();
+//			}
+//		}
 		
 
 		mv.setViewName("eventInfoDisplay");
 		return mv;
 		
 	}
+	
+	
 	
 	
 	

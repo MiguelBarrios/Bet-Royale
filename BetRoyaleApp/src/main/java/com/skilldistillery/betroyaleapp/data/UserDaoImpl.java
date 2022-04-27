@@ -143,7 +143,7 @@ public class UserDaoImpl implements UserDAO {
 	public Wager createWager(Wager wager, int userId, int contenderId) {
 		User user = em.find(User.class, userId);
 		Contender contender = em.find(Contender.class, contenderId);
-		double multiplier = 1 / (contender.getOdds() / 100);
+		double multiplier = 1 /contender.getOdds();
 		
 		wager.setUser(user);
 		wager.setBetAmount(wager.getBetAmount());

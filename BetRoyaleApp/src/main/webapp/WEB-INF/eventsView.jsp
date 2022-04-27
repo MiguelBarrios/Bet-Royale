@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<jsp:include page="Components/navbar.jsp" />
+<%-- <jsp:include page="Components/navbar.jsp" /> --%>
 
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success" id="activeEvents" onclick="loadEventView(this.id)">Active Events</button>
