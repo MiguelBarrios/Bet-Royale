@@ -411,6 +411,7 @@ INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`,
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (4, 'UFC fight night 213', '2022-05-01 12:00:00', NULL, 8, 'Featherweight championship', NULL, '2022-04-27  10:20:00', 1, 9);
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (5, 'ufc fight NiGHT 513', '2022-05-07 12:00:00', NULL, 5, 'Heavyweight championship', NULL, '2022-04-28 15:25:00', 1, 11);
 INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (6, 'Rob Vs. Dee', '2022-05-08 12:00:00', NULL, 2, 'Rob Vs. Dee, Instructor. vs Instructor', NULL, '2022-04-26 17:26:00', 1, 14);
+INSERT INTO `bettable_event` (`id`, `name`, `end_date`, `completion`, `user_id`, `description`, `image_url`, `date_created`, `active`, `contender_id`) VALUES (7, 'Andrew vs Cookies', '2022-04-27 12:00:00', 1, 3, 'Andrew Losing against cookies', NULL, '2022-04-26 12:00:00', 0, 15);
 
 COMMIT;
 
@@ -427,6 +428,7 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES (4, 'politics', 'pol
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (5, 'food', 'any type of food');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (6, 'stocks', 'stock value movement');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (7, 'UFC Fights', 'UFC Fight Category');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (8, 'Teaching', 'Instructor fighting');
 
 COMMIT;
 
@@ -450,6 +452,8 @@ INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bett
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (12, 'Dillian Whyte', 'Heavyweight contender', NULL, 0.5, 5);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (13, 'Rob \"write once, run anywhere\" capone', 'Instructor of skill distillery', NULL, 0.5, 6);
 INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (14, 'Dee \"The Deceiver\" Burke', 'Instructor of skill distillery', NULL, 0.5, 6);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (15, 'Andrew \"Corny\" Cornelius', 'cookie lover', 0, 0.5, 7);
+INSERT INTO `contender` (`id`, `name`, `description`, `is_winner`, `odds`, `bettable_event_id`) VALUES (16, 'Cookie \"cookie\" munch', 'cookie fighter', 1, 0.5, 7);
 
 COMMIT;
 
@@ -472,6 +476,8 @@ INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (12, 1500, 2, 10, 7);
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (13, 1600, 2, 11, 2);
 INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (14, 2500, 2, 12, 8);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (15, 1400, 2, 15, 3);
+INSERT INTO `wager` (`id`, `bet_amount`, `multiplier`, `contender_id`, `user_id`) VALUES (16, 2000, 2, 16, 2);
 
 COMMIT;
 
@@ -508,6 +514,7 @@ USE `betroyaledb`;
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (1, '2022-04-22 14:12:00', 'grilled cheese', 1, 2, NULL);
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (2, '2022-04-22 18:24:00', 'soup', 1, 3, 1);
 INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (3, '2022-04-25 09:15:00', 'can\'t wait to see Font win this fight ', 3, 4, NULL);
+INSERT INTO `event_comment` (`id`, `comment_date`, `comment_text`, `bettable_event_id`, `user_id`, `in_reply_to_id`) VALUES (4, '2022-04-27 15:00:00', 'Andrew is about to get his butt kicked by cookies', 7, 2, NULL);
 
 COMMIT;
 
