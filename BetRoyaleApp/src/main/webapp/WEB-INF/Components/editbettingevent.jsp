@@ -66,7 +66,7 @@ write logic- if NOT completed then do form, if completed then do not.
           </div>
           
           
-          <button type="submit" class="btn btn-primary">Submit Profile Changes</button>
+          <button type="submit" class="btn btn-primary">Save</button>
           
         </form>
         
