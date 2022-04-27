@@ -79,7 +79,7 @@ public class UserController {
 
 	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
-			Double[] contenderOdds, String[] cname, String[] cdescription, String category,
+			Double[] contenderOdds, String[] cname, String category,
 			String categorydescription) {
 		ModelAndView mv = new ModelAndView();
 		if (userId > 0) {
@@ -127,7 +127,7 @@ public class UserController {
 				for (int i = 0; i < cname.length; ++i) {
 					Subcategory sub = new Subcategory();
 					sub.setName(cname[i]);
-					sub.setDescription(cdescription[i]);
+					sub.setDescription("");
 					sub.setCategory(cat);
 					sub = userDao.createSubCategory(sub);
 					event.addSubcategory(sub);
@@ -235,3 +235,9 @@ public class UserController {
 	}
 
 }
+
+
+
+
+
+//MEOW
