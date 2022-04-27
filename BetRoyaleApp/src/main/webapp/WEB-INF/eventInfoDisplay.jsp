@@ -24,6 +24,13 @@
 
     <div class="body-content">
 
+	<c:if test="${event.user.id == user.id}">
+		<button type="button" class="btn btn-warning" id="edit" onclick="toggleEventForm()">EDIT</button>
+		<div class="hidden" id="editEventForm">
+			<jsp:include page="Components/editbettingevent.jsp" />	
+		</div>
+	</c:if>
+
     <div class="event-info-container">
       <img class="col bet-event-img" src="https://avatars.githubusercontent.com/u/34669927?s=40&amp;v=4" width="75px" height="75px">
       <h3>(${event.id})${event.name}</h3>
@@ -83,7 +90,11 @@
 
     </div><!------------------  End page body content ------------------->
     <script>
-      function toggleContender(clicked_id){
+      function toggleEventForm(){
+    	  document.getElementById("editEventForm").classList.toggle("hidden") 
+      }
+    
+      function toggleContender(){
         var contender = document.getElementById(clicked_id).innerHTML;
         document.getElementById("contenderName").value = contender;
         var contenderBtn = document.getElementById(clicked_id);

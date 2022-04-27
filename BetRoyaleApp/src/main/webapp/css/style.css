@@ -1,10 +1,16 @@
 
 /* --------------- event info page styles */
+html, body {
+    margin:0;
+    padding:0;
+    background-color: lightgray;
+}
+
 .body-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  background-color: lightgray;
   gap:20px
 
 }
@@ -18,17 +24,12 @@
   flex-direction: row;
 }
 
-
-/*------------- Show all bets style--------------*/
-body{
-	background-color: lightgray;
-}
-
 /*------------- Show all bets--------------*/
 
 .event-sort-container{
 	display:flex;
 	flex-direction:row;
+	justify-content:center;
 }
 
 .event-list-container {

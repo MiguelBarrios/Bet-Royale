@@ -16,6 +16,8 @@
 
 </head>
 <body>
+<jsp:include page="Components/navbar.jsp" />
+
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success" id="activeEvents" onclick="loadEventView(this.id)">Active Events</button>
 		<button type="button" class="btn btn-secondary"id="expiredEvents"onclick="loadEventView(this.id)">Expired Events</button>
@@ -121,7 +123,6 @@
 				</div>
 			</div>
 			<!--------------------------------- Card ------------------------------->
-			
 			</c:if>
 
 		</c:forEach>
@@ -136,12 +137,17 @@
 
   function loadView(viewID){
     const views = ["activeEventsView","expiredEventsView","myEventsView"];
+    const viewBtn = ["activeEvents", "expiredEvents", "myEvents"];
     for(let i = 0; i<views.length; ++i){
       if(views[i] == viewID){
          document.getElementById(views[i]).classList.remove("hidden");
+         document.getElementById(viewBtn[i]).classList.remove("btn-secondary");
+         document.getElementById(viewBtn[i]).classList.add("btn-success");
       }
       else{
         document.getElementById(views[i]).classList.add("hidden");
+        document.getElementById(viewBtn[i]).classList.remove("btn-success");
+        document.getElementById(viewBtn[i]).classList.add("btn-secondary");
       }
 
     }
