@@ -35,13 +35,22 @@ public class UserController {
 	@Autowired
 	private EventsDAO eDao;
 
+	
 	@PostMapping(path = "createUser.do")
-	public String home(Model model, User user) {
+	public ModelAndView home( User user) {
 		User newUser = userDao.createUser(user);
-		// DEBUG
+		ModelAndView mv = new ModelAndView();
 		System.out.println(newUser);
-		return "home";
+		mv.addObject("user", user);
+		mv.setViewName("accounthome");
+		return mv;
 	}
+	
+	
+	
+	
+	
+	
 
 	@PostMapping(path = "updateUser.do")
 	public String updateUser(Model model, User user) {

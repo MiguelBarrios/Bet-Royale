@@ -12,26 +12,24 @@
 
 
 
-body{
+.container-fluid{
  
-    background-color: rgb(8, 9, 9);
+    background-color: white;
     
 }
 .info{
-    color: white;
+    color: black;
     
 }
 </style>
-<body>
+<body class="container-fluid">
 
 
 
 <jsp:include page="Bootstrap.html" />
 
 <jsp:include page="Components/navbar.jsp" />
-<br>
-	<br>
-	
+
 	
 	<div id="SummitCarousel" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">

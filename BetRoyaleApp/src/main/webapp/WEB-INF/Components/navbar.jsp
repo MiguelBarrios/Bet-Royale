@@ -52,8 +52,6 @@
 	
 	
 
-	<br>
-	<br>
 		<nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
 		<div class="container-fluid">
 
