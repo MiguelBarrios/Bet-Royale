@@ -1,8 +1,12 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,7 @@ import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
@@ -51,8 +56,20 @@ public class UserController {
 
 	@RequestMapping(path= "goHome.do")
 	public ModelAndView goHome() {
+		
+		
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
+		return mv;
+	}
+	@RequestMapping(path= "accountHome.do")
+	public ModelAndView goToAccountHome(Integer userId, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User user = userDao.findById(userId);
+		session.setAttribute("user", user);
+		mv.addObject("user", user);
+		mv.setViewName("accounthome");
 		return mv;
 	}
 		
@@ -258,9 +275,7 @@ public class UserController {
 		return mv;
 		
 	}
-	
-	
-	
+
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
 
@@ -271,8 +286,22 @@ public class UserController {
 			session.setAttribute("user", user);
 			System.out.println(user);
 			mv.addObject("user", user);
+			List<Wager> wagers = userDao.getWagers(user.getId());		
+			mv.addObject("userWagers",wagers);
+			
+			List<CalculatedWinnings> results = userDao.calculateLeaderBoard();
+			results.forEach(System.out::println);
+			Collections.sort(results,  (r1, r2) ->  (int)r2.getCount() - (int)r1.getCount());
+			int rank = 1;
+			for(CalculatedWinnings cw : results) {
+				cw.setRank(rank);
+				//System.out.println(cw.getRank()+ " " + cw.getUser().getUsername() + " " + cw.getCount() + " " + cw.getTotal());
+				++rank;
+				
+			}
+			mv.addObject("rankings", results);
+			
 			mv.setViewName("accounthome");
-
 		} else {
 			mv.setViewName("home");
 		}
@@ -283,7 +312,7 @@ public class UserController {
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
-		return "redirect:index.do";
+		return "redirect:goHome.do";
 	}
 
 	

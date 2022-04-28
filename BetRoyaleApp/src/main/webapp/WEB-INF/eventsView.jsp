@@ -16,8 +16,10 @@
 
 </head>
 <body>
-<%-- <jsp:include page="Components/navbar.jsp" /> --%>
-
+<jsp:include page="Components/navbar.jsp" /> 
+<br>
+<br>
+<br>
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success" id="activeEvents" onclick="loadEventView(this.id)">Active Events</button>
 		<button type="button" class="btn btn-secondary"id="expiredEvents"onclick="loadEventView(this.id)">Expired Events</button>
@@ -94,7 +96,7 @@
 		</c:forEach>
 	</div>
 	
-<!--------------- Expired Events ------------>
+<!--------------- MY Events ------------>
 	<div class="event-list-container hidden" id="myEventsView">
 		<h1>My Events</h1>
 		<c:forEach items="${events}" var="e">
