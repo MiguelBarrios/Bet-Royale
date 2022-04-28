@@ -32,6 +32,7 @@
 
 
 <body>
+
     <div class="fade-in">
         
         <header class="header">
@@ -53,7 +54,7 @@
     </div>
 
 
-    <!-- all script goes here -->
+    
 </body>
 
 </html>
