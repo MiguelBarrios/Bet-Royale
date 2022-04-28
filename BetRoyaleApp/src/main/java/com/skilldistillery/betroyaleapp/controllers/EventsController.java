@@ -2,9 +2,10 @@ package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.betroyaleapp.data.CalculatedWinnings;
 import com.skilldistillery.betroyaleapp.data.EventsDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
@@ -106,39 +108,29 @@ public class EventsController {
 	
 	
 	@PostMapping("updateBetEvent.do")
-	public ModelAndView updateBettableEvent(Integer [] contenderResult, Integer[] contenderIds, Integer eventId) {
+	public String updateBettableEvent(Integer [] contenderResult, Integer[] contenderIds, 
+			Integer eventId,RedirectAttributes redirectAttrs,HttpSession session) {
+		
+		User user = (User)session.getAttribute("user");
+		System.out.println("Session User: " + user);
 		ModelAndView mv = new ModelAndView();
-		//BettableEvent event = dao.findEventById(eventId);
-//		System.out.println(event);
-//		
-//		List<Contender> contenders = event.getContenders();
+		BettableEvent event = dao.findEventById(eventId);
+		System.out.println(event);
+		
+		List<Contender> contenders = event.getContenders();
 		
 		for (int i = 0; i < contenderIds.length; i++) {
 			boolean isWinner = contenderResult[i] != 0;
 			dao.updateContender(contenderIds[i], isWinner);
 		}
 		
-		
-		
-		
-		
-	//	Contender newContender = dao.updateContender(contender.getId(), isWinner);
-		//System.out.println(newContender);
-	
-			
-		
-//		for (Contender contender : contenders) {
-//		boolean isWinner = (winningId == contender.getId());
-			
-		
-		
-//		event.setActive(false);
-//		event.setCompletion(true);
-//		dao.updateBettableEvent(event);
-//		mv.addObject("event", event);
-		mv.setViewName("accounthome");
-//		
-		return mv;
+		event.setActive(false);
+		event.setCompletion(true);
+		dao.updateBettableEvent(event);
+
+		redirectAttrs.addAttribute("userId", user.getId());
+		redirectAttrs.addAttribute("eventId", eventId);
+		return "redirect:/loadEventPage.do";
 		
 	}
 	
