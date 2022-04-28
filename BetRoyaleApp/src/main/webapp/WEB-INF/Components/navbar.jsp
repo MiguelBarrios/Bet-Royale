@@ -406,11 +406,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 item">
-                    <h3>Services</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
+                        <li><a href="#">Requests</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Contact Form</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 item">
@@ -431,7 +431,7 @@
                 </div>
                 <div class="col-md-3 item text">
                     <h3>BetRoyale.com</h3>
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus.</p>
+                    <p>Browse The Markets. Create Or Pick An Event. Place Your Wager.</p>
                 </div>
                 <div class="col item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
             </div>
