@@ -190,7 +190,8 @@
 														Wagers</button>
 												</div> -->
                                             <!-- -----------------------SCRIPT FOR WAGER TABLE TABS--------------- -->
-
+  
+  
 
 
 
