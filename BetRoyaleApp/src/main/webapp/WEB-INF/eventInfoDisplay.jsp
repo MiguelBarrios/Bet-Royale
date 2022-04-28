@@ -13,7 +13,7 @@
    <body>
       <jsp:include page="Bootstrap.html"/>
       <%-- <jsp:include page="Components/navbar.jsp"/> --%>
-      <div class="container">
+      <div class="container" id="content-container">
          <!-- --- gives the user the ability to edit event if event belongs to user -->
          <c:if test="${event.user.id == user.id}">
             <c:if test="${not event.completion}">
@@ -61,9 +61,12 @@
             </div>
          </c:if>
          
-		<button type="button" class="btn btn-secondary" id="all" onclick="toggleWagerTable('all-wagers-table')">All Wagers</button>
-        <button type="button" class="btn btn-secondary" id="user" onclick="toggleWagerTable('user-wagers-table')">User Wagers</button>     
-         
+        <div class="table-switch">
+        	<button type="button" class="btn btn-primary" id="all" onclick="toggleWagerTable('all-wagers-table')">All Wagers</button>
+        	<button type="button" class="btn btn-secondary" id="user" onclick="toggleWagerTable('user-wagers-table')">User Wagers</button>     
+        </div>
+        
+
          <!--------  Show all wagers on event table -->
          
          <div id="all-wagers-table" class="wager-table-container">
@@ -196,10 +199,18 @@
         	 if(selectedTable == "all-wagers-table"){
         		 document.getElementById("all-wagers-table").classList.remove("hidden")
         		 document.getElementById("user-wagers-table").classList.add("hidden")
+        		 document.getElementById("all").classList.remove("btn-secondary")
+        		 document.getElementById("all").classList.add("btn-primary")
+        		 document.getElementById("user").classList.remove("btn-primary")
+        		 document.getElementById("user").classList.add("btn-secondary")
         		 
         	 }else{//user-wagers-table
         		 document.getElementById("all-wagers-table").classList.add("hidden")
         		 document.getElementById("user-wagers-table").classList.remove("hidden")
+        		 document.getElementById("user").classList.remove("btn-secondary")
+        		 document.getElementById("user").classList.add("btn-primary")
+        		 document.getElementById("all").classList.remove("btn-primary")
+        		 document.getElementById("all").classList.add("btn-secondary")
         	 }
          }
       </script>
