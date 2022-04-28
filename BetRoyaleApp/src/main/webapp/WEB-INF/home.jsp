@@ -336,7 +336,7 @@
 			</section>
 		</div>
 	</div>
-
+<jsp:include page="Components/footer.jsp" />
 
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
