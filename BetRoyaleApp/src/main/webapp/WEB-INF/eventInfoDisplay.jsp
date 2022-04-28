@@ -193,6 +193,14 @@
          
          function toggleWagerTable(selectedTable){
         	 console.log(selectedTable)
+        	 if(selectedTable == "all-wagers-table"){
+        		 document.getElementById("all-wagers-table").classList.remove("hidden")
+        		 document.getElementById("user-wagers-table").classList.add("hidden")
+        		 
+        	 }else{//user-wagers-table
+        		 document.getElementById("all-wagers-table").classList.add("hidden")
+        		 document.getElementById("user-wagers-table").classList.remove("hidden")
+        	 }
          }
       </script>
    </body>	
