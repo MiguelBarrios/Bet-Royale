@@ -54,7 +54,7 @@
                       <h4>${user.fullName}</h4>
                       <p class="text-secondary mb-1">${user.username }</p>
                       <button type="button" class="btn btn-primary" onclick="location.href='loadEvents.do?userId=${user.id}';">View Events</button>
-                      <button type="button" class="btn btn-primary" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
+                      
                     </div>
                   </div>
                 </div>
