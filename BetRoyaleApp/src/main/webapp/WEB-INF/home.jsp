@@ -16,128 +16,66 @@
 <jsp:include page="Components/navbar.jsp" />
 
 
-
-	<!-- <div id="SummitCarousel" class="carousel slide" data-ride="carousel">
+	<div id="BettingCar" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#SummitCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#SummitCarousel" data-slide-to="1"></li>
 			<li data-target="#SummitCarousel" data-slide-to="2"></li>
 			<li data-target="#SummitCarousel" data-slide-to="3"></li>
-			<li data-target="#SummitCarousel" data-slide-to="4"></li>
-			<li data-target="#SummitCarousel" data-slide-to="5"></li>
-			<li data-target="#SummitCarousel" data-slide-to="6"></li>
-			<li data-target="#SummitCarousel" data-slide-to="7"></li>
-			<li data-target="#SummitCarousel" data-slide-to="8"></li>
+			
 		</ol>
 
 		<div class="carousel-inner">
 
 			<div class="carousel-item active">
 				<img class="d-block w-100"
-					src="https://blog.favre-leuba.com/wp-content/uploads/2018/07/1920x1080_Satyarup_Banner_optimized.jpg"
+					src="#"
 					alt="First slide">
 
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Mont Blanc</h5>
-					<p>French Alps Europe</p>
+					
 
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="https://pictures.altai-travel.com/1920x0/aconcagua-summit-1698.jpg"
+				<img class="d-block w-100" 
+				src="#"
 					alt="Second slide">
 
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Aconcagua</h5>
-					<p>Argentina South America</p>
+				
 
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="https://images.squarespace-cdn.com/content/v1/54b15433e4b090b197f1b37a/1501207124742-6XYCWAY09APPLKNSW9K0/France-Alps-Mont-Blanc-white-mountains-lake-reflections-mirror_1920x1080.jpg?format=2500w"
+					src="#"
 					alt="Third slide">
 
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Mont Blanc</h5>
-					<p>French Alps Europe</p>
+				
 
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="https://www.adventurealternative.com/media/201753/cartsenz-pyramid-irian-jaya.jpg"
+					src="#"
 					alt="Fourth slide">
 
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Puncak Jaya(Carstensz Pyramid)</h5>
-					<p>New Guinea Indonesia</p>
+					
 
 				</div>
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100"
-					src="https://d1z5o5vuzqe9y4.cloudfront.net/uploads/The-National-Parks/denali-1929525_1920_resized.jpg"
-					alt="Fifth slide">
+			
 
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Denali</h5>
-					<p>Alaska North America</p>
-
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="https://picfiles.alphacoders.com/285/thumb-1920-285650.jpg"
-					alt="Sixth slide">
-
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Elbrus</h5>
-					<p>Russia</p>
-
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100"
-					src="https://external-preview.redd.it/NH2jXVq_Ejfw2RgOisOsN2_fCzIvNLgD0RSSm9hHGSI.jpg?width=960&crop=smart&auto=webp&s=6d27a0afe0b7c41a078131519bd18bf27c280139"
-					alt="Seventh slide">
-
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Everest</h5>
-					<p>Nepal</p>
-
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100"
-					src="https://www.andbeyond.com/wp-content/uploads/sites/5/Climb-Mount-Kilimanjaro-andBeyond-Experiences.jpg"
-					alt="Eigth slide">
-
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Kilimanjaro</h5>
-					<p>Africa</p>
-
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100"
-					src="https://madisonmountaineering.com/wp-content/uploads/2020/04/Everest2-main-slider.jpg"
-					alt="Ninth slide">
-
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Mount Vinson</h5>
-					<p>Antarctica</p>
-
-				</div>
-			</div>
-
-			<a class="carousel-control-prev" href="#SummitCarousel" role="button" data-slide="prev"> <span
+			<a class="carousel-control-prev" href="#BettingCar" role="button" data-slide="prev"> <span
 					class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
 			</a> <a class="carousel-control-next" href="#SummitCarousel" role="button" data-slide="next"> <span
 					class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
 			</a>
 		</div>
-	</div> -->
-
+	</div>
 
 
 	<section class="bg-dark text-light p-5 text-center">
