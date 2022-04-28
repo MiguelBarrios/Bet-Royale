@@ -2,9 +2,15 @@ package com.skilldistillery.betroyaleapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class BetRoyaleAppApplication {
+public class BetRoyaleAppApplication extends SpringBootServletInitializer {
+	  @Override
+	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	    return application.sources(BetRoyaleAppApplication.class);
+	  } 
 
 	public static void main(String[] args) {
 		SpringApplication.run(BetRoyaleAppApplication.class, args);
