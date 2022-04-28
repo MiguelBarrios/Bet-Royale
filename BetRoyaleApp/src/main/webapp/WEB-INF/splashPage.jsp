@@ -10,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bet Royale</title>
-    <link rel="stylesheet" href="script.js">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/splash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -49,7 +48,7 @@
                     Bet Royale features a fully customizable betting experience. Create your own custom events.
                     Decide on your Contenders. Manufacture their Chances.  Watch and see how right you were.
                 </p>
-               <button>Speculate Now</button>
+               <button type="button" onclick="location.href='home.do'">Speculate Now</button>
 
 
             </div>
