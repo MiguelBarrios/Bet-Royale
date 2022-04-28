@@ -18,9 +18,14 @@
 </head>
 	<style>
 	.footer-dark {
-    padding: 50px 0;
+    padding: 10px 0;
     color: #f0f9ff;
-    background-color: #282d32
+    background-color: #282d32;
+    postion: bottom;
+    bottom: 0;
+    left: 0;
+    
+    
 }
 
 .footer-dark h3 {
@@ -51,7 +56,7 @@
 @media (max-width:767px) {
     .footer-dark .item:not(.social) {
         text-align: center;
-        padding-bottom: 20px
+        padding-top: 20px
     }
 }
 
@@ -71,13 +76,15 @@
 }
 
 .footer-dark .item.social {
-    text-align: center
+    text-align: center;
+    padding-top: 40px;
 }
 
 @media (max-width:991px) {
     .footer-dark .item.social {
         text-align: center;
-        margin-top: 20px
+        margin-top: 10px;
+        
     }
 }
 
@@ -101,7 +108,7 @@
 
 .footer-dark .copyright {
     text-align: center;
-    padding-top: 24px;
+    padding-top: 5px;
     opacity: 0.3;
     font-size: 13px;
     margin-bottom: 0
@@ -405,7 +412,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 item">
+                <div class="col-md-2 item">
                     <h3>Contact Us</h3>
                     <ul>
                         <li><a href="#">Requests</a></li>
@@ -413,7 +420,7 @@
                         <li><a href="#">Contact Form</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 item">
+                <div class="col-md-2 item">
                     <h3>Services</h3>
                     <ul>
                         <li><a href="#">Web design</a></li>
@@ -421,20 +428,24 @@
                         <li><a href="#">Hosting</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 item">
+                <div class="col-md-2 item">
                     <h3>About</h3>
                     <ul>
+                        <li><a href="#">Our Team</a></li>
                         <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 item text">
+                <div class="col-md-2 item text">
                     <h3>BetRoyale.com</h3>
                     <p>Browse The Markets. Create Or Pick An Event. Place Your Wager.</p>
+                     
                 </div>
-                <div class="col item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
-            </div>
+                
+                    <div class="col-md-4 item social"><a href=""><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="https://www.youtube.com/channel/UCmqsyauQoYoeipFQ-O3eP3g"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
+           
+                </div>
+                
             <p class="copyright">BetRoyale.com © 2022</p>
         </div>
     </footer>
