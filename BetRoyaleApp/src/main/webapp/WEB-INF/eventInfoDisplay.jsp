@@ -166,7 +166,7 @@
          </div>
          
       </div>
-      <jsp:include page="Components/footer.jsp"/>
+     
       <!-- End main Container -->
       
       <script>
@@ -215,6 +215,13 @@
         	 }
          }
       </script>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+       <jsp:include page="Components/footer.jsp"/>
    </body>	
 </body>
 
