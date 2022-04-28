@@ -173,7 +173,7 @@ public class UserController {
 		redirectAttrs.addAttribute("userId", userId);
 		redirectAttrs.addAttribute("eventId", wager.getContender().getEvent().getId());
 		return "redirect:/loadEventPage.do";
-	}
+	} 
 
 	@GetMapping(path = "loadWager.do")
 	public ModelAndView loadWagerPage(int userId, int eventId) {

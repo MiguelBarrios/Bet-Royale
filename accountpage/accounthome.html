@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<style>
+	.header-tp .navbar {
+    position: relative;
+	min-height: 50px;
+	margin-bottom: 0px;
+	border: 1px solid transparent;
+}
+
+.header-tp .navbar-default {
+	background-color: #1DB9EC;
+	border-color:transparent!important;
+}
+.header-tp .bdr li:nth-child(odd) 
+{
+	border-left: 1px solid rgba(255, 255, 255, 0.44);
+
+}
+
+.header-tp .bdr li:nth-child(even) 
+{
+	border-right: 1px solid rgba(255, 255, 255, 0.44);
+	border-left: 1px solid rgba(255, 255, 255, 0.44);
+}
+.header-tp .bdr li
+{
+	padding:10px 0px;
+}
+.header-tp .bdr li a
+{
+	color:#fff!important;
+}
+
+.header-tp .pddr
+{
+	padding-top:5px;
+}
+
+.header-tp .navbar-right {
+    float: right !important;
+    margin-right: 30px;
+}
+
+.header-tp  .nav > li {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-blu {
+	display: inline-block;
+	padding: 10px 35px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	background-color: #0D4459;
+	border-color: #0D4459;
+	color: #fff;
+}      
+.mrgn-top
+{
+	margin-top:15px;
+	margin-right:15px;
+}    
+
+.header-tp
+{
+    margin: 10px 0px;
+}    
+
+/*######################## LOGIN/SIGNUP PAGE START ##################################*/
+.at-login-form .btn-fb
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	background-color: #4568B2;
+	width: 100%;
+	margin-top: 10px;
+	color:#fff;
+}
+
+.at-login-form .btn-gp
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid #eee;
+	border-radius: 0px;
+	background-color: #FFFFFF;
+	width: 100%;
+	margin-top: 10px;
+	color:#000;
+}
+
+.at-login-form .btn-lgin
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid #eee;
+	border-radius: 0px;
+	background-color: #1DB9EC;
+	width: 100%;
+	margin-top: 10px;
+	color:#fff;
+}
+.at-login-form .signup-or-separator {
+	background: none;
+	height: 34px;
+	position: relative;
+	text-align: center;
+}
+.at-login-form .signup-or-separator--text {
+	background-color: #fff;
+	display: inline-block;
+	padding: 8px;
+}
+
+.at-login-form .h6 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #757575;
+	line-height: 1.1;
+	text-rendering: optimizelegibility;
+}
+
+.at-login-form .signup-or-separator hr {
+    margin: -25px auto 10px;
+    width: 100%;	
+ }
+ 
+ .at-login-form .form-control-form {
+    display: block;
+    width: 100%;
+    height: 54px;
+    padding: 15px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-top: 3px;
+}   
+ .at-login-form .frgt-pswd
+{
+	margin: 5px 0 10px;
+color: red;
+}
+
+ .at-login-form .btn-gst
+{
+	display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid #000;
+border-radius: 0px;
+background-color: transparent;
+}
+
+ .at-login-form .ta-l
+{
+	text-align:left;
+	margin-top: 5px;
+}
+
+ .at-login-form .modal-dialog {
+    width: 500px;
+    margin: 30px auto;
+}
+
+.at-login-form .modal-content
+{
+	padding: 0px 10px;
+}
+
+.at-login-form  .modal-header {
+    padding: 10px 10px;
+    border-bottom: 0px solid #e5e5e5;
+}
+.blue-bg-nav
+{
+    background-color:#1DB9EC;
+}
+</style>
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
+        <a class="navbar-brand" href="#">BetRoyale</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item active"><a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">View Events</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#at-login">Login</a></li>
+              
+                <li class="nav-item">
+
+                    <form class="form-inline my-2 my-lg-0" action="search.do" method="GET">
+                        <input class="form-control mr-sm-2" type="search" name="username" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+    <div class="row-x">
+
+        <div class="profile mt-4">
+            <div class="account-social account-badge">
+                <div class="row row-xy row-100">
+                    <div class="column small-4 large-12 column-100 account-avatar">
+                        account-avatar
+                        <div class="account-avatar account-avatar-large">
+                            <div class="account-avatar__progress-container">
+                                <svg width="100"  height="100" viewBox="0 0 120 120" class="account-avatar__progress-value"  ><circle cx="60" cy="60" r="58" stroke-width="5" stroke="#0c96ae" class="account-social-avatar__progress-meter"></circle> <circle cx="60" cy="60" r="58" stroke-width="5" class="account-social-avatar__progress-value" style="stroke-dashoffset: 364.425; stroke-dasharray: 364.425; stroke: rgb(226, 167, 121);"></circle>
+                                </svg>
+                                <div class="account-avatar__oval account-avatar__oval-large" style="background-image:none; width: 100px; height: 100px;">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__menu">
+                        <div class="router-link-active profile__button profile__button--active">
+                            <div class="row">
+                                
+                                <div class="column small-10">
+                                    <div class="profile__button-link-name">Account Details</div>
+                                    <div class="columnsmall-2">
+                                        <div class="profile__button-nav-icon profile__button-arrow-right">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
+		<div class="container-fluid">
+
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="about.do">About
+							Us</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Contact
+							Us</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+
+			</script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+</body>
+</html>
