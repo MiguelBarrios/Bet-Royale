@@ -16,8 +16,10 @@
 
 </head>
 <body>
-<%-- <jsp:include page="Components/navbar.jsp" /> --%>
-
+<jsp:include page="Components/navbar.jsp" /> 
+<br>
+<br>
+<br>
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success" id="activeEvents" onclick="loadEventView(this.id)">Active Events</button>
 		<button type="button" class="btn btn-secondary"id="expiredEvents"onclick="loadEventView(this.id)">Expired Events</button>
