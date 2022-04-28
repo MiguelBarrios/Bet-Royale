@@ -167,13 +167,17 @@ background
 
 							</div>
 
-							<div class="tab-pane" id="createEventview" role="tabpanel">create a bet here form</div>
+							<div class="tab-pane" id="createEventview" role="tabpanel">
+								<jsp:include page="Components/createBettableEventForm.jsp" />
+							</div>
 
 							<div class="tab-pane" id="leaderboardview" role="tabpanel">view leader board users</div>
 
 							<div class="tab-pane" id="myWagersview" role="tabpanel">lets see my wagers</div>
 
-							<div class="tab-pane" id="updateUserview" role="tabpanel">update user info</div>
+							<div class="tab-pane" id="updateUserview" role="tabpanel">
+								<jsp:include page="Components/updateuser.jsp" />
+							</div>
 						  </div>
 
 						  <script>
@@ -194,9 +198,32 @@ background
 								console.log(viewCard)
 							 }
 							
+								function addContender(){
+						           $( "#contender-names" ).append( '<input type="text" name="contenderName">' );
+						           $("#contender-odds").append(' <input type="number" name="contenderOdds" min="1", max="100" step="1">')
+						         }
+						         function addsubcategory(){
+						           $('#sub-cateory-container').append('<input type="text" name="cname">')
+						         }
+						         function toggleContender(clicked_id){
+						           var contender = document.getElementById(clicked_id).innerHTML;
+						           document.getElementById("contenderName").value = contender;
+						           var contenderBtn = document.getElementById(clicked_id);
+						           contenderBtn.id;
+						           var contId = document.getElementById("contenderId");
+						           if(contenderBtn.classList.contains("btn-secondary")){
+						             contenderBtn.classList.remove("btn-secondary")
+						             contenderBtn.classList.add("btn-primary");
+						           }else{
+						             contenderBtn.classList.remove("btn-primary");
+						             contenderBtn.classList.add("btn-secondary");
+						           }
+						         }
 							
 						
 						  </script>
+						   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+						  
 
 </div>
 </div>
@@ -209,22 +236,9 @@ background
 <button type="button" class="btn btn-primary" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
 
 
-<br>
-<br>
-<br>
--------------------Create a betting event---------------------------
-
-
-
-<jsp:include page="Components/createBettableEventForm.jsp" /><br>
-<br>
-<br>
-<br>
-
-
 ----------------------- edit user account-----------------------------------
 
-<jsp:include page="Components/updateuser.jsp" />
+
 
 <div class="card">
     <img src="avatar.png" alt="avatar" class="avatarz`"  style="width: 100%">
