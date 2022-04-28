@@ -10,12 +10,8 @@ import com.skilldistillery.betroyaleapp.data.UserDAO;
 
 public class HomeController {
 
-
-	
 	@Autowired
 	private UserDAO userDao;
-	
-	
 	
 	
 	@RequestMapping(path = { "/", "splash.do" })
@@ -24,6 +20,11 @@ public class HomeController {
 		return "splashPage";
 	}
 	
+//	@RequestMapping(path = { "/", "aboutus.do" })
+//	public String aboutus() {
+//		System.out.println("in home controller");
+//		return "aboutus";
+//	}
 	
 	
 	 

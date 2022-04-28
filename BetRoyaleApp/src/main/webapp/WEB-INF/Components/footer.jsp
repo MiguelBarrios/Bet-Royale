@@ -72,7 +72,7 @@
                 <div class="col-md-2 item">
                     <h3>About</h3>
                     <ul>
-                        <li><a href="#">Our Team</a></li>
+                        <li><a href="aboutus">Our Team</a></li>
                         <li><a href="#">Company</a></li>
                         <li><a href="#">Careers</a></li>
                     </ul>
