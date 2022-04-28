@@ -238,7 +238,8 @@ background
 								                           </span>
 								                        </td>
 								                        <td>
-								                           <c:if test="${event.completion}">
+								                        	
+								                           <c:if test="${wager.contender.event.completion}">
 								                              <span class="text-success">
 								                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
 								                              </span>
