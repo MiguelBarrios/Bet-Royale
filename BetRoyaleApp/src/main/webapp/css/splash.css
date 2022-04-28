@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+
+@media only screen and (max-width: 600px) {
+ body {
+  background-color: lightblue;
+ }
+}
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +17,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    position: auto;
 }
 
 html {

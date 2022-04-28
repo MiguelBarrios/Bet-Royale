@@ -122,9 +122,9 @@ Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home</stro
 
 <h4>Miguel Barrios</h4>
 <ul>
-<li><a href="https://www.linkedin.com/in/andrew-cornelius-584b151a9">LinkedIn</a></li>
+<li><a href="https://www.linkedin.com/in/miguelbarriosdavila/">LinkedIn</a></li>
 <li><a href="https://github.com/MiguelBarrios">Github</a></li>
-<li> E-mail: acorneld@gmail.com</li>
+<li> E-mail: miguelbarriosdavila@gmail.com</li>
 </ul>
 
 <h4>Andrew Cornelius</h4>
@@ -136,9 +136,9 @@ Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home</stro
 
 <h4>Lucas Paladini</h4>
 <ul>
-<li><a href="INSERT LINKEDIN LINK HERE">LinkedIn</a></li>
+<li><a href="https://www.linkedin.com/in/lucas-paladini/">LinkedIn</a></li>
 <li><a href="https://github.com/Lpaladini90">Github</a></li>
-<li> E-mail: PUT E-MAIL HERE</li>
+<li> E-mail: lpaladini@me.com</li>
 </ul>
 
 <h4>Henry Vo</h4>

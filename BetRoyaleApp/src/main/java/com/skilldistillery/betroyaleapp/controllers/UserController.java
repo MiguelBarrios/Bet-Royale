@@ -57,6 +57,7 @@ public class UserController {
 	@RequestMapping(path= "goHome.do")
 	public ModelAndView goHome() {
 	ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("home");
 		return mv;
 	}
