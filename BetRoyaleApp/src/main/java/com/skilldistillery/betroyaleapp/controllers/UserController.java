@@ -226,10 +226,23 @@ public class UserController {
 //	------------------------ LOGIN/LOGOUT -----------------------------
 	
 	
+	@RequestMapping("login.do")
+	public ModelAndView login(User user, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		user = new User();
+		if(session.getAttribute("user") != null) {
+			mv.setViewName("redirect:home.do");
+		}
+		else {
+			mv.addObject("userLogin", user);
+			mv.setViewName("login");
+		}
+		return mv;
+		
+	}
 	
 	
 	
-
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
 
