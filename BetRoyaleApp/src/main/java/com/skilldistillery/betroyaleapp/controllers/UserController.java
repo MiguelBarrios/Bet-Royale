@@ -42,6 +42,7 @@ public class UserController {
 	
 	
 
+
 	
 	
 //	--------------------------USER CRUD-------------------------------
@@ -52,10 +53,10 @@ public class UserController {
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
-		
 		return mv;
-		
 	}
+		
+		
 	
 	@RequestMapping(path ="splash.do")
 	public ModelAndView splash() {
