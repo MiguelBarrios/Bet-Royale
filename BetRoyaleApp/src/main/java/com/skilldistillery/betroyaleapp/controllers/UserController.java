@@ -2,7 +2,9 @@ package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -260,29 +262,7 @@ public class UserController {
 		return mv;
 		
 	}
-	
-	/*
-	 * 		List<Wager> wagers = dao.getWagersForEvent(eventId);
-		List<Wager> userWagers = new ArrayList<>();
-		
-		for(Wager wager : wagers) {
-			if(wager.getUser().getId() == userId) {
-				userWagers.add(wager);
-			}
-		}
-		
-		List<EventComment> comments = dao.getEventComments(eventId);
-		
-		mv.addObject("user", user);
-		mv.addObject("event", event);
-		mv.addObject("eventId", eventId);
-		mv.addObject("userId", userId);
-		mv.addObject("wagers", wagers);
-		mv.addObject("userWagers", userWagers);
-		mv.addObject("comments", comments);
-//		
-	 */
-	
+
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
 
@@ -293,11 +273,22 @@ public class UserController {
 			session.setAttribute("user", user);
 			System.out.println(user);
 			mv.addObject("user", user);
-			List<Wager> wagers = userDao.getWagers(user.getId());
-			
+			List<Wager> wagers = userDao.getWagers(user.getId());		
 			mv.addObject("userWagers",wagers);
+			
+			List<CalculatedWinnings> results = userDao.calculateLeaderBoard();
+			results.forEach(System.out::println);
+			Collections.sort(results,  (r1, r2) ->  (int)r2.getCount() - (int)r1.getCount());
+			int rank = 1;
+			for(CalculatedWinnings cw : results) {
+				cw.setRank(rank);
+				//System.out.println(cw.getRank()+ " " + cw.getUser().getUsername() + " " + cw.getCount() + " " + cw.getTotal());
+				++rank;
+				
+			}
+			mv.addObject("rankings", results);
+			
 			mv.setViewName("accounthome");
-
 		} else {
 			mv.setViewName("home");
 		}

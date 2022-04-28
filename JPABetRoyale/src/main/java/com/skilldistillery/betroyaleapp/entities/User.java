@@ -258,7 +258,7 @@ public void addSubcategory(Subcategory subcategory) {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(aboutMe, active, email, firstName, id, lastName, password, profileImage, role, username);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -270,11 +270,7 @@ public void addSubcategory(Subcategory subcategory) {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(aboutMe, other.aboutMe) && Objects.equals(active, other.active)
-				&& Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName) && id == other.id
-				&& Objects.equals(lastName, other.lastName) && Objects.equals(password, other.password)
-				&& Objects.equals(profileImage, other.profileImage) && Objects.equals(role, other.role)
-				&& Objects.equals(username, other.username);
+		return Objects.equals(id, other.id);
 	}
 
 	@Override

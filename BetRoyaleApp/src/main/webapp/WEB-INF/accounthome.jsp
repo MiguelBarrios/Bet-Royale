@@ -171,7 +171,44 @@ background
 								<jsp:include page="Components/createBettableEventForm.jsp" />
 							</div>
 
-							<div class="tab-pane" id="leaderboardview" role="tabpanel">view leader board users</div>
+							<div class="tab-pane" id="leaderboardview" role="tabpanel">
+							
+										<table class="table table-hover text-nowrap">
+								               <thead>
+								                  <tr>
+								                     <th scope="col">Rank</th>
+								                     <th scope="col">Username</th>
+								                     <th scope="col">Count</th>
+								                     <th scope="col">Winnings</th>
+								                  </tr>
+								               </thead>
+								               <tbody>
+								                  <c:forEach items="${rankings}" var="entry">
+								                     <tr>
+								                        <th scope="row">${entry.rank}</th>
+								                        <td>
+								                           <span class="text-success">
+								                           <i class="fas fa-caret-down me-1"></i><span>${entry.user.username} </span>
+								                           </span>
+								                        </td>
+								                        <td>
+								                              <span class="text-success">
+								                              <i class="fas fa-caret-up me-1"></i><span>${entry.count}</span>
+								                              </span>
+								                        </td>
+								                    	<td>
+								                              <span class="text-success">
+								                              <i class="fas fa-caret-up me-1"></i><span>${entry.total}</span>
+								                              </span>
+								                        </td>
+								                     </tr>
+								                  </c:forEach>
+								               </tbody>
+								        
+								         </table>
+
+						
+							</div>
 
 							<div class="tab-pane" id="myWagersview" role="tabpanel">
 											

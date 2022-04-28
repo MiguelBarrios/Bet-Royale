@@ -4,9 +4,11 @@ import com.skilldistillery.betroyaleapp.entities.User;
 
 public class CalculatedWinnings {
 
+	
 	private User user;
 	private double count = 0;
 	private double total = 0;
+	private int rank = 0;
 
 	public CalculatedWinnings(User user, double count, double total) {
 		super();
@@ -37,6 +39,15 @@ public class CalculatedWinnings {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	@Override
