@@ -38,7 +38,7 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
-  <body class="body">
+  <body >
     <jsp:include page="Components/navbar.jsp" />
     <div class="account-profile-view">
       <div class="container">

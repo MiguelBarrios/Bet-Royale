@@ -34,7 +34,7 @@
 	
  <div class="footer-dark ">
     <footer>
-        <div class="container">
+        <div >
             <div class="row">
                 <div class="col-md-2 item">
                     <h3>Contact Us</h3>
