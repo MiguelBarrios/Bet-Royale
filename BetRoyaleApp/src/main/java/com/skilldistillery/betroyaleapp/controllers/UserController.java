@@ -37,14 +37,14 @@ public class UserController {
 
 	
 	
-	@RequestMapping(path="home.do")
+	@RequestMapping(path="goHome.do")
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
-		
 		return mv;
-		
 	}
+		
+		
 	
 	@RequestMapping(path ="splash.do")
 	public ModelAndView splash() {
