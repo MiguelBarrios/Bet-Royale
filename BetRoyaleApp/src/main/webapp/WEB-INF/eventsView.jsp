@@ -96,7 +96,7 @@
 		</c:forEach>
 	</div>
 	
-<!--------------- Expired Events ------------>
+<!--------------- MY Events ------------>
 	<div class="event-list-container hidden" id="myEventsView">
 		<h1>My Events</h1>
 		<c:forEach items="${events}" var="e">
