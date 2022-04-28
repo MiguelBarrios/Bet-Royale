@@ -18,6 +18,12 @@
 
 </head>
 <body>
+
+
+<jsp:include page="Components/navbar.jsp" /> 
+<br>
+<br>
+<br>
 	<div class="event-sort-container">
 <!-- 		<button type="button" class="btn btn-primary">All Wagers</button>
  -->		
