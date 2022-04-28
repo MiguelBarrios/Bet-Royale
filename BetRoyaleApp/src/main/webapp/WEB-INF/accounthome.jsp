@@ -33,7 +33,7 @@
                   <div class="d-flex flex-column align-items-center text-center">
                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                      <div class="mt-3">
-                        <h4>${user.firstName}</h4>
+                        <h4>${user.fullName}</h4>
                         <p class="text-secondary mb-1">Full Stack Developer</p>
                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                         <button class="btn btn-primary">Follow</button>
@@ -58,7 +58,7 @@
                <div class="card-body" id="View">
                   <div class="tab-content">
                      <div class="tab-pane active" id="loadAllBetsview" role="tabpanel">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                            <div class="card mb-3">
                               <div class="card-body">
                                  <div class="row">
@@ -80,24 +80,24 @@
                                  </div>
                                  <hr>
                                  
-                                 <!-- <div class="row">
+                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0">Phone</h6>
+                                       <h6 class="mb-0">Username</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                       (509) 816-9029
+                                       ${user.username }
                                     </div>
                                  </div>
                                  <hr>
-                                 <div class="row">
+                                 <!-- <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0">Mobile</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                        (320) 380-4539
                                     </div>
-                                 </div> -->
-                                 <hr>
+                                 </div>
+                                 <hr> -->
                                  <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0">About Me</h6>
