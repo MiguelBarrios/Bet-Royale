@@ -6,116 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Bet Royale App</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-    <link rel="stylesheet" href="css/navstyles.css">
+
+<link rel="stylesheet" href="css/navstyles.css">
+<link rel="stylesheet" href="css/footer.css">
+<jsp:include page="bootstrap"/>
 </head>
-	<style>
-	.footer-dark {
-    padding: 10px 0;
-    color: #f0f9ff;
-    background-color: #282d32;
-    postion: bottom;
-    bottom: 0;
-    left: 0;
-    
-    
-}
 
-.footer-dark h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: bold;
-    font-size: 16px
-}
-
-.footer-dark ul {
-    padding: 0;
-    list-style: none;
-    line-height: 1.6;
-    font-size: 14px;
-    margin-bottom: 0
-}
-
-.footer-dark ul a {
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.6
-}
-
-.footer-dark ul a:hover {
-    opacity: 0.8
-}
-
-@media (max-width:767px) {
-    .footer-dark .item:not(.social) {
-        text-align: center;
-        padding-top: 20px
-    }
-}
-
-.footer-dark .item.text {
-    margin-bottom: 36px
-}
-
-@media (max-width:767px) {
-    .footer-dark .item.text {
-        margin-bottom: 0
-    }
-}
-
-.footer-dark .item.text p {
-    opacity: 0.6;
-    margin-bottom: 0
-}
-
-.footer-dark .item.social {
-    text-align: center;
-    padding-top: 40px;
-}
-
-@media (max-width:991px) {
-    .footer-dark .item.social {
-        text-align: center;
-        margin-top: 10px;
-        
-    }
-}
-
-.footer-dark .item.social>a {
-    font-size: 20px;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
-    margin: 0 8px;
-    color: #fff;
-    opacity: 0.75
-}
-
-.footer-dark .item.social>a:hover {
-    opacity: 0.9
-}
-
-.footer-dark .copyright {
-    text-align: center;
-    padding-top: 5px;
-    opacity: 0.3;
-    font-size: 13px;
-    margin-bottom: 0
-}
-	</style>
 <body>
-
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
         <a class="navbar-brand" href="#">BetRoyale</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -450,19 +347,7 @@
         </div>
     </footer>
 </div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-
-			</script>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
+	<jsp:include page="myscripts"/>
 		</body>
 		</html>
 		

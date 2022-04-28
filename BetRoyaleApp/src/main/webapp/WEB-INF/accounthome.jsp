@@ -20,7 +20,7 @@
             
             <script>
                 $(function () {
-                    $("#tabss").tabs();
+                    $("#tabs").tabs();
                 });
             </script>
            
@@ -199,8 +199,7 @@
 
 
                                             <div class="tab-pane" id="myWagersview" role="tabpanel">
-                                            
-                                            <div class="tab-pane" id="tabss" role="tabpanel">
+                                            <div class="tab-pane" id="tabs" role="tabpanel">
                                                 <ul>
                                                     <li><a href="#tabs-1">Active Wagers</a></li>
                                                     <li><a href="#tabs-2">Expired Wagers</a></li>
@@ -209,7 +208,7 @@
 
                                                 <div id="user-wagers-table" class="wager-table-container user-wagers">
 
-                                                    <div id="tabss-1">
+                                                    <div id="tabs-1">
 
                                                         <div class="wager-container" id="activeWagerView">
                                                             <c:forEach items="${events}" var="e">
@@ -258,7 +257,7 @@
                                                     </div>
                                                     <!-- -------------------- NOT ACTIVE WAGERS ---------------- -->
 
-                                                    <div id="tabss-2">
+                                                    <div id="tabs-2">
                                                         <div class="wager-container" id="activeWagerView">
                                                             <c:forEach items="${events}" var="e">
                                                                 <c:if test="${not e.active }">
