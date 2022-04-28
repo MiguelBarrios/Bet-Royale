@@ -279,6 +279,11 @@ public void addSubcategory(Subcategory subcategory) {
 				+ ", lastName=" + lastName + ", email=" + email + ", active=" + active + ", role=" + role
 				+ ", profileImage=" + profileImage + ", aboutMe=" + aboutMe + "]";
 	}
+	
+	public String getFullName() {
+		String output = getFirstName() + " " + getLastName();
+		return output;
+	}
 
 	// End Hashcode, Equals, toString ***********************************
 }
