@@ -36,6 +36,17 @@ public class UserController {
 	private EventsDAO eDao;
 
 	
+	
+	@RequestMapping(path= {"splash.do"})
+	public ModelAndView splash() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("splashPage");
+		return mv;
+	}
+	
+	
+	
+	
 	@PostMapping(path = "createUser.do")
 	public ModelAndView home( User user) {
 		User newUser = userDao.createUser(user);
@@ -45,12 +56,6 @@ public class UserController {
 		mv.setViewName("accounthome");
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
 
 	@PostMapping(path = "updateUser.do")
 	public String updateUser(Model model, User user) {

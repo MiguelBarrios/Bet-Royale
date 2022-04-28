@@ -18,10 +18,10 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(path = { "/", "home.do" })
+	@RequestMapping(path = { "/", "splash.do" })
 	public String home() {
 		System.out.println("in home controller");
-		return "home";
+		return "splashPage";
 	}
 	
 	
