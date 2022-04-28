@@ -41,6 +41,12 @@ public class UserController {
 
 	
 	
+<<<<<<< HEAD
+=======
+
+
+	
+>>>>>>> ac1209dd54629c81877de29e9987b4a0c4ffcb31
 	
 //	--------------------------USER CRUD-------------------------------
 
@@ -50,11 +56,15 @@ public class UserController {
 	public ModelAndView goHome() {
 	ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
-		
 		return mv;
-		
 	}
+<<<<<<< HEAD
 
+=======
+		
+		
+	
+>>>>>>> ac1209dd54629c81877de29e9987b4a0c4ffcb31
 	@RequestMapping(path ="splash.do")
 	public ModelAndView splash() {
 		ModelAndView mv = new ModelAndView();
