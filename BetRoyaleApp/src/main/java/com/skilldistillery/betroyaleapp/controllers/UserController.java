@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,15 @@ public class UserController {
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
+		return mv;
+	}
+	@RequestMapping(path= "accountHome.do")
+	public ModelAndView goToAccountHome(Integer userId, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User user = userDao.findById(userId);
+		session.setAttribute("user", user);
+		mv.addObject("user", user);
+		mv.setViewName("accounthome");
 		return mv;
 	}
 		
@@ -299,7 +309,7 @@ public class UserController {
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
-		return "redirect:index.do";
+		return "redirect:goHome.do";
 	}
 
 	
