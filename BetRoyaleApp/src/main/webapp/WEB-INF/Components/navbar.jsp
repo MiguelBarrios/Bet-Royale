@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -286,17 +287,25 @@ background-color: transparent;
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                <li class="nav-item active"><a class="nav-link" href="#">Home
+                <li class="nav-item active"><a class="nav-link" href="home.do">Home
                         <span class="sr-only">(current)</span>
                     </a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">View Events</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#at-login">Login</a></li>
+                    
+                    
+                <c:if test="${empty user }" >
+                
+                <li class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" data-target="#at-login">Login</a></li>
+                
+                </c:if>
+                
+                <c:if test="${not empty user}">
+                <li class="nav-item"> <a class="nav-link" href="#">Profile</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">View Events</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Logout</a></li>
+                
+                </c:if>
               
-                <li class="nav-item">
-
-                    <form class="form-inline my-2 my-lg-0" action="search.do" method="GET">
+                <li class="nav-item"> <form class="form-inline my-2 my-lg-0" action="search.do" method="GET">
                         <input class="form-control mr-sm-2" type="search" name="username" placeholder="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
