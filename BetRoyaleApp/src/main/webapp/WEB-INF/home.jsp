@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Bet Royale App</title>
 <jsp:include page="bootstraphead.jsp" />
