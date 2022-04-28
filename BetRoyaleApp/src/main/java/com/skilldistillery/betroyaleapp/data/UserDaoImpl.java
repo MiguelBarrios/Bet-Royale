@@ -1,8 +1,11 @@
 package com.skilldistillery.betroyaleapp.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -258,6 +261,71 @@ public class UserDaoImpl implements UserDAO {
 		
 		return em.find(Contender.class, contenderId);
 	}
+
+	@Override
+	public List<CalculatedWinnings> calculateLeaderBoard() {
+		List<BettableEvent> events = null;
+		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
+		try {
+			events = em.createQuery(jpql, BettableEvent.class).getResultList();
+		}catch(Exception e){ 
+			e.printStackTrace();
+		} 
+		
+		// check if contender data is filled
+		// get all contenders for events that are completed
+		Set<Contender> contenders = new HashSet<>();
+		for(BettableEvent event : events) {
+			for(Contender contender : event.getContenders()) {
+				contenders.add(contender);
+			}
+		}
+		
+		jpql = "Select w FROM Wager w";
+		List<Wager> wagers = null;
+		try {
+			wagers = em.createQuery(jpql, Wager.class).getResultList();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+			
+		// Filter wagers
+		List<Wager> closedWagers = new ArrayList<>();
+		for(Wager wager : wagers) {
+			if(contenders.contains(wager.getContender())){
+				closedWagers.add(wager);
+			}
+		}		
+		
+		Map<User, CalculatedWinnings> results = new HashMap<>();
+		for(Wager wager : closedWagers) {
+			int userId = wager.getUser().getId();
+			CalculatedWinnings cw = null;
+			if(!results.containsKey(wager.getUser())) {
+				cw = new CalculatedWinnings(wager.getUser(), 0, 0);
+				results.put(wager.getUser(),cw);
+			}
+			
+			cw = results.get(wager.getUser());
+			
+			double payout = (1 / (wager.getContender().getOdds() / 100));
+			System.out.println(wager.getUser().getUsername() + " bet " + wager.getBetAmount() + " on " + wager.getContender().getName());
+			if(wager.getContender().isWinner()) {
+				cw.setCount(cw.getCount() + 1);
+				cw.setTotal(cw.getTotal() + payout + wager.getBetAmount());
+				System.out.println(wager.getUser().getUsername() + " won " + (payout + wager.getBetAmount()));
+			}
+			else {
+				cw.setCount(cw.getCount() - 1);				
+				cw.setTotal(cw.getTotal() - wager.getBetAmount());
+				System.out.println(wager.getUser().getUsername() + " lost " + wager.getBetAmount());
+			}
+		}
+		
+		return new ArrayList<>(results.values());
+	}
+	
+
 
 	// comments as lines
 

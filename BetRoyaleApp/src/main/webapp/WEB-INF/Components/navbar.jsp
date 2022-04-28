@@ -11,270 +11,109 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-    <!-- <link rel="stylesheet" href="navstyles.css"> -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <link rel="stylesheet" href="css/navstyles.css">
 </head>
 	<style>
-	.header-tp .navbar {
-    position: relative;
-	min-height: 50px;
-	margin-bottom: 0px;
-	border: 1px solid transparent;
+	.footer-dark {
+    padding: 10px 0;
+    color: #f0f9ff;
+    background-color: #282d32;
+    postion: bottom;
+    bottom: 0;
+    left: 0;
+    
+    
 }
 
-.header-tp .navbar-default {
-	background-color: #1DB9EC;
-	border-color:transparent!important;
-}
-.header-tp .bdr li:nth-child(odd) 
-{
-	border-left: 1px solid rgba(255, 255, 255, 0.44);
-
+.footer-dark h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px
 }
 
-.header-tp .bdr li:nth-child(even) 
-{
-	border-right: 1px solid rgba(255, 255, 255, 0.44);
-	border-left: 1px solid rgba(255, 255, 255, 0.44);
-}
-.header-tp .bdr li
-{
-	padding:10px 0px;
-}
-.header-tp .bdr li a
-{
-	color:#fff!important;
-}
-
-.header-tp .pddr
-{
-	padding-top:5px;
-}
-
-.header-tp .navbar-right {
-    float: right !important;
-    margin-right: 30px;
-}
-
-.header-tp  .nav > li {
-    position: relative;
-    display: inline-block;
-}
-
-.btn-blu {
-	display: inline-block;
-	padding: 10px 35px;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 0px;
-	background-color: #0D4459;
-	border-color: #0D4459;
-	color: #fff;
-}      
-.mrgn-top
-{
-	margin-top:15px;
-	margin-right:15px;
-}    
-
-.header-tp
-{
-    margin: 10px 0px;
-}    
-
-/*######################## LOGIN/SIGNUP PAGE START ##################################*/
-.at-login-form .btn-fb
-{
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 0px;
-	background-color: #4568B2;
-	width: 100%;
-	margin-top: 10px;
-	color:#fff;
-}
-
-.at-login-form .btn-gp
-{
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid #eee;
-	border-radius: 0px;
-	background-color: #FFFFFF;
-	width: 100%;
-	margin-top: 10px;
-	color:#000;
-}
-
-.at-login-form .btn-lgin
-{
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid #eee;
-	border-radius: 0px;
-	background-color: #1DB9EC;
-	width: 100%;
-	margin-top: 10px;
-	color:#fff;
-}
-.at-login-form .signup-or-separator {
-	background: none;
-	height: 34px;
-	position: relative;
-	text-align: center;
-}
-.at-login-form .signup-or-separator--text {
-	background-color: #fff;
-	display: inline-block;
-	padding: 8px;
-}
-
-.at-login-form .h6 {
-	font-size: 14px;
-	font-weight: bold;
-	color: #757575;
-	line-height: 1.1;
-	text-rendering: optimizelegibility;
-}
-
-.at-login-form .signup-or-separator hr {
-    margin: -25px auto 10px;
-    width: 100%;	
- }
- 
- .at-login-form .form-control-form {
-    display: block;
-    width: 100%;
-    height: 54px;
-    padding: 15px 12px;
+.footer-dark ul {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
     font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    margin-top: 3px;
-}   
- .at-login-form .frgt-pswd
-{
-	margin: 5px 0 10px;
-color: red;
+    margin-bottom: 0
 }
 
- .at-login-form .btn-gst
-{
-	display: inline-block;
-padding: 6px 12px;
-margin-bottom: 0;
-font-size: 14px;
-font-weight: 400;
-line-height: 1.42857143;
-text-align: center;
-white-space: nowrap;
-vertical-align: middle;
--ms-touch-action: manipulation;
-touch-action: manipulation;
-cursor: pointer;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-background-image: none;
-border: 1px solid #000;
-border-radius: 0px;
-background-color: transparent;
+.footer-dark ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.6
 }
 
- .at-login-form .ta-l
-{
-	text-align:left;
-	margin-top: 5px;
+.footer-dark ul a:hover {
+    opacity: 0.8
 }
 
- .at-login-form .modal-dialog {
-    width: 500px;
-    margin: 30px auto;
+@media (max-width:767px) {
+    .footer-dark .item:not(.social) {
+        text-align: center;
+        padding-top: 20px
+    }
 }
 
-.at-login-form .modal-content
-{
-	padding: 0px 10px;
+.footer-dark .item.text {
+    margin-bottom: 36px
 }
 
-.at-login-form  .modal-header {
-    padding: 10px 10px;
-    border-bottom: 0px solid #e5e5e5;
+@media (max-width:767px) {
+    .footer-dark .item.text {
+        margin-bottom: 0
+    }
 }
-.blue-bg-nav
-{
-    background-color:#1DB9EC;
+
+.footer-dark .item.text p {
+    opacity: 0.6;
+    margin-bottom: 0
 }
-/*######################## LOGIN/SIGNUP PAGE  END ##################################*/</style>
+
+.footer-dark .item.social {
+    text-align: center;
+    padding-top: 40px;
+}
+
+@media (max-width:991px) {
+    .footer-dark .item.social {
+        text-align: center;
+        margin-top: 10px;
+        
+    }
+}
+
+.footer-dark .item.social>a {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+    margin: 0 8px;
+    color: #fff;
+    opacity: 0.75
+}
+
+.footer-dark .item.social>a:hover {
+    opacity: 0.9
+}
+
+.footer-dark .copyright {
+    text-align: center;
+    padding-top: 5px;
+    opacity: 0.3;
+    font-size: 13px;
+    margin-bottom: 0
+}
+	</style>
 <body>
 
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
@@ -287,7 +126,7 @@ background-color: transparent;
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                <li class="nav-item active"><a class="nav-link" href="home.do">Home
+                <li class="nav-item active"><a class="nav-link" href="goHome.do">Home
                         <span class="sr-only">(current)</span>
                     </a></li>
                     
@@ -299,9 +138,9 @@ background-color: transparent;
                 </c:if>
                 
                 <c:if test="${not empty user}">
-                <li class="nav-item"> <a class="nav-link" href="#">Profile</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">View Events</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Logout</a></li>
+                <li class="nav-item"> <a class="nav-link" href="accountHome.do?userId=${user.id}">Profile</a></li>
+                <li class="nav-item"> <a class="nav-link" href="loadEvents.do?userId=${user.id}">View Events</a></li>
+                <li class="nav-item"> <a class="nav-link" href="logout.do">Logout</a></li>
                 
                 </c:if>
               
@@ -542,7 +381,7 @@ background-color: transparent;
 	
 	
 
-		<nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
+		<!-- <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
 		<div class="container-fluid">
 
 
@@ -565,9 +404,52 @@ background-color: transparent;
 
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 	
-
+	
+	
+<div class="footer-dark fixed-bottom">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 item">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#">Requests</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Contact Form</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 item text">
+                    <h3>BetRoyale.com</h3>
+                    <p>Browse The Markets. Create Or Pick An Event. Place Your Wager.</p>
+                     
+                </div>
+                
+                    <div class="col-md-4 item social"><a href=""><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="https://www.youtube.com/channel/UCmqsyauQoYoeipFQ-O3eP3g"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
+           
+                </div>
+                
+            <p class="copyright">BetRoyale.com © 2022</p>
+        </div>
+    </footer>
+</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 

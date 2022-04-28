@@ -1,6 +1,7 @@
 package com.skilldistillery.betroyaleapp.data;
 
 import java.util.List;
+import java.util.Map;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
@@ -38,6 +39,8 @@ public interface UserDAO {
 	Wager findWagerById(int wagerId);
 	
 	Contender findContenderById(int contenderId);
+	
+	List<CalculatedWinnings> calculateLeaderBoard();
 	
 	
 }
