@@ -29,6 +29,10 @@ import com.skilldistillery.betroyaleapp.entities.Wager;
 @Controller
 public class UserController {
 
+	
+//	------------------------ DAO -----------------------------------
+	
+	
 	@Autowired
 	private UserDAO userDao;
 
@@ -37,7 +41,15 @@ public class UserController {
 
 	
 	
-	@RequestMapping(path="goHome.do")
+
+
+	
+	
+//	--------------------------USER CRUD-------------------------------
+
+	
+
+	@RequestMapping(path="home.do")
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
@@ -52,12 +64,13 @@ public class UserController {
 		mv.setViewName("splashPage");
 		return mv;
 	}
+
 	
 	
 	
 	
 	@PostMapping(path = "createUser.do")
-	public ModelAndView home( User user) {
+	public ModelAndView home(User user) {
 		User newUser = userDao.createUser(user);
 		ModelAndView mv = new ModelAndView();
 		System.out.println(newUser);
@@ -76,6 +89,66 @@ public class UserController {
 		return "accounthome";
 	}
 
+	
+	
+	
+	
+	
+//	--------------------------WAGER CRUD-------------------------------
+
+	
+	
+	
+	@PostMapping(path = "createWager.do")
+	public String createWager(int userId, int contenderId, double betAmount, RedirectAttributes redirectAttrs) {
+		Wager wager = new Wager();
+		wager.setBetAmount(betAmount);
+		wager = userDao.createWager(wager, userId, contenderId);
+		redirectAttrs.addAttribute("userId", userId);
+		redirectAttrs.addAttribute("eventId", wager.getContender().getEvent().getId());
+		return "redirect:/loadEventPage.do";
+	}
+	
+	
+	
+	
+
+	@GetMapping("getWagersForEvent.do")
+	public ModelAndView getWagersForEvent(int eventId) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("accounthome");
+		return null;
+	}
+	
+
+	@GetMapping(path = "loadWager.do")
+	public ModelAndView loadWagerPage(int userId, int eventId) {
+		ModelAndView mv = new ModelAndView();
+		Wager wagerView = userDao.findWagerById(userId);
+		User user = userDao.findById(userId);
+		BettableEvent event = eDao.findEventById(eventId);
+		mv.addObject("event", event);
+		mv.addObject("user", user);
+		mv.addObject("wager", wagerView);
+		mv.setViewName("accounthome");
+		return mv;
+	}
+
+	@GetMapping(path = "getWagers.do")
+	public ModelAndView getWager(int userId) {
+		ModelAndView mv = new ModelAndView();
+		User u = userDao.findById(userId);
+		List<Wager> wagers = userDao.getWagers(userId);
+		List<BettableEvent> events = eDao.displayBettableEvents();
+		mv.addObject("events", events);
+		mv.addObject("wager", wagers);
+		mv.addObject("user", u);
+		mv.setViewName("wagersView");
+		return mv;
+		
+	}
+
 	@PostMapping(path = "updateWager.do")
 	public String updateWager(Model model, Wager wager) {
 		Wager updatedWager = userDao.updateWager(wager);
@@ -85,16 +158,24 @@ public class UserController {
 		return "accounthome";
 	}
 
-	public void foo(@RequestParam("number[]") List<String> to) {
-		for (String number : to) {
-			System.out.println(number);
-		}
-	}
+//	public void foo(@RequestParam("number[]") List<String> to) {
+//		for (String number : to) {
+//			System.out.println(number);
+//		}
+//	}
+	
+	
+	
+	
+//	--------------------------BETTING EVENT CRUD-------------------------------
 
+	
+	
+	
+	
 	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
-			Double[] contenderOdds, String[] cname, String category,
-			String categorydescription) {
+			Double[] contenderOdds, String[] cname, String category, String categorydescription) {
 		ModelAndView mv = new ModelAndView();
 		if (userId > 0) {
 			String[] data = endDate2.split("-");
@@ -156,10 +237,30 @@ public class UserController {
 		else {
 			mv.setViewName("home");
 			return mv;
-		}
+		} 
 
 	}
 
+//	------------------------ LOGIN/LOGOUT -----------------------------
+	
+	
+	@RequestMapping("login.do")
+	public ModelAndView login(User user, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		user = new User();
+		if(session.getAttribute("user") != null) {
+			mv.setViewName("redirect:home.do");
+		}
+		else {
+			mv.addObject("userLogin", user);
+			mv.setViewName("login");
+		}
+		return mv;
+		
+	}
+	
+	
+	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
 
@@ -179,42 +280,20 @@ public class UserController {
 		return mv;
 	}
 
-	@PostMapping(path = "createWager.do")
-	public String createWager(int userId, int contenderId, double betAmount, RedirectAttributes redirectAttrs) {
-		Wager wager = new Wager();
-		wager.setBetAmount(betAmount);
-		wager = userDao.createWager(wager, userId, contenderId);
-		redirectAttrs.addAttribute("userId", userId);
-		redirectAttrs.addAttribute("eventId", wager.getContender().getEvent().getId());
-		return "redirect:/loadEventPage.do";
-	} 
-
-	@GetMapping(path = "loadWager.do")
-	public ModelAndView loadWagerPage(int userId, int eventId) {
-		ModelAndView mv = new ModelAndView();
-		Wager wagerView = userDao.findWagerById(userId);
-		User user = userDao.findById(userId);
-		BettableEvent event = eDao.findEventById(eventId);
-		mv.addObject("event", event);
-		mv.addObject("user", user);
-		mv.addObject("wager", wagerView);
-		mv.setViewName("accounthome");
-		return mv;
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		return "redirect:index.do";
 	}
 
-	@GetMapping(path = "getWagers.do")
-	public ModelAndView getWager(int userId) {
-		ModelAndView mv = new ModelAndView();
-		User u = userDao.findById(userId);
-		List<Wager> wagers = userDao.getWagers(userId);
-		List<BettableEvent> events = eDao.displayBettableEvents();
-		mv.addObject("events", events);
-		mv.addObject("wager", wagers);
-		mv.addObject("user", u);
-		mv.setViewName("wagersView");
-		return mv;
-	}
-
+	
+	
+	
+//	----------------------- SEARCH -----------------------------------
+	
+	
+	
+	
 	@GetMapping("search.do")
 	public ModelAndView findByUsername(String username) {
 		ModelAndView mv = new ModelAndView();
@@ -239,18 +318,8 @@ public class UserController {
 
 	}
 
-	@GetMapping("getWagersForEvent.do")
-	public ModelAndView getWagersForEvent(int eventId) {
-		ModelAndView mv = new ModelAndView();
-
-		mv.setViewName("accounthome");
-		return null;
-	}
+	
 
 }
-
-
-
-
 
 //MEOW

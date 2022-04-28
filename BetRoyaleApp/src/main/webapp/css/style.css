@@ -160,5 +160,15 @@ html, body {
 	padding-bottom:10%;
 }
 
+#content-container {
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	margin: 0 auto; 
+	width: 90%;
+		
+}
+
+
 
 
