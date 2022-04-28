@@ -150,6 +150,7 @@ html {
 .form-container{
   display:flex;
   flex-direction: column;
+  flex-gap:10px;
 }
 
 #contender-names, #contender-odds{

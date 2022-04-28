@@ -167,13 +167,17 @@ background
 
 							</div>
 
-							<div class="tab-pane" id="createEventview" role="tabpanel">create a bet here form</div>
+							<div class="tab-pane" id="createEventview" role="tabpanel">
+								<jsp:include page="Components/createBettableEventForm.jsp" />
+							</div>
 
 							<div class="tab-pane" id="leaderboardview" role="tabpanel">view leader board users</div>
 
 							<div class="tab-pane" id="myWagersview" role="tabpanel">lets see my wagers</div>
 
-							<div class="tab-pane" id="updateUserview" role="tabpanel">update user info</div>
+							<div class="tab-pane" id="updateUserview" role="tabpanel">
+								<jsp:include page="Components/updateuser.jsp" />
+							</div>
 						  </div>
 
 						  <script>
@@ -209,22 +213,9 @@ background
 <button type="button" class="btn btn-primary" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
 
 
-<br>
-<br>
-<br>
--------------------Create a betting event---------------------------
-
-
-
-<jsp:include page="Components/createBettableEventForm.jsp" /><br>
-<br>
-<br>
-<br>
-
-
 ----------------------- edit user account-----------------------------------
 
-<jsp:include page="Components/updateuser.jsp" />
+
 
 <div class="card">
     <img src="avatar.png" alt="avatar" class="avatarz`"  style="width: 100%">
