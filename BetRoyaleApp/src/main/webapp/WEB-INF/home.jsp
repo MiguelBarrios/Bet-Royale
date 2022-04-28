@@ -64,38 +64,49 @@
 				<div class="carousel-inner">
 
 					<div class="carousel-item active">
-						<div class="d-flex justify-content-center w-100 h-200">
-							<img class="d-block w-50"
-								src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FT18JOeTh.jpg"
+						<div class="d-flex justify-content-center w-200 h-100">
+							<img class="d-block w-100"
+								src="https://metro.co.uk/wp-content/uploads/2021/03/33991068278_50049c5752_k-0717.jpg?quality=90&strip=all&zoom=1&resize=480%2C319"
 								alt="First slide">
 						</div>
-						<div class="carousel-caption d-none d-md-block"></div>
+						<div class="carousel-caption d-none d-md-block">
+						<h4>LoL Msi Tournament</h4>
+					<p>China vs Korea vs Europe vs North America</p>
+					</div>
 					</div>
 					<div class="carousel-item">
-						<div class="d-flex justify-content-center w-100 h-100">
-							<img class="d-block w-50"
+						<div class="d-flex justify-content-center w-200 h-100">
+							<img class="d-block w-100"
 								src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FT18JOeTh.jpg"
 								alt="Second slide">
 						</div>
-						<div class="carousel-caption d-none d-md-block"></div>
+						<div class="carousel-caption d-none d-md-block">
+						<h4>Instructor Bout 32</h4>
+					<p>Rob vs Dee</p>
+					</div>
 					</div>
 					<div class="carousel-item">
-						<div class="d-flex justify-content-center w-100 h-100">
-							<img class="d-block w-50"
-								src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FT18JOeTh.jpg"
+						<div class="d-flex justify-content-center w-200 h-100">
+							<img class="d-block w-100"
+								src="https://visitowa.com/wp-content/uploads/2022/03/Mario-Kart-Saturdays-Website-Metadata-01-1024x533.jpg"
 								alt="Third slide">
 						</div>
-						<div class="carousel-caption d-none d-md-block"></div>
+						<div class="carousel-caption d-none d-md-block">
+						<h4>Mario Kart Tournament</h4>
+					<p>Andrew vs Henry vs Lucas vs Miguel</p>
+					</div>
 					</div>
 					<div class="carousel-item">
-						<div class="d-flex justify-content-center w-100 h-100">
-							<img class="d-block w-50"
-								src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FT18JOeTh.jpg"
+						<div class="d-flex justify-content-center w-200 h-200">
+							<img class="d-block w-100"
+								src="https://cdn.stayhappening.com/events9/banners/ce3719077a3fa0cc8ffef857727c14ad64e36f366845cfe32575a3252eb98266-rimg-w960-h503-gmir.jpg?v=1651018260"
 								alt="Fourth slide">
 						</div>
-						<div class="carousel-caption d-none d-md-block"></div>
+						<div class="carousel-caption d-none d-md-block">
+						<h4>UFC Bout 274</h4>
+					<p>Oliveira vs Gaethje</p>
 					</div>
-
+					</div>
 					<div class="d-flex justify-content-center w-100 h-100">
 						<a class="carousel-control-prev" href="#SummitCarousel"
 							role="button" data-slide="prev"> </a> <a
