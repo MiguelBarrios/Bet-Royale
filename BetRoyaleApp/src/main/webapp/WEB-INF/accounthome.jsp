@@ -16,7 +16,7 @@
   margin-top:20px;
   color: #1a202c;
   text-align: left;
-  background-color: #444647;    
+  background-color: black;    
 }
 .main-body {
   padding: 15px;
@@ -91,7 +91,8 @@
                         
                         <button class="btn btn-primary" type="button" onclick="location.href='loadEvents.do?userId=${user.id}';">View Events</button>
                         
-                        <button class="btn btn-outline-primary">Message</button>
+                        <button class="btn btn-primary" type="button" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
+      
                      </div>
                   </div>
                </div>
@@ -231,8 +232,7 @@
          </div>
          </div>
          
-         <button type="button" class="btn btn-primary" onclick="location.href='getWagers.do?userId=${user.id}';">View Wagers</button>
-      
+         
          <br>
          <br>
          <br>
