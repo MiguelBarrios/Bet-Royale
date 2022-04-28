@@ -146,6 +146,13 @@ public class UserController {
 
 	}
 
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		return "redirect:index.do";
+	}
+	
+	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
 
