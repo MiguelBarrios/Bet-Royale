@@ -32,12 +32,8 @@
 
 
 <body>
-    <div class="container">
-        <div class="hamburger-menu">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
-        </div>
+    <div class="fade-in">
+        
         <header class="header">
             <div class="img-wrapper">
                 <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FcTfRnaoh.jpg">
@@ -48,7 +44,7 @@
                     Bet Royale features a fully customizable betting experience. Create your own custom events.
                     Decide on your Contenders. Manufacture their Chances.  Watch and see how right you were.
                 </p>
-               <button type="button" onclick="location.href='home.do'">Speculate Now</button>
+               <button type="button" onclick="location.href='goHome.do'">Speculate Now</button>
 
 
             </div>
