@@ -12,7 +12,7 @@
    </head>
    <body>
       <jsp:include page="Bootstrap.html"/>
-      <%-- <jsp:include page="Components/navbar.jsp"/> --%>
+      <jsp:include page="Components/navbar.jsp"/>
       <div class="container" id="content-container">
          <!-- --- gives the user the ability to edit event if event belongs to user -->
          <c:if test="${event.user.id == user.id}">
@@ -166,6 +166,7 @@
          </div>
          
       </div>
+      <jsp:include page="Components/footer.jsp"/>
       <!-- End main Container -->
       
       <script>

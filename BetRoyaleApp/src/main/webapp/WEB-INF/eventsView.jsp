@@ -130,7 +130,7 @@
 		</c:forEach>
 	</div>
 <!---------------------------------------->
-
+<jsp:include page="Components/footer.jsp"/>
 <script>
   function loadEventView(clicked_id){
     var viewID = clicked_id + "View";
