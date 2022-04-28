@@ -1,6 +1,7 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import com.skilldistillery.betroyaleapp.data.UserDAO;
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Category;
 import com.skilldistillery.betroyaleapp.entities.Contender;
+import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.Subcategory;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
@@ -259,7 +261,27 @@ public class UserController {
 		
 	}
 	
-	
+	/*
+	 * 		List<Wager> wagers = dao.getWagersForEvent(eventId);
+		List<Wager> userWagers = new ArrayList<>();
+		
+		for(Wager wager : wagers) {
+			if(wager.getUser().getId() == userId) {
+				userWagers.add(wager);
+			}
+		}
+		
+		List<EventComment> comments = dao.getEventComments(eventId);
+		
+		mv.addObject("user", user);
+		mv.addObject("event", event);
+		mv.addObject("eventId", eventId);
+		mv.addObject("userId", userId);
+		mv.addObject("wagers", wagers);
+		mv.addObject("userWagers", userWagers);
+		mv.addObject("comments", comments);
+//		
+	 */
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView submitLogin(String username, String password, HttpSession session) {
@@ -271,6 +293,9 @@ public class UserController {
 			session.setAttribute("user", user);
 			System.out.println(user);
 			mv.addObject("user", user);
+			List<Wager> wagers = userDao.getWagers(user.getId());
+			
+			mv.addObject("userWagers",wagers);
 			mv.setViewName("accounthome");
 
 		} else {

@@ -173,7 +173,46 @@ background
 
 							<div class="tab-pane" id="leaderboardview" role="tabpanel">view leader board users</div>
 
-							<div class="tab-pane" id="myWagersview" role="tabpanel">lets see my wagers</div>
+							<div class="tab-pane" id="myWagersview" role="tabpanel">
+											
+								        <div id="user-wagers-table" class="wager-table-container user-wagers">
+								         <h3>User Wagers</h3>
+								            <table class="table table-hover text-nowrap">
+								               <thead>
+								                  <tr>
+								                     <th scope="col">Username</th>
+								                     <th scope="col">Bet Amount</th>
+								                     <th scope="col">Contender</th>
+								                     <th scope="col">Payout</th>
+								                  </tr>
+								               </thead>
+								               <tbody>
+								                  <c:forEach items="${userWagers}" var="wager">
+								                     <tr>
+								                        <th scope="row">${wager.user.username}</th>
+								                        <td>
+								                           <span class="text-danger">
+								                           <i class="fas fa-caret-down me-1"></i><span>${wager.betAmount}</span>
+								                           </span>
+								                        </td>
+								                        <td>
+								                           <span class="text-success">
+								                           <i class="fas fa-caret-up me-1"></i><span>${wager.contender.name}</span>
+								                           </span>
+								                        </td>
+								                        <td>
+								                           <c:if test="${event.completion}">
+								                              <span class="text-success">
+								                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
+								                              </span>
+								                           </c:if>
+								                        </td>
+								                     </tr>
+								                  </c:forEach>
+								               </tbody>
+								            </table>
+								         </div>
+							</div>
 
 							<div class="tab-pane" id="updateUserview" role="tabpanel">
 								<jsp:include page="Components/updateuser.jsp" />

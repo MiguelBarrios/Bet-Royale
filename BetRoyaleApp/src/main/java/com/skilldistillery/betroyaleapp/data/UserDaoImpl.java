@@ -258,6 +258,8 @@ public class UserDaoImpl implements UserDAO {
 		
 		return em.find(Contender.class, contenderId);
 	}
+	
+
 
 	// comments as lines
 
