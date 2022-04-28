@@ -20,11 +20,11 @@ public class HomeController {
 		return "splashPage";
 	}
 	
-//	@RequestMapping(path = {"aboutus.do" })
-//	public String aboutus() {
-//		System.out.println("in home controller");
-//		return "aboutus";
-//	}
+	@RequestMapping(path = {"aboutus.do" })
+	public String aboutus() {
+		System.out.println("in home controller");
+		return "aboutus";
+	}
 	
 	
 	 
