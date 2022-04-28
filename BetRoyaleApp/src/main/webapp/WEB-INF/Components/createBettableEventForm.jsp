@@ -8,7 +8,7 @@
       <label for="description ">Event Description:</label>
       <input id="description" type="text" placeholder="Event Description" name="description" />
       <label for="endDate2">End Close Date: </label>
-      <input type="date" id="endDate2" name="endDate2" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+      <input type="date" id="endDate2" name="endDate2" value="2022-04-27" min="2022-04-27" max="2030-12-31">
       <input style="display: none" name="active" value="1" >
       <div id="contender-info">
          <div id="contender-names">

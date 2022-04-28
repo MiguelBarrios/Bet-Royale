@@ -56,13 +56,12 @@ public class UserController {
 
 	@RequestMapping(path= "goHome.do")
 	public ModelAndView goHome() {
+	ModelAndView mv = new ModelAndView();
 		
-		
-		
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
 		return mv;
 	}
+
 	@RequestMapping(path= "accountHome.do")
 	public ModelAndView goToAccountHome(Integer userId, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
