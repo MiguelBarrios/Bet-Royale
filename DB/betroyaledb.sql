@@ -525,7 +525,7 @@ INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (5
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (6, 'LoL MSI ', 'MSI Tournament with top teams', 3);
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (7, 'UFC Fight 274', 'Oliveira Vs Gaethje', 7);
 INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (8, 'NBA Playoffs: Bucks Vs Celtics', 'Rematch between Milwaukee Vs Bucks', 2);
-INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (9, 'Haunted Goat Mario Kart Championships', 'Mario Kart between the creators of the Bet Royale App', 3);
+INSERT INTO `subcategory` (`id`, `name`, `description`, `category_id`) VALUES (9, 'Haunted Goat Mario Kart Championships', 'Race for the Cup', 3);
 
 COMMIT;
 
