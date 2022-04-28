@@ -21,6 +21,9 @@
 	<jsp:include page="Components/navbar.jsp" />
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success">Active Wagers</button>
 		<button type="button" class="btn btn-secondary">Expired
