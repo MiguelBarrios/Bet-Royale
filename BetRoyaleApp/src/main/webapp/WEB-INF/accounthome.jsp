@@ -202,7 +202,7 @@
                                             
                                             <div class="tab-pane" id="tabss" role="tabpanel">
                                                 <ul>
-                                                    <li><a href="#tabs-1">Active Wagers</a><</li>
+                                                    <li><a href="#tabs-1">Active Wagers</a></li>
                                                     <li><a href="#tabs-2">Expired Wagers</a></li>
                                                 </ul>
 
