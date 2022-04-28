@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Edit Event</title>
+<jsp:include page="bootstraphead.jsp"/>
 </head>
 <body>
-<jsp:include page="Bootstrap.html" />
 
 
 
@@ -17,6 +17,6 @@
 
 
 
-
+<jsp:include page="bootstrapfoot.jsp"/>
 </body>
 </html>

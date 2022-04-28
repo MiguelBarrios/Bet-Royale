@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<jsp:include page="bootstraphead.jsp"/>
 <link rel="stylesheet" href="css/aboutus.css">
 
 </head>
@@ -59,6 +59,6 @@
     </div>
   </div>
 </div>
-
+<jsp:include page="bootstrapfoot.jsp"/>
 </body>
 </html>

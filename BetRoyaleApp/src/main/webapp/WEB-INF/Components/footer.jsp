@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html> -->
+<!-- <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -27,9 +27,9 @@
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-<link rel="stylesheet" href="css/footer.css">
+
 </head>
-<body>
+<body> -->
 	
 	<br>
 	<br>
@@ -91,7 +91,7 @@
         </div>
     </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -131,4 +131,4 @@
 	crossorigin="anonymous"></script>
 
 </body>
-</html>
+</html> -->

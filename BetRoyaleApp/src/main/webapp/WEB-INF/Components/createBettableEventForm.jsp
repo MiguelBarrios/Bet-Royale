@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <form action="userCreateBetEvent.do" method="POST">
-   <div " class="form-group form-container">
+   <div class="form-group form-container">
       <input name="userId" value="${user.id}" >
       <label for="name">Event Name</label>
       <input id="name" type="text" placeholder="Betting Event Name" name="name" />

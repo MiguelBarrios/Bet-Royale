@@ -1,40 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Bet Royale App</title>
 
-
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-
-<link rel="stylesheet" href="css/navstyles.css">
-
-</head>
-<body>
 
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
         <a class="navbar-brand" href="#">BetRoyale</a>
@@ -86,14 +53,7 @@
                                 aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
-                        <button class="btn-fb"> <i class="fa fa-fw fa-facebook pull-left" aria-hidden="true"></i>
-                            Login with Facebook </button> <br>
-                        <button class="btn-gp"> <i class="fa fa-fw fa-google-plus pull-left" aria-hidden="true"></i>
-                            Login with Google </button> <br>
-                        <div class="signup-or-separator">
-                            <span class="h6 signup-or-separator-text">or</span>
-                            <hr>
-                        </div>
+                       
                         <form  action="login.do" method="POST" >
                             <div class="form-group">
                                 <input type="text" class="form-control-form " id="username" name="username"
@@ -116,7 +76,7 @@
                                         data-target="#at-reset-pswd"> Forgot Password</p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn-login">Login</button>
+                            <button type="submit" class="btn-lgin">Login</button>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -147,14 +107,7 @@
                                 aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
-                        <button class="btn-fb"> <i class="fa fa-fw fa-facebook pull-left" aria-hidden="true"></i>
-                            Signup with Facebook </button> <br>
-                        <button class="btn-gp"> <i class="fa fa-fw fa-google-plus pull-left" aria-hidden="true"></i>
-                            Signup with Google </button> <br>
-                        <div class="signup-or-separator">
-                            <span class="h6 signup-or-separator-text">or</span>
-                            <hr>
-                        </div>
+                        
                         <button type="submit" class="btn-lgin" data-toggle="modal" data-dismiss="modal"
                             data-target="#at-signup-filling">Signup with Email</button>
                         <hr>
@@ -167,7 +120,7 @@
                                 <p class="ta-l">Already a Member? </p>
                             </div>
                             <div class="col-md-4 col-md-offset-2">
-                                <button class="btn-gst" data-toggle="modal" data-dismiss="modal"
+                                <button class="btn-gst btn btn-primary" data-toggle="modal" data-dismiss="modal"
                                     data-target="#at-login">Login</button>
                             </div>
                         </div>
@@ -187,11 +140,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <p>Sign up with <a href="#">Facebook</a> or <a href="#">Google</a></p>
-                        <div class="signup-or-separator">
-                            <span class="h6 signup-or-separator--text">or</span>
-                            <hr>
-                        </div>
+                    
                         <form action="createUser.do" method="POST">
                             <div class="form-group">
                                 <input type="text" class="form-control-form " id="firstName" name="firstName"
@@ -297,46 +246,3 @@
         
     </section>
 	
-
-
-	<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous">
-	
-</script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous">
-	
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous">
-	
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous">
-	
-</script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-	crossorigin="anonymous">
-	
-</script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-		</body>
-		</html>
-		
