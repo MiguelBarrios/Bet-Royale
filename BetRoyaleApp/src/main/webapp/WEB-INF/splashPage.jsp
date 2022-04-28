@@ -25,7 +25,6 @@
 
 
 <body>
-
     <div class="fade-in">
         
             <div class="img-wrapper">
