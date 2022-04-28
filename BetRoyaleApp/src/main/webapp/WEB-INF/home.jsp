@@ -10,6 +10,7 @@
 	<jsp:include page="bootstrap.jsp" />
 </head>
 <style>
+
 .home-old {
 	padding: 200px
 }
@@ -17,6 +18,7 @@
 .body {
 	background: secondary;
 }
+
 </style>
 <body>
 	<jsp:include page="Components/navbar.jsp" />
