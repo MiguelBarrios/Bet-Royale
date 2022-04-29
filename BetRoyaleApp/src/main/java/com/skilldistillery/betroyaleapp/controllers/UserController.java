@@ -294,7 +294,7 @@ public class UserController {
 			int rank = 1;
 			for(CalculatedWinnings cw : results) {
 				cw.setRank(rank);
-				//System.out.println(cw.getRank()+ " " + cw.getUser().getUsername() + " " + cw.getCount() + " " + cw.getTotal());
+				System.out.println(cw.getRank()+ " id: " + cw.getUser().getId() + " " + cw.getCount() + " " + cw.getTotal());
 				++rank;
 				
 			}

@@ -285,19 +285,24 @@ public class UserDaoImpl implements UserDAO {
 			double payout = (1 / (odds / 100));
 			
 			if(!map.containsKey(userId)) {
-				User user = new User();
+				User user = em.find(User.class, userId);
 				user.setId(userId);
+				System.out.println("****" + user);
 				map.put(userId, new CalculatedWinnings(user, 0, 0));
 			}
 			
+			
 			if(isWinner) {
 				map.get(userId).setCount(map.get(userId).getCount() + 1);
-				map.get(userId).setTotal(map.get(userId).getTotal() + payout + amount);
+				map.get(userId).setTotal(map.get(userId).getTotal() + payout + amount);	
 			}
 			else {
+				
 				map.get(userId).setCount(map.get(userId).getCount() - 1);				
 				map.get(userId).setTotal(map.get(userId).getTotal() - amount);
 			}	
+			
+			
 		}
 		
 		List<CalculatedWinnings> finalResults = new ArrayList<>(map.values());
