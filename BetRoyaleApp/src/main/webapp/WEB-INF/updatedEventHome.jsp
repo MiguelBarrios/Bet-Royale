@@ -68,13 +68,13 @@
                 <div class="row align-items-center">
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="single_date">
-                            <span></span>
+                            <span>Close date<br> ${event.endDate}</span>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="single_date">
                             <!-- <i class="ti-alarm-clock"></i> -->
-                            <span>Close date: ${event.endDate}</span>
+                            <span></span>
                         </div>
                     </div>
 
@@ -122,7 +122,8 @@
                      <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}(${contender.odds})</button>
                   </c:forEach>
                </div>
-               <form action="createWager.do" method="POST" id="create-wager-form">
+               <div>
+                              <form action="createWager.do" method="POST" id="create-wager-form">
                   <input type="hidden" id="userId" name="userId" value="${user.id}"/>
                   <label for="userId"></label>
                   <input type="hidden" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
@@ -131,6 +132,8 @@
                   <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
                   <input type="submit"/>
                </form>
+               </div>
+
             </div>
          </c:if>
          
