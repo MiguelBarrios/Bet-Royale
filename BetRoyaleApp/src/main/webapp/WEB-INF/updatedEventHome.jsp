@@ -68,13 +68,13 @@
                 <div class="row align-items-center">
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="single_date">
-                            <span></span>
+                            <span>Close date<br> ${event.endDate}</span>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="single_date">
                             <!-- <i class="ti-alarm-clock"></i> -->
-                            <span>Close date: ${event.endDate}</span>
+                            <span></span>
                         </div>
                     </div>
 
@@ -122,7 +122,8 @@
                      <button type="button" class="btn btn-secondary" id = "${contender.id}" onclick="toggleContender(this.id)">${contender.name}(${contender.odds})</button>
                   </c:forEach>
                </div>
-               <form action="createWager.do" method="POST" id="create-wager-form">
+               <div>
+                              <form action="createWager.do" method="POST" id="create-wager-form">
                   <input type="hidden" id="userId" name="userId" value="${user.id}"/>
                   <label for="userId"></label>
                   <input type="hidden" id="contenderName" name ="contendername" placeholder="Enter Contender Id"/>
@@ -131,6 +132,8 @@
                   <input id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" />
                   <input type="submit"/>
                </form>
+               </div>
+
             </div>
          </c:if>
          
@@ -168,18 +171,18 @@
                         <th scope="row">${wager.user.username}</th>
                         <td>
                            <span class="text-success">
-                           <i class="fas fa-caret-down me-1"></i><span>${wager.betAmount}</span>
+                           <span>${wager.betAmount}</span>
                            </span>
                         </td>
                         <td>
                            <span class="text-danger">
-                           <i class="fas fa-caret-up me-1"></i><span>${wager.contender.name}</span>
+                           <span>${wager.contender.name}</span>
                            </span>
                         </td>
                         <td>
                            <c:if test="${event.completion}">
                               <span class="text-success">
-                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
+                              <span>${wager.betAmount * wager.multiplier}</span>
                               </span>
                            </c:if>
                         </td>
@@ -207,18 +210,18 @@
                         <th scope="row">${wager.user.username}</th>
                         <td>
                            <span class="text-danger">
-                           <i class="fas fa-caret-down me-1"></i><span>${wager.betAmount}</span>
+                           <span>${wager.betAmount}</span>
                            </span>
                         </td>
                         <td>
                            <span class="text-success">
-                           <i class="fas fa-caret-up me-1"></i><span>${wager.contender.name}</span>
+                           <span>${wager.contender.name}</span>
                            </span>
                         </td>
                         <td>
                            <c:if test="${event.completion}">
                               <span class="text-success">
-                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
+                             <span>${wager.betAmount * wager.multiplier}</span>
                               </span>
                            </c:if>
                         </td>
@@ -254,9 +257,10 @@
                         <c:forEach items="${comments}" var="comment">
                         <div class="card">
                             <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
+                                <h5 class="mb-0"
+                                <span class="time-left">@${comment.user.username}</span>>
                                 	<p>${comment.commentText}</p>
-                  					<span class="time-left">${comment.commentDate}</span>
+                  					
                                 </h5>
                             </div>
                         </div>
