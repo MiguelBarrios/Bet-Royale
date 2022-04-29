@@ -13,6 +13,11 @@
 
 <body>
 <jsp:include page="Components/navbar.jsp" />
+
+<br>
+<br>
+<br>
+<br>
 	<header class="header">
 	<div class="event-sort-container">
 		<button type="button" class="btn btn-success" id="activeEvents"
@@ -24,12 +29,14 @@
 	</div>
 </header>
 	
-	
+	<br>
+<br>
 	
 	<div class="item-container-test " id="activeEventsView">
 
 		<c:forEach items="${events}" var="e">
 			<c:if test="${e.active}">
+              
 				<div class="item">
 					<div class="event-card"
 						onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
@@ -37,6 +44,9 @@
 							
 						</div>
 						<div class="event-info-container">
+						<div>
+								<h3>${e.name}</h3>
+							</div>
 							<div class="category-container">
 								<c:if test="${not empty e.subcategories}">
 									<div class="tag category">${e.subcategories[0].category.name}</div>
@@ -46,13 +56,11 @@
 								</c:forEach>
 
 							</div>
-							<div>
-								<h3>${e.name}</h3>
-							</div>
+							
 						</div>
-						
-					</div>
+                    </div>
 				</div>
+				
 			</c:if>
 		</c:forEach>
 	</div>
@@ -111,15 +119,18 @@
 		
 		<c:forEach items="${events}" var="e">
 			<c:if test="${not e.active}">
-			<div class="items">
-					<!--------------------------------- Card ------------------------------->
-				<div class="flex-container">
-					<div class="item"
+			 
+				<div class="item">
+					<div class="event-card"
+			
 						onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
 						<div class="event-image-container">
 							
 						</div>
 						<div class="event-info-container">
+						<div>
+								<h3>${e.name}</h3>
+							</div>
 							<div class="category-container">
 								<c:if test="${not empty e.subcategories}">
 									<div class="tag category">${e.subcategories[0].category.name}</div>
@@ -129,13 +140,11 @@
 								</c:forEach>
 
 							</div>
-							<div>
-								<h3>${e.name}</h3>
-							</div>
+							
 						</div>
 					</div>
 				</div>
-				</div>
+			
 				<!--------------------------------- Card ------------------------------->
 
 			</c:if>
@@ -163,6 +172,9 @@
 							
 						</div>
 						<div class="event-info-container">
+						<div>
+								<h3>${e.name}</h3>
+							</div>
 							<div class="category-container">
 								<c:if test="${not empty e.subcategories}">
 									<div class="tag category">${e.subcategories[0].category.name}</div>
@@ -172,9 +184,7 @@
 								</c:forEach>
 
 							</div>
-							<div>
-								<h3>${e.name}</h3>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -218,5 +228,7 @@
 		}
 	</script>
 
+<script src="scripts/scripts.js">
+</script>
 </body>
 </html>
