@@ -1,13 +1,17 @@
 package com.skilldistillery.betroyaleapp.client;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.skilldistillery.betroyaleapp.entities.Wager;
+import com.skilldistillery.betroyaleapp.entities.BettableEvent;
+import com.skilldistillery.betroyaleapp.entities.User;
 
 public class Client {
 	
@@ -16,109 +20,51 @@ public class Client {
 	
 	public static void main(String[] args) {
 		
-		int eventId = 1;
-		List<Wager> wagers = null;
-		String jpql = "SELECT w FROM Wager w";
-		try {
-			wagers = em.createQuery(jpql, Wager.class).getResultList();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		List<Wager> res = new ArrayList<>();
-		for(Wager wager : wagers) {
-			if(wager.getContender().getEvent().getId() == eventId) {
-				res.add(wager);
-			}
-		}
-		
-		res.forEach(System.out::println);
 
-//		List<BettableEvent> events = null;
-//		String jpql = "SELECT b FROM BettableEvent b where b.completion = true";
+//		List<Object[]> res = null;
+//		String jpql = "SELECT w.user.id, w.betAmount, w.multiplier, w.contender.isWinner, w.contender.odds FROM Wager w where w.contender.event.completion = true";
+//		 
 //		try {
-//			events = em.createQuery(jpql, BettableEvent.class).getResultList();
-//			events.forEach(System.out::println);
-//			
+//			res = em.createQuery(jpql).getResultList();
 //		}catch(Exception e){ 
 //			e.printStackTrace();
 //		} 
 //		
-//		// check if contender data is filled
-//		// get all contenders for events that are completed
-//		Set<Contender> contenders = new HashSet<>();
-//		for(BettableEvent event : events) {
-//			for(Contender contender : event.getContenders()) {
-//				contenders.add(contender);
-//				System.out.println(contender);
-//			}
-//		}
-//		
-//		System.out.println("--------------------");
-//		// get all wagers
-//		jpql = "Select w FROM Wager w";
-//		List<Wager> wagers = null;
-//		try {
-//			wagers = em.createQuery(jpql, Wager.class).getResultList();
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println("----------------");
-//		System.out.println(wagers.size());		
-//		// Filter wagers
-//		List<Wager> closedWagers = new ArrayList<>();
-//		for(Wager wager : wagers) {
-//			if(contenders.contains(wager.getContender())){
-//				closedWagers.add(wager);
-//			}
-//		}
-//		
-//		System.out.println(closedWagers.size());
-//		closedWagers.forEach(System.out::println);
-//		
-//		
-//		System.out.println("--------");
-//		Map<Integer, CalculatedWinnings> results = new HashMap<>();
-//		for(Wager wager : closedWagers) {
-//			int userId = wager.getUser().getId();
-//			CalculatedWinnings cw = null;
-//			if(!results.containsKey(userId)) {
-//				cw = new CalculatedWinnings(userId, 0, 0);
-//				results.put(userId,cw);
+//		Map<Integer, CalculatedWinnings> map = new HashMap<>();
+//		for(int i = 0; i < res.size(); ++i){
+//			Object[] row = res.get(i);
+//			int userId = (int) row[0];
+//			double amount = (double) row[1];
+//			boolean isWinner = (boolean) row[3];
+//			double odds = (double)row[4];
+//			double payout = (1 / (odds / 100));
+//			
+//			if(!map.containsKey(userId)) {
+//				User user = new User();
+//				user.setId(userId);
+//				map.put(userId, new CalculatedWinnings(user, 0, 0));
 //			}
 //			
-//			cw = results.get(userId);
-//			
-//			double payout = (1 / (wager.getContender().getOdds() / 100));
-//			System.out.println(wager.getUser().getUsername() + " bet " + wager.getBetAmount() + " on " + wager.getContender().getName());
-//			if(wager.getContender().isWinner()) {
-//				cw.setCount(cw.getCount() + 1);
-//				cw.setTotal(cw.getTotal() + payout + wager.getBetAmount());
-//				System.out.println(wager.getUser().getUsername() + " won " + (payout + wager.getBetAmount()));
+//			if(isWinner) {
+//				map.get(userId).setCount(map.get(userId).getCount() + 1);
+//				map.get(userId).setTotal(map.get(userId).getTotal() + payout + amount);
 //			}
 //			else {
-//				cw.setCount(cw.getCount() - 1);				
-//				cw.setTotal(cw.getTotal() - wager.getBetAmount());
-//				System.out.println(wager.getUser().getUsername() + " lost " + wager.getBetAmount());
-//			}
+//				map.get(userId).setCount(map.get(userId).getCount() - 1);				
+//				map.get(userId).setTotal(map.get(userId).getTotal() - amount);
+//			}	
 //		}
 //		
-//		System.out.println("-------------------------");
-//		for(int key : results.keySet()) {
-//			User user = em.find(User.class, key);
-//			double numberOfTimeCorrect = results.get(key).getCount();
-//			double totalProfit = results.get(key).getTotal();
-//			System.out.printf("%s wins: %.2f profit: %.2f\n", user.getUsername(), numberOfTimeCorrect, totalProfit);
-//		}
+//		List<CalculatedWinnings> finalResults = new ArrayList<>(map.values());
 //		
-//		System.out.println("EOP");
-//		
-//		
-//	
+//		Collections.sort(finalResults,  (a,b) ->  {
+//			if(((int)b.getCount() - (int)a.getCount()) == 0) 
+//				return (int)b.getTotal() - (int)a.getTotal();
+//			else 
+//				return (int)b.getCount() - (int)a.getCount();
+//		});
+//		finalResults.forEach(System.out::println);
 		
-	
 		
 	}
 	
