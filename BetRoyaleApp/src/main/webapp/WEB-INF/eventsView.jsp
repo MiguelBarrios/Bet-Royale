@@ -22,11 +22,15 @@
 	
 	
 	
+	
+	
+
 	<div class="event-list-container" id="activeEventsView">
 		<h1>Active Events</h1>
 		<c:forEach items="${events}" var="e">
 			
 			<c:if test="${e.active}">
+			
 				<!--------------------------------- Card ------------------------------->
 				<div class="event-card"
 					onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
@@ -34,7 +38,10 @@
 						<img class="col bet-event-img"
 							src="https://avatars.githubusercontent.com/u/34669927?s=40&v=4"
 							width="75px" height="75px"></img>
+							
+							
 					</div>
+					
 					<div class="event-info-container">
 						<div class="category-container">
 							<c:if test="${not empty e.subcategories}">
@@ -54,6 +61,10 @@
 			</c:if>
 		</c:forEach>
 	</div>
+
+
+
+
 
 <!--------------- Expired Events ------------>
 	<div class="event-list-container hidden" id="expiredEventsView">
@@ -90,6 +101,10 @@
 		</c:forEach>
 	</div>
 	
+	
+	
+	
+	
 <!--------------- MY Events ------------>
 	<div class="event-list-container hidden" id="myEventsView">
 		<h1>My Events</h1>
@@ -122,7 +137,7 @@
 			</c:if>
 
 		</c:forEach>
-	</div>
+	</div> 
 <!---------------------------------------->
 <jsp:include page="Components/footer.jsp"/>
 <jsp:include page="bootstrapfoot.jsp"/>

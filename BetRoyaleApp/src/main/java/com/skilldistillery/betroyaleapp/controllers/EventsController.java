@@ -1,5 +1,6 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -181,8 +182,8 @@ public class EventsController {
 		
 		mv.addObject("events", events);
 		mv.addObject("userId", userId);
-		
-		mv.setViewName("eventsView");
+		// if this doesnt work change back to eventsView
+		mv.setViewName("vieweventsinrow");
 		return mv;
 	}
 	
@@ -202,6 +203,9 @@ public class EventsController {
 			}
 		}
 		
+		LocalDateTime closeDate = event.getEndDate();
+		System.out.println(closeDate);
+		
 		List<EventComment> comments = dao.getEventComments(eventId);
 		
 		mv.addObject("user", user);
@@ -220,7 +224,8 @@ public class EventsController {
 //		}
 		
 
-		mv.setViewName("eventInfoDisplay");
+		//mv.setViewName("eventInfoDisplay");
+		mv.setViewName("updatedEventHome");
 		return mv;
 		
 	}

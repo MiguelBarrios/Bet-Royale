@@ -8,27 +8,37 @@
 <meta charset="UTF-8">
 <title>Bet Royale App</title>
 <jsp:include page="bootstraphead.jsp" />
+<style type="css/home.css"></style>
+<link>
+
 	
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <style>
-
-.home-old {
-	padding: 200px
+.container-fluid{
+background-color: black;
 }
 
-.body {
-	background: secondary;
-}
+h4{
+font: black;}
 
 </style>
-<body>
-	<jsp:include page="Components/navbar.jsp" />
-
-	<div class="home-old">
-		<div class="row row-x">
-
-
-			<div id="SummitCarousel" class="carousel slide"
+<body class="container-fluid">
+	<jsp:include page="Components/navbar.jsp"/>
+	<!-- CSS only -->
+	
+<br>
+<br>
+<br>
+	
+	<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+   
+    
+	
+	
+	<div id="SummitCarousel" class="carousel slide"
 				data-ride="carousel mb-5">
 				<ol class="carousel-indicators">
 					<li data-target="#SummitCarousel" data-slide-to="0" class="active"></li>
@@ -47,8 +57,7 @@
 								alt="First slide">
 						</div>
 						<div class="carousel-caption d-none d-md-block">
-						<h4>LoL Msi Tournament</h4>
-					<p>China vs Korea vs Europe vs North America</p>
+						
 					</div>
 					</div>
 					<div class="carousel-item">
@@ -69,8 +78,7 @@
 								alt="Third slide">
 						</div>
 						<div class="carousel-caption d-none d-md-block">
-						<h4>Mario Kart Tournament</h4>
-					<p>Andrew vs Henry vs Lucas vs Miguel</p>
+						
 					</div>
 					</div>
 					<div class="carousel-item">
@@ -80,7 +88,7 @@
 								alt="Fourth slide">
 						</div>
 						<div class="carousel-caption d-none d-md-block">
-						<h4>UFC Bout 274</h4>
+						<h4 font="font-" >UFC Bout 274</h4>
 					<p>Oliveira vs Gaethje</p>
 					</div>
 					</div>
@@ -92,14 +100,16 @@
 					</div>
 				</div>
 			</div>
+	
+	
 
 
-			<section class="bg-dark text-light p-5 text-center">
+			<section class="bg-dark text-light text-center">
 				<div class="container">
 					<div class="d-sm-flex align-items-center justify-content-between">
 						<div>
 							<h1>
-								<span class="text-warning"> Search </span>The Marketplace
+								<span class="text-dark"> Search The Marketplace </span>
 							</h1>
 							<p class="lead my-4"></p>
 
@@ -111,7 +121,7 @@
 				</div>
 			</section>
 
-			<section class="bg-dark text-light p-5 text-center">
+			<section class="bg-dark text-light text-center">
 				<div class="container">
 					<div class="d-sm-flex align-items-center justify-content-between">
 						<img class="img-fluid w-10"
@@ -120,7 +130,7 @@
 						<div>
 
 							<h1>
-								<span class="text-warning"> Predict </span>the outcome
+								<span class="text-dark"> Predict the outcome</span>
 							</h1>
 							<p class="lead my-4"></p>
 
@@ -131,12 +141,12 @@
 			</section>
 
 
-			<section class="bg-dark text-light p-5 text-center">
+			<section class="bg-dark text-light text-center">
 				<div class="container">
 					<div class="d-sm-flex align-items-center justify-content-between">
 						<div>
 							<h1>
-								<span class="text-warning"> Place </span>Your Wager
+								<span class="text-dark"> Place Your Wager</span>
 							</h1>
 							<p class="lead my-4"></p>
 
@@ -150,15 +160,15 @@
 
 			<!-- New Letter Section -->
 
-			<section class="bg-secondary text-light p-5">
+			<section class="bg-primary text-light p-5">
 				<div class="container">
 					<div class="d-md-flex justify-content-between align-items-center">
-						<h3 class="mb-3 mb-md-o">Sign Up For Our Newsletter</h3>
+						<h3 class="mb-3 mb-md-0 text-dark" >Sign Up For Our Newsletter</h3>
 
-						<div class="input-group col-7">
+						<div class="input-group col-5">
 							<input type="text" class="form-control"
 								placeholder="Enter Your Email">
-							<button class="btn btn-dark btn-md" type="button"
+							<button class="btn btn-primary btn-md" type="button"
 								id="button-addon2">Button</button>
 						</div>
 					</div>
@@ -167,7 +177,7 @@
 			
 			<!-- Boxes -->
 			
-			<section class="p-5">
+			<!-- <section class="p-5">
 				<div class="container">
 					<div class="row text-center g-4">
 
@@ -212,7 +222,7 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<!-- Video section -->
 
 
@@ -231,32 +241,11 @@
 
 
 
-		
-			<section class="bg-dark text-light p-5 ">
-				<div class="container-fluid">
-					<div class="d-md-flex justify-content-between align-items-center">
-
-						<div class="input-group col-8">
-							<input type="text" class="form-control"
-								placeholder="Send Us A Message">
-							<button class="btn btn-primary btn-md" type="button"
-								id="button-addon2">Send</button>
-						</div>
-						<h3 class="mb-3 mb-md-o">Questions about the tutorial?</h3>
-					</div>
-				</div>
-			</section>
-
-
-
-
-
-
 
 
 			<!-- Question accordion -->
 
-			<section id="#" class="p-5">
+		<section id="#" class="bg-dark text-dark">
 				<div class="container">
 					<h2 class="text-center mb-4">Frequently Asked Questions</h2>
 
@@ -281,17 +270,16 @@
 							<h2 class="accordion-header" id="flush-headingTwo">
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
-									Accordion Item #2</button>
+									How do I create an event to bet on?></button>
 							</h2>
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								aria-labelledby="flush-headingTwo"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									Placeholder content for this accordion, which is intended to
-									demonstrate the
-									<code>.accordion-flush</code>
-									class. This is the second item's accordion body. Let's imagine
-									this being filled with some actual content.
+									Login or create a new user. Head to your profile page and look for the tab
+									under your avatar that allows you to create a betting event. From there you can 
+									input the event details and the contenders that will be participating, and set their
+									odds for others to wager their bets.
 								</div>
 							</div>
 							<!-- item 3 -->
@@ -301,20 +289,15 @@
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
 									aria-expanded="false" aria-controls="flush-collapseThree">
-									Accordion Item #3</button>
+									Is there a limit to what I can bet on?</button>
 							</h2>
 							<div id="flush-collapseThree" class="accordion-collapse collapse"
 								aria-labelledby="flush-headingThree"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									Placeholder content for this accordion, which is intended to
-									demonstrate the
-									<code>.accordion-flush</code>
-									class. This is the third item's accordion body. Nothing more
-									exciting happening here in terms of content, but just filling
-									up the space to make it look, at least at first glance, a bit
-									more representative of how this would look in a real-world
-									application.
+									Our site was designed for you or any user to have the ability to create an event
+									about any type of subject matter. From there you can place as many wagers as you like up 
+									until the starting date and time of the event. Have fun!
 								</div>
 							</div>
 						</div>
@@ -322,10 +305,19 @@
 				</div>
 
 			</section>
+
+			
 		</div>
-	</div>
+
+	 <div class="col-2"></div>
+	 </div>
 <jsp:include page="Components/footer.jsp" />
 <jsp:include page="bootstrapfoot.jsp" />
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 </html>
