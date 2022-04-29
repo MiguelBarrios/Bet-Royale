@@ -257,9 +257,10 @@
                         <c:forEach items="${comments}" var="comment">
                         <div class="card">
                             <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
+                                <h5 class="mb-0"
+                                <span class="time-left">@${comment.user.username}</span>>
                                 	<p>${comment.commentText}</p>
-                  					<span class="time-left">${comment.commentDate}</span>
+                  					
                                 </h5>
                             </div>
                         </div>
