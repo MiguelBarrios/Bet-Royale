@@ -181,8 +181,8 @@ public class EventsController {
 		
 		mv.addObject("events", events);
 		mv.addObject("userId", userId);
-		
-		mv.setViewName("eventsView");
+		// if this doesnt work change back to eventsView
+		mv.setViewName("vieweventsinrow");
 		return mv;
 	}
 	
