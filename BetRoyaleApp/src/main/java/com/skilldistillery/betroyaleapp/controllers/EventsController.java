@@ -220,7 +220,8 @@ public class EventsController {
 //		}
 		
 
-		mv.setViewName("eventInfoDisplay");
+		//mv.setViewName("eventInfoDisplay");
+		mv.setViewName("updatedEventHome");
 		return mv;
 		
 	}
