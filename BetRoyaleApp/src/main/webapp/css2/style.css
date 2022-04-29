@@ -5815,3 +5815,23 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.table-switch {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 10px
+}
+
+#contender{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.place-wager-container{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
