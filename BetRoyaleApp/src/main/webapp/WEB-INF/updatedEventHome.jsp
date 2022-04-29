@@ -68,8 +68,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="single_date">
-                            <i class="ti-location-pin"></i>
-                            <span>City Hall, New York City</span>
+                            <span></span>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
@@ -80,7 +79,8 @@
                     </div>
 
                     <div class="col-xl-5 col-md-12 col-lg-5">
-                        <span id="clock"><div class="countdown_time"><div class="single_countdown"><h3>00</h3><span>days</span></div><div class="single_countdown"><h3>00</h3><span>Hours</span></div><div class="single_countdown"><h3>00</h3><span>Minutes</span></div><div class="single_countdown"><h3>00</h3><span>Seconds</span></div></div></span>
+                    <div id="countdown" class="countdown_time single_countdown"></div>
+                        <span id="clock"><div class="countdown_time"><div class="single_countdown"><h3 id="daysLeft">00</h3><span>days</span></div><div class="single_countdown"><h3 id="hoursLeft">00</h3><span>Hours</span></div><div class="single_countdown"><h3 id="minutesLeft">00</h3><span>Minutes</span></div><div class="single_countdown"><h3 id="secondsLeft">00</h3><span>Seconds</span></div></div></span>
                     </div>
 
                 </div>
@@ -112,6 +112,7 @@
     <div class="container">
            <div class="serction_title_large mb-95">
                  <h3>Place Wagers</h3>
+                 
             </div>
                      <!-- Allow user to place wager if event is still active -->
          <c:if test="${event.active}">
@@ -335,6 +336,42 @@
         	 }
          }
       </script>
+      <script>
+//var end = new Date('04/30/2022 10:1 AM');
+var endStr="${event.endDate}";
+console.log(endStr);
+var end = new Date("${event.endDate}");
+	
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+            return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
+        document.getElementById('daysLeft').innerHTML = days;
+        document.getElementById('hoursLeft').innerHTML = hours;
+        document.getElementById('minutesLeft').innerHTML = minutes;
+        document.getElementById('secondsLeft').innerHTML = seconds;
+    }
+
+    timer = setInterval(showRemaining, 1000);
+</script>
+
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>

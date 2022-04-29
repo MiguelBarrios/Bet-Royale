@@ -673,7 +673,7 @@ h3 {
   content: "";
   width: 128px;
   height: 4px;
-  background-image: url(../img/speakers/line.png);
+  background-image: url(https://technext.github.io/wemeet/img/speakers/line.png);
   top: 50%;
   margin-bottom: 2px;
   right: -158px;
@@ -1065,7 +1065,7 @@ h3 {
 
 /* line 1, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
 .slider_bg_1 {
-  background-image: url(../img/banner/banner_1.png);
+  background-image: url(https://technext.github.io/wemeet/img/banner/banner_1.png);
 }
 
 /* line 4, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */

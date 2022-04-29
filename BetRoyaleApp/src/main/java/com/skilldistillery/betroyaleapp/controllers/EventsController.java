@@ -1,5 +1,6 @@
 package com.skilldistillery.betroyaleapp.controllers;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,6 +202,9 @@ public class EventsController {
 				userWagers.add(wager);
 			}
 		}
+		
+		LocalDateTime closeDate = event.getEndDate();
+		System.out.println(closeDate);
 		
 		List<EventComment> comments = dao.getEventComments(eventId);
 		
