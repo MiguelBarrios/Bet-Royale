@@ -171,18 +171,18 @@
                         <th scope="row">${wager.user.username}</th>
                         <td>
                            <span class="text-success">
-                           <i class="fas fa-caret-down me-1"></i><span>${wager.betAmount}</span>
+                           <span>${wager.betAmount}</span>
                            </span>
                         </td>
                         <td>
                            <span class="text-danger">
-                           <i class="fas fa-caret-up me-1"></i><span>${wager.contender.name}</span>
+                           <span>${wager.contender.name}</span>
                            </span>
                         </td>
                         <td>
                            <c:if test="${event.completion}">
                               <span class="text-success">
-                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
+                              <span>${wager.betAmount * wager.multiplier}</span>
                               </span>
                            </c:if>
                         </td>
@@ -210,18 +210,18 @@
                         <th scope="row">${wager.user.username}</th>
                         <td>
                            <span class="text-danger">
-                           <i class="fas fa-caret-down me-1"></i><span>${wager.betAmount}</span>
+                           <span>${wager.betAmount}</span>
                            </span>
                         </td>
                         <td>
                            <span class="text-success">
-                           <i class="fas fa-caret-up me-1"></i><span>${wager.contender.name}</span>
+                           <span>${wager.contender.name}</span>
                            </span>
                         </td>
                         <td>
                            <c:if test="${event.completion}">
                               <span class="text-success">
-                              <i class="fas fa-caret-up me-1"></i><span>${wager.betAmount * wager.multiplier}</span>
+                             <span>${wager.betAmount * wager.multiplier}</span>
                               </span>
                            </c:if>
                         </td>
