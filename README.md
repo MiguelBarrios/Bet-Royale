@@ -41,8 +41,7 @@ REPLACE THE CRUD DESCRIPTIONS
 <li><strong><em>R</em></strong>ead - View the current information for active Events on the site</li>
 <br>
 <li><strong><em>U</em></strong>pdate - Update Previously defined Events and Wagers in the database</li>
-<br>
-<li><strong><em>D</em></strong>elete - Remove Existing Wagers in the database</li>
+<li><strong><em>D</em></strong>elete - rather than a delete option for the user, events will be Archived for users upon completion </li>
 </ol>
 <!--[![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -70,48 +69,34 @@ REPLACE THE CRUD DESCRIPTIONS
 The Bet Royale Dynamic Web App is Run on a Apache Tomahawk v8.5 server and launched through Spring Tool Suite 4
 </li>
 <li>
-Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/home</strong>
+Upon Launch we are brought to Splash Page reflected in <strong>/WEB-INF/SplashPage.jsp</strong> clicking the <strong>speculate now</strong> button will bring us to the homepage of Bet Royale.
 </li>
 <li>
-<strong>Find Film By Id</strong> navigates to <strong>findFilmById.html</strong> where the user is prompted for the Film Id they would like to retrieve from the database.
+The home displays a page with four current <strong>Active Events</strong>, to enter the actual events and wagers page, the user must create an account.
+</li>
+<li>
+Following the creation of an account, the user is then able to view and edit their profile, events creation page, a leaderboard and user created wagers.
 </li>
 <ul>
-<li>All information for the requested Film is then retrieved by way of the SpringMVC provided <strong>getFilmData.do</strong> RequestMapping found in the <strong>FilmController.java</strong>
+<li>All information for the requested Event is then retrieved by way of the SpringMVC provided <strong>allBetEvents.do</strong> RequestMapping found in the <strong>EventsController.java</strong>
 </li>
-<li>User is then prompted with Two options for the displayed Film</li>
+<li>User is then prompted with Three options for the displayed Events sorting through iterations that alter the view based on user preference, these iterations separate into <strong>Active Events, Expired Events and User Created Events</strong </li>
   <ol>
-    <li>Delete Film</li>
+    <li>Create a Betting Event</li>
       <ul>
-        <li>The selected film is removed from the database by way of the SpringMVC provided <strong>deleteFilm.do</strong> RequestMapping found in the FilmController.java and user is returned to the aforementioned homepage at <strong>/WEB-INF/home.jsp</strong></li>
+        <li>The selected option will direct the SpringMVC to provide and bring the user to <strong>userCreatedEvent.do</strong> RequestMapping found in the EventsController.java and user is returned to the aforementioned profile at <strong>/WEB-INF/login.do</strong> where the user is prompted to enter the Events's Title, Description, End Duration, Contender, Odds, Category, Category Description and a Subcategory. </li>
       </ul>
-    <li>Update Film</li>
+    <li>View leaderboard</li>
       <ul>
         <li>
-        The selected film is displayed for editing through <strong>updateFilm.html</strong> with the current values shown</li>
-        <li>
-        User can then change all given fields to their preferred input and apply them to the database by way of the SpringMVC provided updateFilm.do RequestMapping found in the FilmController.java and then user is returned to the aforementioned homepage at <strong>/WEB-INF/home.jsp</strong>
-        </li>
+        The selected option is displayed for viewing the leaderboard through <strong>getLeaderboard.do</strong> with the current values iterating through the wagers win/loss record</li>
       </ul>
   </ol>
 
 </ul>
 <li>
-<strong>Add A Film</strong> navigates to <strong>addFilm.html</strong> where the user is prompted to enter the Film's Title, Description, Release Year, Rating, and Length
+<strong>View My Wagers</strong> navigates to <strong>getWagersForEvent.do</strong> where the user is able to view their expired and current active wagers. Upon clicking an Event the user is also able to view the current wagers placed by other users.
 </li>
-  <ul>
-    <li>
-    When user selects the Submit button all inputed fields are added to the database by way of the SpringMVC provided <strong>addFilm.do</strong> RequestMapping found in the <strong>FilmController.java</strong> and then user is returned to the aforementioned homepage at <strong>/WEB-INF/home.jsp</strong>
-    </li>
-  </ul>
-<li><strong>Search Film by Keyword/Pattern</strong> navigates to <strong>findFilmByKeyword.html</strong> where the user is displayed Films matching the inputed Keyword/Pattern.</li>
-  <ul>
-    <li> The user is then presented with the option of Updating or Deleting any of the displayed Films.  Update Film! will remove the Film from the database by way of the SpringMVC provided <strong>updateFilm.do</strong> RequestMapping found in the <strong>FilmController.java</strong> and then the user is returned to the aforementioned homepage at <strong>/WEB-INF/home.jsp</strong>
-    </li>
-    <li> Delete Film! will remove the Film from the database by way of the SpringMVC provided <strong>deleteFilm.do</strong> RequestMapping found in the <strong>FilmController.java</strong> and then the user is returned to the aforementioned homepage at <strong>/WEB-INF/home.jsp</strong>
-    </li>
-    <li> Update Film! will carry the user through the previously explained update sequence.
-    </li>
-  </ul>
 </ol>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -156,11 +141,10 @@ Project Link: [Bet Royale Mid Term Project](https://github.com/Lpaladini90/Midte
 
 ## Acknowledgments
 
--   [Film Query App Foundation](https://github.com/anthonyb0824/FilmQueryProject)
--   [Film Query App Reference #1](https://github.com/Cagugu/FilmQueryProject)
--   [Film Query App Reference #2](https://github.com/acorneld/FilmQueryProject)
+
 -   [Stack Overflow](https://stackoverflow.com/)
 -   [W3 Schools](https://www.w3schools.com/)
 -   [Github - othneildrew](https://github.com/othneildrew/Best-README-Template)
+-   [getbootstrap.com](https://getbootstrap.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
