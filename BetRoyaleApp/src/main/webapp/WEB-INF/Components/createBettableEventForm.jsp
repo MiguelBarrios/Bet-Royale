@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <form action="userCreateBetEvent.do" method="POST">
    <div class="form-group form-container">
-      <input name="userId" value="${user.id}" >
+      <input type="hidden" name="userId" value="${user.id}" >
       <label for="name">Event Name</label>
       <input id="name" type="text" placeholder="Betting Event Name" name="name" />
       <label for="description ">Event Description:</label>
@@ -17,7 +17,7 @@
          </div>
          <div id="contender-odds">
             <label for="endDate2">Odds</label>
-            <input type="number" name="contenderOdds" min="1" max="100" step="1">
+            <input type="number" name="contenderOdds" min="0" max="100" step="1">
          </div>
       </div>
       <button type="button" class="btn btn-primary" onclick="addContender()">add contender</button>

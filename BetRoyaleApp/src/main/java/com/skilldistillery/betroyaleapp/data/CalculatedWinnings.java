@@ -52,7 +52,7 @@ public class CalculatedWinnings {
 
 	@Override
 	public String toString() {
-		return "CalculatedWinnings [userId=" + user.getUsername() + ", count=" + count + ", total=" + total + "]";
+		return "CalculatedWinnings [userId=" + user.getId() + ", count=" + count + ", total=" + total + "]";
 	}
 
 }
