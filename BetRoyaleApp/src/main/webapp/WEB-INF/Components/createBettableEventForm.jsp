@@ -17,7 +17,7 @@
          </div>
          <div id="contender-odds">
             <label for="endDate2">Odds</label>
-            <input type="number" name="contenderOdds" min="1" max="100" step="1">
+            <input type="number" name="contenderOdds" min="0" max="100" step="1">
          </div>
       </div>
       <button type="button" class="btn btn-primary" onclick="addContender()">add contender</button>
