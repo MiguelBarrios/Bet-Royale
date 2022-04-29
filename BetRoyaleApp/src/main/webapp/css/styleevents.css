@@ -30,7 +30,7 @@
      gap: 20px;
      align-items: center;
      padding: 80;
-     
+       overflow: hidden;
  
  }
  
@@ -57,6 +57,7 @@
  .item{
     padding: 90;
      flex: 1 0 21%;
+       overflow: hidden;
      
  }
  
@@ -71,8 +72,6 @@
      height: 350px;
      background: rgb(163, 163, 163);
      
-     
-  
      display: flex;
      justify-content: center;
      align-items: center;
