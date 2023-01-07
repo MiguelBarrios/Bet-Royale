@@ -85,7 +85,7 @@
 			<c:forEach items="${events}" var="e">
 				<c:if test="${not e.active}">
 					<div class="col-md-4">
-						<div class="card p-3 mb-2" onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
+						<div class="card p-3 my-2 mx-2" onclick="location.href='loadEventPage.do?userId=${userId}&eventId=${e.id}';">
 							<div class="d-flex justify-content-between">
 								<div class="d-flex flex-row align-items-center">
 									<div class="icon">

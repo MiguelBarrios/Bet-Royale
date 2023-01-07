@@ -136,6 +136,8 @@ public class UserController {
 	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
 			Double[] contenderOdds, String[] cname, String categoryString, String categorydescription) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("********");
+		System.out.println(event);
 		if (userId > 0) {
 			String[] data = endDate2.split("-");
 			int year = Integer.parseInt(data[0]);

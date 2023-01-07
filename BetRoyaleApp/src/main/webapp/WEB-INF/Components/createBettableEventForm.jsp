@@ -21,8 +21,8 @@
          </div>
       </div>
       <button type="button" class="btn btn-primary" onclick="addContender()">add contender</button>
-      <label for="category">Category</label>
-      <input type="text" name="category"><br>
+      <label for="category">Category 2.0</label>
+      <input type="text" name="categoryString"><br>
       <label for="category">Category Desc</label>
       <input type="text" name="categorydescription"><br>
       <div id="sub-cateory-container">
