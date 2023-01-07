@@ -1,5 +1,6 @@
 package com.skilldistillery.betroyaleapp.data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,15 +10,16 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Service;
 
 import com.skilldistillery.betroyaleapp.entities.BettableEvent;
 import com.skilldistillery.betroyaleapp.entities.Contender;
 import com.skilldistillery.betroyaleapp.entities.EventComment;
 import com.skilldistillery.betroyaleapp.entities.User;
 import com.skilldistillery.betroyaleapp.entities.Wager;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class EventsDaoImpl implements EventsDAO {
@@ -78,8 +80,6 @@ public class EventsDaoImpl implements EventsDAO {
 
 		return activeBetEvents;
 	}
-
-	
 	
 	@Override
 	public List<BettableEvent> displayExpiredBettableEvents() {
@@ -127,15 +127,6 @@ public class EventsDaoImpl implements EventsDAO {
 		return contender;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	@Transactional
 	@Override
@@ -282,6 +273,21 @@ public class EventsDaoImpl implements EventsDAO {
 	public void getPayoutResultsForEvent(int event_id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	
+	@Transactional
+	@Override
+	public void updateExpiredEvents() {
+		  TypedQuery<BettableEvent> query = em.createQuery("SELECT e FROM BettableEvent e", BettableEvent.class);
+		  List<BettableEvent> events = query.getResultList();
+		  LocalDateTime currentTime = LocalDateTime.now();
+		  for(BettableEvent event : events) {
+			  LocalDateTime expirationDate = event.getEndDate();
+			  if(currentTime.isAfter(expirationDate)) {
+				  event.setActive(false);
+			  }
+		  }
 	}
 	
 }
