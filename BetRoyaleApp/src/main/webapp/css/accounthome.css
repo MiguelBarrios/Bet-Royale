@@ -1,8 +1,11 @@
+html {
+	background-color: #f1f1f1;
+}
+
 body {
 	margin-top: 20px;
 	color: #1a202c;
 	text-align: left;
-	/* background-color: black; */
 }
 
 #account-page-container {

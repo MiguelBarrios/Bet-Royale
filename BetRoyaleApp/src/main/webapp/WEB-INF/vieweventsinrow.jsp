@@ -36,7 +36,7 @@
 
 	<div class="item-container-test " id="activeEventsView">
 
-		<div class="row mx-1 my-2">
+		<div class="row mx-1 my-2 w-100">
 			<c:forEach items="${events}" var="e">
 				<c:if test="${e.active}">
 					<div class="col-md-4">

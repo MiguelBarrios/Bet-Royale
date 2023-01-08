@@ -116,8 +116,12 @@
 			<!-- --- gives the user the ability to edit event if event belongs to user -->
 			<c:if test="${event.user.id == user.id}">
 				<c:if test="${not event.completion}">
-					<button type="button" class="btn btn-warning" id="edit"
-						onclick="toggleEventForm()">Edit Event</button>
+					<div class="form-group">
+						<button type="button" class="btn btn-outline-warning form-control my-1" id="edit"
+						onclick="toggleEventForm()">Finalize Event</button>
+					
+					</div>
+
 					<div class="hidden" id="editEventForm">
 						<jsp:include page="Components/editbettingevent.jsp" />
 					</div>
@@ -147,13 +151,20 @@
 					<div>
 						<form action="createWager.do" method="POST" id="create-wager-form">
 							<input type="hidden" id="userId" name="userId" value="${user.id}" />
-							<label for="userId"></label> <input type="hidden"
-								id="contenderName" name="contendername"
-								placeholder="Enter Contender Id" /> <input type="text"
-								id="contenderId" name="contenderId" required hidden /> <label
-								for="betAmount">Bet Amount: </label> <input id="betAmount"
-								type="text" placeholder="Bet Amount" name="betAmount" /> <input
-								type="submit" />
+							<!-- <label for="userId"></label> --> 
+							
+							<div class="form-group">
+								<label for="contenderId">Contenders</label>
+								<input class="form-control" type="hidden" id="contenderName" name="contendername" placeholder="Enter Contender Id" /> 							
+								<input type="text" id="contenderId" name="contenderId" required hidden /> 
+							</div>
+
+							<div class=form-group>
+								<label for="betAmount">Bet Amount: </label> 	
+								<input class="form-control" id="betAmount" type="text" placeholder="Bet Amount" name="betAmount" /> 
+														
+							</div>
+							<input type="submit" value="Place Bet" class="form-control btn btn-outline-primary" />
 						</form>
 					</div>
 
@@ -275,11 +286,10 @@
 								<h5 class="mb-0">
 									<form action="addComment.do">
 										<div class="form-group">
-											<input type="hidden" name="userId" value="${user.id}" /> <input
-												type="hidden" name="eventId" value="${event.id}" /> <input
-												type="text" name="commentText" class="form-control"
-												id="formGroupExampleInput" placeholder="comment" required>
-											<input type="submit" name="add Comment" />
+											<input type="hidden" name="userId" value="${user.id}" /> 
+											<input type="hidden" name="eventId" value="${event.id}" />
+											<input type="text" name="commentText" class="form-control" id="formGroupExampleInput" placeholder="comment" required>
+											<input type="submit" value="Add Comment" name="Add Comment" class="form-control my-2 btn btn-outline-primary"/>
 										</div>
 									</form>
 								</h5>
@@ -296,7 +306,6 @@
 	<!-- faq_area_end -->
 
 
-<jsp:include page="Components/footer.jsp" />
 	<jsp:include page="bootstrapfoot.jsp" />
 
 	<!-- JS here -->
