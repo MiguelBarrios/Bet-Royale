@@ -13,8 +13,9 @@
 
 </head>
 <body>
-	<jsp:include page="Components/navbar.jsp" />
 	<div class="account-profile-view">
+		<jsp:include page="Components/navbar.jsp" />
+	
 		<div class="container">
 			<div class="main-body">
 				<div class="row gutters-sm">

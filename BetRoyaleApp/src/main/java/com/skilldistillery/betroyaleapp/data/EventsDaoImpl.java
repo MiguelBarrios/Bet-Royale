@@ -39,7 +39,7 @@ public class EventsDaoImpl implements EventsDAO {
 			String jpql = "SELECT b FROM BettableEvent b";
 
 			betEvents = em.createQuery(jpql, BettableEvent.class).getResultList();
-
+			
 		} catch (Exception e) {
 			return betEvents;
 		}
@@ -56,6 +56,7 @@ public class EventsDaoImpl implements EventsDAO {
 
 	@Override
 	public BettableEvent findEventById(int id) {
+		
 		return em.find(BettableEvent.class, id);
 	}
 
