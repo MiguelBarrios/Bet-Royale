@@ -1,8 +1,7 @@
-# MidtermProject
-## Midterm Project
+# Bet Royale
 
-<!-- PROJECT LOGO -->
-
+<!-- Deployed Site -->
+<a href="http://miguelbarrios.me:8080/BetRoyaleApp/">Deployed site</a>
 <!-- TABLE OF CONTENTS -->
 
 <details>
