@@ -28,16 +28,16 @@ function loadDisplay(clicked_id) {
 function addContender() {
     $("#contender-names")
         .append(
-            '<input type="text" name="contenderName">');
+            '<input type="text" name="contenderName" class="form-control my-1">');
     $("#contender-odds")
         .append(
-            ' <input type="number" name="contenderOdds" min="1", max="100" step="1">')
+            ' <input type="number" name="contenderOdds" min="1", max="100" step="1" class="form-control my-1">')
 }
 
 function addsubcategory() {
     $('#sub-cateory-container')
         .append(
-            '<input type="text" name="cname">')
+            '<input type="text" name="cname" class="form-control my-1">')
 }
 
 function toggleContender(clicked_id) {

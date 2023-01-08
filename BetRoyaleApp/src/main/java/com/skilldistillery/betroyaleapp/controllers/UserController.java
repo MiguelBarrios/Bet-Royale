@@ -133,8 +133,8 @@ public class UserController {
 //	--------------------------BETTING EVENT CRUD-------------------------------
 	//TODO: change to command object
 	@RequestMapping(path = "userCreateBetEvent.do", method = RequestMethod.POST)
-	public ModelAndView userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
-			Double[] contenderOdds, String[] cname, String categoryString, String categorydescription) {
+	public String userCreateBetEvent(BettableEvent event, int userId, String endDate2, String[] contenderName,
+			Double[] contenderOdds, String[] cname, String categoryString, String categorydescription, RedirectAttributes redirectAttributes) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("********");
 		System.out.println(event);
@@ -183,15 +183,13 @@ public class UserController {
 					event.addSubcategory(subcategory);
 				}
 			}
-
-			mv.addObject("event", newEvent);
-			mv.setViewName("accounthome");
-			return mv;
+			
+			return "redirect:loadEventPage.do?userId=" + userId + "&eventId=" + newEvent.getId();
 		}
 
 		else {
 			mv.setViewName("home");
-			return mv;
+			return "home";
 		} 
 
 	}

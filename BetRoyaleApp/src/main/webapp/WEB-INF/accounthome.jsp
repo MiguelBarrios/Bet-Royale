@@ -3,9 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account Info</title>
 <jsp:include page="bootstraphead.jsp" />
 <link rel="stylesheet" href="css/accounthome.css">
@@ -64,7 +66,6 @@
 				<!-- --------- Tab selection section ------ -->
 				<div class="col-md-8">
 					<div class="card mb-3">
-						<!-- <div class="container"> -->
 						<div class="card-body" id="View">
 							<div class="tab-content">
 								<div class="tab-pane active" id="loadAllBetsview"
