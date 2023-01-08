@@ -12,8 +12,4 @@ public class HomeController {
 		return "splashPage";
 	}
 	
-	@RequestMapping(path = {"aboutus.do" })
-	public String aboutus() {
-		return "aboutus";
-	}
 }

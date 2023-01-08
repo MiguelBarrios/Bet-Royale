@@ -7,15 +7,13 @@
 <meta charset="UTF-8">
 <title>Event View</title>
 <jsp:include page="bootstraphead.jsp" />
-
 <link rel="stylesheet" href="css/styleevents.css">
 </head>
 
 <body>
 
-	<div>
-		<jsp:include page="Components/navbar.jsp" />
-	</div>
+	
+	<jsp:include page="Components/navbar.jsp" />
 	
 
 	<header class="header" style="padding-top: 10%">
